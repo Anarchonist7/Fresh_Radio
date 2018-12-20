@@ -20,10 +20,12 @@ export default class Player extends Component {
       totalLength: 1,
       currentPosition: 0,
       selectedTrack: 0,
-      repeatOn: false,
-      shuffleOn: false,
-      player: new Expo.Audio.Sound()
+      player: new Expo.Audio.Sound(),
+      tracks: props.tracks
     };
+
+
+
   }
 
 
@@ -83,19 +85,47 @@ export default class Player extends Component {
 
   componentDidMount() {
 
-        handlePLay1 = async () => {
-            try {
-              await this.state.player.loadAsync(require('../advertising.mp3'));
-            { shouldPlay: true }
-              this.audioPlayer1  = this.state.player;
+    // const dlTracks = this.state.tracks.map(file =>
+    // FileSystem.downloadAsync(file.audioUrl, FileSystem.documentDirectory + file.name)
+    // )
+    // try {
+    //   await Promise.all(dlTracks);
+    // } catch (error) {
+    //   console.error(error)
+    // }
 
-            } catch (error) {
-            // An error occurred!
 
-            }
+
+
+
+
+    const handlePlay1 = async () => {
+      console.log('HEY FUCKER LOOK HERE!');
+      // console.log(this.state.tracks);
+      console.log(await Expo.FileSystem.readDirectoryAsync(Expo.FileSystem.documentDirectory))
+      // const filePath = `${Expo.FileSystem.documentDirectory}songs/fur.mp3`;
+
+      // const res = await Expo.FileSystem.downloadAsync('http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3', filePath);
+      // const i = await Expo.FileSystem.getInfoAsync(res.uri);
+      // console.log('THIS IS IT: ', i);
+      let file = Expo.Asset.fromModule(require('../advertising.mp3'));
+      let file1 = this.props.tracks[1].audioUrl
+      console.log('\nFile\n', file)
+      console.log(Expo.FileSystem.documentDirectory);
+        try {
+          console.log('TRYING TO LOAD: ', this.props);
+          await this.state.player.loadAsync({uri: this.props.tracks[0].localFile});
+          console.log('loaded');
+        // { shouldPlay: true }
+          this.audioPlayer1  = this.state.player;
+
+        } catch (error) {
+        console.log('an error has occured: ', error);
+
         }
+    }
 
-        handlePLay1();
+        handlePlay1();
 
 
 
@@ -132,12 +162,8 @@ export default class Player extends Component {
           onSlidingStart={() => this.setState({paused: true})}
           currentPosition={this.state.currentPosition} />
         <Controls
-          onPressRepeat={() => this.setState({repeatOn : !this.state.repeatOn})}
-          repeatOn={this.state.repeatOn}
-          shuffleOn={this.state.shuffleOn}
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
           playDisabled={this.props.tracks.some(value => value.localFile !== null) === false}
-          onPressShuffle={() => this.setState({shuffleOn: !this.state.shuffleOn})}
           onPressPlay={() => {
 
              this.setState({paused: false});
