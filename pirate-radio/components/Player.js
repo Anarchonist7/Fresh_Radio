@@ -22,8 +22,12 @@ export default class Player extends Component {
       selectedTrack: 0,
       repeatOn: false,
       shuffleOn: false,
+      player: new Expo.Audio.Sound()
     };
   }
+
+
+
 
   setDuration(data) {
     // console.log(totalLength);
@@ -77,7 +81,24 @@ export default class Player extends Component {
     }
   }
 
-  // componentDidMount() {
+  componentDidMount() {
+
+        handlePLay1 = async () => {
+            try {
+              await this.state.player.loadAsync(require('../advertising.mp3'));
+            { shouldPlay: true }
+              this.audioPlayer1  = this.state.player;
+
+            } catch (error) {
+            // An error occurred!
+
+            }
+        }
+
+        handlePLay1();
+
+
+
   //   this.props.socket.on('message', data => {
   //     console.log(data);
   //     if (data === "PLAY"){
@@ -88,7 +109,7 @@ export default class Player extends Component {
   //       throw new Error(`Undefined data type: ${data.type}`);
   //     }
   //   })
-  // }
+  }
 
   render() {
     // if(this.props.tracks.length === 0) {
@@ -118,28 +139,19 @@ export default class Player extends Component {
           playDisabled={this.props.tracks.some(value => value.localFile !== null) === false}
           onPressShuffle={() => this.setState({shuffleOn: !this.state.shuffleOn})}
           onPressPlay={() => {
-            handlePLay1 = async () => {
 
-  const soundObject = new Expo.Audio.Sound();
-    try {
-      await soundObject.loadAsync(require('../advertising.mp3'));
-    { shouldPlay: true }
-      this.audioPlayer1  = soundObject;
-        this.audioPlayer1.playAsync();
-        this.audioPlayer1.setPositionAsync(0);
-        this.audioPlayer1.setRateAsync(1, false);
-     // Your sound is playing!
-    } catch (error) {
-    // An error occurred!
-
-    }
-}
-handlePLay1();
              this.setState({paused: false});
+              this.state.player.setPositionAsync(0);
+              this.state.player.setRateAsync(1, false);
+              this.state.player.playAsync();
             // console.log(this.props.socket);
             //this.props.socket.send("PLAY");
           }}
-          onPressPause={() => this.setState({paused: true})}
+          onPressPause={() => {
+              this.setState({paused: true})
+              this.state.player.pauseAsync()
+            }
+          }
           onBack={this.onBack.bind(this)}
           onForward={this.onForward.bind(this)}
           paused={this.state.paused}/>
