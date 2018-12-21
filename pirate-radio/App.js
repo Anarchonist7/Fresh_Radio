@@ -5,6 +5,7 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
 import HomeScreen from './screens/HomeScreen';
+import LandingScreen from './screens/LandingScreen';
 import ListenHostScreen from './screens/ListenHostScreen';
 import shorthash from 'shorthash'
 
@@ -77,15 +78,11 @@ export default class App extends Component {
 
   render() {
     // console.log('App render triggered')
-    return (
-      < ListenHostScreen />
-  
-      )
-  //   if (this.state.loading === true) {
-  //     return <Text>Loading...</Text>
-  //   } else {
-  //     return <Player tracks={this.state.tracks}/>
-  //   }
+      if (this.state.loading === true) {
+        return < LandingScreen />
+      } else {
+        return <Player tracks={this.state.tracks}/>
+      }
   }
 }
 
