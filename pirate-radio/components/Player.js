@@ -12,12 +12,13 @@ import Controls from './Controls';
 
 
 export default class Player extends Component {
-
-  player = new Expo.Audio.Sound()
+    player = new Expo.Audio.Sound()
 
   constructor(props) {
     super(props);
 
+
+    this.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
     this.state = {
       paused: true,
       totalLength: 1,
@@ -28,6 +29,11 @@ export default class Player extends Component {
       loading: true,
     };
   }
+
+   onPlaybackStatusUpdate = (status) => {
+      console.log('thing', status)
+    }
+
 
   loadTrack = async () => {
         try {
@@ -64,6 +70,7 @@ export default class Player extends Component {
 
   onBack() {
     if (this.state.currentPosition < 10 && this.state.selectedTrack > 0) {
+      this.state.player.stopAsync()
       this.refs.audioElement && this.refs.audioElement.seek(0);
       this.setState({ isChanging: true });
       setTimeout(() => this.setState({
@@ -136,10 +143,9 @@ export default class Player extends Component {
 
     console.log('Player Render triggered with selected track ID: ', this.props.tracks[this.state.selectedTrack].id);
 
-
     this.loadTrack();
 
-    
+
     const track = this.props.tracks[this.state.selectedTrack];
 
 
@@ -168,6 +174,7 @@ export default class Player extends Component {
           onPressPause={() => {
             this.setState({paused: true})
             this.state.player.pauseAsync()
+            {/*console.log('Where am I?: ', this.state.player._eventEmitter._subscriber._subscriptionsForType.appStateDidChange)*/}
             }
           }
           onBack={this.onBack.bind(this)}

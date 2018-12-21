@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-native-material-ui';
+// import { Button } from 'react-native-material-ui';
 import { Image, ImageBackground, View, Text, StyleSheet } from 'react-native';
 import LandingImage from '../components/LandingImage';
 import { BlackPearl } from '../components/BlackPearlText';
@@ -9,11 +9,11 @@ export default class ListenHostScreen extends React.Component {
     constructor(props){
         super(props)
     }
-    
+
     render() {
         return (
-            <ImageBackground 
-                source={require('../assets/images/pirate-radio-background.png')} 
+            <ImageBackground
+                source={require('../assets/images/pirate-radio-background.png')}
                 style={{
                     width: '100%',
                     height: '100%',
@@ -28,18 +28,18 @@ export default class ListenHostScreen extends React.Component {
                 }}>
                     <Button style={{
                         container:[
-                            styles.container, 
+                            styles.container,
                             styles.listenContainer
                         ],
                         text: styles.text
                     }} primary text="Listen" />
 
                     <Button style={{
-                        container:[ 
+                        container:[
                             styles.container,
                             styles.hostContainer
                         ],
-                        text: styles.text 
+                        text: styles.text
                     }} primary text="Host" />
                 </View>
             </ImageBackground>
@@ -57,7 +57,7 @@ var styles = StyleSheet.create({
         opacity: 1,
         borderWidth: 1
     },
-    
+
     text: {
         color: 'white',
         fontFamily: 'Helvetica',
