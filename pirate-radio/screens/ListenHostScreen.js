@@ -1,4 +1,6 @@
 import React from 'react';
+import { Image, ImageBackground, View, Text, StyleSheet } from 'react-native';
+import { BlackPearl } from '../components/BlackPearlText';
 
 import { Font } from 'expo'
 import { Image, ImageBackground, Button, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
@@ -23,6 +25,7 @@ export default class ListenHostScreen extends React.Component {
           this.setState({ fontLoaded: true });
     }
     
+
     render() {
 
         handlePress = () => {
@@ -84,7 +87,7 @@ var styles = StyleSheet.create({
         borderWidth: 1,
         justifyContent: 'center'
     },
-    
+
     text: {
         color: 'white',
         fontFamily: 'BlackPearl',
