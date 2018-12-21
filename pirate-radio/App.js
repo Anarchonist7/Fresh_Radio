@@ -5,7 +5,6 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
 import HomeScreen from './screens/HomeScreen';
-import LandingScreen from './screens/LandingScreen';
 import ListenHostScreen from './screens/ListenHostScreen';
 import shorthash from 'shorthash'
 

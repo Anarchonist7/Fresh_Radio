@@ -1,9 +1,7 @@
 import React from 'react';
-import { Image, ImageBackground, View, Text, StyleSheet } from 'react-native';
-import { BlackPearl } from '../components/BlackPearlText';
+import { Image, ImageBackground, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 import { Font } from 'expo'
-import { Image, ImageBackground, Button, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { Ionicons, Feather } from '@expo/vector-icons';
 
 const bgImageAsset = require('../assets/images/pirate-radio-background.jpg');
