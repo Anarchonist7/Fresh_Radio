@@ -32,14 +32,14 @@ export default class App extends Component {
     }
   ]
 }
-  componentDidMount() {
-    Expo.FileSystem.downloadAsync(
-      this.state.tracks[0].audioUrl,
+
+downloadTrack = (index) => {
+  Expo.FileSystem.downloadAsync(
+      this.state.tracks[index].audioUrl,
       Expo.FileSystem.documentDirectory + 'Elise.mp3'
     )
       .then(({ uri }) => {
         console.log('Finished downloading to ', uri);
-        const index = 0;
         const start = this.state.tracks.slice(0, index);
         const end = this.state.tracks.slice(index + 1);
         this.setState({loading: false, tracks: [
@@ -49,11 +49,19 @@ export default class App extends Component {
             localFile: uri
           },
           ...end
-          ]}, () => console.log(this.state.tracks))
+          ]}, () => console.log('After index: ', index, this.state.tracks))
       })
       .catch(error => {
         console.error(error);
       });
+    }
+
+  componentDidMount() {
+
+
+    this.state.tracks.forEach((track, index) => {
+      this.downloadTrack(index)
+    })
   }
 
   render() {
