@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import HomeScreen from './screens/HomeScreen';
+import LandingImage from './components/LandingImage';
+import ListenHostScreen from './screens/ListenHostScreen';
 
 
 import Player from './components/Player';
