@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
 import HomeScreen from './screens/HomeScreen';
-import LandingImage from './components/LandingImage';
+import LandingScreen from './screens/LandingScreen';
 import ListenHostScreen from './screens/ListenHostScreen';
 import shorthash from 'shorthash'
-
 
 
 import Player from './components/Player';
@@ -69,7 +67,11 @@ downloadTrack = (index) => {
   }
 
   render() {
-    console.log('App render triggered')
+    // console.log('App render triggered')
+    // return (
+    //   < ListenHostScreen />
+  
+    //   )
     if (this.state.loading === true) {
       return <Text>Loading...</Text>
     } else {

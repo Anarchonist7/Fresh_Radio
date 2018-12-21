@@ -1,19 +1,36 @@
 import React from 'react';
-import { Button } from 'react-native-material-ui';
-import { Image, ImageBackground, View, Text, StyleSheet } from 'react-native';
-import LandingImage from '../components/LandingImage';
-import { BlackPearl } from '../components/BlackPearlText';
 
+import { Font } from 'expo'
+import { Image, ImageBackground, Button, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { Ionicons, Feather } from '@expo/vector-icons';
 
+const bgImageAsset = require('../assets/images/pirate-radio-background.png');
 export default class ListenHostScreen extends React.Component {
+    
     constructor(props){
         super(props)
     }
     
+    state = {
+        fontLoaded: false,
+    }
+
+    async componentDidMount() {
+        await Font.loadAsync({
+            'BlackPearl': require('../assets/fonts/BlackPearl.ttf'),
+          });
+      
+          this.setState({ fontLoaded: true });
+    }
+    
     render() {
+
+        handlePress = () => {
+        }
+        console.log('BGIA', Expo.Asset.fromModule(bgImageAsset));
         return (
             <ImageBackground 
-                source={require('../assets/images/pirate-radio-background.png')} 
+                source={bgImageAsset} 
                 style={{
                     width: '100%',
                     height: '100%',
@@ -22,54 +39,72 @@ export default class ListenHostScreen extends React.Component {
                     resizeMode: 'stretch'
                 }}>
                 <View style={{
-                    flex: 2,
+                    flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <Button style={{
-                        container:[
-                            styles.container, 
-                            styles.listenContainer
-                        ],
-                        text: styles.text
-                    }} primary text="Listen" />
+                    <TouchableOpacity style={[styles.button, styles.listenContainer]} onPress={this.handlePress}> 
+                    {
+                        this.state.fontLoaded ? (
+                            <View>
+                                <Text style={ styles.text } >Listen</Text>
+                                <Feather name="headphones" style={ styles.icons } />
+                            </View>
+                        ) : null
+                    }
+                    </TouchableOpacity>
 
-                    <Button style={{
-                        container:[ 
-                            styles.container,
-                            styles.hostContainer
-                        ],
-                        text: styles.text 
-                    }} primary text="Host" />
+                    <TouchableOpacity style={[styles.button, styles.hostContainer]} onPress={this.handlePress}>
+                    {
+                        this.state.fontLoaded ? (
+                            <View>
+                                <Text style={ styles.text } >Host</Text>
+                                <Ionicons name="ios-radio" style={ styles.icons } />
+                            </View>
+                        ) : null
+                    }
+                    </TouchableOpacity>
                 </View>
             </ImageBackground>
         )
     }
 }
 
+
+
 var styles = StyleSheet.create({
-    container: {
-        resizeMode: 'stretch',
+    button: {
+        resizeMode: 'contain',
         height: '35%',
-        width: '90%',
+        lineHeight: this.height,
+        width: '95%',
         margin: 10,
         borderRadius: 30,
-        opacity: 1,
-        borderWidth: 1
+        opacity: 0.9,
+        borderWidth: 1,
+        justifyContent: 'center'
     },
     
     text: {
         color: 'white',
-        fontFamily: 'Helvetica',
+        fontFamily: 'BlackPearl',
         fontWeight: 'bold',
-        fontSize: 50
+        fontSize: 60,
+        textAlign: 'center',
+
+    },
+
+    icons: {
+        textAlign: 'center',
+        fontSize: 60,
+        color: 'white'
     },
 
     listenContainer: {
-        backgroundColor: 'darkgreen'
+        backgroundColor: 'black'
     },
 
     hostContainer: {
-        backgroundColor: 'saddlebrown'
+        backgroundColor: 'black'
     }
 });
