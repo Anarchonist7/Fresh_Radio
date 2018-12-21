@@ -28,6 +28,21 @@ export default class Player extends Component {
 
   }
 
+  handlePlay1 = async () => {
+
+        try {
+          console.log('TRYING TO LOAD: ', this.state.selectedTrack);
+          await this.state.player.loadAsync({uri: this.props.tracks[this.state.selectedTrack].localFile});
+          console.log('loaded');
+        { shouldPlay: true }
+          this.audioPlayer1 = this.state.player;
+
+        } catch (error) {
+        console.log('an error has occured: ', error);
+
+        }
+    }
+
 
 
 
@@ -58,6 +73,7 @@ export default class Player extends Component {
         currentPosition: 0,
         paused: false,
         totalLength: 1,
+        player: new Expo.Audio.Sound(),
         isChanging: false,
         selectedTrack: this.state.selectedTrack - 1,
       }), 0);
@@ -71,16 +87,21 @@ export default class Player extends Component {
 
   onForward() {
     if (this.state.selectedTrack < this.props.tracks.length - 1) {
-      this.refs.audioElement && this.refs.audioElement.seek(0);
-      this.setState({ isChanging: true });
-      setTimeout(() => this.setState({
+      // this.refs.audioElement && this.refs.audioElement.seek(0);
+      // this.setState({ isChanging: true });
+
+      this.setState({
         currentPosition: 0,
         totalLength: 1,
         paused: false,
         isChanging: false,
+        player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }), 0);
+        tracks: this.props.tracks
+      });
     }
+
+    console.log('On forward triggered: ', this.state.selectedTrack)
   }
 
   componentDidMount() {
@@ -97,35 +118,11 @@ export default class Player extends Component {
 
 
 
+this.handlePlay1();
 
 
-    const handlePlay1 = async () => {
-      console.log('HEY FUCKER LOOK HERE!');
-      // console.log(this.state.tracks);
-      console.log(await Expo.FileSystem.readDirectoryAsync(Expo.FileSystem.documentDirectory))
-      // const filePath = `${Expo.FileSystem.documentDirectory}songs/fur.mp3`;
 
-      // const res = await Expo.FileSystem.downloadAsync('http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3', filePath);
-      // const i = await Expo.FileSystem.getInfoAsync(res.uri);
-      // console.log('THIS IS IT: ', i);
-      let file = Expo.Asset.fromModule(require('../advertising.mp3'));
-      let file1 = this.props.tracks[1].audioUrl
-      console.log('\nFile\n', file)
-      console.log(Expo.FileSystem.documentDirectory);
-        try {
-          console.log('TRYING TO LOAD: ', this.props);
-          await this.state.player.loadAsync({uri: this.props.tracks[0].localFile});
-          console.log('loaded');
-        // { shouldPlay: true }
-          this.audioPlayer1  = this.state.player;
 
-        } catch (error) {
-        console.log('an error has occured: ', error);
-
-        }
-    }
-
-        handlePlay1();
 
 
 
@@ -147,7 +144,7 @@ export default class Player extends Component {
     // }
 
     const track = this.props.tracks[this.state.selectedTrack];
-
+    console.log('Im in the render method ', this.state.selectedTrack);
 
 
     return (
@@ -169,12 +166,14 @@ export default class Player extends Component {
              this.setState({paused: false});
               this.state.player.setPositionAsync(0);
               this.state.player.setRateAsync(1, false);
+              this.handlePlay1();
               this.state.player.playAsync();
             // console.log(this.props.socket);
             //this.props.socket.send("PLAY");
           }}
           onPressPause={() => {
               this.setState({paused: true})
+              this.handlePlay1();
               this.state.player.pauseAsync()
             }
           }

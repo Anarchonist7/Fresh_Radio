@@ -4,9 +4,12 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+
 import HomeScreen from './screens/HomeScreen';
 import LandingImage from './components/LandingImage';
 import ListenHostScreen from './screens/ListenHostScreen';
+import shorthash from 'shorthash'
+
 
 
 import Player from './components/Player';
@@ -22,7 +25,7 @@ export default class App extends Component {
       title: 'Stressed Out',
       artist: 'Twenty One Pilots',
       albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-      audioUrl: 'http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3',
+      audioUrl: 'https://www.robpapen.com/dmdocuments/Noisia_RAW_Synth_Demosong_Exiled.mp3',
       localFile: ''
     },
     {
@@ -39,10 +42,9 @@ export default class App extends Component {
 downloadTrack = (index) => {
   Expo.FileSystem.downloadAsync(
       this.state.tracks[index].audioUrl,
-      Expo.FileSystem.documentDirectory + 'Elise.mp3'
+      Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
     )
       .then(({ uri }) => {
-        console.log('Finished downloading to ', uri);
         const start = this.state.tracks.slice(0, index);
         const end = this.state.tracks.slice(index + 1);
         this.setState({loading: false, tracks: [
@@ -52,7 +54,7 @@ downloadTrack = (index) => {
             localFile: uri
           },
           ...end
-          ]}, () => console.log('After index: ', index, this.state.tracks))
+          ]}, () => console.log('Async download complete', index, this.state.tracks))
       })
       .catch(error => {
         console.error(error);
@@ -60,7 +62,6 @@ downloadTrack = (index) => {
     }
 
   componentDidMount() {
-
 
     this.state.tracks.forEach((track, index) => {
       this.downloadTrack(index)
