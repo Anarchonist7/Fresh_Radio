@@ -12,6 +12,9 @@ import Controls from './Controls';
 
 
 export default class Player extends Component {
+
+  player = new Expo.Audio.Sound()
+
   constructor(props) {
     super(props);
 
@@ -20,31 +23,25 @@ export default class Player extends Component {
       totalLength: 1,
       currentPosition: 0,
       selectedTrack: 0,
-      player: new Expo.Audio.Sound(),
-      tracks: props.tracks
+      player: this.player,
+      tracks: props.tracks,
+      loading: true,
     };
-
-
-
   }
 
-  handlePlay1 = async () => {
-
+  loadTrack = async () => {
         try {
-          console.log('TRYING TO LOAD: ', this.state.selectedTrack);
+          console.log('TRYING TO LOAD TRACK ID: ', this.props.tracks[this.state.selectedTrack].id);
           await this.state.player.loadAsync({uri: this.props.tracks[this.state.selectedTrack].localFile});
-          console.log('loaded');
+          console.log('LOADED TRACK ID: ', this.props.tracks[this.state.selectedTrack].id);
+          this.setState({loading: false})
         { shouldPlay: true }
           this.audioPlayer1 = this.state.player;
 
         } catch (error) {
-        console.log('an error has occured: ', error);
-
+        console.log('LOAD ERROR: ', error);
         }
     }
-
-
-
 
   setDuration(data) {
     // console.log(totalLength);
@@ -101,7 +98,7 @@ export default class Player extends Component {
       });
     }
 
-    console.log('On forward triggered: ', this.state.selectedTrack)
+  console.log('On forward triggered. Now selecting selected track: ', this.state.selectedTrack)
   }
 
   componentDidMount() {
@@ -114,14 +111,6 @@ export default class Player extends Component {
     // } catch (error) {
     //   console.error(error)
     // }
-
-
-
-
-this.handlePlay1();
-
-
-
 
 
 
@@ -143,8 +132,13 @@ this.handlePlay1();
     //   return <View><Text>Loading</Text></View>
     // }
 
+    console.log('Player Render triggered with selected track ID: ', this.props.tracks[this.state.selectedTrack].id);
+
+
+    this.loadTrack();
+
+    
     const track = this.props.tracks[this.state.selectedTrack];
-    console.log('Im in the render method ', this.state.selectedTrack);
 
 
     return (
@@ -160,21 +154,18 @@ this.handlePlay1();
           currentPosition={this.state.currentPosition} />
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
+          backDisabled={this.state.selectedTrack === 0}
           playDisabled={this.props.tracks.some(value => value.localFile !== null) === false}
           onPressPlay={() => {
-
-             this.setState({paused: false});
-              this.state.player.setPositionAsync(0);
-              this.state.player.setRateAsync(1, false);
-              this.handlePlay1();
-              this.state.player.playAsync();
+            this.setState({paused: false});
+            this.state.player.playAsync();
             // console.log(this.props.socket);
             //this.props.socket.send("PLAY");
-          }}
+            }
+          }
           onPressPause={() => {
-              this.setState({paused: true})
-              this.handlePlay1();
-              this.state.player.pauseAsync()
+            this.setState({paused: true})
+            this.state.player.pauseAsync()
             }
           }
           onBack={this.onBack.bind(this)}

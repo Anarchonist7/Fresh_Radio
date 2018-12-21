@@ -54,10 +54,10 @@ downloadTrack = (index) => {
             localFile: uri
           },
           ...end
-          ]}, () => console.log('Async download complete', index, this.state.tracks))
+          ]}, () => console.log('Async download complete for track:', this.state.tracks[index].id))
       })
       .catch(error => {
-        console.error(error);
+        console.error('DOWNLOAD ERROR: ', error);
       });
     }
 
@@ -69,10 +69,11 @@ downloadTrack = (index) => {
   }
 
   render() {
+    console.log('App render triggered')
     if (this.state.loading === true) {
       return <Text>Loading...</Text>
     } else {
-      return <Player tracks={this.state.tracks} />
+      return <Player tracks={this.state.tracks}/>
     }
   }
 }
