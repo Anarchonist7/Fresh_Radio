@@ -31,24 +31,27 @@ export default class Player extends Component {
   }
 
    onPlaybackStatusUpdate = (status) => {
-      console.log('thing', status.positionMillis)
+      console.log('STATUS UPDATE', status.positionMillis)
       // this.state.currentPosition = status.positionMillis
 
     }
 
 
   loadTrack = async () => {
-        try {
-          console.log('TRYING TO LOAD TRACK ID: ', this.props.tracks[this.state.selectedTrack].id);
-          await this.state.player.loadAsync({uri: this.props.tracks[this.state.selectedTrack].localFile});
-          console.log('LOADED TRACK ID: ', this.props.tracks[this.state.selectedTrack].id);
+    const track = this.props.tracks[this.state.selectedTrack];
+    const player = this.state.player
+      try {
+        // this.state.player.unloadAsync()
+        if (track.localUrl) {
+          console.log('TRYING TO LOAD TRACK ID: ', track.id);
+          await player.loadAsync({uri: track.localUrl});
+          console.log('LOADED TRACK ID: ', track.id);
           this.setState({loading: false})
         { shouldPlay: true }
-          this.audioPlayer1 = this.state.player;
-
-        } catch (error) {
-        console.log('LOAD ERROR: ', error);
         }
+      } catch (error) {
+      console.log('LOAD ERROR: ', error);
+      }
     }
 
   setDuration(data) {
@@ -142,13 +145,11 @@ export default class Player extends Component {
     // if(this.props.tracks.length === 0) {
     //   return <View><Text>Loading</Text></View>
     // }
-
-    console.log('Player Render triggered with selected track ID: ', this.props.tracks[this.state.selectedTrack].id);
+    const track = this.props.tracks[this.state.selectedTrack];
+    console.log('Player Render triggered with selected track ID: ', track.id);
+    console.log('Selected track has a localUrl of: ', track.localUrl)
 
     this.loadTrack();
-
-
-    const track = this.props.tracks[this.state.selectedTrack];
 
 
     return (
@@ -165,7 +166,7 @@ export default class Player extends Component {
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
           backDisabled={this.state.selectedTrack === 0}
-          playDisabled={this.props.tracks.some(value => value.localFile !== null) === false}
+          playDisabled={this.props.tracks.some(value => value.localUrl !== null) === false}
           onPressPlay={() => {
             this.setState({paused: false});
             this.state.player.playAsync();
