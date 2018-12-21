@@ -80,11 +80,9 @@ app.post("/ships/:id", function(req, res) {
   //should require captain Auth
   const {id} = req.params
   const {timeStamp, currentTrack} = req.query
-  console.log('shipID: ', id, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack)
   serverData[id].ship.currentTrack = currentTrack
   serverData[id].ship.timeStamp = timeStamp
   res.json('recorded current track and timestamp to server data')
-
 })
 
 app.listen(PORT, () => {

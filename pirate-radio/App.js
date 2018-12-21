@@ -10,10 +10,9 @@ import LandingImage from './components/LandingImage';
 import ListenHostScreen from './screens/ListenHostScreen';
 import shorthash from 'shorthash'
 
-
-
 import Player from './components/Player';
 
+const socketServer = require('socket.io-client')('http://localhost:3003');
 
 export default class App extends Component {
 
