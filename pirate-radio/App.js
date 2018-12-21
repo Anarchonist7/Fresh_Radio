@@ -68,21 +68,21 @@ downloadTrack = (index) => {
 
   render() {
     // console.log('App render triggered')
-    // return (
-    //   < ListenHostScreen />
+    return (
+      < ListenHostScreen />
   
-    //   )
-    if (this.state.loading === true) {
-      return <Text>Loading...</Text>
-    } else {
-      return <Player tracks={this.state.tracks}/>
-    }
+      )
+  //   if (this.state.loading === true) {
+  //     return <Text>Loading...</Text>
+  //   } else {
+  //     return <Player tracks={this.state.tracks}/>
+  //   }
   }
 }
 
-const styles = {
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(4,4,4)',
-  },
-}
+// const styles = {
+//   container: {
+//     flex: 1,
+//     backgroundColor: 'rgb(4,4,4)',
+//   },
+// }

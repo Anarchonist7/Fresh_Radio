@@ -4,7 +4,7 @@ import { Font } from 'expo'
 import { Image, ImageBackground, Button, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { Ionicons, Feather } from '@expo/vector-icons';
 
-const bgImageAsset = require('../assets/images/pirate-radio-background.png');
+const bgImageAsset = require('../assets/images/pirate-radio-background.jpg');
 export default class ListenHostScreen extends React.Component {
     
     constructor(props){
