@@ -31,7 +31,9 @@ export default class Player extends Component {
   }
 
    onPlaybackStatusUpdate = (status) => {
-      console.log('thing', status)
+      console.log('thing', status.positionMillis)
+      // this.state.currentPosition = status.positionMillis
+
     }
 
 
@@ -174,7 +176,6 @@ export default class Player extends Component {
           onPressPause={() => {
             this.setState({paused: true})
             this.state.player.pauseAsync()
-            {/*console.log('Where am I?: ', this.state.player._eventEmitter._subscriber._subscriptionsForType.appStateDidChange)*/}
             }
           }
           onBack={this.onBack.bind(this)}
