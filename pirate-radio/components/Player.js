@@ -68,7 +68,7 @@ export default class Player extends Component {
       this.setState({ isChanging: true });
       setTimeout(() => this.setState({
         currentPosition: 0,
-        paused: false,
+        paused: this.state.paused,
         totalLength: 1,
         player: new Expo.Audio.Sound(),
         isChanging: false,
@@ -80,17 +80,19 @@ export default class Player extends Component {
         currentPosition: 0,
       });
     }
+
+    console.log('BACK triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
   }
 
   onForward() {
     if (this.state.selectedTrack < this.props.tracks.length - 1) {
       // this.refs.audioElement && this.refs.audioElement.seek(0);
       // this.setState({ isChanging: true });
-
+      this.state.player.stopAsync()
       this.setState({
         currentPosition: 0,
         totalLength: 1,
-        paused: false,
+        paused: this.state.paused,
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
@@ -98,7 +100,7 @@ export default class Player extends Component {
       });
     }
 
-  console.log('On forward triggered. Now selecting selected track: ', this.state.selectedTrack)
+    console.log('FORWARD forward triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
   }
 
   componentDidMount() {
