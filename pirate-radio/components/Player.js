@@ -36,6 +36,13 @@ export default class Player extends Component {
 
     }
 
+  loadTrackPlay = async () => {
+    this.loadTrack().then(() => {
+      if(!this.state.paused){
+        this.state.player.playAsync()
+      }
+    })
+  }
 
   loadTrack = async () => {
     console.log('LOAD TRACK TRIGGERED')
@@ -82,17 +89,15 @@ export default class Player extends Component {
 
       // this.refs.audioElement && this.refs.audioElement.seek(0);
       // this.setState({ isChanging: true });
+      this.state.player.stopAsync()
       this.setState({
         currentPosition: 0,
         paused: this.state.paused,
         totalLength: 1,
         isChanging: false,
+        player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack - 1,
       })
-      
-      if(!this.state.paused){
-        this.state.player.playAsync()
-      }
     } else {
       this.state.player.setPositionAsync(0).then(() => {
         if(!this.state.paused){
@@ -112,14 +117,13 @@ export default class Player extends Component {
       this.state.player.stopAsync()
       this.setState({
         currentPosition: 0,
-        totalLength: 1,
         paused: this.state.paused,
+        totalLength: 1,
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-        tracks: this.props.tracks
       }, () => {
-        console.log('FORWARD forward triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
+        console.log('FORWARD triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
       }) 
     }   
   }
@@ -150,7 +154,7 @@ export default class Player extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
-      this.loadTrack()
+      this.loadTrackPlay()
     }
   }
 
