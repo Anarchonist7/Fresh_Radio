@@ -1,84 +1,57 @@
 import React from 'react';
 import { ImageBackground, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import { Font } from 'expo'
+import { SeaBackground } from '../components/SeaBackground';
+import { PirateText } from '../components/PirateText';
+
+import CaptainScreen from './CaptainScreen';
+import SearchScreen from './SearchScreen';
+
 import { Ionicons, Feather } from '@expo/vector-icons';
 
-const bgImageAsset = require('../assets/images/pirate-radio-background.jpg');
 export default class ListenHostScreen extends React.Component {
     
     constructor(props){
         super(props)
     }
-    
-    state = {
-        fontLoaded: false,
-    }
-
-    async componentDidMount() {
-        await Font.loadAsync({
-            'BlackPearl': require('../assets/fonts/BlackPearl.ttf'),
-          });
-      
-          this.setState({ fontLoaded: true });
-    }
-    
 
     render() {
 
         navigateToCaptain = () => {
-            this.props.navigation.navigate('CaptainScreen');
+            this.props.navigation.navigate(CaptainScreen);
         }
 
         navigateToSearch = () => {
-            this.props.navigation.navigate('SearchScreen');
+            this.props.navigation.navigate(SearchScreen);
         }
 
-        console.log('BGIA', Expo.Asset.fromModule(bgImageAsset));
         return (
-            <ImageBackground 
-                source={bgImageAsset} 
-                style={{
-                    width: '100%',
-                    height: '100%',
-                }}
-                imageStyle={{
-                    resizeMode: 'stretch'
-                }}>
+            <SeaBackground >
                 <View style={{
                     flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
                     <TouchableOpacity style={[styles.button]} onPress={this.navigateToSearch}> 
-                    {
-                        this.state.fontLoaded ? (
-                            <View>
-                                <Text style={ styles.text } >Crew</Text>
-                                <Feather name="headphones" style={ styles.icons } />
-                            </View>
-                        ) : null
-                    }
+                        <View>
+                            <PirateText style={ styles.text } >Crew</PirateText>
+                            <Feather name="headphones" style={ styles.icons } />
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={[styles.button]} onPress={this.navigateToCaptain}>
-                    {
-                        this.state.fontLoaded ? (
-                            <View>
-                                <Text style={ styles.text } >Captain</Text>
-                                <Ionicons name="ios-radio" style={ styles.icons } />
-                            </View>
-                        ) : null
-                    }
+                        <View>
+                            <PirateText style={ styles.text } >Captain</PirateText>
+                            <Ionicons name="ios-radio" style={ styles.icons } />
+                        </View>
                     </TouchableOpacity>
                 </View>
-            </ImageBackground>
+            </SeaBackground>
         )
     }
 }
-
-
 
 var styles = StyleSheet.create({
     button: {
@@ -96,11 +69,8 @@ var styles = StyleSheet.create({
 
     text: {
         color: 'white',
-        fontFamily: 'BlackPearl',
-        fontWeight: 'bold',
         fontSize: 60,
         textAlign: 'center',
-
     },
 
     icons: {
