@@ -12,19 +12,16 @@ import Controls from './Controls';
 
 
 export default class Player extends Component {
-    player = new Expo.Audio.Sound()
 
   constructor(props) {
     super(props);
 
-
-    this.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
     this.state = {
       paused: true,
       totalLength: 1,
       currentPosition: 0,
       selectedTrack: 0,
-      player: this.player,
+      player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
     };
@@ -32,14 +29,21 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
+      this.setState({
+        currentPosition: status.positionMillis
+      })
       // this.state.currentPosition = status.positionMillis
 
     }
 
 
   loadTrack = async () => {
+    console.log('LOAD TRACK TRIGGERED')
     const track = this.props.tracks[this.state.selectedTrack];
     const player = this.state.player
+    if (!track.localUrl) {
+      console.log('no localUrl to load yet')
+    }
       try {
         // this.state.player.unloadAsync()
         if (track.localUrl) {
@@ -74,26 +78,31 @@ export default class Player extends Component {
   }
 
   onBack() {
-    if (this.state.currentPosition < 10 && this.state.selectedTrack > 0) {
-      this.state.player.stopAsync()
-      this.refs.audioElement && this.refs.audioElement.seek(0);
-      this.setState({ isChanging: true });
-      setTimeout(() => this.setState({
+    if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
+
+      // this.refs.audioElement && this.refs.audioElement.seek(0);
+      // this.setState({ isChanging: true });
+      this.setState({
         currentPosition: 0,
         paused: this.state.paused,
         totalLength: 1,
-        player: new Expo.Audio.Sound(),
         isChanging: false,
         selectedTrack: this.state.selectedTrack - 1,
-      }), 0);
+      })
+      
+      if(!this.state.paused){
+        this.state.player.playAsync()
+      }
     } else {
-      this.refs.audioElement.seek(0);
+      this.state.player.setPositionAsync(0).then(() => {
+        if(!this.state.paused){
+          this.state.player.playAsync()
+        }
+      });
       this.setState({
         currentPosition: 0,
       });
     }
-
-    console.log('BACK triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
   }
 
   onForward() {
@@ -109,10 +118,10 @@ export default class Player extends Component {
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
         tracks: this.props.tracks
-      });
-    }
-
-    console.log('FORWARD forward triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
+      }, () => {
+        console.log('FORWARD forward triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
+      }) 
+    }   
   }
 
   componentDidMount() {
@@ -125,10 +134,7 @@ export default class Player extends Component {
     // } catch (error) {
     //   console.error(error)
     // }
-
-
-
-
+    this.loadTrack()
   //   this.props.socket.on('message', data => {
   //     console.log(data);
   //     if (data === "PLAY"){
@@ -141,16 +147,20 @@ export default class Player extends Component {
   //   })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate')
+    if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
+      this.loadTrack()
+    }
+  }
+
   render() {
     // if(this.props.tracks.length === 0) {
     //   return <View><Text>Loading</Text></View>
     // }
     const track = this.props.tracks[this.state.selectedTrack];
-    // console.log('Player Render triggered with selected track ID: ', track.id);
+    console.log('Player Render triggered with selected track ID: ', track.id);
     // console.log('Selected track has a localUrl of: ', track.localUrl)
-
-    this.loadTrack();
-
 
     return (
       // <View style={styles.container}>
