@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageBackground, TouchableOpacity, View, Text, ListView, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
 

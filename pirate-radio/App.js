@@ -84,13 +84,13 @@ export default class App extends Component {
 
   render() {
     // console.log('App render triggered')
-    // return (
-    //   <SearchScreen />
-    // )
-      if (this.state.loading === true) {
-        return < LandingScreen />
-      } else {
-        return <Player tracks={this.state.tracks}/>
-      }
+    return (
+      <SearchScreen />
+    )
+      // if (this.state.loading === true) {
+      //   return < LandingScreen />
+      // } else {
+      //   return <Player tracks={this.state.tracks}/>
+      // }
   }
 }
