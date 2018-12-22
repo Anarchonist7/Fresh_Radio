@@ -146,8 +146,8 @@ export default class Player extends Component {
     //   return <View><Text>Loading</Text></View>
     // }
     const track = this.props.tracks[this.state.selectedTrack];
-    console.log('Player Render triggered with selected track ID: ', track.id);
-    console.log('Selected track has a localUrl of: ', track.localUrl)
+    // console.log('Player Render triggered with selected track ID: ', track.id);
+    // console.log('Selected track has a localUrl of: ', track.localUrl)
 
     this.loadTrack();
 
@@ -167,7 +167,7 @@ export default class Player extends Component {
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
           backDisabled={this.state.selectedTrack === 0}
-          playDisabled={this.props.tracks.some(value => value.localUrl !== null) === false}
+          playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
             this.setState({paused: false});
             this.state.player.playAsync();

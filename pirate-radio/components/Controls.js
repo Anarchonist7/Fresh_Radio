@@ -19,6 +19,7 @@ const Controls = ({
   onPressShuffle,
   onPressRepeat,
   forwardDisabled,
+  backDisabled,
   playDisabled
 }) => (
   <View style={styles.container}>
@@ -26,10 +27,14 @@ const Controls = ({
       <Image style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}
         source={require('../img/ic_shuffle_white.png')}/>
     </TouchableOpacity> */}
+    
     <View style={{width: 40}} />
-    <TouchableOpacity onPress={onBack}>
-      <Image source={require('../img/ic_skip_previous_white_36pt.png')}/>
+    <TouchableOpacity onPress={onBack}
+      disabled={backDisabled}>
+      <Image style={[backDisabled && {opacity: 0.3}]}
+        source={require('../img/ic_skip_previous_white_36pt.png')}/>
     </TouchableOpacity>
+
     <View style={{width: 20}} />
     {!paused ?
       <TouchableOpacity onPress={onPressPause}>
@@ -43,12 +48,14 @@ const Controls = ({
         </View>
       </TouchableOpacity>
     }
+
     <View style={{width: 20}} />
     <TouchableOpacity onPress={onForward}
       disabled={forwardDisabled}>
       <Image style={[forwardDisabled && {opacity: 0.3}]}
         source={require('../img/ic_skip_next_white_36pt.png')}/>
     </TouchableOpacity>
+
     <View style={{width: 40}} />
     {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
       <Image style={[styles.secondaryControl, repeatOn ? [] : styles.off]}
