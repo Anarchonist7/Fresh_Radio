@@ -1,8 +1,7 @@
 import React from 'react';
-import { ImageBackground, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, TouchableOpacity, Button, View, Text, StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { PirateText } from './PirateText';
-import { Footer } from 'native-base';
 
 import { Ionicons, Feather, Foundation } from '@expo/vector-icons';
 
@@ -27,55 +26,55 @@ export class BottomNav extends React.Component {
     }
     render() {
         return (
-            <Footer style={navstyles.elements}>
-                <TouchableOpacity style={navstyles.back} onPress={() => this.props.navigation.goBack()}>
-                    <Ionicons name='md-arrow-round-back' style={ navstyles.icon }/>
-                    <PirateText style={ navstyles.text } >Back</PirateText>
-                </TouchableOpacity>
-                <View>
-                    { this.state.volumeOn ? (
-                            <TouchableOpacity style={navstyles.volume} onPress={this.mute}>
-                                <Feather name='volume-2' style={ navstyles.icon } />    
-                            </TouchableOpacity>
-                        ) : (
-                            <TouchableOpacity style={navstyles.volume}>
-                                <Feather name='volume-x' style={ navstyles.icon } /> 
-                            </TouchableOpacity>
-                        )
-                    }
+            <View style={navstyles.container}>
+                <View style={navstyles.elements}>
+                    <TouchableOpacity style={[navstyles.buttonContainer, navstyles.backContainer]} onPress={() => this.props.navigation.goBack()}>
+                        <Ionicons name='md-arrow-round-back' style={ navstyles.icon }/>
+                    </TouchableOpacity>
+                        { this.state.volumeOn ? (
+                                <TouchableOpacity style={[navstyles.buttonContainer, navstyles.volumeContainer]} onPress={this.mute}>
+                                    <Feather name='volume-2' style={ navstyles.icon } />    
+                                </TouchableOpacity>
+                            ) : (
+                                <TouchableOpacity style={[navstyles.buttonContainer, navstyles.volumeContainer]} onPress={this.unmute}>
+                                    <Feather name='volume-x' style={ navstyles.icon } /> 
+                                </TouchableOpacity>
+                            )
+                        }
                 </View>
-            </Footer>
+            </View>
         )
     }
 }
 
 var navstyles = StyleSheet.create({
-    elements: {
-        height: '30%',
+    container: {
+        height: '100%',
         width: '100%'
     },
-    back: {
-        resizeMode: 'contain',
-        height: '15%',
-        width: '50%',
-        alignItems: 'stretch',
+    elements: {
+        flex: 1,
         justifyContent: 'space-between',
-        flexdirection: 'column',
-        backgroundColor: 'orange',
+        flexDirection: 'row',
     },
-    volume: {
-        resizeMode: 'contain',
-        height: '15%',
-        width: '50%',
-        alignItems: 'stretch',
-        justifyContent: 'space-between',
-        flexdirection: 'column',
-        backgroundColor: 'red',
+    buttonContainer: {
+        justifyContent: 'center',
+        flex: 0.23,
+        height: '70%',
+        borderRadius: 40,
+        backgroundColor: '#383131',
     },
+    backContainer: {
+        marginLeft: 10,
+    },
+
+    volumeContainer: {
+        marginRight: 10,
+    },
+
     icon: {
-        color: 'white'
+        textAlign: 'center',
+        color: 'white',
+        fontSize: 50,
     },
-    text: {
-        color: 'white'
-    }
 })

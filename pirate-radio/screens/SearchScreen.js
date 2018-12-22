@@ -19,62 +19,73 @@ export default class SearchScreen extends React.Component {
     render() {
         return (
             <SeaBackground>
-                <View style={styles.search}> 
-                    <PirateText style={styles.bigText}>Search</PirateText>
-                </View>
+                <View style={styles.boxes}>
+                    <View style={styles.search}> 
+                        <PirateText style={styles.bigText}>Search</PirateText>
+                    </View>
 
-                <View style={styles.results}>
-                    <PirateText style={styles.bigText}>Search Results{'\n'}</PirateText>
-                    <PirateText style={styles.smallText}>Nothin hurrr</PirateText>
-                </View>
+                    <View style={styles.results}>
+                        <PirateText style={styles.bigText}>Search Results{'\n'}</PirateText>
+                        <PirateText style={styles.smallText}>Nothin hurrr</PirateText>
+                    </View>
 
-                <View style={styles.popular}>
-                    <PirateText style={styles.bigText}>Popular Ships{'\n'}</PirateText>
-                    <PirateText style={styles.smallText}>arrrRave</PirateText>
-                    <PirateText style={styles.smallText}>Captain Barbosa</PirateText>
-                    <PirateText style={styles.smallText}>Lonely John</PirateText>
+                    <View style={styles.popular}>
+                        <PirateText style={styles.bigText}>Popular Ships{'\n'}</PirateText>
+                        <PirateText style={styles.smallText}>arrrRave</PirateText>
+                        <PirateText style={styles.smallText}>Captain Barbosa</PirateText>
+                        <PirateText style={styles.smallText}>Lonely John</PirateText>
+                    </View>
+                    {/* <ListView> 
+                        <PirateText>Popular Ships</PirateText>
+                        dataSource={this.state.dataSource}
+                        renderRow={(rowData) => <PirateText>{rowData}</PirateText>}
+                    </ListView> */}
+                    <View style={styles.footer}>
+                        <BottomNav/>
+                    </View>
                 </View>
-                {/* <ListView> 
-                    <PirateText>Popular Ships</PirateText>
-                    dataSource={this.state.dataSource}
-                    renderRow={(rowData) => <PirateText>{rowData}</PirateText>}
-                </ListView> */}
-                <BottomNav />
             </SeaBackground>
         )
     }
 }
 
 styles = StyleSheet.create({
+    boxes: {
+        height: '100%',
+        width: '100%',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+    },
     search: {
-        position: 'relative',
-        top: '10%',
-        marginVertical: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
         height: '10%',
+        marginTop: 35,
         backgroundColor: '#383131',
+        borderRadius: 15,
     },
     results: {
-        position: 'relative',
-        top: '10%',
         alignSelf: 'center',
         justifyContent: 'center',
-        marginVertical: 10,
         width: '95%',
         height: '30%',
-        backgroundColor: '#383131'
+        marginVertical: 15,
+        backgroundColor: '#383131',
+        borderRadius: 15,
     },
     popular: {
-        position: 'relative',
-        top: '10%',
         alignSelf: 'center',
         justifyContent: 'center',
-        marginVertical: 10,
         width: '95%',
         height: '30%',
-        backgroundColor: '#383131'
+        marginVertical: 15,
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+    footer: {
+        height: '14%'
     },
 
     bigText: {
