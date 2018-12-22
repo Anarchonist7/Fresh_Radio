@@ -153,10 +153,11 @@ export default class Player extends Component {
 
 
     return (
-      <View style={styles.container}>
-        <StatusBar hidden={true} />
-        <Header message="Playing From Charts" />
-        <AlbumArt url={track.albumArtUrl} />
+      // <View style={styles.container}>
+      <View>
+        {/* <StatusBar hidden={true} />
+        <Header message="Playing From Charts" /> */}
+        {/* <AlbumArt url={track.albumArtUrl} /> */}
         <TrackDetails title={track.title} artist={track.artist} />
         <SeekBar
           onSeek={this.seek.bind(this)}

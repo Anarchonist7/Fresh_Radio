@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, Platform } from 'react-native';
 import { Font } from 'expo';
 const bpfont = require('../assets/fonts/BlackPearl.ttf');
 

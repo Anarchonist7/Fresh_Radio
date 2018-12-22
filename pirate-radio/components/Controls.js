@@ -22,10 +22,10 @@ const Controls = ({
   playDisabled
 }) => (
   <View style={styles.container}>
-    <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
+    {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
       <Image style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}
         source={require('../img/ic_shuffle_white.png')}/>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
     <View style={{width: 40}} />
     <TouchableOpacity onPress={onBack}>
       <Image source={require('../img/ic_skip_previous_white_36pt.png')}/>
@@ -50,10 +50,10 @@ const Controls = ({
         source={require('../img/ic_skip_next_white_36pt.png')}/>
     </TouchableOpacity>
     <View style={{width: 40}} />
-    <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
+    {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
       <Image style={[styles.secondaryControl, repeatOn ? [] : styles.off]}
         source={require('../img/ic_repeat_white.png')}/>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
   </View>
 );
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   playButton: {
     height: 72,
     width: 72,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: 'white',
     borderRadius: 72 / 2,
     alignItems: 'center',

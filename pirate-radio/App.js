@@ -48,32 +48,35 @@ export default class App extends Component {
         });
       }
     
-  ship = "http://localhost:8080/ships/1";
+  shipRequest = "http://localhost:8080/ships/1";
     
   getShip = new Promise((resolve, reject) => {
-      fetch(this.ship, {
+      fetch(this.shipRequest, {
       method: 'GET'
       }).then((responseData, error) => {
         if (error){
           throw new Error("Error: ", error);
         } else {
           const response = JSON.parse(responseData._bodyText)
-          tracksResponse = JSON.parse(responseData._bodyText);
-          const tracks = tracksResponse.tracks.map(track => {
-            return {
-              ...track,
-              localUrl: null
-            }
-          })
-          resolve(tracks);
+          const ship = { 
+            ship: response.ship,
+            tracks: response.tracks.map(track => {
+              return {
+                ...track,
+                localUrl: null
+              }
+            })
+          }
+          resolve(ship);
         }
       })
     })
 
   componentDidMount() {
-    this.getShip.then((tracks) => {
+    this.getShip.then((ship) => {
       this.setState({
-        tracks: tracks,
+        tracks: ship.tracks,
+        ship: ship.ship,
         loading: false
       })
       this.state.tracks.forEach((track, index) => {
@@ -84,13 +87,13 @@ export default class App extends Component {
 
   render() {
     // console.log('App render triggered')
-    return (
-      <SearchScreen />
-    )
-      // if (this.state.loading === true) {
-      //   return < LandingScreen />
-      // } else {
-      //   return <Player tracks={this.state.tracks}/>
-      // }
+    // return (
+    //   <SearchScreen />
+    // )
+      if (this.state.loading === true) {
+        return < LandingScreen />
+      } else {
+        return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship}/>
+      }
   }
 }
