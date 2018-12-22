@@ -29,8 +29,10 @@ export default class ShipCaptainScreen extends React.Component {
 
                     <View style={styles.popular}>
                         <Text style={styles.bigText}>{ship.name}{'\n'}</Text>
-                        <Text style={styles.smallText}>{tracks[0].title}</Text>
-                        <Text style={styles.smallText}>{tracks[1].title}</Text>
+                        <Text style={[styles.smallText, !tracks[0].localUrl ? styles.off : []]}>{tracks[0].title}</Text>
+                        <Text style={[styles.smallText, !tracks[1].localUrl ? styles.off : []]}>{tracks[1].title}</Text>
+                        <Text style={[styles.smallText, !tracks[2].localUrl ? styles.off : []]}>{tracks[2].title}</Text>
+                        <Text style={[styles.smallText, !tracks[3].localUrl ? styles.off : []]}>{tracks[3].title}</Text>
                     </View>
                     {/* <ListView> 
                         <PirateText>Popular Ships</PirateText>
@@ -96,5 +98,8 @@ styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 18,
-    }
+    },
+    off: {
+        opacity: 0.30,
+      }
 })
