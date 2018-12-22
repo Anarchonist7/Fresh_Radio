@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, ImageBackground, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { Font } from 'expo'
 import { Ionicons, Feather } from '@expo/vector-icons';
@@ -26,8 +27,14 @@ export default class ListenHostScreen extends React.Component {
 
     render() {
 
-        handlePress = () => {
+        navigateToCaptain = () => {
+            this.props.navigation.navigate('CaptainScreen');
         }
+
+        navigateToSearch = () => {
+            this.props.navigation.navigate('SearchScreen');
+        }
+
         console.log('BGIA', Expo.Asset.fromModule(bgImageAsset));
         return (
             <ImageBackground 
@@ -44,22 +51,22 @@ export default class ListenHostScreen extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <TouchableOpacity style={[styles.button, styles.listenContainer]} onPress={this.handlePress}> 
+                    <TouchableOpacity style={[styles.button]} onPress={this.navigateToSearch}> 
                     {
                         this.state.fontLoaded ? (
                             <View>
-                                <Text style={ styles.text } >Listen</Text>
+                                <Text style={ styles.text } >Crew</Text>
                                 <Feather name="headphones" style={ styles.icons } />
                             </View>
                         ) : null
                     }
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.button, styles.hostContainer]} onPress={this.handlePress}>
+                    <TouchableOpacity style={[styles.button]} onPress={this.navigateToCaptain}>
                     {
                         this.state.fontLoaded ? (
                             <View>
-                                <Text style={ styles.text } >Host</Text>
+                                <Text style={ styles.text } >Captain</Text>
                                 <Ionicons name="ios-radio" style={ styles.icons } />
                             </View>
                         ) : null
@@ -83,7 +90,8 @@ var styles = StyleSheet.create({
         borderRadius: 30,
         opacity: 0.9,
         borderWidth: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: 'black'
     },
 
     text: {
@@ -99,13 +107,5 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 60,
         color: 'white'
-    },
-
-    listenContainer: {
-        backgroundColor: 'black'
-    },
-
-    hostContainer: {
-        backgroundColor: 'black'
     }
 });
