@@ -27,7 +27,7 @@ const Controls = ({
       <Image style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}
         source={require('../img/ic_shuffle_white.png')}/>
     </TouchableOpacity> */}
-    
+
     <View style={{width: 40}} />
     <TouchableOpacity onPress={onBack}
       disabled={backDisabled}>
@@ -42,7 +42,7 @@ const Controls = ({
           <Image source={require('../img/ic_pause_white_48pt.png')}/>
         </View>
       </TouchableOpacity> :
-      <TouchableOpacity onPress={onPressPlay}>
+      <TouchableOpacity onPress={onPressPlay} disabled={playDisabled}>
         <View style={[styles.playButton, playDisabled ? styles.off : []]}>
           <Image source={require('../img/ic_play_arrow_white_48pt.png')}/>
         </View>
