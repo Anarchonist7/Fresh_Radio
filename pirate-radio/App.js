@@ -81,11 +81,11 @@ export default class App extends Component {
       < ListenHostScreen />
   
       )
-  //   if (this.state.loading === true) {
-  //     return <Text>Loading...</Text>
-  //   } else {
-  //     return <Player tracks={this.state.tracks}/>
-  //   }
+    // if (this.state.loading === true) {
+    //   return <Text>Loading...</Text>
+    // } else {
+    //   return <Player tracks={this.state.tracks}/>
+    // }
   }
 }
 
