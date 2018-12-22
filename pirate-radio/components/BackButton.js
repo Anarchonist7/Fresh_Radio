@@ -4,3 +4,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { Font } from 'expo'
 import { Ionicons, Feather } from '@expo/vector-icons';
+
+const BackButton = () => {
+    
+}
