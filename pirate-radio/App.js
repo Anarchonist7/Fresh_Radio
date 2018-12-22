@@ -4,11 +4,17 @@ import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
+import CaptainScreen from './screens/CaptainScreen';
 import HomeScreen from './screens/HomeScreen';
 import LandingScreen from './screens/LandingScreen';
 import ListenHostScreen from './screens/ListenHostScreen';
-import shorthash from 'shorthash'
+import LoginRegisterScreen from './screens/LoginRegisterScreen';
+import SearchScreen from './screens/SearchScreen';
+import ShipCaptainScreen from './screens/ShipCaptainScreen';
+import ShipCrewScreen from './screens/ShipCrewScreen';
 
+
+import shorthash from 'shorthash'
 
 import Player from './components/Player';
 
@@ -79,7 +85,7 @@ export default class App extends Component {
   render() {
     // console.log('App render triggered')
     return (
-      <ListenHostScreen />
+      <SearchScreen />
     )
       // if (this.state.loading === true) {
       //   return < LandingScreen />

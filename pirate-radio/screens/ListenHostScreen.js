@@ -53,7 +53,7 @@ export default class ListenHostScreen extends React.Component {
     }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     button: {
         resizeMode: 'contain',
         height: '35%',
