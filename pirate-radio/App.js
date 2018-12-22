@@ -16,7 +16,7 @@ import Player from './components/Player';
 export default class App extends Component {
 
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {loading: true}
   }
 
@@ -41,9 +41,9 @@ export default class App extends Component {
           console.error('DOWNLOAD ERROR: ', error);
         });
       }
-    
-  ship = "http://localhost:8080/ships/1";
-    
+
+  ship = "http://192.168.88.76:8080/ships/1";
+
   getShip = new Promise((resolve, reject) => {
       fetch(this.ship, {
       method: 'GET'
