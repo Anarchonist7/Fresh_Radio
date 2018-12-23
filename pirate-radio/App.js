@@ -44,7 +44,7 @@ export default class App extends Component {
               localUrl: uri
             },
             ...end
-            ]}, () => console.log('Async download complete for track ID:', this.state.tracks[index].id))
+            ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.'))
         })
         .catch(error => {
           console.error('DOWNLOAD ERROR: ', error);
@@ -65,7 +65,6 @@ export default class App extends Component {
 
     
   getShip = new Promise((resolve, reject) => {
-      console.log(this.shipRequest);
       fetch(this.shipRequest, {
       method: 'GET'
       }).then((responseData, error) => {

@@ -151,10 +151,9 @@ export default class Player extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate')
+    console.log('Player componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       this.loadTrackPlay().then(() => {
-        this.props.generateTrackList()
       })
     }
   }
@@ -164,7 +163,7 @@ export default class Player extends Component {
     //   return <View><Text>Loading</Text></View>
     // }
     const track = this.props.tracks[this.state.selectedTrack];
-    console.log('Player Render triggered with selected track ID: ', track.id);
+  
     // console.log('Selected track has a localUrl of: ', track.localUrl)
 
     return (

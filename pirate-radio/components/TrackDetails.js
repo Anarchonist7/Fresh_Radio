@@ -19,7 +19,6 @@ const TrackDetails = ({
   onTitlePress,
   onArtistPress,
 }) => (
-  console.log(album),
   <View style={styles.container}>
     {/* <TouchableOpacity onPress={onAddPress}>
       <Image style={styles.button}
