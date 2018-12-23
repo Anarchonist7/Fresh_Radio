@@ -103,5 +103,5 @@ app.post("/ships/:id", function(req, res) {
 })
 
 app.listen(PORT, () => {
-    console.log(`We're live on port ${PORT}!`);
+    console.log(`live on port http://${LOCALHOST}:${PORT}`);
   });
