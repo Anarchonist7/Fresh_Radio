@@ -183,7 +183,7 @@ export default class Player extends Component {
           backDisabled={this.state.selectedTrack === 0}
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
-            this.setState({paused: false});
+            this.setState({paused: false})
             this.state.player.playAsync();
             // console.log(this.props.socket);
             //this.props.socket.send("PLAY");
