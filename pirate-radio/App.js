@@ -63,8 +63,6 @@ export default class App extends Component {
     )
   }
 
-<<<<<<< HEAD
-    
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
   updateShip = () => {
@@ -83,11 +81,6 @@ export default class App extends Component {
   }
   // make a post req to shipRequest with current track state
   
-=======
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
-
-
->>>>>>> master
   getShip = new Promise((resolve, reject) => {
       fetch(this.shipRequest, {
       method: 'GET'
