@@ -20,7 +20,7 @@ import Player from './components/Player';
 //THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native 
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
@@ -30,6 +30,7 @@ export default class App extends Component {
   }
 
   downloadTrack = (index) => {
+    console.log('TRYING TO DL: ', this.state.tracks[index].audioUrl)
     Expo.FileSystem.downloadAsync(
         this.state.tracks[index].audioUrl,
         Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
@@ -58,12 +59,29 @@ export default class App extends Component {
         currentTrack: currentTrack + 1,
         timeStamp: timeStamp
       }
-    })
+    }, () => this.updateShip()
+    )
   }
+
     
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
-    
+  updateShip = () => {
+    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        timeStamp: this.state.ship.timeStamp,
+        currentTrack: this.state.ship.currentTrack,
+      })
+    })
+    console.log('!!!!updating ship with ', this.state.ship.timeStamp, this.state.ship.currentTrack)
+  }
+  // make a post req to shipRequest with current track state
+  
   getShip = new Promise((resolve, reject) => {
       fetch(this.shipRequest, {
       method: 'GET'
