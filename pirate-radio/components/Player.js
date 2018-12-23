@@ -107,9 +107,7 @@ export default class Player extends Component {
   seek(time) {
     time = Math.round(time);
     this.refs.audioElement && this.refs.audioElement.seek(time);
-    console.log('IM SEEKIN BRUH: ', time * 1000);
     this.state.player.setPositionAsync(Math.floor(time * 1000));
-    if (this.state.paused === true) console.log('IM PAUSED YO!!!')
     this.setState({
       currentPosition: time,
       paused: false,
