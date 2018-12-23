@@ -31,10 +31,29 @@ export default class Player extends Component {
       console.log('STATUS UPDATE', status.positionMillis)
 
       console.log(status.durationMillis)
-      this.setState({
-        currentPosition: Math.floor(status.positionMillis / 1000),
-        totalLength: Math.floor(status.durationMillis / 1000)
+      if (status.positionMillis === status.durationMillis) {
+        console.log('THIS CONDITION HAS BEEN MET')
+
+        this.state.player.setPositionAsync(0).then( () => {
+          this.state.player.stopAsync()
+          this.setState({
+          currentPosition: 0,
+          paused: this.state.paused,
+          totalLength: 1,
+          isChanging: false,
+          player: new Expo.Audio.Sound(),
+          selectedTrack: this.state.selectedTrack + 1,
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
       })
+
+      } else {
+        this.setState({
+          currentPosition: Math.floor(status.positionMillis / 1000),
+          totalLength: Math.floor(status.durationMillis / 1000),
+        })
+      }
+
+
 
       // this.setState({
       //   currentPosition: status.positionMillis
@@ -90,6 +109,7 @@ export default class Player extends Component {
     this.refs.audioElement && this.refs.audioElement.seek(time);
     console.log('IM SEEKIN BRUH: ', time * 1000);
     this.state.player.setPositionAsync(Math.floor(time * 1000));
+    if (this.state.paused === true) console.log('IM PAUSED YO!!!')
     this.setState({
       currentPosition: time,
       paused: false,
