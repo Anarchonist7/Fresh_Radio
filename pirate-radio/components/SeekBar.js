@@ -40,10 +40,10 @@ const SeekBar = ({
         </Text>
       </View>
       <Slider
-        // maximumValue={Math.max(trackLength, 1, currentPosition + 1)}
+        maximumValue={Math.max(trackLength, 1, currentPosition + 1)}
         onSlidingStart={onSlidingStart}
         onSlidingComplete={onSeek}
-        // value={currentPosition}
+        value={currentPosition}
         style={styles.slider}
         minimumTrackTintColor='#fff'
         maximumTrackTintColor='rgba(255, 255, 255, 0.14)'
