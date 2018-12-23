@@ -29,6 +29,13 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
+
+      console.log(status.durationMillis)
+      this.setState({
+        currentPosition: Math.floor(status.positionMillis / 1000),
+        totalLength: Math.floor(status.durationMillis / 1000)
+      })
+
       // this.setState({
       //   currentPosition: status.positionMillis
       // })
@@ -74,16 +81,19 @@ export default class Player extends Component {
 
   setTime(data) {
     //console.log(data);
+    console.log('YARRR WE BE IN THE SET TIME FUNCTION')
     this.setState({currentPosition: Math.floor(data.currentTime)});
   }
 
   seek(time) {
     time = Math.round(time);
     this.refs.audioElement && this.refs.audioElement.seek(time);
+    console.log('IM SEEKIN BRUH: ', time * 1000);
+    this.state.player.setPositionAsync(Math.floor(time * 1000));
     this.setState({
       currentPosition: time,
       paused: false,
-    });
+    }), () => this.state.player.playAsync();
   }
 
   onBack() {
@@ -124,8 +134,8 @@ export default class Player extends Component {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0)) 
-    }   
+      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+    }
   }
 
   componentDidMount() {
@@ -166,7 +176,7 @@ export default class Player extends Component {
     //   return <View><Text>Loading</Text></View>
     // }
     const track = this.props.tracks[this.state.selectedTrack];
-  
+
     // console.log('Selected track has a localUrl of: ', track.localUrl)
 
     return (

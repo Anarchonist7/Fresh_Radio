@@ -17,15 +17,15 @@ import shorthash from 'shorthash'
 
 import Player from './components/Player';
 
-//THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native 
+//THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {loading: true}
   }
 
@@ -60,10 +60,10 @@ export default class App extends Component {
       }
     })
   }
-    
+
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
-    
+
   getShip = new Promise((resolve, reject) => {
       fetch(this.shipRequest, {
       method: 'GET'
@@ -72,7 +72,7 @@ export default class App extends Component {
           throw new Error("Error: ", error);
         } else {
           const response = JSON.parse(responseData._bodyText)
-          const ship = { 
+          const ship = {
             ship: response.ship,
             tracks: response.tracks.map(track => {
               return {
