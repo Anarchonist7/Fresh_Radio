@@ -13,11 +13,13 @@ import {
 const TrackDetails = ({
   title,
   artist,
+  album,
   onAddPress,
   onMorePress,
   onTitlePress,
   onArtistPress,
 }) => (
+  console.log(album),
   <View style={styles.container}>
     {/* <TouchableOpacity onPress={onAddPress}>
       <Image style={styles.button}
@@ -25,6 +27,7 @@ const TrackDetails = ({
     </TouchableOpacity> */}
     <View style={styles.detailsWrapper}>
       <Text style={styles.title} onPress={onTitlePress}>{title}</Text>
+      <Text style={styles.album}>{album}</Text>
       <Text style={styles.artist} onPress={onArtistPress}>{artist}</Text>
     </View>
     {/* <TouchableOpacity onPress={onMorePress}>
@@ -52,14 +55,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
   },
   artist: {
     color: 'rgba(255, 255, 255, 0.72)',
-    fontSize: 12,
+    fontSize: 18,
+    marginTop: 4,
+  },
+  album: {
+    color: 'rgba(255, 255, 255, 0.72)',
+    fontSize: 14,
     marginTop: 4,
   },
   button: {

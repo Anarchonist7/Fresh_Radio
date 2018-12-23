@@ -172,7 +172,7 @@ export default class Player extends Component {
         {/* <StatusBar hidden={true} />
         <Header message="Playing From Charts" /> */}
         {/* <AlbumArt url={track.albumArtUrl} /> */}
-        <TrackDetails title={track.title} artist={track.artist} />
+        <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
           onSeek={this.seek.bind(this)}
           trackLength={this.state.totalLength}

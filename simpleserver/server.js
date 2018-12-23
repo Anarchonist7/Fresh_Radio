@@ -19,24 +19,28 @@ const serverData = {
         id: 1,
         title: 'Rouge',
         artist: 'TOKiMONSTA',
+        album: 'Lune Rouge',
         audioUrl: LOCALHOST + ':' + PORT + '/tune1.mp3'
       },
       {
         id: 2,
         title: 'Estrange (Feat. Io Echo)',
         artist: 'TOKiMONSTA',
+        album: 'Lune Rouge',
         audioUrl: LOCALHOST + ':' + PORT + '/tune2.mp3'
       },
       {
         id: 3,
         title: 'Cirrus',
         artist: 'Bonobo',
+        album: 'The North Borders',
         audioUrl: LOCALHOST + ':' + PORT + '/tune3.mp3'
       },
       {
         id: 4,
         title: 'Elevate This Sound',
         artist: 'Calyx, Teebee',
+        album: 'Elevate This Sound',
         audioUrl: LOCALHOST + ':' + PORT + '/tune4.mp3'
       }
     ]
