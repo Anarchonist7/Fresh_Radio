@@ -1,18 +1,38 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { BottomNav } from '../components/BottomNav';
-import { PirateText } from '../components/PirateText';
+import { BottomNav } from './BottomNav';
+import { PirateText } from './PirateText';
 
 
-import { SeaBackground } from '../components/SeaBackground';
-import Player from '../components/Player';
-import TrackList from '../components/TrackList';
+import { SeaBackground } from './SeaBackground';
+import Player from './Player';
 
 
 export default class ShipCaptainScreen extends React.Component {
 
+    constructor(props){
+        super(props)
+        this.state = {
+            trackList: []
+        }
+    }
+
+    generateTrackList(){
+        let trackComponentArray = []
+        this.props.tracks.forEach((track, i) => {
+            let active = (track.id === this.props.ship.currentTrack)
+            trackComponentArray.push(<Text key={i} style={[styles.smallText, !track.localUrl ? styles.off : [], active ? styles.active : []]}>{track.title} by {track.artist}</Text>)
+        })
+        this.setState({trackList: trackComponentArray})
+    }
+
+    onComponentDidMount(){
+        this.generateTrackList()
+    }
+
     render() {
         const {ship, tracks} = this.props;
+        // console.log('SHIP: ', this.props)
        
         return (
             <SeaBackground>
@@ -22,12 +42,12 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={styles.results}>
-                        <Player tracks={this.props.tracks} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
+                        <Player tracks={this.props.tracks} generateTrackList={this.generateTrackList.bind(this)} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
                     </View>
 
                     <View style={styles.popular}>
                         <Text style={styles.bigText}>{ship.name}{'\n'}</Text>
-                        <TrackList tracks={this.props.tracks} ship={this.props.ship} updateCurrentTrack={this.props.updateCurrentTrack}/>
+                        {this.state.trackList}
                     </View>
                     {/* <ListView> 
                         <PirateText>Popular Ships</PirateText>

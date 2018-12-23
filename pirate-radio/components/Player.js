@@ -29,15 +29,17 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
-      this.setState({
-        currentPosition: status.positionMillis
-      })
+      // this.setState({
+      //   currentPosition: status.positionMillis
+      // })
       // this.state.currentPosition = status.positionMillis
 
     }
 
   loadTrackPlay = async () => {
     this.loadTrack().then(() => {
+      this.state.player.setStatusAsync({progressUpdateIntervalMillis: 1000})
+      this.state.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
       if(!this.state.paused){
         this.state.player.playAsync()
       }
@@ -152,6 +154,7 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('Player componentDidUpdate')
+
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       this.loadTrackPlay().then(() => {
       })
