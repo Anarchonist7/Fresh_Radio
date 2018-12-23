@@ -9,19 +9,29 @@ import Player from '../components/Player';
 
 
 export default class ShipCaptainScreen extends React.Component {
+
     constructor(props){
         super(props)
+        this.state = {
+            trackList: []
+        }
     }
 
     generateTrackList(){
-        const trackComponentArray = []
+        let trackComponentArray = []
         this.props.tracks.forEach((track, i) => {
-            trackComponentArray.push(<Text key={i} style={[styles.smallText, !track.localUrl ? styles.off : []]}>{track.title} by {track.artist}</Text>)
+            let active = (track.id === this.props.ship.currentTrack)
+            trackComponentArray.push(<Text key={i} style={[styles.smallText, !track.localUrl ? styles.off : [], active ? styles.active : []]}>{track.title} by {track.artist}</Text>)
         })
-        return trackComponentArray
+        this.setState({trackList: trackComponentArray})
     }
-    
+
+    onComponentDidMount(){
+        this.generateTrackList()
+    }
+
     render() {
+        console.log('CAPTIN SHIP RENDER')
         const {ship, tracks} = this.props;
         // console.log('SHIP: ', this.props)
        
@@ -33,12 +43,12 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={styles.results}>
-                        <Player tracks={this.props.tracks}/>
+                        <Player tracks={this.props.tracks} generateTrackList={this.generateTrackList.bind(this)} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
                     </View>
 
                     <View style={styles.popular}>
                         <Text style={styles.bigText}>{ship.name}{'\n'}</Text>
-                        {this.generateTrackList()}
+                        {this.state.trackList}
                     </View>
                     {/* <ListView> 
                         <PirateText>Popular Ships</PirateText>
@@ -107,5 +117,8 @@ styles = StyleSheet.create({
     },
     off: {
         opacity: 0.30,
-      }
+      },
+    active: {
+        fontWeight: 'bold',
+    }
 })

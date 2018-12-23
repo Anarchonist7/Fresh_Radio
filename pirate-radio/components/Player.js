@@ -97,7 +97,7 @@ export default class Player extends Component {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack - 1,
-      })
+      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
     } else {
       this.state.player.setPositionAsync(0).then(() => {
         if(!this.state.paused){
@@ -122,9 +122,7 @@ export default class Player extends Component {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }, () => {
-        console.log('FORWARD triggered. Now selected track ID: ', this.props.tracks[this.state.selectedTrack].id)
-      }) 
+      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0)) 
     }   
   }
 
@@ -138,6 +136,7 @@ export default class Player extends Component {
     // } catch (error) {
     //   console.error(error)
     // }
+    this.props.updateCurrentTrack(this.state.selectedTrack, 0)
     this.loadTrack()
   //   this.props.socket.on('message', data => {
   //     console.log(data);
@@ -154,7 +153,9 @@ export default class Player extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
-      this.loadTrackPlay()
+      this.loadTrackPlay().then(() => {
+        this.props.generateTrackList()
+      })
     }
   }
 

@@ -49,7 +49,17 @@ export default class App extends Component {
         .catch(error => {
           console.error('DOWNLOAD ERROR: ', error);
         });
+  }
+
+  updateCurrentTrack = (currentTrack, timeStamp) => {
+    this.setState({
+      ship: {
+        name: this.state.ship.name,
+        currentTrack: currentTrack + 1,
+        timeStamp: timeStamp
       }
+    })
+  }
     
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
@@ -98,7 +108,7 @@ export default class App extends Component {
       if (this.state.loading === true) {
         return < LandingScreen />
       } else {
-        return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship}/>
+        return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
       }
   }
 }
