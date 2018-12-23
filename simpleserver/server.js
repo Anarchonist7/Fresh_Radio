@@ -1,7 +1,10 @@
-const PORT = process.env.PORT || 8080;
 const express = require('express');
 const app = express();
-const bodyParser    = require("body-parser");
+const bodyParser  = require("body-parser");
+require('dotenv').config();
+const ENV = process.env.ENV || "development";
+const PORT = process.env.PORT || 8080;
+const LOCALHOST = process.env.LOCALHOST || 'http://localhost'
 
 
 const serverData = {
@@ -16,29 +19,25 @@ const serverData = {
         id: 1,
         title: 'Rouge',
         artist: 'TOKiMONSTA',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune1.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune1.mp3'
       },
       {
         id: 2,
         title: 'Estrange (Feat. Io Echo)',
         artist: 'TOKiMONSTA',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune2.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune2.mp3'
       },
       {
         id: 3,
         title: 'Cirrus',
         artist: 'Bonobo',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune3.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune3.mp3'
       },
       {
         id: 4,
         title: 'Elevate This Sound',
         artist: 'Calyx, Teebee',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune4.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune4.mp3'
       }
     ]
   },
@@ -53,24 +52,22 @@ const serverData = {
         id: 1,
         title: 'DJ_WISH_TRACK1',
         artist: 'Twenty One Pilots',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune2.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune2.mp3'
       },
       {
         id: 2,
         title: 'DJ_WISH_TRACK2',
         artist: 'Bob Marley',
-        albumArtUrl: "http://36.media.tumblr.com/14e9a12cd4dca7a3c3c4fe178b607d27/tumblr_nlott6SmIh1ta3rfmo1_1280.jpg",
-        audioUrl: 'http://localhost:8080/tune3.mp3'
+        audioUrl: LOCALHOST + ':' + PORT + '/tune3.mp3'
       }
     ]
   }
 }
 
-function asyncRequest(id) {
+function asyncRequest(shipId) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(serverData[id])
+      resolve(serverData[shipId])
     }, 1000)
   })
 }

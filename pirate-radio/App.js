@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
+
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
@@ -13,11 +13,14 @@ import SearchScreen from './screens/SearchScreen';
 import ShipCaptainScreen from './screens/ShipCaptainScreen';
 import ShipCrewScreen from './screens/ShipCrewScreen';
 
-
 import shorthash from 'shorthash'
 
 import Player from './components/Player';
 
+//THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native 
+const ENV = process.env.ENV || "development";
+const PORT = process.env.PORT || 8080;
+const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
@@ -48,9 +51,11 @@ export default class App extends Component {
         });
       }
     
-  shipRequest = "http://localhost:8080/ships/1";
+  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
+
     
   getShip = new Promise((resolve, reject) => {
+      console.log(this.shipRequest);
       fetch(this.shipRequest, {
       method: 'GET'
       }).then((responseData, error) => {
