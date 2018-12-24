@@ -56,7 +56,7 @@ export default class App extends Component {
     this.setState({
       ship: {
         name: this.state.ship.name,
-        currentTrack: currentTrack + 1,
+        currentTrack: currentTrack,
         currentPositionMillis: currentPositionMillis,
         timeStamp: timeStamp,
         paused: paused

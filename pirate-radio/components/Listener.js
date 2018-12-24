@@ -31,6 +31,9 @@ export default class Listener extends Component {
 
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
+      this.setState({
+        totalLength: Math.floor(status.durationMillis / 1000)
+      })
     }
 
   loadTrackPlay = async () => {
@@ -178,15 +181,19 @@ export default class Listener extends Component {
       console.log('TRYING TO SCRUB FROM POSITION, ', this.props.ship.currentPositionMillis)
         this.setState({
           sync: true,
-          currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000)
-         }
-        //  , () => this.state.player.setPositionAsync(this.props.ship.currentPositionMillis).then(() => {
+          paused: this.props.ship.paused,
+          selectedTrack: this.props.ship.currentTrack,
+          currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000),
+          currentPositionMillis: this.props.ship.currentPositionMillis
+         })
+        //  this.state.player.setPositionAsync(this.props.ship.currentPositionMillis)
+        //  .then(() => {
         //   // if (this.props.ship.paused === false) {
         //     console.log('TRYING TO PLAY FROM POSITION')
         //     this.state.player.playAsync()
         //   // }
         // })
-        )
+        
       }
 
   }
