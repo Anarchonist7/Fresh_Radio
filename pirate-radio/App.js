@@ -52,7 +52,7 @@ export default class App extends Component {
         });
   }
 
-  updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused) => {
+  updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
         name: this.state.ship.name,
@@ -61,7 +61,11 @@ export default class App extends Component {
         timeStamp: timeStamp,
         paused: paused
       }
-    }, () => this.updateShip()
+    }, () => {
+      if (!isListener) {
+        this.updateShip()
+      }
+    }
     )
   }
 
@@ -127,7 +131,7 @@ export default class App extends Component {
       if (this.state.loading === true) {
         return < LandingScreen />
       } else {
-        return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
+        return <ShipCrewScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
       }
   }
 }

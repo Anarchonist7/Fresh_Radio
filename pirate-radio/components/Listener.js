@@ -11,7 +11,7 @@ import SeekBar from './SeekBar';
 import Controls from './Controls';
 
 
-export default class Player extends Component {
+export default class Listener extends Component {
 
   constructor(props) {
     super(props);
@@ -31,38 +31,6 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
-
-      console.log(status.durationMillis)
-      if (status.positionMillis === status.durationMillis) {
-        console.log('THIS CONDITION HAS BEEN MET')
-
-        this.state.player.setPositionAsync(0).then( () => {
-          this.state.player.stopAsync()
-          this.setState({
-          currentPosition: 0,
-          paused: this.state.paused,
-          totalLength: 1,
-          isChanging: false,
-          player: new Expo.Audio.Sound(),
-          selectedTrack: this.state.selectedTrack + 1,
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
-      })
-
-      } else {
-        this.setState({
-          currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: status.positionMillis,
-          totalLength: Math.floor(status.durationMillis / 1000),
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
-      }
-
-
-
-      // this.setState({
-      //   currentPosition: status.positionMillis
-      // })
-      // this.state.currentPosition = status.positionMillis
-
     }
 
   loadTrackPlay = async () => {
@@ -130,7 +98,7 @@ export default class Player extends Component {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack - 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0, this.state.paused, true))
     } else {
       this.state.player.setPositionAsync(0).then(() => {
         if(!this.state.paused){
@@ -155,7 +123,7 @@ export default class Player extends Component {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0, this.state.paused, true))
     }
   }
 
@@ -235,25 +203,6 @@ export default class Player extends Component {
           trackLength={this.state.totalLength}
           onSlidingStart={() => this.setState({paused: true})}
           currentPosition={this.state.currentPosition} />
-        <Controls
-          forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
-          backDisabled={this.state.selectedTrack === 0}
-          playDisabled={(track.localUrl !== null) === false}
-          onPressPlay={() => {
-            this.setState({paused: false})
-            this.state.player.playAsync();
-            // console.log(this.props.socket);
-            //this.props.socket.send("PLAY");
-            }
-          }
-          onPressPause={() => {
-            this.setState({paused: true})
-            this.state.player.pauseAsync()
-            }
-          }
-          onBack={this.onBack.bind(this)}
-          onForward={this.onForward.bind(this)}
-          paused={this.state.paused}/>
       </View>
     );
   }
