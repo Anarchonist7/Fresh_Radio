@@ -167,17 +167,25 @@ export default class Listener extends Component {
       })
     }
 
+    // if (!this.props.ship.paused) {
+    //   this.state.player.playAsync()
+    // }
+
     console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
 
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
 
-      console.log('TRYING TO SCRUB FROM POSITION')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
-          if (this.props.ship.paused === false) {
-            console.log('TRYING TO PLAY FROM POSITION')
-            this.state.player.playAsync()
-          }
-        })
+      console.log('TRYING TO SCRUB FROM POSITION, ', this.props.ship.currentPositionMillis)
+        this.setState({
+          sync: true,
+          currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000)
+         }
+        //  , () => this.state.player.setPositionAsync(this.props.ship.currentPositionMillis).then(() => {
+        //   // if (this.props.ship.paused === false) {
+        //     console.log('TRYING TO PLAY FROM POSITION')
+        //     this.state.player.playAsync()
+        //   // }
+        // })
         )
       }
 
