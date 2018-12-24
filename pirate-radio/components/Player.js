@@ -205,7 +205,7 @@ export default class Player extends Component {
 
       console.log('TRYING TO PLAY FROM POSITION')
         this.setState({sync: true}, () => this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
-          this.state.player.playAsync()
+          if (this.props.ship.paused === false) this.state.player.playAsync()
         })
         )
       }

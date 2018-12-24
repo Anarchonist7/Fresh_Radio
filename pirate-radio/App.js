@@ -68,7 +68,7 @@ export default class App extends Component {
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
   updateShip = () => {
-    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.paused}`, {
+    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
