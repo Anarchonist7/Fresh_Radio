@@ -29,63 +29,66 @@ module.exports = StyleSheet.create({
         color: 'white'
     },
 
-    boxes: {
+    Boxes: {
         height: '100%',
         width: '100%',
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
+        marginTop: '13%'
     },
-    search: {
+    Search: {
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
         height: '10%',
-        marginTop: 35,
         backgroundColor: '#383131',
+        marginTop: '5%',
         borderRadius: 15,
     },
-    results: {
+    Results: {
         alignSelf: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         width: '95%',
-        height: '30%',
-        marginVertical: 15,
+        height: '40%',
+        marginVertical: 10,
+        paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
-    popular: {
+    Popular: {
         alignSelf: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         width: '95%',
-        height: '30%',
-        marginVertical: 15,
+        height: '45%',
+        marginVertical: 10,
+        paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
-    footer: {
-        height: '14%'
+    Footer: {
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        height: '14%',
+        width: '100%'
     },
 
-    bigText: {
+    BigText: {
         color: 'white',
         textAlign: 'center',
         fontSize: 32,
     },
 
-    smallText: {
+    SmallText: {
         color: 'white',
         textAlign: 'center',
         fontSize: 18,
     },
-    off: {
-        opacity: 0.30,
-      },
       
-    active: {
+    Active: {
         fontWeight: 'bold',
     },
-    BottomNavcontainer: {
+    BottomNavContainer: {
         height: '100%',
         width: '100%'
     },
@@ -94,9 +97,16 @@ module.exports = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
     },
-    BottomNavButtonContainer: {
+    BottomNavButtonContainerIOS: {
         justifyContent: 'center',
-        flex: 0.23,
+        width: '20%',
+        height: '65%',
+        borderRadius: 40,
+        backgroundColor: '#383131',
+    },
+    BottomNavButtonContainerAndroid: {
+        justifyContent: 'center',
+        width: '16%',
         height: '70%',
         borderRadius: 40,
         backgroundColor: '#383131',
@@ -112,7 +122,7 @@ module.exports = StyleSheet.create({
     BottomNavIcons: {
         textAlign: 'center',
         color: 'white',
-        fontSize: 50,
+        fontSize: 40,
     },
 
 })

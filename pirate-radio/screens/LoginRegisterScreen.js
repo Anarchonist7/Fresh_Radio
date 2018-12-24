@@ -3,6 +3,9 @@ import { Image, ImageBackground, TouchableOpacity, View, Text, StyleSheet } from
 import Styles from '../assets/styles/AppStyles';
 
 export default class LoginRegisterScreen extends React.Component {
+
+    static NavigationOptions = { header: { visibile: false } };
+
     constructor(props){
         super(props)
     }

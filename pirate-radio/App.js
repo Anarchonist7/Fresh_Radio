@@ -103,7 +103,11 @@ export default class App extends Component {
   render() {
     // console.log('App render triggered')
     return (
-      <AppNavigator />
+      <AppNavigator 
+        tracks={this.state.tracks} 
+        ship={this.state.ship} 
+        updateCurrentTrack={this.updateCurrentTrack}
+      />
     )
       // if (this.state.loading === true) {
       //   return < LandingScreen />

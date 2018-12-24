@@ -3,6 +3,9 @@ import { Image, StyleSheet } from 'react-native';
 import Styles from '../assets/styles/AppStyles';
 
 export default class LandingScreen extends React.Component {
+
+    static NavigationOptions = { header: { visibile: false } };
+
     constructor(props){
         super(props)
     }

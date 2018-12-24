@@ -14,6 +14,8 @@ import ShipCrewScreen from './ShipCrewScreen';
 import { Ionicons, Feather } from '@expo/vector-icons';
 
 export default class ListenHostScreen extends React.Component {
+
+    static NavigationOptions = { header: { visibile: false } };
     
     constructor(props){
         super(props)
@@ -24,6 +26,9 @@ export default class ListenHostScreen extends React.Component {
         navigateToSearch = () => this.props.navigation.navigate('SearchScreen');
 
         navigateToCaptain = () => this.props.navigation.navigate('CaptainScreen');
+
+        navigateToShipCaptain= () => this.props.navigation.navigate('ShipCaptainScreen');
+
 
         return (
             <SeaBackground >
@@ -39,7 +44,7 @@ export default class ListenHostScreen extends React.Component {
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToCaptain}>
+                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToShipCaptain}>
                         <View>
                             <PirateText style={ Styles.ListenHostText } >Captain</PirateText>
                             <Ionicons name="ios-radio" style={ Styles.ListenHostIcons } />
