@@ -34,6 +34,36 @@ export default class Listener extends Component {
       this.setState({
         totalLength: Math.floor(status.durationMillis / 1000)
       })
+
+
+      if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
+
+        console.log('TRYING TO SCRUB FROM POSITION, ', this.props.ship.currentPositionMillis)
+        this.state.player.setPositionAsync(3000).then(() => {
+          this.setState({
+            sync: true,
+            paused: this.props.ship.paused,
+            selectedTrack: this.props.ship.currentTrack,
+            currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000),
+            currentPositionMillis: this.props.ship.currentPositionMillis
+           }, () => {
+             console.log('IS IT PAUUUUUUSED?????? ', this.state.paused)
+            if (this.state.paused === false) {
+              this.state.player.playAsync()
+              //WHY ISNT THIS GETTING TRIGGERED?
+            }
+           })
+          })
+            //  .then(() => {
+          //   // if (this.props.ship.paused === false) {
+          //     console.log('TRYING TO PLAY FROM POSITION')
+          //     this.state.player.playAsync()
+          //   // }
+          // })
+          
+        }
+
+
     }
 
   loadTrackPlay = async () => {
@@ -170,31 +200,9 @@ export default class Listener extends Component {
       })
     }
 
-    // if (!this.props.ship.paused) {
-    //   this.state.player.playAsync()
-    // }
-
     console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
 
-    if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
 
-      console.log('TRYING TO SCRUB FROM POSITION, ', this.props.ship.currentPositionMillis)
-        this.setState({
-          sync: true,
-          paused: this.props.ship.paused,
-          selectedTrack: this.props.ship.currentTrack,
-          currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000),
-          currentPositionMillis: this.props.ship.currentPositionMillis
-         })
-        //  this.state.player.setPositionAsync(this.props.ship.currentPositionMillis)
-        //  .then(() => {
-        //   // if (this.props.ship.paused === false) {
-        //     console.log('TRYING TO PLAY FROM POSITION')
-        //     this.state.player.playAsync()
-        //   // }
-        // })
-        
-      }
 
   }
 
