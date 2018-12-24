@@ -20,10 +20,12 @@ export default class Player extends Component {
       paused: true,
       totalLength: 1,
       currentPosition: 0,
+      currentPositionMillis: 0,
       selectedTrack: 0,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
+      sync: false
     };
   }
 
@@ -49,8 +51,9 @@ export default class Player extends Component {
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
+          currentPositionMillis: status.positionMillis,
           totalLength: Math.floor(status.durationMillis / 1000),
-        })
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
       }
 
 
@@ -166,8 +169,16 @@ export default class Player extends Component {
     // } catch (error) {
     //   console.error(error)
     // }
-    this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+    console.log('COMPONENT DID MOUNT MF')
+    
     this.loadTrack()
+    
+    // .then(() => {
+    //   this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
+    //     this.state.player.playAsync()
+    //   })
+    // })
+
   //   this.props.socket.on('message', data => {
   //     console.log(data);
   //     if (data === "PLAY"){
@@ -187,6 +198,18 @@ export default class Player extends Component {
       this.loadTrackPlay().then(() => {
       })
     }
+
+    console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
+
+    if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
+
+      console.log('TRYING TO PLAY FROM POSITION')
+        this.setState({sync: true}, () => this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
+          this.state.player.playAsync()
+        })
+        )
+      }
+
   }
 
   render() {

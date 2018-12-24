@@ -52,12 +52,14 @@ export default class App extends Component {
         });
   }
 
-  updateCurrentTrack = (currentTrack, timeStamp) => {
+  updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused) => {
     this.setState({
       ship: {
         name: this.state.ship.name,
         currentTrack: currentTrack + 1,
-        timeStamp: timeStamp
+        currentPositionMillis: currentPositionMillis,
+        timeStamp: timeStamp,
+        paused: paused
       }
     }, () => this.updateShip()
     )
@@ -66,7 +68,7 @@ export default class App extends Component {
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
 
   updateShip = () => {
-    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}`, {
+    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.paused}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -104,10 +106,11 @@ export default class App extends Component {
     })
 
   componentDidMount() {
-    this.getShip.then((ship) => {
+    this.getShip.then((response) => {
+      console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
       this.setState({
-        tracks: ship.tracks,
-        ship: ship.ship,
+        tracks: response.tracks,
+        ship: response.ship,
         loading: false
       })
       this.state.tracks.forEach((track, index) => {

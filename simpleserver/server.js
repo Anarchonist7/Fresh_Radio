@@ -12,6 +12,8 @@ const serverData = {
     ship: {
       name: 'Barbosa Beats',
       currentTrack: 2,
+      currentPositionMillis: 0,
+      paused: true,
       timeStamp: Date.now()
     },
     tracks: [
@@ -94,11 +96,12 @@ app.get("/ships/:id", function(req, res) {
 app.post("/ships/:id", function(req, res) {
   //should require captain Auth
   const {id} = req.params
-  const {timeStamp, currentTrack} = req.query
-  console.log('shipID: ', id, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack)
-  console.log(req.body)
+  const {timeStamp, currentTrack, currentPositionMillis, paused} = req.query
+  console.log('shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
   serverData[id].ship.currentTrack = currentTrack
   serverData[id].ship.timeStamp = timeStamp
+  serverData[id].ship.currentPositionMillis = currentPositionMillis
+  serverData[id].ship.paused = paused
   res.json('recorded current track and timestamp to server data')
   res.send()
 })

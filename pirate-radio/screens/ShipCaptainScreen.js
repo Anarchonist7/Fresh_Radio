@@ -22,7 +22,7 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={styles.results}>
-                        <Player tracks={this.props.tracks} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
+                        <Player tracks={this.props.tracks} ship={this.props.ship} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
                     </View>
 
                     <View style={styles.popular}>
