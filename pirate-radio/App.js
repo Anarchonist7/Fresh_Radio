@@ -27,7 +27,9 @@ export default class App extends Component {
 
   constructor(props) {
     super(props) 
-    this.state = {loading: true}
+    this.state = {
+      loading: true,
+    }
   }
 
   downloadTrack = (index) => {
@@ -102,13 +104,19 @@ export default class App extends Component {
 
   render() {
     // console.log('App render triggered')
-    return (
-      <AppNavigator 
-        tracks={this.state.tracks} 
-        ship={this.state.ship} 
-        updateCurrentTrack={this.updateCurrentTrack}
-      />
-    )
+
+    const screenProps = {
+      tracks: this.state.tracks,
+      ship: this.state.ship,
+      updateCurrentTrack: this.updateCurrentTrack
+    }
+
+    if (this.state.loading === true ) {
+      return <LandingScreen />
+    } else {
+      return <AppNavigator screenProps={ screenProps} />
+    }
+
       // if (this.state.loading === true) {
       //   return < LandingScreen />
       // } else {

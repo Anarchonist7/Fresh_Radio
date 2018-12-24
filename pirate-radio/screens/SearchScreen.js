@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
 import Styles from '../assets/styles/AppStyles';

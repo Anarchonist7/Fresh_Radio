@@ -37,7 +37,7 @@ export class BottomNav extends React.Component {
                 <View style={Styles.BottomNavElements}>
                     <TouchableOpacity 
                         style={[Styles.BottomNavBackContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
-                        onPress={() => this.props.navigation.goBack()}>
+                        onPress={() => { this.props.navigation.goBack() }}>
                         <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavIcons }/>
                     </TouchableOpacity>
                         { this.state.volumeOn ? (

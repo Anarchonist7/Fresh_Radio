@@ -17,7 +17,6 @@ export class SeaBackground extends React.Component {
                 }} >
 
                 {this.props.children}
-
             </ImageBackground>
         )
     }

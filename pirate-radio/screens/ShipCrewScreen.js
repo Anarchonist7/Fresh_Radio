@@ -9,7 +9,7 @@ import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 
 
-export default class ShipCaptainScreen extends React.Component {
+export default class ShipCrewScreen extends React.Component {
 
     static NavigationOptions = { header: { visibile: false } };
 

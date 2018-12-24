@@ -13,10 +13,14 @@ const AppNavigator = createStackNavigator(
   {
     'CaptainScreen': { screen: CaptainScreen },
     'HomeScreen': { screen: ListenHostScreen },
-    'LandingScreen': { screen: LandingScreen },
+    'Splash': { screen: LandingScreen },
+    // 'LandingScreen': {
+    //   screen: props=> <LandingScreen {...props} screenprops={screenProps}/> },    
     'LoginRegisterScreen': { screen: LoginRegisterScreen },
     'SearchScreen': { screen: SearchScreen },
     'ShipCaptainScreen': { screen: ShipCaptainScreen },
+    // 'ShipCaptainScreen': { 
+    //   screen: props=> <ShipCaptainScreen {...props} screenProps={screenProps}/>},
     'ShipCrewScreen': { screen: ShipCrewScreen }
   },
   {

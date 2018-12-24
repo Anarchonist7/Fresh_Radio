@@ -4,8 +4,6 @@ import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
 import Styles from '../assets/styles/AppStyles';
 
-
-
 import { SeaBackground } from '../components/SeaBackground';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
@@ -13,12 +11,21 @@ import TrackList from '../components/TrackList';
 
 export default class ShipCaptainScreen extends React.Component {
 
+    constructor(props){
+        super(props)
+    }
+
     static NavigationOptions = { header: { visibile: false } };
 
     render() {
-        const {ship, tracks} = this.props;
-        console.log('SHIP: ', this.props)
-       
+        
+
+        console.log("!!!!!!!!!!!", this.props.screenProps)
+        
+        const {ship, tracks} = this.props.screenProps;
+        // const {ship, tracks} = this.props.screenProps;
+        // console.log('SHIP: ', this.props.screenProps)
+        
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -27,12 +34,12 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Results}>
-                        <Player tracks={this.props.tracks} updateCurrentTrack={this.props.updateCurrentTrack.bind(this)}/>
+                        <Player tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                     </View>
 
                     <View style={Styles.Popular}>
                         <Text style={Styles.BigText}>{ship.name}{'\n'}</Text>
-                        <TrackList tracks={this.props.tracks} ship={this.props.ship} updateCurrentTrack={this.props.updateCurrentTrack}/>
+                        <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
                     {/* <ListView> 
                         <PirateText>Popular Ships</PirateText>
@@ -45,6 +52,5 @@ export default class ShipCaptainScreen extends React.Component {
                 </View>
             </SeaBackground>
         )
-        
     }
 }
