@@ -3,12 +3,15 @@ import {
   View,
   Text,
   StatusBar,
+  StyleSheet,
 } from 'react-native';
 import Header from './Header';
 import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
+
+import Styles from '../assets/styles/AppStyles';
 
 
 export default class Player extends Component {
@@ -167,11 +170,7 @@ export default class Player extends Component {
     // console.log('Selected track has a localUrl of: ', track.localUrl)
 
     return (
-      // <View style={styles.container}>
       <View>
-        {/* <StatusBar hidden={true} />
-        <Header message="Playing From Charts" /> */}
-        {/* <AlbumArt url={track.albumArtUrl} /> */}
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
           onSeek={this.seek.bind(this)}
@@ -185,8 +184,6 @@ export default class Player extends Component {
           onPressPlay={() => {
             this.setState({paused: false})
             this.state.player.playAsync();
-            // console.log(this.props.socket);
-            //this.props.socket.send("PLAY");
             }
           }
           onPressPause={() => {
@@ -201,14 +198,3 @@ export default class Player extends Component {
     );
   }
 }
-
-const styles = {
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(4,4,4)',
-  },
-  audioElement: {
-    height: 0,
-    width: 0,
-  }
-};

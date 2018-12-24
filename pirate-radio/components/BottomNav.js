@@ -33,7 +33,7 @@ export class BottomNav extends React.Component {
     render() {
 
         return (
-            <View style={Styles.BottomNavContainer}>
+            <View>
                 <View style={Styles.BottomNavElements}>
                     <TouchableOpacity 
                         style={[Styles.BottomNavBackContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 

@@ -10,6 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 
+import Styles from '../assets/styles/AppStyles';
 
 export default class TrackList extends React.Component {
 
@@ -25,7 +26,7 @@ export default class TrackList extends React.Component {
         let trackComponentArray = []
         this.props.tracks.forEach((track, i) => {
             let active = (track.id === this.props.ship.currentTrack)
-            trackComponentArray.push(<Text key={i} style={[styles.smallText, !track.localUrl ? styles.off : [], active ? styles.active : []]}>{track.title} by {track.artist}</Text>)
+            trackComponentArray.push(<Text key={i} style={[Styles.SmallText, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>{track.title} by {track.artist}</Text>)
         })
         return trackComponentArray
     }

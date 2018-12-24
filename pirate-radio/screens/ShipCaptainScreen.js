@@ -33,22 +33,17 @@ export default class ShipCaptainScreen extends React.Component {
                         <PirateText style={Styles.BigText}>Captain Barbosa</PirateText>
                     </View>
 
-                    <View style={Styles.Results}>
+                    <View style={Styles.NowPlaying}>
                         <Player tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                     </View>
 
-                    <View style={Styles.Popular}>
+                    <View style={Styles.Playlist}>
                         <Text style={Styles.BigText}>{ship.name}{'\n'}</Text>
                         <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
-                    {/* <ListView> 
-                        <PirateText>Popular Ships</PirateText>
-                        dataSource={this.state.dataSource}
-                        renderRow={(rowData) => <PirateText>{rowData}</PirateText>}
-                    </ListView> */}
-                    <View style={Styles.Footer}>
-                        <BottomNav/>
-                    </View>
+                </View>
+                <View style={Styles.Footer}>
+                    <BottomNav navigation={this.props.navigation}/>
                 </View>
             </SeaBackground>
         )

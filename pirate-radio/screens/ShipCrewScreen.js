@@ -13,9 +13,13 @@ export default class ShipCrewScreen extends React.Component {
 
     static NavigationOptions = { header: { visibile: false } };
 
+    constructor(props){
+        super(props)
+    }
+
     render() {
-        const {ship, tracks} = this.props;
-        console.log('SHIP: ', this.props)
+        const {ship, tracks} = this.props.screenProps;
+        console.log('SHIP: ', this.props.screenProps)
        
         return (
             <SeaBackground>
@@ -32,11 +36,6 @@ export default class ShipCrewScreen extends React.Component {
                         <Text style={Styles.BigText}>{ship.name}{'\n'}</Text>
                         <TrackList tracks={this.props.tracks} ship={this.props.ship} updateCurrentTrack={this.props.updateCurrentTrack}/>
                     </View>
-                    {/* <ListView> 
-                        <PirateText>Popular Ships</PirateText>
-                        dataSource={this.state.dataSource}
-                        renderRow={(rowData) => <PirateText>{rowData}</PirateText>}
-                    </ListView> */}
                     <View style={Styles.Footer}>
                         <BottomNav/>
                     </View>

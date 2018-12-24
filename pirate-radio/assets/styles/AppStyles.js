@@ -3,7 +3,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-
 module.exports = StyleSheet.create({
     ListenHostButtons: {
         resizeMode: 'contain',
@@ -29,6 +28,9 @@ module.exports = StyleSheet.create({
         color: 'white'
     },
 
+
+
+
     Boxes: {
         height: '100%',
         width: '100%',
@@ -38,37 +40,64 @@ module.exports = StyleSheet.create({
         marginTop: '13%'
     },
     Search: {
+        paddingTop: 5,
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
         height: '10%',
         backgroundColor: '#383131',
-        marginTop: '5%',
         borderRadius: 15,
     },
+
     Results: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '40%',
-        marginVertical: 10,
+        height: '38%',
+        marginTop: '5%',
         paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
+    
+    NowPlaying: {
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: '38%',
+        marginTop: '5%',
+        paddingTop: 15,
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
     Popular: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '45%',
-        marginVertical: 10,
+        height: '32%',
+        marginTop: '5%',
         paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
+    
+    Playlist: {
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: '32%',
+        marginTop: '5%',
+        paddingTop: 15,
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
     Footer: {
+        position: 'absolute',
         flexDirection: 'column',
         justifyContent: 'flex-end',
+        top: '86%',
         height: '14%',
         width: '100%'
     },
@@ -84,18 +113,25 @@ module.exports = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
     },
+
+
+
       
+    Off: {
+        opacity: 0.6,
+    },
+
     Active: {
         fontWeight: 'bold',
     },
-    BottomNavContainer: {
-        height: '100%',
-        width: '100%'
-    },
+
+
+
     BottomNavElements: {
-        flex: 1,
-        justifyContent: 'space-between',
+        height: '100%',
+        width: '100%',
         flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
@@ -125,4 +161,13 @@ module.exports = StyleSheet.create({
         fontSize: 40,
     },
 
+    container: {
+        flex: 1,
+        backgroundColor: 'rgb(4,4,4)',
+    },
+
+    audioElement: {
+        height: 0,
+        width: 0,
+    }
 })
