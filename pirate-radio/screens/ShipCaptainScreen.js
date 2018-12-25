@@ -18,14 +18,14 @@ export default class ShipCaptainScreen extends React.Component {
     static NavigationOptions = { header: { visibile: false } };
 
     render() {
-        
+
         const {ship, tracks} = this.props.screenProps;
         // console.log('SHIP: ', this.props.screenProps)
-        
+
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
-                    <View style={Styles.Search}> 
+                    <View style={Styles.Search}>
                         <PirateText style={Styles.BigText}>Captain Barbosa</PirateText>
                     </View>
 

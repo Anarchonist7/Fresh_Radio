@@ -15,8 +15,8 @@ import ShipCrewScreen from './screens/ShipCrewScreen';
 import AppNavigator from './navigation/AppNavigator';
 
 import shorthash from 'shorthash'
-
-import Player from './components/Player';
+import Listener from './components/Listener';
+// import Player from './components/Player';
 
 //THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
 const ENV = process.env.ENV || "development";
@@ -26,7 +26,7 @@ const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 export default class App extends Component {
 
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {
       loading: true
     }
@@ -66,7 +66,7 @@ export default class App extends Component {
       }
     }, () => {
       if (!isListener) {
-        this.updateShip()
+        // this.updateShip()
       }
     }
     )
@@ -89,7 +89,7 @@ export default class App extends Component {
     console.log('!!!!updating ship with ', this.state.ship.timeStamp, this.state.ship.currentTrack)
   }
   // make a post req to shipRequest with current track state
-  
+
   getShip = new Promise((resolve, reject) => {
       fetch(this.shipRequest, {
       method: 'GET'
