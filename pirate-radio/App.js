@@ -21,14 +21,21 @@ import Player from './components/Player';
 //THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props) 
     this.state = {
-      loading: true
+      loading: true,
+      ship: {
+        name: '',
+        currentTrack: '',
+        currentPositionMillis: '',
+        timeStamp: '',
+        paused: '',
+      }
     }
   }
 
