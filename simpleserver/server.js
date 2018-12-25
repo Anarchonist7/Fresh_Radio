@@ -6,7 +6,6 @@ const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://localhost'
 
-
 const serverData = {
   1: {
     ship: {
@@ -87,7 +86,7 @@ app.get("/ships/:id", function(req, res) {
       console.log('error', error.message)
       res.status(500).json({ error: error.message });
     } else {
-      console.log(serverResponse)
+      console.log('Reponse to APP: :', serverResponse)
       res.json(serverResponse); 
     }
   });
@@ -97,7 +96,7 @@ app.post("/ships/:id", function(req, res) {
   //should require captain Auth
   const {id} = req.params
   const {timeStamp, currentTrack, currentPositionMillis, paused} = req.query
-  console.log('shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
+  console.log('Post from APP: shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
   serverData[id].ship.currentTrack = currentTrack
   serverData[id].ship.timeStamp = timeStamp
   serverData[id].ship.currentPositionMillis = currentPositionMillis
