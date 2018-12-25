@@ -127,18 +127,6 @@ export default class App extends Component {
   }
 
   render() {
-    // console.log('App render triggered')
-<<<<<<< HEAD
-    // return (
-    //   <SearchScreen />
-    // )
-      if (this.state.loading === true) {
-        return < LandingScreen />
-      } else {
-        return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
-      }
-=======
-
     const screenProps = {
       tracks: this.state.tracks,
       ship: this.state.ship,
@@ -156,7 +144,6 @@ export default class App extends Component {
       // } else {
       //   return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
       // }
->>>>>>> master
   }
 }
 
