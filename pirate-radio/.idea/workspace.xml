@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
+    <option name="x" value="275" />
     <option name="y" value="23" />
     <option name="width" value="971" />
     <option name="height" value="777" />
@@ -109,7 +109,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="23" width="971" height="777" extended-state="0" />
+    <frame x="275" y="23" width="971" height="777" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
