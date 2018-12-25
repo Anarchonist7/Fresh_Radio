@@ -3,7 +3,7 @@ import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
 import CaptainScreen from './screens/CaptainScreen';
 import LandingScreen from './screens/LandingScreen';
@@ -28,7 +28,7 @@ export default class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      loading: true,
+      loading: true
     }
   }
 
