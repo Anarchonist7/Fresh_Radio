@@ -11,7 +11,7 @@ const serverData = {
   1: {
     ship: {
       name: 'Barbosa Beats',
-      currentTrack: 2,
+      currentTrack: 0,
       currentPositionMillis: 0,
       paused: true,
       timeStamp: Date.now()

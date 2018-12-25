@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, TouchableOpacity, Button, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, TouchableOpacity, Button, View, Text, StyleSheet, Platform } from 'react-native';
 
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { PirateText } from './PirateText';
