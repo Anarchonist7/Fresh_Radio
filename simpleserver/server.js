@@ -4,15 +4,15 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost'
-
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
+let treasure = 0;
 const serverData = {
   1: {
     ship: {
       name: 'Barbosa Beats',
-      currentTrack: 0,
+      currentTrack: 1,
       currentPositionMillis: 0,
-      paused: true,
+      paused: false,
       timeStamp: Date.now()
     },
     tracks: [
@@ -87,7 +87,13 @@ app.get("/ships/:id", function(req, res) {
       res.status(500).json({ error: error.message });
     } else {
       console.log('Reponse to APP: :', serverResponse)
-      res.json(serverResponse); 
+      console.log('HERE BE THE TREASURE: ', treasure)
+      serverData['1'].ship.currentPositionMillis = serverResponse.ship.currentPositionMillis
+      console.log('object hunting: ', serverData)
+      serverResponse.ship.currentPositionMillis = Math.floor(serverResponse.ship.currentPositionMillis)
+      serverResponse.ship.paused = false
+      console.log('millisResponse: ', serverResponse.ship.currentPositionMillis)
+      res.json(serverResponse);
     }
   });
 });
@@ -96,6 +102,7 @@ app.post("/ships/:id", function(req, res) {
   //should require captain Auth
   const {id} = req.params
   const {timeStamp, currentTrack, currentPositionMillis, paused} = req.query
+  treasure = currentPositionMillis
   console.log('Post from APP: shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
   serverData[id].ship.currentTrack = currentTrack
   serverData[id].ship.timeStamp = timeStamp

@@ -22,7 +22,7 @@ export default class Player extends Component {
     this.state = {
       paused: this.props.ship.paused,
       totalLength: 1,
-      currentPosition: this.props.ship.currentPositionMillis / 1000,
+      currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000),
       currentPositionMillis: this.props.ship.currentPositionMillis,
       selectedTrack: 0,
       player: new Expo.Audio.Sound(),
@@ -192,7 +192,6 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('Player componentDidUpdate')
-
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       this.loadTrackPlay().then(() => {
         console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
