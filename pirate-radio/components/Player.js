@@ -37,11 +37,11 @@ export default class Player extends Component {
       console.log('duration: ', status.durationMillis)
       if (status.positionMillis === status.durationMillis) {
         console.log('THIS CONDITION HAS BEEN MET')
-
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
           this.setState({
           currentPosition: 0,
+          currentPositionMillis: 0,
           paused: this.state.paused,
           totalLength: 1,
           isChanging: false,
@@ -150,6 +150,7 @@ export default class Player extends Component {
       // this.refs.audioElement && this.refs.audioElement.seek(0);
       // this.setState({ isChanging: true });
       this.state.player.stopAsync()
+
       this.setState({
         currentPosition: 0,
         paused: this.state.paused,
@@ -174,6 +175,7 @@ export default class Player extends Component {
     console.log('COMPONENT DID MOUNT MF')
     console.log(this.state.positionMillis)
     this.loadTrack()
+
 
 
   //   this.props.socket.on('message', data => {
@@ -229,7 +231,7 @@ export default class Player extends Component {
           onSeek={this.seek.bind(this)}
           trackLength={this.state.totalLength}
           onSlidingStart={() => this.setState({paused: true})}
-          currentPosition={this.state.currentPosition} />
+          currentPosition={this.state.currentPosition || 0} />
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
           backDisabled={this.state.selectedTrack === 0}
