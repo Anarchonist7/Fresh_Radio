@@ -23,6 +23,10 @@ const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 
+// const knex = require('knex')({
+//   dialect: 'pg',
+// });
+
 export default class App extends Component {
 
   constructor(props) {
