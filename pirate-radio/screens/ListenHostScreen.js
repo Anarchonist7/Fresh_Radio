@@ -39,7 +39,7 @@ export default class ListenHostScreen extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToSearch}> 
+                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToShipCrew}> 
                         <View>
                             <PirateText style={ Styles.ListenHostText } >Crew</PirateText>
                             <Feather name="headphones" style={ Styles.ListenHostIcons } />

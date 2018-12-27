@@ -73,7 +73,7 @@ export default class App extends Component {
       }
     }, () => {
       if (!isListener) {
-        // this.updateShip()
+       this.updateShip()
       }
     }
     )
