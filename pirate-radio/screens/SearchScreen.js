@@ -41,18 +41,17 @@ export default class SearchScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Popular}>
-                    
                         <PirateText style={[Styles.BigText, Styles.ListHeader]}>Popular Ships{'\n'}</PirateText>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText}><SimpleLineIcons style={Styles.AnchorIcon} name="anchor"/> arrrRave</PirateText>
+                            <PirateText style={Styles.SmallText} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> arrrRave</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 11</PirateText>
                         </View>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.AnchorIcon} name="anchor" /> Captain Barbosa</PirateText>
+                            <PirateText style={Styles.SmallText} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Captain Barbosa</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 4</PirateText>
                         </View>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText}><SimpleLineIcons style={Styles.AnchorIcon} name="anchor"/> Lonely John</PirateText>
+                            <PirateText style={Styles.SmallText} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Lonely John</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 8</PirateText>
                         </View>
                     </View>

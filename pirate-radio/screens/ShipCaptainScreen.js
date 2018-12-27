@@ -4,10 +4,12 @@ import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
 import Styles from '../assets/styles/AppStyles';
 
+const PiratePNG = require('../assets/images/pirate.png');
+
 import { SeaBackground } from '../components/SeaBackground';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default class ShipCaptainScreen extends React.Component {
 
@@ -25,8 +27,11 @@ export default class ShipCaptainScreen extends React.Component {
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
-                    <View style={Styles.Search}> 
-                        <PirateText style={Styles.BigText}>Captain Barbosa</PirateText>
+                    <View style={Styles.ShipHeader}> 
+                        <Text>
+                            <PirateText style={Styles.BigText}>Captain Barbosa </PirateText>
+                            <Image source={PiratePNG} style={ Styles.CaptainIcon } />
+                        </Text>
                     </View>
 
                     <View style={Styles.NowPlaying}>

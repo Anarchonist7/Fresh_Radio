@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Styles from '../assets/styles/AppStyles';
+
+const PirateShipPNG = require('../assets/images/pirate-ship.png');
+
 import {
   View,
   Text,
@@ -10,6 +14,8 @@ import {
   Dimensions,
 } from 'react-native';
 
+import TextTicker from 'react-native-text-ticker'
+
 const TrackDetails = ({
   title,
   artist,
@@ -19,19 +25,22 @@ const TrackDetails = ({
   onTitlePress,
   onArtistPress,
 }) => (
-  <View style={styles.container}>
+  <View style={Styles.TrackDetailsContainer}>
     {/* <TouchableOpacity onPress={onAddPress}>
-      <Image style={styles.button}
+      <Image style={Styles.TrackDetailsButton}
         source={require('../img/ic_add_circle_outline_white.png')} />
     </TouchableOpacity> */}
-    <View style={styles.detailsWrapper}>
-      <Text style={styles.title} onPress={onTitlePress}>{title}</Text>
-      <Text style={styles.album}>{album}</Text>
-      <Text style={styles.artist} onPress={onArtistPress}>{artist}</Text>
+    <View style={Styles.TrackDetailsWrapper}>
+      <TextTicker duration={8000} style={Styles.TrackDetailsTitle} marqueeOnMount loop bounce>{title}</TextTicker>
+      <Text style={Styles.TrackDetailsAlbum}>{album}</Text>
+      <Text style={Styles.TrackDetailsArtist} onPress={onArtistPress}>{artist}</Text>
+    </View>
+    <View>
+      <Image source={PirateShipPNG} style={Styles.PirateShipIcon} />
     </View>
     {/* <TouchableOpacity onPress={onMorePress}>
-      <View style={styles.moreButton}>
-        <Image style={styles.moreButtonIcon}
+      <View style={Styles.TrackDetailsMoreButton}>
+        <Image style={Styles.TrackDetailsMoreButtonIcon}
           source={require('../img/ic_more_horiz_white.png')} />
       </View>
     </TouchableOpacity> */}
@@ -39,51 +48,3 @@ const TrackDetails = ({
 );
 
 export default TrackDetails;
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 24,
-    flexDirection: 'row',
-    paddingLeft: 20,
-    alignItems: 'center',
-    paddingRight: 20,
-  },
-  detailsWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
-  },
-  artist: {
-    color: 'rgba(255, 255, 255, 0.72)',
-    fontSize: 18,
-    marginTop: 4,
-  },
-  album: {
-    color: 'rgba(255, 255, 255, 0.72)',
-    fontSize: 14,
-    marginTop: 4,
-  },
-  button: {
-    opacity: 0.72,
-  },
-  moreButton: {
-    borderColor: 'rgb(255, 255, 255)',
-    borderWidth: 2,
-    opacity: 0.72,
-    borderRadius: 10,
-    width: 20,
-    height: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  moreButtonIcon: {
-    height: 17,
-    width: 17,
-  }
-});

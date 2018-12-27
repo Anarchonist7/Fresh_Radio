@@ -13,6 +13,9 @@ import Controls from './Controls';
 
 import Styles from '../assets/styles/AppStyles';
 
+import { FontAwesome } from '@expo/vector-icons';
+
+
 
 export default class Player extends Component {
 

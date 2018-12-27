@@ -24,8 +24,20 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         marginTop: '13%'
     },
+
     Search: {
         paddingTop: 5,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '95%',
+        height: '10%',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    ShipHeader: {
+        paddingTop: 5,
+        paddingBottom: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
@@ -172,11 +184,29 @@ module.exports = StyleSheet.create({
         fontSize: 40,
     },
 
-    AnchorIcon: {
+    SmallWhiteIcon: {
         color: 'white',
         fontSize: 14,
     },
 
+    SmallBlackIcon: {
+        color: 'black',
+        fontSize: 14,
+    },
+
+    CaptainIcon: {
+        width: 35,
+        height: 35,
+        marginBottom: 5,
+        resizeMode: 'contain',
+    },
+    
+    PirateShipIcon: {
+        width: 80,
+        height: 80,
+        resizeMode: 'contain',
+        marginRight: 10,
+    },
 
     container: {
         flex: 1,
@@ -186,5 +216,56 @@ module.exports = StyleSheet.create({
     audioElement: {
         height: 0,
         width: 0,
-    }
+    },
+
+    TrackDetailsContainer: {
+        paddingTop: 24,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 40,
+        paddingRight: 20,
+      },
+      TrackDetailsWrapper: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 200,
+        height: 50,
+    },
+      TrackDetailsTitle: {
+        fontSize: 24,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'white',
+      },
+      TrackDetailsArtist: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        width: 200,
+        textAlign: 'center',
+        fontSize: 18,
+        marginTop: 4,
+      },
+      TrackDetailsAlbum: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        width: 200,
+        textAlign: 'center',
+        fontSize: 14,
+        marginTop: 4,
+      },
+      TrackDetailsButton: {
+        opacity: 0.72,
+      },
+      TrackDetailsMoreButton: {
+        borderColor: 'rgb(255, 255, 255)',
+        borderWidth: 2,
+        opacity: 0.72,
+        borderRadius: 10,
+        width: 20,
+        height: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      TrackDetailsMoreButtonIcon: {
+        height: 17,
+        width: 17,
+      }
 })

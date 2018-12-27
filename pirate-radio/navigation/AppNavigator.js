@@ -21,7 +21,6 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'HomeScreen',
-    // initialRouteName: 'ShipCaptainScreen',
     headerMode: 'none',
     navigationOptions: {
       headerVisible: false,
