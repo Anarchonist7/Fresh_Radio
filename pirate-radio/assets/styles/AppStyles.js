@@ -224,37 +224,43 @@ module.exports = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 40,
         paddingRight: 20,
-      },
-      TrackDetailsWrapper: {
+    },
+
+    TrackDetailsWrapper: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 200,
         height: 50,
     },
-      TrackDetailsTitle: {
+
+    TrackDetailsTitle: {
         fontSize: 24,
         textAlign: 'center',
         fontWeight: 'bold',
         color: 'white',
-      },
-      TrackDetailsArtist: {
+    },
+
+    TrackDetailsArtist: {
         color: 'rgba(255, 255, 255, 0.72)',
         width: 200,
         textAlign: 'center',
         fontSize: 18,
         marginTop: 4,
-      },
-      TrackDetailsAlbum: {
+    },
+
+    TrackDetailsAlbum: {
         color: 'rgba(255, 255, 255, 0.72)',
         width: 200,
         textAlign: 'center',
         fontSize: 14,
         marginTop: 4,
-      },
-      TrackDetailsButton: {
+    },
+
+    TrackDetailsButton: {
         opacity: 0.72,
-      },
-      TrackDetailsMoreButton: {
+    },
+
+    TrackDetailsMoreButton: {
         borderColor: 'rgb(255, 255, 255)',
         borderWidth: 2,
         opacity: 0.72,
@@ -263,9 +269,10 @@ module.exports = StyleSheet.create({
         height: 20,
         alignItems: 'center',
         justifyContent: 'center',
-      },
-      TrackDetailsMoreButtonIcon: {
+    },
+    
+    TrackDetailsMoreButtonIcon: {
         height: 17,
         width: 17,
-      }
+    }
 })
