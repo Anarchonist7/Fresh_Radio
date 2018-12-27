@@ -16,19 +16,6 @@ module.exports = StyleSheet.create({
         backgroundColor: 'black'
     },
 
-    ListenHostText: {
-        color: 'white',
-        fontSize: 60,
-        textAlign: 'center',
-    },
-
-    ListenHostIcons: {
-        textAlign: 'center',
-        fontSize: 60,
-        color: 'white'
-    },
-
-
     Boxes: {
         height: '100%',
         width: '100%',
@@ -102,6 +89,10 @@ module.exports = StyleSheet.create({
         borderRadius: 15,
     },
 
+    TrackList: {
+        paddingHorizontal: 5,
+    },
+
     Footer: {
         position: 'absolute',
         flexDirection: 'column',
@@ -111,15 +102,21 @@ module.exports = StyleSheet.create({
         width: '100%'
     },
 
+    ListHeader: {
+        paddingTop: 15,
+        marginBottom: '-5%',
+    },
+
+    ListenHostText: {
+        color: 'white',
+        fontSize: 60,
+        textAlign: 'center',
+    },
+
     BigText: {
         color: 'white',
         textAlign: 'center',
         fontSize: 32,
-    },
-
-    ListHeader: {
-        paddingTop: 15,
-        marginBottom: '-5%',
     },
 
     SmallText: {
@@ -134,8 +131,6 @@ module.exports = StyleSheet.create({
     Active: {
         fontWeight: 'bold',
     },
-
-
 
     BottomNavElements: {
         height: '100%',
@@ -165,11 +160,23 @@ module.exports = StyleSheet.create({
         marginRight: 10,
     },
 
+    ListenHostIcons: {
+        textAlign: 'center',
+        fontSize: 60,
+        color: 'white'
+    },
+
     BottomNavIcons: {
         textAlign: 'center',
         color: 'white',
         fontSize: 40,
     },
+
+    AnchorIcon: {
+        color: 'white',
+        fontSize: 14,
+    },
+
 
     container: {
         flex: 1,

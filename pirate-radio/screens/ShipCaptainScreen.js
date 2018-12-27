@@ -34,7 +34,7 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Playlist}>
-                        <Text style={Styles.BigText}>{ship.name}{'\n'}</Text>
+                        <PirateText style={Styles.BigText}>{ship.name}{'\n'}</PirateText>
                         <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
                 </View>

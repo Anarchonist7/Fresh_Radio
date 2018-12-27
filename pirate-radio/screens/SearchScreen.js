@@ -5,6 +5,7 @@ import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
 import Styles from '../assets/styles/AppStyles';
 
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { SeaBackground } from '../components/SeaBackground';
 
@@ -24,6 +25,9 @@ export default class SearchScreen extends React.Component {
 
         const { ship } = this.props.screenProps;
 
+        navigateToShipCrew= () => this.props.navigation.navigate('ShipCrewScreen');
+
+
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -40,15 +44,15 @@ export default class SearchScreen extends React.Component {
                     
                         <PirateText style={[Styles.BigText, Styles.ListHeader]}>Popular Ships{'\n'}</PirateText>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText}>arrrRave</PirateText>
+                            <PirateText style={Styles.SmallText}><SimpleLineIcons style={Styles.AnchorIcon} name="anchor"/> arrrRave</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 11</PirateText>
                         </View>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText}>Captain Barbosa</PirateText>
+                            <PirateText style={Styles.SmallText} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.AnchorIcon} name="anchor" /> Captain Barbosa</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 4</PirateText>
                         </View>
                         <View style={Styles.ShipList}>
-                            <PirateText style={Styles.SmallText}>Lonely John</PirateText>
+                            <PirateText style={Styles.SmallText}><SimpleLineIcons style={Styles.AnchorIcon} name="anchor"/> Lonely John</PirateText>
                             <PirateText style={Styles.SmallText}>Crew: 8</PirateText>
                         </View>
                     </View>

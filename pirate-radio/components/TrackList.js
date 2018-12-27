@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { SimpleLineIcons } from '@expo/vector-icons';
+
+<SimpleLineIcons name="anchor"/>
 
 import {
   View,
@@ -26,7 +29,10 @@ export default class TrackList extends React.Component {
         let trackComponentArray = []
         this.props.tracks.forEach((track, i) => {
             let active = (track.id === this.props.ship.currentTrack)
-            trackComponentArray.push(<Text key={i} style={[Styles.SmallText, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>{track.title} by {track.artist}</Text>)
+            trackComponentArray.push(
+            <Text key={i} style={[Styles.SmallText, Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                <SimpleLineIcons style={Styles.AnchorIcon} name="anchor"/> {track.title} by {track.artist}
+            </Text>)
         })
         return trackComponentArray
     }

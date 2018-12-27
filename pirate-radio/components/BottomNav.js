@@ -16,18 +16,18 @@ export class BottomNav extends React.Component {
     }
 
     state = {
-        volumeOn: true
+        isMuted: false
     }
 
     mute = () => {
         this.setState({
-            volumeOn: false
+            isMuted: true
         })
     }
 
     unmute = () => {
         this.setState({
-            volumeOn: true
+            isMuted: false
         })
     }
     render() {
@@ -40,15 +40,15 @@ export class BottomNav extends React.Component {
                         onPress={() => { this.props.navigation.goBack() }}>
                         <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavIcons }/>
                     </TouchableOpacity>
-                        { this.state.volumeOn ? (
-                                <TouchableOpacity style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
-                                onPress={this.mute}>
-                                    <Feather name='volume-2' style={ Styles.BottomNavIcons } />    
-                                </TouchableOpacity>
-                            ) : (
+                        { this.state.isMuted ? (
                                 <TouchableOpacity style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.unmute}>
                                     <Feather name='volume-x' style={ Styles.BottomNavIcons } /> 
+                                </TouchableOpacity>
+                            ) : (
+                                <TouchableOpacity style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
+                                onPress={this.mute}>
+                                    <Feather name='volume-2' style={ Styles.BottomNavIcons } />    
                                 </TouchableOpacity>
                             )
                         }
