@@ -20,10 +20,10 @@ export default class Player extends Component {
     super(props);
 
     this.state = {
-      paused: true,
+      paused: this.props.ship.paused,
       totalLength: 1,
-      currentPosition: 0,
-      currentPositionMillis: 0,
+      currentPosition: Math.floor(this.props.ship.currentPositionMillis),
+      currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)),
       selectedTrack: 0,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
@@ -32,17 +32,19 @@ export default class Player extends Component {
     };
   }
 
+  // Math.floor((this.props.ship.currentPositionMillis / 1000) + (Date.now() - this.ship.props.timeStamp))
+
    onPlaybackStatusUpdate = (status) => {
       console.log('STATUS UPDATE', status.positionMillis)
-
-      console.log(status.durationMillis)
+      console.log('duration: ', status.durationMillis)
+      console.log('IDEAL TIMESTART ', Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
       if (status.positionMillis === status.durationMillis) {
         console.log('THIS CONDITION HAS BEEN MET')
-
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
           this.setState({
           currentPosition: 0,
+          currentPositionMillis: 0,
           paused: this.state.paused,
           totalLength: 1,
           isChanging: false,
@@ -54,7 +56,7 @@ export default class Player extends Component {
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: status.positionMillis,
+          currentPositionMillis: this.state.positionMillis,
           totalLength: Math.floor(status.durationMillis / 1000),
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
       }
@@ -151,6 +153,7 @@ export default class Player extends Component {
       // this.refs.audioElement && this.refs.audioElement.seek(0);
       // this.setState({ isChanging: true });
       this.state.player.stopAsync()
+
       this.setState({
         currentPosition: 0,
         paused: this.state.paused,
@@ -173,14 +176,10 @@ export default class Player extends Component {
     //   console.error(error)
     // }
     console.log('COMPONENT DID MOUNT MF')
-    
+    console.log(this.state.positionMillis)
     this.loadTrack()
-    
-    // .then(() => {
-    //   this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
-    //     this.state.player.playAsync()
-    //   })
-    // })
+
+
 
   //   this.props.socket.on('message', data => {
   //     console.log(data);
@@ -196,18 +195,19 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('Player componentDidUpdate')
-
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       this.loadTrackPlay().then(() => {
+        console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
+        this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
       })
     }
 
-    console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
+
 
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
 
       console.log('TRYING TO SCRUB FROM POSITION')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(this.state.positionMillis).then(() => {
+        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
           if (this.props.ship.paused === false) {
             console.log('TRYING TO PLAY FROM POSITION')
             this.state.player.playAsync()
@@ -224,7 +224,7 @@ export default class Player extends Component {
     // }
     const track = this.props.tracks[this.state.selectedTrack];
 
-    // console.log('Selected track has a localUrl of: ', track.localUrl)
+    console.log('Selected track has a title of: ', track.title)
 
     return (
       <View>
@@ -233,7 +233,7 @@ export default class Player extends Component {
           onSeek={this.seek.bind(this)}
           trackLength={this.state.totalLength}
           onSlidingStart={() => this.setState({paused: true})}
-          currentPosition={this.state.currentPosition} />
+          currentPosition={this.state.currentPosition || 0} />
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
           backDisabled={this.state.selectedTrack === 0}

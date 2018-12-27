@@ -45,6 +45,7 @@ export default class TrackList extends React.Component {
     }
 
     render(){
+      console.log('current track from tracklist: ', this.props.ship.currentTrack)
         return this.generateTrackList()
     }
 
