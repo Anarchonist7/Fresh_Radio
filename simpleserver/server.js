@@ -105,7 +105,7 @@ app.post("/ships/:id", function(req, res) {
   treasure = currentPositionMillis
   console.log('Post from APP: shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
   serverData[id].ship.currentTrack = currentTrack
-  serverData[id].ship.timeStamp = timeStamp
+  // serverData[id].ship.timeStamp = timeStamp
   serverData[id].ship.currentPositionMillis = currentPositionMillis
   serverData[id].ship.paused = paused
   res.json('recorded current track and timestamp to server data')
