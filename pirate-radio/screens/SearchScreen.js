@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { BottomNav } from '../components/BottomNav';
 import { PirateText } from '../components/PirateText';
@@ -15,14 +15,15 @@ export default class SearchScreen extends React.Component {
 
     constructor(props){
         super(props)
-        // const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        // state = {
-        //     dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-        // };
     }
+
+    navigateToShipCrew= () => this.props.navigation.navigate('ShipCrewScreen');
 
     
     render() {
+
+        const { ship } = this.props.screenProps;
+
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -31,21 +32,26 @@ export default class SearchScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Results}>
-                        <PirateText style={Styles.BigText}>Search Results{'\n'}</PirateText>
-                        <PirateText style={Styles.SmallText}>Nothin hurrr</PirateText>
+                        <PirateText style={[Styles.BigText, Styles.ListHeader]}>Search Results{'\n'}</PirateText>
+                        <PirateText style={[Styles.SmallText, {paddingLeft: 15}]}>Nothin hurrr</PirateText>
                     </View>
 
                     <View style={Styles.Popular}>
-                        <PirateText style={Styles.BigText}>Popular Ships{'\n'}</PirateText>
-                        <PirateText style={Styles.SmallText}>arrrRave</PirateText>
-                        <PirateText style={Styles.SmallText}>Captain Barbosa</PirateText>
-                        <PirateText style={Styles.SmallText}>Lonely John</PirateText>
+                    
+                        <PirateText style={[Styles.BigText, Styles.ListHeader]}>Popular Ships{'\n'}</PirateText>
+                        <View style={Styles.ShipList}>
+                            <PirateText style={Styles.SmallText}>arrrRave</PirateText>
+                            <PirateText style={Styles.SmallText}>Crew: 11</PirateText>
+                        </View>
+                        <View style={Styles.ShipList}>
+                            <PirateText style={Styles.SmallText}>Captain Barbosa</PirateText>
+                            <PirateText style={Styles.SmallText}>Crew: 4</PirateText>
+                        </View>
+                        <View style={Styles.ShipList}>
+                            <PirateText style={Styles.SmallText}>Lonely John</PirateText>
+                            <PirateText style={Styles.SmallText}>Crew: 8</PirateText>
+                        </View>
                     </View>
-                    {/* <ListView> 
-                        <PirateText>Popular Ships</PirateText>
-                        dataSource={this.state.dataSource}
-                        renderRow={(rowData) => <PirateText>{rowData}</PirateText>}
-                    </ListView> */}
                 </View>
                 <View style={Styles.Footer}>
                     <BottomNav navigation={this.props.navigation} />

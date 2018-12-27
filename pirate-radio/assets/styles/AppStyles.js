@@ -29,8 +29,6 @@ module.exports = StyleSheet.create({
     },
 
 
-
-
     Boxes: {
         height: '100%',
         width: '100%',
@@ -55,7 +53,6 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '38%',
         marginTop: '5%',
-        paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -74,6 +71,7 @@ module.exports = StyleSheet.create({
     Popular: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
+        alignItems: 'center',
         width: '95%',
         height: '32%',
         marginTop: '5%',
@@ -81,7 +79,18 @@ module.exports = StyleSheet.create({
         backgroundColor: '#383131',
         borderRadius: 15,
     },
-    
+
+    ShipList: {
+        width: '95%',
+        height: '17%',
+        borderRadius: 5,
+        marginTop: 5,
+        backgroundColor: 'grey',
+        padding: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
     Playlist: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
@@ -108,14 +117,15 @@ module.exports = StyleSheet.create({
         fontSize: 32,
     },
 
-    SmallText: {
-        color: 'white',
-        textAlign: 'center',
-        fontSize: 18,
+    ListHeader: {
+        paddingTop: 15,
+        marginBottom: '-5%',
     },
 
-
-
+    SmallText: {
+        color: 'white',
+        fontSize: 18,
+    },
       
     Off: {
         opacity: 0.6,
