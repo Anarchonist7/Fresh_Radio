@@ -40,7 +40,7 @@ export default class ShipCrewScreen extends React.Component {
                     </View>
                 </View>
                 <View style={Styles.Footer}>
-                    <BottomNav/>
+                    <BottomNav navigation={this.props.navigation}/>
                 </View>
             </SeaBackground>
         )
