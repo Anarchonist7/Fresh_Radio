@@ -6,6 +6,7 @@ const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
 let treasure = 0;
+const searchResults = [{captain: 'barbosa', shipName: 'tightship', crewNum: 99}, {captain: 'barbosa-bro', shipName: 'dreadnaught', crewNum: 12}]
 const serverData = {
   1: {
     ship: {
@@ -79,6 +80,20 @@ function asyncRequest(shipId) {
 
 app.use(express.static('public'))
 
+app.get("/ships", function(req, res) {
+  const {search} = req.query
+  const id = 1
+  asyncRequest(id).then((serverResponse, error) => {
+    if (error) {
+      console.log('error', error.message)
+      res.status(500).json({ error: error.message });
+    } else {
+      console.log('Reponse to APP from search: ', searchResults)
+      res.json(searchResults);
+    }
+  });
+});
+
 app.get("/ships/:id", function(req, res) {
   const { id } = req.params;
   asyncRequest(id).then((serverResponse, error) => {
@@ -88,7 +103,7 @@ app.get("/ships/:id", function(req, res) {
     } else {
       console.log('Reponse to APP: :', serverResponse)
       console.log('HERE BE THE TREASURE: ', treasure)
-      serverData['1'].ship.currentPositionMillis = serverResponse.ship.currentPositionMillis
+      serverData[id].ship.currentPositionMillis = serverResponse.ship.currentPositionMillis
       console.log('object hunting: ', serverData)
       serverResponse.ship.currentPositionMillis = Math.floor(serverResponse.ship.currentPositionMillis)
       serverResponse.ship.paused = false
