@@ -41,10 +41,11 @@ export default class App extends Component {
 
   downloadTrack = (index) => {
     console.log('TRYING TO DL: ', this.state.tracks[index].audioUrl)
-    Expo.FileSystem.downloadAsync(
-        this.state.tracks[index].audioUrl,
-        Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-      )
+    const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+    console.log('EXISTS?????', Expo.FileSystem.getInfoAsync(localfilepath))
+    Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
+      if (exists) {
+        Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
         .then(({ uri }) => {
           const start = this.state.tracks.slice(0, index);
           const end = this.state.tracks.slice(index + 1);
@@ -55,11 +56,33 @@ export default class App extends Component {
               localUrl: uri
             },
             ...end
-            ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.'))
+            ]}, () => console.log('Async load of track ID:', this.state.tracks[index].id, 'complete.'))
         })
         .catch(error => {
           console.error('DOWNLOAD ERROR: ', error);
         });
+      } else {
+        Expo.FileSystem.downloadAsync(
+          this.state.tracks[index].audioUrl,
+          Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+        )
+          .then(({ uri }) => {
+            const start = this.state.tracks.slice(0, index);
+            const end = this.state.tracks.slice(index + 1);
+            this.setState({loading: false, tracks: [
+              ...start,
+              {
+                ...this.state.tracks[index],
+                localUrl: uri
+              },
+              ...end
+              ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.'))
+          })
+          .catch(error => {
+            console.error('DOWNLOAD ERROR: ', error);
+          });
+      }
+    })
   }
 
   updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
