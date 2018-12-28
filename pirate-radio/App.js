@@ -32,7 +32,8 @@ export default class App extends Component {
       ship: {
         name: '',
         currentTrack: '',
-        currentPositionMillis: '',
+        currentPositionMillis: 0,
+        duration: '',
         timeStamp: '',
         paused: '',
       }

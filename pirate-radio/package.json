@@ -23,6 +23,7 @@
     "expo": "^31.0.2",
     "knex": "^0.16.3",
     "knex-logger": "^0.1.0",
+    "mp3-duration": "^1.1.0",
     "pg": "^7.7.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",

@@ -20,7 +20,8 @@ export default class Player extends Component {
       totalLength: 1,
       currentPosition: Math.floor(this.props.ship.currentPositionMillis),
       currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)),
-      selectedTrack: 0,
+      selectedTrack: this.props.ship.currentTrack,
+      totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -31,7 +32,7 @@ export default class Player extends Component {
       console.log('STATUS UPDATE', status.positionMillis)
       console.log('duration: ', status.durationMillis)
       console.log('IDEAL TIMESTART ', Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
-      if (status.positionMillis === status.durationMillis) {
+      if (status.positionMillis === totalLength) {
         console.log('THIS CONDITION HAS BEEN MET')
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
@@ -39,7 +40,7 @@ export default class Player extends Component {
           currentPosition: 0,
           currentPositionMillis: 0,
           paused: this.state.paused,
-          totalLength: 1,
+          totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
           isChanging: false,
           player: new Expo.Audio.Sound(),
           selectedTrack: this.state.selectedTrack + 1,
@@ -49,7 +50,7 @@ export default class Player extends Component {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
-          totalLength: Math.floor(status.durationMillis / 1000),
+          totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true))
       }
     }
