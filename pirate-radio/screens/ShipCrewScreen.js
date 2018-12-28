@@ -21,8 +21,6 @@ export default class ShipCrewScreen extends React.Component {
 
     render() {
         const {ship, tracks} = this.props.screenProps;
-        console.log('SHIP: ', this.props.screenProps)
-       
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -44,6 +42,5 @@ export default class ShipCrewScreen extends React.Component {
                 </View>
             </SeaBackground>
         )
-        
     }
 }
