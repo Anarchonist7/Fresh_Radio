@@ -10,12 +10,10 @@ import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
-
+import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate } from './functions';
 import Styles from '../assets/styles/AppStyles';
 
 import { FontAwesome } from '@expo/vector-icons';
-
-
 
 export default class Player extends Component {
 
@@ -34,8 +32,6 @@ export default class Player extends Component {
       sync: false
     };
   }
-
-  // Math.floor((this.props.ship.currentPositionMillis / 1000) + (Date.now() - this.ship.props.timeStamp))
 
    onPlaybackStatusUpdate = (status) => {
     console.log('---------------Status Update----------------')
@@ -65,121 +61,20 @@ export default class Player extends Component {
       console.log('-------------------------------------')
     }
 
-  setStatusUpdate = async () => {
-    console.log('|---> setStatus triggered')
-    this.state.player.setStatusAsync({progressUpdateIntervalMillis: 1000})
-    this.state.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
-  }
-
-  setPlay = async () => {
-    console.log('|---> setPlay triggered')
-    if(!this.state.paused){
-      this.state.player.playAsync()
-    }
-  }
-
-  loadTrackPlay = async () => {
-    this.loadTrack().then(() => {
-      this.setStatusUpdate().then(() => {
-        this.setPlay()
-      })
-    })
-  }
-
-  loadTrack = async () => {
-    console.log('|---> loadTrack triggered')
-    const track = this.props.tracks[this.state.selectedTrack];
-    const player = this.state.player
-    if (!track.localUrl) {
-      console.log('no localUrl to load yet')
-    }
-      try {
-        // this.state.player.unloadAsync()
-        if (track.localUrl) {
-          console.log('trying to load track id: ', track.id);
-          await player.loadAsync({uri: track.localUrl});
-          console.log('!!!loaded track id: ', track.id);
-          this.setState({loading: false})
-        }
-      } catch (error) {
-      console.log('LOAD ERROR: ', error);
-      }
-    }
-
-  setDuration(data) {
-    console.log('|---> setDuration triggered')
-    this.setState({totalLength: Math.floor(data.duration)});
-  }
-
-  setTime(data) {
-    //console.log(data);
-    console.log('|---> setTime triggered')
-    this.setState({currentPosition: Math.floor(data.currentTime)});
-  }
-
-  seek(time) {
-    console.log('|---> seekTime triggered')
-    time = Math.round(time);
-    this.refs.audioElement && this.refs.audioElement.seek(time);
-    this.state.player.setPositionAsync(Math.floor(time * 1000));
-    this.setState({
-      currentPosition: time
-    }), () => this.state.player.playAsync();
-  }
-
-  onBack() {
-    console.log('|---> onBack triggered')
-    if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
-      this.state.player.stopAsync()
-      this.setState({
-        currentPosition: 0,
-        paused: this.state.paused,
-        totalLength: 1,
-        isChanging: false,
-        player: new Expo.Audio.Sound(),
-        selectedTrack: this.state.selectedTrack - 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
-    } else {
-      this.state.player.setPositionAsync(0).then(() => {
-        if(!this.state.paused){
-          this.state.player.playAsync()
-        }
-      });
-      this.setState({
-        currentPosition: 0,
-      });
-    }
-  }
-
-  onForward() {
-    console.log('|---> onForward triggered')
-    if (this.state.selectedTrack < this.props.tracks.length - 1) {
-      this.state.player.stopAsync()
-      this.setState({
-        currentPosition: 0,
-        paused: this.state.paused,
-        totalLength: 1,
-        isChanging: false,
-        player: new Expo.Audio.Sound(),
-        selectedTrack: this.state.selectedTrack + 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
-    }
-  }
-
   componentDidMount() {
     console.log('|---> componentDidMount')
-    this.loadTrack()
+    loadTrack(this)
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       console.log('|--? selectedTrack change || loaclurl Loaded')
-      this.loadTrack().then(() => {
+      loadTrack(this).then(() => {
         console.log('syncing to position....')
         this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
-          this.setStatusUpdate().then(() => {
-            this.setPlay()
+          setStatusUpdate(this).then(() => {
+            setPlay(this)
           })
         })
       })
@@ -187,8 +82,8 @@ export default class Player extends Component {
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
       console.log('|--? initial sync && non-0 intial position')
         this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
-          this.setStatusUpdate().then(() => {
-            this.setPlay()
+          setStatusUpdate(this).then(() => {
+            setPlay(this)
           })
         })
         )
@@ -196,18 +91,14 @@ export default class Player extends Component {
   }
 
   render() {
-    // if(this.props.tracks.length === 0) {
-    //   return <View><Text>Loading</Text></View>
-    // }
     const track = this.props.tracks[this.state.selectedTrack];
 
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
-          onSeek={this.seek.bind(this)}
+          onSeek={this.seek = seek.bind(this)}
           trackLength={this.state.totalLength}
-          onSlidingStart={() => this.setState({paused: true})}
           currentPosition={this.state.currentPosition || 0} />
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
@@ -223,8 +114,8 @@ export default class Player extends Component {
             this.state.player.pauseAsync()
             }
           }
-          onBack={this.onBack.bind(this)}
-          onForward={this.onForward.bind(this)}
+          onBack={this.onBack = onBack.bind(this)}
+          onForward={this.onForward = onForward.bind(this)}
           paused={this.state.paused}/>
       </View>
     );
