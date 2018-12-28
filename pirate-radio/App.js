@@ -21,7 +21,7 @@ import Listener from './components/Listener';
 //THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.129';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
@@ -42,7 +42,6 @@ export default class App extends Component {
   downloadTrack = (index) => {
     console.log('TRYING TO DL: ', this.state.tracks[index].audioUrl)
     const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-    console.log('EXISTS?????', Expo.FileSystem.getInfoAsync(localfilepath))
     Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
       if (exists) {
         Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
@@ -56,7 +55,7 @@ export default class App extends Component {
               localUrl: uri
             },
             ...end
-            ]}, () => console.log('Async load of track ID:', this.state.tracks[index].id, 'complete.'))
+            ]}, () => console.log('Async load (file exists) of track ID:', this.state.tracks[index].id, 'complete.'))
         })
         .catch(error => {
           console.error('DOWNLOAD ERROR: ', error);
@@ -116,7 +115,7 @@ export default class App extends Component {
         currentTrack: this.state.ship.currentTrack,
       })
     })
-    console.log('!!!!updating ship with ', this.state.ship.timeStamp, this.state.ship.currentTrack)
+    console.log('!!Post to ship')
   }
   // make a post req to shipRequest with current track state
 
@@ -168,12 +167,6 @@ export default class App extends Component {
     } else {
       return <AppNavigator screenProps={ screenProps} />
     }
-
-      // if (this.state.loading === true) {
-      //   return < LandingScreen />
-      // } else {
-      //   return <ShipCaptainScreen tracks={this.state.tracks} ship={this.state.ship} updateCurrentTrack={this.updateCurrentTrack}/>
-      // }
   }
 }
 

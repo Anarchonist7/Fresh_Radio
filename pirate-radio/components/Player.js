@@ -38,24 +38,23 @@ export default class Player extends Component {
   // Math.floor((this.props.ship.currentPositionMillis / 1000) + (Date.now() - this.ship.props.timeStamp))
 
    onPlaybackStatusUpdate = (status) => {
-      console.log('STATUS UPDATE', status.positionMillis)
-      console.log('duration: ', status.durationMillis)
-      console.log('IDEAL TIMESTART ', Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
+    console.log('---------------Status Update----------------')
+      console.log('myPosition:', status.positionMillis)
+      console.log('myDuration: ', status.durationMillis)
       if (status.positionMillis === status.durationMillis) {
-        console.log('THIS CONDITION HAS BEEN MET')
+        console.log('|---> end of track triggered---')
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
           this.setState({
-          currentPosition: 0,
-          currentPositionMillis: 0,
-          paused: this.state.paused,
-          totalLength: 1,
-          isChanging: false,
-          player: new Expo.Audio.Sound(),
-          selectedTrack: this.state.selectedTrack + 1,
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
-      })
-
+            currentPosition: 0,
+            currentPositionMillis: 0,
+            paused: this.state.paused,
+            totalLength: 1,
+            isChanging: false,
+            player: new Expo.Audio.Sound(),
+            selectedTrack: this.state.selectedTrack + 1,
+          }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+        })
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
@@ -63,28 +62,32 @@ export default class Player extends Component {
           totalLength: Math.floor(status.durationMillis / 1000),
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
       }
-
-
-
-      // this.setState({
-      //   currentPosition: status.positionMillis
-      // })
-      // this.state.currentPosition = status.positionMillis
-
+      console.log('-------------------------------------')
     }
+
+  setStatusUpdate = async () => {
+    console.log('|---> setStatus triggered')
+    this.state.player.setStatusAsync({progressUpdateIntervalMillis: 1000})
+    this.state.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
+  }
+
+  setPlay = async () => {
+    console.log('|---> setPlay triggered')
+    if(!this.state.paused){
+      this.state.player.playAsync()
+    }
+  }
 
   loadTrackPlay = async () => {
     this.loadTrack().then(() => {
-      this.state.player.setStatusAsync({progressUpdateIntervalMillis: 1000})
-      this.state.player.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
-      if(!this.state.paused){
-        this.state.player.playAsync()
-      }
+      this.setStatusUpdate().then(() => {
+        this.setPlay()
+      })
     })
   }
 
   loadTrack = async () => {
-    console.log('LOAD TRACK TRIGGERED')
+    console.log('|---> loadTrack triggered')
     const track = this.props.tracks[this.state.selectedTrack];
     const player = this.state.player
     if (!track.localUrl) {
@@ -93,11 +96,10 @@ export default class Player extends Component {
       try {
         // this.state.player.unloadAsync()
         if (track.localUrl) {
-          console.log('TRYING TO LOAD TRACK ID: ', track.id);
+          console.log('trying to load track id: ', track.id);
           await player.loadAsync({uri: track.localUrl});
-          console.log('LOADED TRACK ID: ', track.id);
+          console.log('!!!loaded track id: ', track.id);
           this.setState({loading: false})
-        { shouldPlay: true }
         }
       } catch (error) {
       console.log('LOAD ERROR: ', error);
@@ -105,31 +107,29 @@ export default class Player extends Component {
     }
 
   setDuration(data) {
-    // console.log(totalLength);
+    console.log('|---> setDuration triggered')
     this.setState({totalLength: Math.floor(data.duration)});
   }
 
   setTime(data) {
     //console.log(data);
-    console.log('YARRR WE BE IN THE SET TIME FUNCTION')
+    console.log('|---> setTime triggered')
     this.setState({currentPosition: Math.floor(data.currentTime)});
   }
 
   seek(time) {
+    console.log('|---> seekTime triggered')
     time = Math.round(time);
     this.refs.audioElement && this.refs.audioElement.seek(time);
     this.state.player.setPositionAsync(Math.floor(time * 1000));
     this.setState({
-      currentPosition: time,
-      paused: false,
+      currentPosition: time
     }), () => this.state.player.playAsync();
   }
 
   onBack() {
+    console.log('|---> onBack triggered')
     if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
-
-      // this.refs.audioElement && this.refs.audioElement.seek(0);
-      // this.setState({ isChanging: true });
       this.state.player.stopAsync()
       this.setState({
         currentPosition: 0,
@@ -152,11 +152,9 @@ export default class Player extends Component {
   }
 
   onForward() {
+    console.log('|---> onForward triggered')
     if (this.state.selectedTrack < this.props.tracks.length - 1) {
-      // this.refs.audioElement && this.refs.audioElement.seek(0);
-      // this.setState({ isChanging: true });
       this.state.player.stopAsync()
-
       this.setState({
         currentPosition: 0,
         paused: this.state.paused,
@@ -169,56 +167,32 @@ export default class Player extends Component {
   }
 
   componentDidMount() {
-
-    // const dlTracks = this.state.tracks.map(file =>
-    // FileSystem.downloadAsync(file.audioUrl, FileSystem.documentDirectory + file.name)
-    // )
-    // try {
-    //   await Promise.all(dlTracks);
-    // } catch (error) {
-    //   console.error(error)
-    // }
-    console.log('COMPONENT DID MOUNT MF')
-    console.log(this.state.positionMillis)
+    console.log('|---> componentDidMount')
     this.loadTrack()
-
-
-
-  //   this.props.socket.on('message', data => {
-  //     console.log(data);
-  //     if (data === "PLAY"){
-  //       console.log("data equals play");
-  //       this.setState({ paused: false });
-  //     } else {
-  //       console.log("data does not equal play");
-  //       throw new Error(`Undefined data type: ${data.type}`);
-  //     }
-  //   })
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Player componentDidUpdate')
+    console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
-      this.loadTrackPlay().then(() => {
-        console.log('SHIP POSITION', this.props.ship.currentPositionMillis)
-        this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
+      console.log('|--? selectedTrack change || loaclurl Loaded')
+      this.loadTrack().then(() => {
+        console.log('syncing to position....')
+        this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
+          this.setStatusUpdate().then(() => {
+            this.setPlay()
+          })
+        })
       })
     }
-
-
-
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-
-      console.log('TRYING TO SCRUB FROM POSITION')
+      console.log('|--? initial sync && non-0 intial position')
         this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
-          if (this.props.ship.paused === false) {
-            console.log('TRYING TO PLAY FROM POSITION')
-            this.state.player.playAsync()
-          }
+          this.setStatusUpdate().then(() => {
+            this.setPlay()
+          })
         })
         )
       }
-
   }
 
   render() {
@@ -226,8 +200,6 @@ export default class Player extends Component {
     //   return <View><Text>Loading</Text></View>
     // }
     const track = this.props.tracks[this.state.selectedTrack];
-
-    console.log('Selected track has a title of: ', track.title)
 
     return (
       <View>
