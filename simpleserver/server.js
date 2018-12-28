@@ -6,7 +6,20 @@ const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
 let treasure = 0;
+
+const config = require('./knexfile')[ENV];   
+const database = require('knex')(config);
+
+var mp3Duration = require('mp3-duration');
+
+// mp3Duration('file.mp3', function (err, duration) {
+//  if (err) return console.log(err.message);
+//  console.log('Your file is ' + duration + ' seconds long');
+// });
+
+
 const searchResults = [{captain: 'barbosa', shipName: 'tightship', crewNum: 99}, {captain: 'barbosa-bro', shipName: 'dreadnaught', crewNum: 12}]
+
 const serverData = {
   1: {
     ship: {
@@ -22,6 +35,7 @@ const serverData = {
         title: 'Rouge',
         artist: 'TOKiMONSTA',
         album: 'Lune Rouge',
+        durationMillis: 133198,
         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
       },
       {
@@ -29,6 +43,7 @@ const serverData = {
         title: 'Estrange (Feat. Io Echo)',
         artist: 'TOKiMONSTA',
         album: 'Lune Rouge',
+        durationMillis: 258011,
         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
       },
       {
@@ -36,6 +51,7 @@ const serverData = {
         title: 'Cirrus',
         artist: 'Bonobo',
         album: 'The North Borders',
+        durationMillis: 349257,
         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
       },
       {
@@ -43,6 +59,7 @@ const serverData = {
         title: 'Elevate This Sound',
         artist: 'Calyx, Teebee',
         album: 'Elevate This Sound',
+        durationMillis: 315637,
         audioUrl: 'http://' + LOCALHOST +  ':' + PORT + '/tune4.mp3'
       }
     ]
@@ -56,16 +73,28 @@ const serverData = {
     tracks: [
       {
         id: 1,
-        title: 'DJ_WISH_TRACK1',
-        artist: 'Twenty One Pilots',
-        audioUrl: 'http://' + ':' + PORT + '/tune2.mp3'
+        title: 'Rouge',
+        artist: 'TOKiMONSTA',
+        album: 'Lune Rouge',
+        durationMillis: 133198,
+        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
       },
       {
         id: 2,
-        title: 'DJ_WISH_TRACK2',
-        artist: 'Bob Marley',
+        title: 'Estrange (Feat. Io Echo)',
+        artist: 'TOKiMONSTA',
+        album: 'Lune Rouge',
+        durationMillis: 258011,
+        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
+      },
+      {
+        id: 3,
+        title: 'Cirrus',
+        artist: 'Bonobo',
+        album: 'The North Borders',
+        durationMillis: 349257,
         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
-      }
+      },
     ]
   }
 }
