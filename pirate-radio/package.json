@@ -6,7 +6,12 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "knex": "knex"
+    "knex": "knex",
+    "knex migrate:latest": "npm run knex migrate:latest",
+    "knex migrate:rollback": "npm run knex migrate:rollback",
+    "knex migrate:make": "npm run knex migrate:make",
+    "knex seed:make": "npm run knex seed:make",
+    "knex seed:run": "npm run knex seed:run"
   },
   "jest": {
     "preset": "jest-expo"
@@ -18,7 +23,6 @@
     "expo": "^31.0.2",
     "knex": "^0.16.3",
     "knex-logger": "^0.1.0",
-    "morgan": "^1.9.1",
     "pg": "^7.7.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
