@@ -43,30 +43,24 @@ export default class ShipCrewScreen extends React.Component {
 
         const { ship, tracks, captain } = this.state;
 
-        // const {ship, tracks} = this.props.screenProps;
-
         if (this.state.loading === true){
             return <SeaBackground />
         } else {
-            return ( 
+            return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
                             <View style={Styles.ShipHeader}> 
-                                <Text>
-                                    {/* <Text style={Styles.BigTextPirate}>Captain Barbosa </Text> */}
-                                    <Text style={Styles.BigTextPirate}>Captain {captain.captainName}</Text>
-                                    <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                                <Text style={Styles.BigTextPirate}>
+                                    Captain {captain.captainName} <Image source={PiratePNG} style={Styles.CaptainIconMedium} />
                                 </Text>
                             </View>
 
                             <View style={Styles.NowPlaying}>
-                                {/* <Listener ship={this.props.screenProps.ship} tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/> */}
                                 <Listener tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                             </View>
 
                             <View style={Styles.Playlist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
-                                {/* <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/> */}
                                 <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </View>
                         </View>

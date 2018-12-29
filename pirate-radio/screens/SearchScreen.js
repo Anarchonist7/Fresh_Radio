@@ -81,16 +81,31 @@ export default class SearchScreen extends React.Component {
 
                     <View style={Styles.Popular}>
                         <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Popular Ships{'\n'}</Text>
-                        <TouchableOpacity style={Styles.ShipList} onPress={ this.navigateToShipCrew }>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> arrrRave</Text>
+
+                        <TouchableOpacity 
+                            style={Styles.ShipList} 
+                            onPress={() => {
+                                this.props.navigation.navigate('ShipCrewScreen', {shipId: 3})
+                            }}>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> daveys-tunes</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 11</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={Styles.ShipList} onPress={ this.navigateToShipCrew }>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Captain Barbosa</Text>
+
+                        <TouchableOpacity 
+                        style={Styles.ShipList} 
+                        onPress={() => {
+                            this.props.navigation.navigate('ShipCrewScreen', {shipId: 1})
+                        }}>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> barbosa-beats</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 4</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={Styles.ShipList} onPress={ this.navigateToShipCrew }>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Lonely John</Text>
+
+                        <TouchableOpacity 
+                        style={Styles.ShipList} 
+                        onPress={() => {
+                            this.props.navigation.navigate('ShipCrewScreen', {shipId: 2})
+                        }}>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
                         </TouchableOpacity>
                     </View>

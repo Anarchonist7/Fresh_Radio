@@ -95,6 +95,10 @@ export default class Player extends Component {
       }
   }
 
+  componentWillUnmount() {
+    this.state.player.unloadAsync();
+  }
+
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
