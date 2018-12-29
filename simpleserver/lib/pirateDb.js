@@ -13,7 +13,7 @@ module.exports = function pirateDb(knex) {
     },
     searchShipsByName: (search, callback) => {
       knex
-        .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum')
+        .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum', 'ships.id as shipId')
         .from('ships')
         .where('ships.name', search)
         .join('users', 'ships.user_id', '=', 'users.id')

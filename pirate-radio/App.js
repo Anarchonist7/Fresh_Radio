@@ -174,7 +174,7 @@ export default class App extends Component {
     if (this.state.loading === true || this.state.fontLoading === true) {
       return <LandingScreen />
     } else {
-      return <AppNavigator screenProps={ screenProps} />
+      return <AppNavigator screenProps={ screenProps}/>
     }
   }
 }

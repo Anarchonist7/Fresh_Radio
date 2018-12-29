@@ -9,6 +9,7 @@ import Styles from '../assets/styles/AppStyles';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 
+const PiratePNG = require('../assets/images/pirate.png');
 
 export default class ShipCrewScreen extends React.Component {
 
@@ -20,11 +21,15 @@ export default class ShipCrewScreen extends React.Component {
 
     render() {
         const {ship, tracks} = this.props.screenProps;
+
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
-                    <View style={Styles.Search}> 
-                        <Text style={Styles.BigTextPirate}>Captain Barbosa</Text>
+                    <View style={Styles.ShipHeader}> 
+                        <Text>
+                            <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
+                            <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                        </Text>
                     </View>
 
                     <View style={Styles.NowPlaying}>
@@ -32,7 +37,7 @@ export default class ShipCrewScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Playlist}>
-                        <Text style={Styles.BigTextPirateNormal}>{ship.name}{'\n'}</Text>
+                        <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                         <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
                 </View>

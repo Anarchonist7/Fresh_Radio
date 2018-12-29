@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, Image, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, FlatList } from 'react-native';
 import { SeaBackground } from '../components/SeaBackground';
 
 import { SearchBar } from 'react-native-elements';
@@ -78,26 +78,29 @@ export default class SearchScreen extends React.Component {
                         {   this.state.foundTracks ? (
                             <SearchResults 
                                 searchResults={this.state.searchResults} 
+                                navigation={this.props.navigation}
                             />
                         ) : (
-                            <Text style={[Styles.SmallTextPirate, {paddingLeft: 15}]}>Nothin hurrr</Text>
+                            <Text style={[Styles.SmallTextPirate, {paddingLeft: 15}]}>
+                                Nothin hurrr
+                            </Text>
                         )}
                     </View>
 
                     <View style={Styles.Popular}>
                         <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Popular Ships{'\n'}</Text>
-                        <View style={Styles.ShipList}>
+                        <TouchableOpacity style={Styles.ShipList}>
                             <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> arrrRave</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 11</Text>
-                        </View>
-                        <View style={Styles.ShipList}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.ShipList}>
                             <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Captain Barbosa</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 4</Text>
-                        </View>
-                        <View style={Styles.ShipList}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.ShipList}>
                             <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Lonely John</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={Styles.Footer}>

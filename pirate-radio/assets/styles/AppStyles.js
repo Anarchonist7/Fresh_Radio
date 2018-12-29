@@ -32,6 +32,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         width: '95%',
         height: '10%',
+        resizeMode: 'contain',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -43,6 +44,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         width: '95%',
         height: '10%',
+        resizeMode: 'contain',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -141,14 +143,14 @@ module.exports = StyleSheet.create({
         fontFamily: 'BlackPearl',
         color: 'white',
         textAlign: 'center',
-        fontSize: 32,
+        fontSize: 28,
     },
 
     BigTextNormal: {
         fontFamily: 'Times New Roman',
         color: 'white',
         textAlign: 'center',
-        fontSize: 32,
+        fontSize: 28,
     },
 
     SmallTextPirate: {
@@ -221,7 +223,7 @@ module.exports = StyleSheet.create({
         fontSize: 14,
     },
 
-    CaptainIcon: {
+    CaptainIconMedium: {
         width: 35,
         height: 35,
         marginBottom: 5,

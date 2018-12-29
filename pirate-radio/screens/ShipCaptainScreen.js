@@ -21,7 +21,6 @@ export default class ShipCaptainScreen extends React.Component {
     render() {
 
         const {ship, tracks} = this.props.screenProps;
-        // console.log('SHIP: ', this.props.screenProps)
 
         return (
             <SeaBackground>
@@ -29,7 +28,7 @@ export default class ShipCaptainScreen extends React.Component {
                     <View style={Styles.ShipHeader}> 
                         <Text>
                             <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
-                            <Image source={PiratePNG} style={ Styles.CaptainIcon } />
+                            <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
                         </Text>
                     </View>
 
