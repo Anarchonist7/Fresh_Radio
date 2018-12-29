@@ -42,8 +42,11 @@ module.exports = function pirateDb(knex) {
         })
         .catch(error => callback(error));
     },
-    updateShip: (id, timeStamp, currentTrack, currentPositionMillis, paused) => {
-      knex('ships')
+    updateShip: (id, timeStamp, currentTrack, currentPositionMillis, paused, callback) => {
+      console.log('|--> update ship triggered')
+      knex
+        .select('*')
+        .from('ships')
         .where({id: id})
         .update({
           time_stamp: timeStamp,
@@ -51,6 +54,10 @@ module.exports = function pirateDb(knex) {
           current_position_millis: currentPositionMillis,
           is_paused: paused
         })
+        .then((results) => {
+          callback(null, results);
+        })
+        .catch(error => callback(error));
     }
   };
 };
