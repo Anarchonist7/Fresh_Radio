@@ -15,7 +15,9 @@ module.exports = function pirateDb(knex) {
       knex
         .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum', 'ships.id as shipId')
         .from('ships')
-        .where('ships.name', search)
+        .whereRaw(`LOWER(ships.name) LIKE ?`, [`%${search}%`])
+        .orWhereRaw(`LOWER(users.name) LIKE ?`, [`%${search}%`])
+        .limit(5)
         .join('users', 'ships.user_id', '=', 'users.id')
         .then((results) => {
           callback(null, results);
