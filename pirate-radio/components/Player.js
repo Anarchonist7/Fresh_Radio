@@ -26,7 +26,7 @@ export default class Player extends Component {
       currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000) || 0,
       currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)) || 0,
       selectedTrack: this.props.ship.currentTrack,
-      totalLength: Math.floor(this.props.tracks[this.props.ship.currentTrack].durationMillis / 1000),
+      totalLength: this.props.tracks[this.props.ship.currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -38,25 +38,27 @@ export default class Player extends Component {
     console.log('---------------Status Update----------------')
       console.log('myPosition:', status.positionMillis)
       console.log('myDuration: ', status.durationMillis)
+      console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
         console.log('|---> end of track triggered---')
+        const selectedTrack = Number(this.state.selectedTrack);
+        this.state.player.stopAsync()
         this.state.player.setPositionAsync(0).then( () => {
-          this.state.player.stopAsync()
           this.setState({
             currentPosition: 0,
             currentPositionMillis: 0,
-            paused: this.state.paused,
-            totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
+            paused: false,
+            totalLength: this.props.tracks[selectedTrack + 1].durationMillis,
             isChanging: false,
             player: new Expo.Audio.Sound(),
-            selectedTrack: this.state.selectedTrack + 1,
-          }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+            selectedTrack: selectedTrack + 1,
+          }, () => this.props.updateCurrentTrack(selectedTrack, 0))
         })
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
-          totalLength: Math.floor(this.props.tracks[this.state.selectedTrack].durationMillis / 1000),
+          totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
       }
       console.log('-------------------------------------')
@@ -96,13 +98,13 @@ export default class Player extends Component {
 
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
-
+    const totalLength = Math.floor(this.state.totalLength / 1000);
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
           onSeek={this.seek = seek.bind(this)}
-          trackLength={this.state.totalLength}
+          trackLength={totalLength}
           currentPosition={this.state.currentPosition || 0} />
         <Controls
           forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
