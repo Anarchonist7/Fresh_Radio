@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageBackground, TouchableOpacity, View, Text, TextInput, StyleSheet } from 'react-native';
+import { Image, ImageBackground, TouchableOpacity, View, Text, TextInput, StyleSheet, Button, AsyncStorage, StatusBar } from 'react-native';
 import Styles from '../assets/styles/AppStyles';
 
 import { BottomNav } from '../components/BottomNav';
@@ -15,7 +15,23 @@ export default class CaptainScreen extends React.Component {
 
     constructor(props){
         super(props)
+        this.state = {
+            userToken: ''
+        }
+        this.getUserToken()
     }
+
+    getUserToken = async () => {
+        const userToken = await AsyncStorage.getItem('userToken');
+        this.setState({
+            userToken: userToken
+        })
+    };
+
+    signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('HomeScreen');
+    };
     
     render() {
         return (
@@ -23,9 +39,10 @@ export default class CaptainScreen extends React.Component {
                 <View style={Styles.Boxes}>
                     <View style={Styles.CaptainHeader}>
                         <Text style={Styles.CaptainHeaderText}>
-                            <Image source={PiratePNG} style={[ Styles.CaptainIconMedium ]}/> Captain
+                            <Image source={PiratePNG} style={[ Styles.CaptainIconMedium ]}/> {this.state.userToken}
                         </Text>
-                        <SimpleLineIcons name='logout' style={Styles.LogoutIcon}/>
+                        <Button title='logout' onPress={this.signOutAsync}><SimpleLineIcons name='logout' style={Styles.LogoutIcon}/></Button>
+                        
                     </View>
 
                     <View style={Styles.NewShip}>

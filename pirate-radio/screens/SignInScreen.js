@@ -37,7 +37,7 @@ export default class SignInScreen extends React.Component {
         // SORRY, try again
         
         await AsyncStorage.setItem('userToken', this.state.username);
-        this.props.navigation.navigate('OtherScreen');
+        this.props.navigation.navigate('CaptainScreen');
     };
     
     render() {
