@@ -12,7 +12,7 @@ import SeekBar from './SeekBar';
 import Controls from './Controls';
 import { loadTrack, setPlay, setStatusUpdate } from './functions';
 import Styles from '../assets/styles/AppStyles';
-export default class Player extends Component {
+export default class Listener extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,6 +82,10 @@ export default class Player extends Component {
         )
       }
   }
+
+  componentWillUnmount() {
+    this.state.player.unloadAsync();
+  }
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
@@ -91,7 +95,6 @@ export default class Player extends Component {
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
           trackLength={totalLength}
-          onSlidingStart={() => this.setState({paused: true})}
           currentPosition={this.state.currentPosition || 0} />
       </View>
     );

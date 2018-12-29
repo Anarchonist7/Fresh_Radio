@@ -46,10 +46,10 @@ export default class ShipCrewScreen extends React.Component {
         if (this.state.loading === true){
             return <SeaBackground />
         } else {
-            return ( 
+            return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.ShipHeader}> 
+                            <View style={Styles.ShipHeader}>
                                 <Text>
                                     <Text style={Styles.BigTextPirate}>Captain {captain.captainName}</Text>
                                     <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
