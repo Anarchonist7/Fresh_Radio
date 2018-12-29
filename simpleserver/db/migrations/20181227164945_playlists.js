@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
         table.integer('current_track').notNull();
         table.integer('current_position_millis').notNull();
         table.boolean('is_paused').notNull();
-        table.integer('time_stamp').notNull();
+        table.bigint('time_stamp').notNull();
         table.string('pimg');     
     });
 };

@@ -38,7 +38,7 @@ export default class Player extends Component {
     console.log('---------------Status Update----------------')
       console.log('myPosition:', status.positionMillis)
       console.log('myDuration: ', status.durationMillis)
-      console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
+      // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
         console.log('|---> end of track triggered---')
         const selectedTrack = Number(this.state.selectedTrack);
@@ -73,7 +73,6 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log('|---> componentDidUpdate')
-    console.log(this.props.tracks)
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {

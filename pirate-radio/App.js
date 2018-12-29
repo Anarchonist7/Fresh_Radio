@@ -112,11 +112,7 @@ export default class App extends Component {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        timeStamp: this.state.ship.timeStamp,
-        currentTrack: this.state.ship.currentTrack,
-      })
+      }
     })
     console.log('!!Post to ship')
   }

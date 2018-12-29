@@ -26,7 +26,7 @@ export default class TrackList extends React.Component {
     generateTrackList(){
         let trackComponentArray = []
         this.props.tracks.forEach((track, i) => {
-            let active = (track.id === this.props.ship.currentTrack)
+            let active = (track.id - 1 === this.props.ship.currentTrack )
             trackComponentArray.push(
             <Text key={i} style={[Styles.SmallTextNormal, Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                 <SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> {track.title} by {track.artist}
