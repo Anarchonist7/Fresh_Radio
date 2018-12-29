@@ -5,10 +5,9 @@ require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
-let treasure = 0;
-
 const config = require('./knexfile')[ENV];   
-const database = require('knex')(config);
+const knex = require('knex')(config);
+const pirateDb = require('./lib/pirateDb')(knex);
 
 var mp3Duration = require('mp3-duration');
 
@@ -16,9 +15,6 @@ var mp3Duration = require('mp3-duration');
 //  if (err) return console.log(err.message);
 //  console.log('Your file is ' + duration + ' seconds long');
 // });
-
-
-const searchResults = [{captain: 'barbosa', shipName: 'tightship', crewNum: 99}, {captain: 'barbosa-bro', shipName: 'dreadnaught', crewNum: 12}]
 
 const serverData = {
   1: {
@@ -107,18 +103,19 @@ function asyncRequest(shipId) {
   })
 }
 
+
 app.use(express.static('public'))
 
 app.get("/ships", function(req, res) {
   const {search} = req.query
-  const id = 1
-  asyncRequest(id).then((serverResponse, error) => {
+  console.log(search)
+  pirateDb.searchShipsByName(search, (error, dbResponse) => {
     if (error) {
       console.log('error', error.message)
       res.status(500).json({ error: error.message });
     } else {
-      console.log('Reponse to APP from search: ', searchResults)
-      res.json(searchResults);
+      console.log('Reponse to APP from search: ', dbResponse)
+      res.json(dbResponse);
     }
   });
 });
