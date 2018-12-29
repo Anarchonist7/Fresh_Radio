@@ -102,7 +102,7 @@ app.use(express.static('public'))
 app.get("/ships", function(req, res) {
   const {search} = req.query
   console.log(search)
-  pirateDb.searchShipsByName(search, (error, dbResponse) => {
+  pirateDb.searchShipsByName(search.toLowerCase(), (error, dbResponse) => {
     if (error) {
       console.log('error', error.message)
       res.status(500).json({ error: error.message });
