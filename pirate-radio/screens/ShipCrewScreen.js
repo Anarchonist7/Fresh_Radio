@@ -49,10 +49,9 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.ShipHeader}>
-                                <Text>
-                                    <Text style={Styles.BigTextPirate}>Captain {captain.captainName}</Text>
-                                    <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                            <View style={Styles.ShipHeader}> 
+                                <Text style={Styles.BigTextPirate}>
+                                    Captain {captain.captainName} <Image source={PiratePNG} style={Styles.CaptainIconMedium} />
                                 </Text>
                             </View>
 

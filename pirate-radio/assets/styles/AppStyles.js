@@ -22,17 +22,17 @@ module.exports = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-start',
+        alignSelf: 'center',
         marginTop: '13%'
     },
 
     Search: {
-        paddingTop: 5,
         paddingHorizontal: 10,
+        flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
         height: '10%',
-        resizeMode: 'contain',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -49,12 +49,54 @@ module.exports = StyleSheet.create({
         borderRadius: 15,
     },
 
+    CaptainHeader: {
+        paddingTop: 5,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        justifyContent: 'space-between',
+        width: '95%',
+        height: '10%',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    CaptainHeaderText: {
+        marginLeft: 20,
+        fontFamily: 'BlackPearl',
+        color: 'white',
+        fontSize: 28,
+    },
+
+    NewShip: {
+        marginTop: 5,
+        paddingHorizontal: 10,
+        flexDirection: 'column',
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: '40%',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    YeOldShips: {
+        marginTop: 5,
+        paddingHorizontal: 10,
+        flexDirection: 'column',
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: '40%',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
     Results: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '38%',
-        marginTop: '5%',
+        height: '44%',
+        marginTop: 5,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -75,8 +117,8 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         width: '95%',
-        height: '32%',
-        marginTop: '5%',
+        height: '35%',
+        marginTop: 5,
         paddingTop: 15,
         backgroundColor: '#383131',
         borderRadius: 15,
@@ -235,6 +277,16 @@ module.exports = StyleSheet.create({
         height: 20,
         resizeMode: 'contain',
     },
+
+    LogoutIcon: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        fontSize: 28,
+        marginBottom: 5,
+        marginRight: 20,
+        color: 'white',
+    },
     
     PirateShipIcon: {
         width: 80,
@@ -315,5 +367,5 @@ module.exports = StyleSheet.create({
     TrackDetailsMoreButtonIcon: {
         height: 17,
         width: 17,
-    }
+    },
 })
