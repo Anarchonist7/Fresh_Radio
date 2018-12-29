@@ -21,7 +21,7 @@ export default class Player extends Component {
       currentPosition: Math.floor(this.props.ship.currentPositionMillis),
       currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)),
       selectedTrack: this.props.ship.currentTrack,
-      totalLength: Math.floor(this.props.tracks[this.props.ship.currentTrack].durationMillis / 1000),
+      totalLength: this.props.tracks[this.props.ship.currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -50,7 +50,7 @@ export default class Player extends Component {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
-          totalLength: Math.floor(this.props.tracks[this.state.selectedTrack].durationMillis / 1000)
+          totalLength: this.props.tracks[this.state.selectedTrack].durationMillis
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true))
       }
     }
@@ -84,12 +84,13 @@ export default class Player extends Component {
   }
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
+    const totalLength = Math.floor(this.state.totalLength / 1000);
     console.log('Selected track has a title of: ', track.title)
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
         <SeekBar
-          trackLength={this.state.totalLength}
+          trackLength={totalLength}
           onSlidingStart={() => this.setState({paused: true})}
           currentPosition={this.state.currentPosition || 0} />
       </View>
