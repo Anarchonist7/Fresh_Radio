@@ -24,11 +24,9 @@ module.exports = function pirateDb(knex) {
     },
     getShipById: (id, callback) => {
       knex
-        .select('*')
+        .select('name', 'current_track as currentTrack', 'current_position_millis as currentPositionMillis', 'is_paused as paused', 'time_stamp as timeStamp')
         .from('ships')
-        .where({
-        id: id,
-        })
+        .where({id: id})
         .then((results) => {
           callback(null, results);
         })
@@ -36,15 +34,23 @@ module.exports = function pirateDb(knex) {
     },
     getTracksByShipId: (id, callback) => {
       knex
-        .select('*')
+        .select('id', 'title', 'artist', 'album', 'duration_millis as durationMillis', 'audio_url as audioUrl')
         .from('songs')
-        .where({
-          ship_id: id,
-        })
+        .where({ship_id: id})
         .then((results) => {
           callback(null, results);
         })
         .catch(error => callback(error));
+    },
+    updateShip: (id, timeStamp, currentTrack, currentPositionMillis, paused) => {
+      knex('ships')
+        .where({id: id})
+        .update({
+          time_stamp: timeStamp,
+          current_track: currentTrack,
+          current_position_millis: currentPositionMillis,
+          is_paused: paused
+        })
     }
   };
 };
