@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         table.string('name').notNull();
         table.string('path').notNull();
         table.integer('crew')
+        table.boolean('active').notNull()
         table.integer('user_id').references('users.id').notNull();
         table.integer('current_track').notNull();
         table.integer('current_position_millis').notNull();
