@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
-import { PirateText } from '../components/PirateText';
 import Styles from '../assets/styles/AppStyles';
 
 const PiratePNG = require('../assets/images/pirate.png');
@@ -29,7 +28,7 @@ export default class ShipCaptainScreen extends React.Component {
                 <View style={Styles.Boxes}>
                     <View style={Styles.ShipHeader}> 
                         <Text>
-                            <PirateText style={Styles.BigText}>Captain Barbosa </PirateText>
+                            <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
                             <Image source={PiratePNG} style={ Styles.CaptainIcon } />
                         </Text>
                     </View>
@@ -39,7 +38,7 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Playlist}>
-                        <PirateText style={Styles.BigText}>{ship.name}{'\n'}</PirateText>
+                        <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                         <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
                 </View>

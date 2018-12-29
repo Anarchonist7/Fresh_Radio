@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
-import { PirateText } from '../components/PirateText';
 
 import { SeaBackground } from '../components/SeaBackground';
 import Listener from '../components/Listener';
@@ -25,7 +24,7 @@ export default class ShipCrewScreen extends React.Component {
             <SeaBackground>
                 <View style={Styles.Boxes}>
                     <View style={Styles.Search}> 
-                        <PirateText style={Styles.BigText}>Captain Barbosa</PirateText>
+                        <Text style={Styles.BigTextPirate}>Captain Barbosa</Text>
                     </View>
 
                     <View style={Styles.NowPlaying}>
@@ -33,7 +32,7 @@ export default class ShipCrewScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Playlist}>
-                        <Text style={Styles.BigText}>{ship.name}{'\n'}</Text>
+                        <Text style={Styles.BigTextPirateNormal}>{ship.name}{'\n'}</Text>
                         <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                     </View>
                 </View>
