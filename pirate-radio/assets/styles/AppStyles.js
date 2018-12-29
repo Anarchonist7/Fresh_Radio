@@ -96,7 +96,7 @@ module.exports = StyleSheet.create({
         height: '25%',
         borderRadius: 5,
         marginTop: 5,
-        marginHorizontal: 5,
+        marginHorizontal: 8,
         backgroundColor: 'grey',
         padding: 5,
     },
