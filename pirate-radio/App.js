@@ -21,7 +21,8 @@ import Listener from './components/Listener';
 //THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+
+const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
@@ -152,6 +153,10 @@ export default class App extends Component {
       this.state.tracks.forEach((track, index) => {
           this.downloadTrack(index)
       })
+    });
+
+    Font.loadAsync({
+      'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
     });
   }
 

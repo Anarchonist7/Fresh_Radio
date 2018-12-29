@@ -4,7 +4,8 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
+const LOCALHOST = process.env.LOCALHOST || 'localhost'
+
 let treasure = 0;
 const searchResults = [{captain: 'barbosa', shipName: 'tightship', crewNum: 99}, {captain: 'barbosa-bro', shipName: 'dreadnaught', crewNum: 12}]
 const serverData = {

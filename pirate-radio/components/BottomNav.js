@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageBackground, TouchableOpacity, Button, View, Text, StyleSheet, Platform } from 'react-native';
 
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { PirateText } from './PirateText';
 import Styles from '../assets/styles/AppStyles';
 
 import { Ionicons, Feather, Foundation } from '@expo/vector-icons';
