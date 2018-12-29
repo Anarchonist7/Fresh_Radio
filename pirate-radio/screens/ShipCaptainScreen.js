@@ -21,11 +21,11 @@ export default class ShipCaptainScreen extends React.Component {
     render() {
 
         const {ship, tracks} = this.props.screenProps;
-
+        console.log('--------captainScreen: ', ship, tracks)
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
-                    <View style={Styles.ShipHeader}> 
+                    <View style={Styles.ShipHeader}>
                         <Text>
                             <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
                             <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />

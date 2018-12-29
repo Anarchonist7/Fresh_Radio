@@ -15,7 +15,7 @@ import { Ionicons, Feather } from '@expo/vector-icons';
 export default class ListenHostScreen extends React.Component {
 
     static NavigationOptions = { header: { visibile: false } };
-    
+
     constructor(props){
         super(props)
     }
@@ -26,9 +26,9 @@ export default class ListenHostScreen extends React.Component {
 
         navigateToCaptain = () => this.props.navigation.navigate('CaptainScreen');
 
-        navigateToShipCaptain= () => this.props.navigation.navigate('ShipCaptainScreen');
+        navigateToShipCaptain = () => this.props.navigation.navigate('ShipCaptainScreen');
 
-        navigateToShipCrew= () => this.props.navigation.navigate('ShipCrewScreen');
+        navigateToShipCrew = () => this.props.navigation.navigate('ShipCrewScreen');
 
 
         return (
@@ -38,7 +38,7 @@ export default class ListenHostScreen extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToSearch}> 
+                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToSearch}>
                         <View>
                             <Text style={ Styles.ListenHostText } >Crew</Text>
                             <Feather name="headphones" style={ Styles.ListenHostIcons } />
