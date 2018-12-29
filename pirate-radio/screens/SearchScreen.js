@@ -87,7 +87,7 @@ export default class SearchScreen extends React.Component {
                             onPress={() => {
                                 this.props.navigation.navigate('ShipCrewScreen', {shipId: 3})
                             }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Daveys-tunes</Text>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> daveys-tunes</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 11</Text>
                         </TouchableOpacity>
 
@@ -96,7 +96,7 @@ export default class SearchScreen extends React.Component {
                         onPress={() => {
                             this.props.navigation.navigate('ShipCrewScreen', {shipId: 1})
                         }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Barbosa-beats</Text>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> barbosa-beats</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 4</Text>
                         </TouchableOpacity>
 
@@ -105,7 +105,7 @@ export default class SearchScreen extends React.Component {
                         onPress={() => {
                             this.props.navigation.navigate('ShipCrewScreen', {shipId: 2})
                         }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Jacks-jams</Text>
+                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
                         </TouchableOpacity>
                     </View>

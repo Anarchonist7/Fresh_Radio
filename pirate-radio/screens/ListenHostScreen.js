@@ -45,7 +45,7 @@ export default class ListenHostScreen extends React.Component {
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToShipCaptain}>
+                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToCaptain}>
                         <View>
                             <Text style={ Styles.ListenHostText } >Captain</Text>
                             <Ionicons name="ios-radio" style={ Styles.ListenHostIcons } />
