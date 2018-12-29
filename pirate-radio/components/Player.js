@@ -23,10 +23,10 @@ export default class Player extends Component {
     this.state = {
       paused: this.props.ship.paused,
       totalLength: 1,
-      currentPosition: Math.floor(this.props.ship.currentPositionMillis) || 0,
+      currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000) || 0,
       currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)) || 0,
       selectedTrack: this.props.ship.currentTrack,
-      totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
+      totalLength: Math.floor(this.props.tracks[this.props.ship.currentTrack].durationMillis / 1000),
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -38,7 +38,7 @@ export default class Player extends Component {
     console.log('---------------Status Update----------------')
       console.log('myPosition:', status.positionMillis)
       console.log('myDuration: ', status.durationMillis)
-      if (status.positionMillis === totalLength) {
+      if (status.positionMillis === this.state.totalLength) {
         console.log('|---> end of track triggered---')
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
@@ -56,7 +56,7 @@ export default class Player extends Component {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
-          totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
+          totalLength: Math.floor(this.props.tracks[this.state.selectedTrack].durationMillis / 1000),
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
       }
       console.log('-------------------------------------')
@@ -64,11 +64,14 @@ export default class Player extends Component {
 
   componentDidMount() {
     console.log('|---> componentDidMount')
-    loadTrack(this)
+    loadTrack(this).then(() => {
+      setStatusUpdate(this)
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log('|---> componentDidUpdate')
+    console.log(this.props.tracks)
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {

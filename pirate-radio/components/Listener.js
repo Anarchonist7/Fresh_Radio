@@ -21,7 +21,7 @@ export default class Player extends Component {
       currentPosition: Math.floor(this.props.ship.currentPositionMillis),
       currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)),
       selectedTrack: this.props.ship.currentTrack,
-      totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
+      totalLength: Math.floor(this.props.tracks[this.props.ship.currentTrack].durationMillis / 1000),
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -32,7 +32,7 @@ export default class Player extends Component {
       console.log('STATUS UPDATE', status.positionMillis)
       console.log('duration: ', status.durationMillis)
       console.log('IDEAL TIMESTART ', Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
-      if (status.positionMillis === totalLength) {
+      if (status.positionMillis === this.state.totalLength) {
         console.log('THIS CONDITION HAS BEEN MET')
         this.state.player.setPositionAsync(0).then( () => {
           this.state.player.stopAsync()
@@ -50,7 +50,7 @@ export default class Player extends Component {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
-          totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
+          totalLength: Math.floor(this.props.tracks[this.state.selectedTrack].durationMillis / 1000)
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true))
       }
     }

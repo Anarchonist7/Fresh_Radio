@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
 let treasure = 0;
 
-const config = require('./knexfile')[ENV];   
+const config = require('./knexfile')[ENV];
 const database = require('knex')(config);
 
 var mp3Duration = require('mp3-duration');
@@ -24,7 +24,7 @@ const serverData = {
   1: {
     ship: {
       name: 'Barbosa Beats',
-      currentTrack: 1,
+      currentTrack: 0,
       currentPositionMillis: 0,
       paused: true,
       timeStamp: Date.now()
