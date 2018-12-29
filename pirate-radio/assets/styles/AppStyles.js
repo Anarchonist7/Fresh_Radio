@@ -97,6 +97,7 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '44%',
         marginTop: 5,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -119,7 +120,7 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '35%',
         marginTop: 5,
-        paddingTop: 15,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -170,7 +171,6 @@ module.exports = StyleSheet.create({
     },
 
     ListHeader: {
-        paddingTop: 15,
         marginBottom: '-5%',
     },
 
