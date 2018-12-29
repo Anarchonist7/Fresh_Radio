@@ -26,7 +26,7 @@ export default class ListenHostScreen extends React.Component {
 
         navigateToCaptain = () => this.props.navigation.navigate('CaptainScreen');
 
-        navigateToShipCaptain= () => this.props.navigation.navigate('ShipCaptainScreen');
+        navigateToLogin= () => this.props.navigation.navigate('AuthLoadingScreen');
 
         navigateToShipCrew= () => this.props.navigation.navigate('ShipCrewScreen');
 
@@ -45,7 +45,7 @@ export default class ListenHostScreen extends React.Component {
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToShipCaptain}>
+                    <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]} onPress={navigateToLogin}>
                         <View>
                             <Text style={ Styles.ListenHostText } >Captain</Text>
                             <Ionicons name="ios-radio" style={ Styles.ListenHostIcons } />

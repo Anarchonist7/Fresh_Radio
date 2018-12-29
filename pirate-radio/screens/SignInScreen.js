@@ -37,7 +37,7 @@ export default class SignInScreen extends React.Component {
         // SORRY, try again
         
         await AsyncStorage.setItem('userToken', this.state.username);
-        this.props.navigation.navigate('App');
+        this.props.navigation.navigate('OtherScreen');
     };
     
     render() {
@@ -85,3 +85,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     },
 });
+
