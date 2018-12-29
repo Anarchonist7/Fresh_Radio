@@ -5,13 +5,13 @@ import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 
 import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
-import CaptainScreen from './screens/CaptainScreen';
+// import CaptainScreen from './screens/CaptainScreen';
 import LandingScreen from './screens/LandingScreen';
-import ListenHostScreen from './screens/ListenHostScreen';
-import LoginRegisterScreen from './screens/LoginRegisterScreen';
-import SearchScreen from './screens/SearchScreen';
-import ShipCaptainScreen from './screens/ShipCaptainScreen';
-import ShipCrewScreen from './screens/ShipCrewScreen';
+// import ListenHostScreen from './screens/ListenHostScreen';
+// import LoginRegisterScreen from './screens/LoginRegisterScreen';
+// import SearchScreen from './screens/SearchScreen';
+// import ShipCaptainScreen from './screens/ShipCaptainScreen';
+// import ShipCrewScreen from './screens/ShipCrewScreen';
 import AppNavigator from './navigation/AppNavigator';
 
 import shorthash from 'shorthash'
@@ -30,6 +30,7 @@ export default class App extends Component {
     super(props)
     this.state = {
       loading: true,
+      fontLoading: true,
       ship: {
         name: '',
         currentTrack: '',
@@ -158,7 +159,7 @@ export default class App extends Component {
 
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
-    });
+    }).then(() => this.setState( {fontLoading: false } ));
   }
 
   render() {
@@ -168,7 +169,7 @@ export default class App extends Component {
       updateCurrentTrack: this.updateCurrentTrack
     }
 
-    if (this.state.loading === true ) {
+    if (this.state.loading === true || this.state.fontLoading === true ) {
       return <LandingScreen />
     } else {
       return <AppNavigator screenProps={ screenProps} />
