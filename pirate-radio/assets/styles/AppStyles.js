@@ -27,6 +27,7 @@ module.exports = StyleSheet.create({
 
     Search: {
         paddingTop: 5,
+        paddingHorizontal: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
@@ -90,6 +91,15 @@ module.exports = StyleSheet.create({
         justifyContent: 'space-between',
     },
 
+    SearchList: {
+        width: '95%',
+        height: '25%',
+        borderRadius: 5,
+        marginTop: 5,
+        backgroundColor: 'grey',
+        padding: 5,
+    },
+
     Playlist: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
@@ -120,18 +130,34 @@ module.exports = StyleSheet.create({
     },
 
     ListenHostText: {
+        fontFamily: 'BlackPearl',
         color: 'white',
         fontSize: 60,
         textAlign: 'center',
     },
 
-    BigText: {
+    BigTextPirate: {
+        fontFamily: 'BlackPearl',
         color: 'white',
         textAlign: 'center',
         fontSize: 32,
     },
 
-    SmallText: {
+    BigTextNormal: {
+        fontFamily: 'Times New Roman',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 32,
+    },
+
+    SmallTextPirate: {
+        fontFamily: 'BlackPearl',
+        color: 'white',
+        fontSize: 18,
+    },
+
+    SmallTextNormal: {
+        fontFamily: 'Times New Roman',
         color: 'white',
         fontSize: 18,
     },
@@ -200,12 +226,24 @@ module.exports = StyleSheet.create({
         marginBottom: 5,
         resizeMode: 'contain',
     },
+
+    CaptainIconSmall: {
+        width: 20,
+        height: 20,
+        resizeMode: 'contain',
+    },
     
     PirateShipIcon: {
         width: 80,
         height: 80,
         resizeMode: 'contain',
         marginRight: 10,
+    },
+
+    PirateShipIconSmall: {
+        width: 20,
+        height: 20,
+        resizeMode: 'contain',
     },
 
     container: {

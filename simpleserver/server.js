@@ -4,11 +4,11 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64'
-let treasure = 0;
+const LOCALHOST = process.env.LOCALHOST || 'localhost'
 
-const config = require('./knexfile')[ENV];
-const database = require('knex')(config);
+const config = require('./knexfile')[ENV];   
+const knex = require('knex')(config);
+const pirateDb = require('./lib/pirateDb')(knex);
 
 var mp3Duration = require('mp3-duration');
 
@@ -18,141 +18,127 @@ var mp3Duration = require('mp3-duration');
 // });
 
 
-const searchResults = [{captain: 'barbosa', shipName: 'tightship', crewNum: 99}, {captain: 'barbosa-bro', shipName: 'dreadnaught', crewNum: 12}]
-
-const serverData = {
-  1: {
-    ship: {
-      name: 'Barbosa Beats',
-      currentTrack: 0,
-      currentPositionMillis: 0,
-      paused: true,
-      timeStamp: Date.now()
-    },
-    tracks: [
-      {
-        id: 1,
-        title: 'Rouge',
-        artist: 'TOKiMONSTA',
-        album: 'Lune Rouge',
-        durationMillis: 133198,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
-      },
-      {
-        id: 2,
-        title: 'Estrange (Feat. Io Echo)',
-        artist: 'TOKiMONSTA',
-        album: 'Lune Rouge',
-        durationMillis: 258011,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
-      },
-      {
-        id: 3,
-        title: 'Cirrus',
-        artist: 'Bonobo',
-        album: 'The North Borders',
-        durationMillis: 349257,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
-      },
-      {
-        id: 4,
-        title: 'Elevate This Sound',
-        artist: 'Calyx, Teebee',
-        album: 'Elevate This Sound',
-        durationMillis: 315637,
-        audioUrl: 'http://' + LOCALHOST +  ':' + PORT + '/tune4.mp3'
-      }
-    ]
-  },
-  2: {
-    ship: {
-      name: 'DJ_WISH',
-      currentTrack: null,
-      timeStamp: Date.now()
-    },
-    tracks: [
-      {
-        id: 1,
-        title: 'Rouge',
-        artist: 'TOKiMONSTA',
-        album: 'Lune Rouge',
-        durationMillis: 133198,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
-      },
-      {
-        id: 2,
-        title: 'Estrange (Feat. Io Echo)',
-        artist: 'TOKiMONSTA',
-        album: 'Lune Rouge',
-        durationMillis: 258011,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
-      },
-      {
-        id: 3,
-        title: 'Cirrus',
-        artist: 'Bonobo',
-        album: 'The North Borders',
-        durationMillis: 349257,
-        audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
-      },
-    ]
-  }
-}
-
-function asyncRequest(shipId) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(serverData[shipId])
-    }, 1000)
-  })
-}
+// const serverData = {
+//   1: {
+//     ship: {
+//       name: 'Barbosa Beats',
+//       currentTrack: 1,
+//       currentPositionMillis: 0,
+//       paused: true,
+//       timeStamp: Date.now()
+//     },
+//     tracks: [
+//       {
+//         id: 1,
+//         title: 'Rouge',
+//         artist: 'TOKiMONSTA',
+//         album: 'Lune Rouge',
+//         durationMillis: 133198,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
+//       },
+//       {
+//         id: 2,
+//         title: 'Estrange (Feat. Io Echo)',
+//         artist: 'TOKiMONSTA',
+//         album: 'Lune Rouge',
+//         durationMillis: 258011,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
+//       },
+//       {
+//         id: 3,
+//         title: 'Cirrus',
+//         artist: 'Bonobo',
+//         album: 'The North Borders',
+//         durationMillis: 349257,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
+//       },
+//       {
+//         id: 4,
+//         title: 'Elevate This Sound',
+//         artist: 'Calyx, Teebee',
+//         album: 'Elevate This Sound',
+//         durationMillis: 315637,
+//         audioUrl: 'http://' + LOCALHOST +  ':' + PORT + '/tune4.mp3'
+//       }
+//     ]
+//   },
+//   2: {
+//     ship: {
+//       name: 'DJ_WISH',
+//       currentTrack: null,
+//       timeStamp: Date.now()
+//     },
+//     tracks: [
+//       {
+//         id: 1,
+//         title: 'Rouge',
+//         artist: 'TOKiMONSTA',
+//         album: 'Lune Rouge',
+//         durationMillis: 133198,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune1.mp3'
+//       },
+//       {
+//         id: 2,
+//         title: 'Estrange (Feat. Io Echo)',
+//         artist: 'TOKiMONSTA',
+//         album: 'Lune Rouge',
+//         durationMillis: 258011,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune2.mp3'
+//       },
+//       {
+//         id: 3,
+//         title: 'Cirrus',
+//         artist: 'Bonobo',
+//         album: 'The North Borders',
+//         durationMillis: 349257,
+//         audioUrl: 'http://' + LOCALHOST + ':' + PORT + '/tune3.mp3'
+//       },
+//     ]
+//   }
+// }
 
 app.use(express.static('public'))
 
 app.get("/ships", function(req, res) {
   const {search} = req.query
-  const id = 1
-  asyncRequest(id).then((serverResponse, error) => {
+  console.log(search)
+  pirateDb.searchShipsByName(search.toLowerCase(), (error, dbResponse) => {
     if (error) {
       console.log('error', error.message)
       res.status(500).json({ error: error.message });
     } else {
-      console.log('Reponse to APP from search: ', searchResults)
-      res.json(searchResults);
+      console.log('Reponse to APP from search: ', dbResponse)
+      res.json(dbResponse);
     }
   });
 });
 
 app.get("/ships/:id", function(req, res) {
   const { id } = req.params;
-  asyncRequest(id).then((serverResponse, error) => {
+  pirateDb.getTracksByShipId(id, (error, tracks) => {
     if (error) {
       console.log('error', error.message)
       res.status(500).json({ error: error.message });
     } else {
-      console.log('Reponse to APP: :', serverResponse)
-      console.log('HERE BE THE TREASURE: ', treasure)
-      serverData[id].ship.currentPositionMillis = serverResponse.ship.currentPositionMillis
-      console.log('object hunting: ', serverData)
-      serverResponse.ship.currentPositionMillis = Math.floor(serverResponse.ship.currentPositionMillis)
-      serverResponse.ship.paused = false
-      console.log('millisResponse: ', serverResponse.ship.currentPositionMillis)
-      res.json(serverResponse);
+      pirateDb.getShipById(id, (error, ship) => {
+        if (error) {
+          console.log('error', error.message)
+          res.status(500).json({ error: error.message });
+        } else {
+          console.log('Reponse to APP: :', {tracks: tracks, ship: ship[0]})
+          res.json({tracks: tracks, ship: ship[0]})
+        }
+      })
     }
   });
-});
+})
 
 app.post("/ships/:id", function(req, res) {
   //should require captain Auth
   const {id} = req.params
   const {timeStamp, currentTrack, currentPositionMillis, paused} = req.query
-  treasure = currentPositionMillis
   console.log('Post from APP: shipID: ', id, 'paused: ', paused, 'Timestamp: ', timeStamp, 'Current Track: ', currentTrack, 'CurrentPosMillis: ', currentPositionMillis)
-  serverData[id].ship.currentTrack = currentTrack
-  serverData[id].ship.timeStamp = timeStamp
-  serverData[id].ship.currentPositionMillis = currentPositionMillis
-  serverData[id].ship.paused = paused
-  res.json('recorded current track and timestamp to server data')
+  pirateDb.updateShip(id, timeStamp, currentTrack, currentPositionMillis, paused)
   res.send()
 })
 

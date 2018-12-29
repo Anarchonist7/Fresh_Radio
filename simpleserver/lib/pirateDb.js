@@ -11,17 +11,47 @@ module.exports = function pirateDb(knex) {
         })
         .catch(error => callback(error));
     },
-    getShipsByName: (smoothieId, callback) => {
+    searchShipsByName: (search, callback) => {
       knex
-        .select('*')
+        .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum')
         .from('ships')
-        .where({
-          id: smoothieId,
-        })
+        .where('ships.name', search)
+        .join('users', 'ships.user_id', '=', 'users.id')
         .then((results) => {
           callback(null, results);
         })
         .catch(error => callback(error));
+    },
+    getShipById: (id, callback) => {
+      knex
+        .select('name', 'current_track as currentTrack', 'current_position_millis as currentPositionMillis', 'is_paused as paused', 'time_stamp as timeStamp')
+        .from('ships')
+        .where({id: id})
+        .then((results) => {
+          callback(null, results);
+        })
+        .catch(error => callback(error));
+    },
+    getTracksByShipId: (id, callback) => {
+      knex
+        .select('id', 'title', 'artist', 'album', 'duration_millis as durationMillis', 'audio_url as audioUrl')
+        .from('songs')
+        .where({ship_id: id})
+        .then((results) => {
+          callback(null, results);
+        })
+        .catch(error => callback(error));
+    },
+    updateShip: (id, timeStamp, currentTrack, currentPositionMillis, paused) => {
+      knex('ships')
+        .where({id: id})
+        .update({
+          time_stamp: timeStamp,
+          current_track: currentTrack,
+          current_position_millis: currentPositionMillis,
+          is_paused: paused
+        })
     }
   };
 };
+ 

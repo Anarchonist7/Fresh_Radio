@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
       table.string('artist').notNull();
       table.string('album').notNull();
       table.string('audio_url').notNull();
+      table.integer('duration_millis').notNull();
       table.integer('ship_id').references('ships.id').notNull();
       table.integer('order');
     });
