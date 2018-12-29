@@ -32,17 +32,13 @@ export default class SearchScreen extends React.Component {
     shipRequest = LOCALHOST + ':' + PORT + '/ships/';
     
     searchShips = () => {
-        // console.log(this.state.searchText);
-        // console.log(this.shipRequest);
         fetch(`${this.shipRequest}?search=${this.state.searchText}`, {
             method: 'GET',
         }).then((responseData, error) => {
-            // console.log(responseData);
             if (error){
                 throw new Error('Error: ', error);
             } else {
                 const response = JSON.parse(responseData._bodyText)
-                // console.log(response);
                 this.setState({
                     searchResults: response
                 })
@@ -66,7 +62,10 @@ export default class SearchScreen extends React.Component {
                 <View style={Styles.Boxes}>
                     <View style={Styles.Search}>
                         <SearchBar
-                            inputStyle={Styles.SmallTextPirate}
+                            ref={SearchBar => {this.SearchBar = SearchBar}}
+                            autoCorrect={false}
+                            clearIcon={{ color: 'white' }}
+                            inputStyle={Styles.SmallTextNormal}
                             onChangeText={(searchText) => this.setState({searchText})}
                             placeholder='Search'
                             placeholderTextColor='white'
@@ -88,16 +87,16 @@ export default class SearchScreen extends React.Component {
                     <View style={Styles.Popular}>
                         <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Popular Ships{'\n'}</Text>
                         <View style={Styles.ShipList}>
-                            <Text style={Styles.SmallTextPirate} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> arrrRave</Text>
-                            <Text style={Styles.SmallTextPirate}>Crew: 11</Text>
+                            <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> arrrRave</Text>
+                            <Text style={Styles.SmallTextNormal}>Crew: 11</Text>
                         </View>
                         <View style={Styles.ShipList}>
-                            <Text style={Styles.SmallTextPirate} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Captain Barbosa</Text>
-                            <Text style={Styles.SmallTextPirate}>Crew: 4</Text>
+                            <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> Captain Barbosa</Text>
+                            <Text style={Styles.SmallTextNormal}>Crew: 4</Text>
                         </View>
                         <View style={Styles.ShipList}>
-                            <Text style={Styles.SmallTextPirate} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Lonely John</Text>
-                            <Text style={Styles.SmallTextPirate}>Crew: 8</Text>
+                            <Text style={Styles.SmallTextNormal} onPress={ this.navigateToShipCrew }><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> Lonely John</Text>
+                            <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
                         </View>
                     </View>
                 </View>

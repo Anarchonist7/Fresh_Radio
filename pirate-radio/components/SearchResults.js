@@ -28,9 +28,9 @@ export default class SearchResults extends React.Component {
                 <View style={Styles.SearchList}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}><Image source={PiratePNG} style={ Styles.CaptainIconSmall } /> { result.captain }</Text>
-                        <Text style={Styles.SmallTextPirate}>Crew: { result.crewNum }</Text>
+                        <Text style={Styles.SmallTextNormal}>Crew: { result.crewNum }</Text>
                     </View>
-                    <Text key={i} style={Styles.SmallTextPirate}>
+                    <Text key={i} style={Styles.SmallTextNormal}>
                         <Image source={PirateShipPNG} style={Styles.PirateShipIconSmall} /> { result.shipName }
                     </Text>
                 </View>
