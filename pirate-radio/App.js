@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+// import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
