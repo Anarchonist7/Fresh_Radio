@@ -30,6 +30,7 @@ export default class App extends Component {
     super(props)
     this.state = {
       loading: true,
+      fontLoading: true,
       ship: {
         name: '',
         currentTrack: '',
@@ -158,7 +159,9 @@ export default class App extends Component {
 
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
-    });
+    }).then(() => this.setState({
+      fontLoading: false
+    }));
   }
 
   render() {
@@ -168,7 +171,7 @@ export default class App extends Component {
       updateCurrentTrack: this.updateCurrentTrack
     }
 
-    if (this.state.loading === true ) {
+    if (this.state.loading === true || this.state.fontLoading === true) {
       return <LandingScreen />
     } else {
       return <AppNavigator screenProps={ screenProps} />
