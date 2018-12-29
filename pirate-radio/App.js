@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 
-// import { createStackNavigator, createAppContainer } from 'react-navigation';
-
 import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
-// import CaptainScreen from './screens/CaptainScreen';
 import LandingScreen from './screens/LandingScreen';
-// import ListenHostScreen from './screens/ListenHostScreen';
-// import LoginRegisterScreen from './screens/LoginRegisterScreen';
-// import SearchScreen from './screens/SearchScreen';
-// import ShipCaptainScreen from './screens/ShipCaptainScreen';
-// import ShipCrewScreen from './screens/ShipCrewScreen';
 import AppNavigator from './navigation/AppNavigator';
 
 import shorthash from 'shorthash'
@@ -105,6 +97,7 @@ export default class App extends Component {
   }
 
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
+  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
 
   updateShip = () => {
     fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
@@ -118,15 +111,21 @@ export default class App extends Component {
   }
   // make a post req to shipRequest with current track state
 
-  getShip = new Promise((resolve, reject) => {
-      fetch(this.shipRequest, {
+  // getShip = new Promise((resolve, reject) => {
+  getShip = (index) => {
+    return new Promise((resolve, reject) => {
+      console.log(this.shipQueryRequest + index);
+      fetch(this.shipQueryRequest + index, {
+      // fetch(this.shipRequest, {
       method: 'GET'
       }).then((responseData, error) => {
         if (error){
           throw new Error("Error: ", error);
         } else {
           const response = JSON.parse(responseData._bodyText)
+          // console.log("response!!!!!  ", response);
           const ship = {
+            captain: response.captain,
             ship: response.ship,
             tracks: response.tracks.map(track => {
               return {
@@ -139,10 +138,12 @@ export default class App extends Component {
         }
       })
     })
+  }
 
   componentDidMount() {
-    this.getShip.then((response) => {
-      console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
+    this.getShip(1).then((response) => {    
+    // this.getShip.then((response) => {
+      // console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
       this.setState({
         tracks: response.tracks,
         ship: response.ship,
@@ -164,13 +165,17 @@ export default class App extends Component {
     const screenProps = {
       tracks: this.state.tracks,
       ship: this.state.ship,
-      updateCurrentTrack: this.updateCurrentTrack
+      updateCurrentTrack: this.updateCurrentTrack,
+      shipQueryRequest: this.shipQueryRequest,
+      downloadTrack: this.downloadTrack,
+      updateShip: this.updateShip,
+      getShip: this.getShip,
     }
 
     if (this.state.loading === true || this.state.fontLoading === true) {
       return <LandingScreen />
     } else {
-      return <AppNavigator screenProps={ screenProps}/>
+      return <AppNavigator screenProps={screenProps}/>
     }
   }
 }

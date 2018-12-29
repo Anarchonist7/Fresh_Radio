@@ -17,34 +17,64 @@ export default class ShipCrewScreen extends React.Component {
 
     constructor(props){
         super(props)
+        this.state = {
+            loading: true
+        }
+    }
+
+    shipId = this.props.navigation.getParam('shipId', null);
+
+    componentDidMount() {
+        this.props.screenProps.getShip(this.shipId).then((response) => {
+            console.log('SHIPCREWSCREEN RESPONSE!!!!!', response)
+            this.setState({
+                captain: response.captain,
+                ship: response.ship,
+                tracks: response.tracks,
+                loading: false
+            })
+            this.state.tracks.forEach((track, index) => {
+                this.props.screenProps.downloadTrack(index)
+            })
+        });
     }
 
     render() {
-        const {ship, tracks} = this.props.screenProps;
 
-        return (
-            <SeaBackground>
-                <View style={Styles.Boxes}>
-                    <View style={Styles.ShipHeader}> 
-                        <Text>
-                            <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
-                            <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
-                        </Text>
-                    </View>
+        const { ship, tracks, captain } = this.state;
 
-                    <View style={Styles.NowPlaying}>
-                        <Listener tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                    </View>
+        // const {ship, tracks} = this.props.screenProps;
 
-                    <View style={Styles.Playlist}>
-                        <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
-                        <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
-                    </View>
-                </View>
-                <View style={Styles.Footer}>
-                    <BottomNav navigation={this.props.navigation}/>
-                </View>
-            </SeaBackground>
-        )
+        if (this.state.loading === true){
+            return <SeaBackground />
+        } else {
+            return ( 
+                <SeaBackground>
+                        <View style={Styles.Boxes}>
+                            <View style={Styles.ShipHeader}> 
+                                <Text>
+                                    {/* <Text style={Styles.BigTextPirate}>Captain Barbosa </Text> */}
+                                    <Text style={Styles.BigTextPirate}>Captain {captain.captainName}</Text>
+                                    <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                                </Text>
+                            </View>
+
+                            <View style={Styles.NowPlaying}>
+                                {/* <Listener ship={this.props.screenProps.ship} tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/> */}
+                                <Listener tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            </View>
+
+                            <View style={Styles.Playlist}>
+                                <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
+                                {/* <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/> */}
+                                <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                            </View>
+                        </View>
+                        <View style={Styles.Footer}>
+                            <BottomNav navigation={this.props.navigation}/>
+                        </View>
+                </SeaBackground>
+            )
+        }
     }
 }

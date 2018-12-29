@@ -12,10 +12,6 @@ import Styles from '../assets/styles/AppStyles';
 
 import { SimpleLineIcons } from '@expo/vector-icons';
 
-const ENV = process.env.ENV || "development";
-const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
-
 export default class SearchScreen extends React.Component {
     
     static NavigationOptions = { header: { visibile: false } };
@@ -24,17 +20,15 @@ export default class SearchScreen extends React.Component {
         super(props)
         this.state = {
             searchText: '',
-            foundTracks: false,
+            foundShip: false,
             searchResults: []
         };
     }
-
-    shipRequest = LOCALHOST + ':' + PORT + '/ships/';
     
     navigateToShipCrew = () => this.props.navigation.navigate('ShipCrewScreen');
     
     searchShips = () => {
-        fetch(`${this.shipRequest}?search=${this.state.searchText}`, {
+        fetch(`${this.props.screenProps.shipQueryRequest}?search=${this.state.searchText}`, {
             method: 'GET',
         }).then((responseData, error) => {
             if (error){
@@ -42,21 +36,17 @@ export default class SearchScreen extends React.Component {
             } else {
                 const response = JSON.parse(responseData._bodyText)
                 this.setState({
+                    searchText: '',
+                    foundShip: true,
                     searchResults: response
                 })
-                console.log(this.state.searchResults);
-                this.setState({
-                    searchText: '',
-                    foundTracks: true
-                })
+                console.log("searchResults", this.state.searchResults);
             }
         })
     }
 
     render() {
-        
         const { ship } = this.props.screenProps;
-        
 
         return (
             <SeaBackground>
@@ -65,6 +55,7 @@ export default class SearchScreen extends React.Component {
                         <SearchBar
                             ref={SearchBar => {this.SearchBar = SearchBar}}
                             autoCorrect={false}
+                            autoCapitalize='none'
                             clearIcon={{ color: 'white' }}
                             inputStyle={Styles.SmallTextNormal}
                             onChangeText={(searchText) => this.setState({searchText})}
@@ -76,7 +67,7 @@ export default class SearchScreen extends React.Component {
 
                     <View style={Styles.Results}>
                         <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Search Results{'\n'}</Text>
-                        {   this.state.foundTracks ? (
+                        {   this.state.foundShip ? (
                             <SearchResults 
                                 searchResults={this.state.searchResults} 
                                 navigation={this.props.navigation}

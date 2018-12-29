@@ -42,6 +42,17 @@ module.exports = function pirateDb(knex) {
         })
         .catch(error => callback(error));
     },
+    getCaptainByShipId: (id, callback) => {
+      knex
+        .select('users.name as captainName', 'users.id as captainId')
+        .from('ships')
+        .where('ships.id', id)
+        .join('users', 'ships.user_id', '=', 'users.id')
+        .then((results) => {
+          callback(null, results);
+        })
+        .catch(error => callback(error));
+    },
     updateShip: (id, timeStamp, currentTrack, currentPositionMillis, paused, callback) => {
       console.log('|--> update ship triggered')
       knex

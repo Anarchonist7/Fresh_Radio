@@ -14,6 +14,37 @@ var mp3Duration = require('mp3-duration');
 
 app.use(express.static('public'))
 
+app.get("/ships/:id", function(req, res) {
+  const { id } = req.params;
+  pirateDb.getTracksByShipId(id, (error, tracks) => {
+    if (error) {
+      console.log('error', error.message)
+      res.status(500).json({ error: error.message });
+    } else {
+      pirateDb.getShipById(id, (error, ship) => {
+        if (error) {
+          console.log('error', error.message)
+          res.status(500).json({ error: error.message });
+        } else {
+          pirateDb.getCaptainByShipId(id, (error, captain) => {
+            if (error) {
+              console.log('error', error.message)
+              res.status(500).json({ error: error.message });
+            } else {
+                console.log('Reponse to APP: :', {tracks: tracks, ship: ship[0], captain: captain[0] })
+                res.json({
+                  tracks: tracks, 
+                  ship: ship[0],
+                  captain: captain[0]
+                })
+            }
+          })
+        }
+      })
+    }
+  });
+})
+
 app.get("/ships", function(req, res) {
   const {search} = req.query
   console.log(search)
@@ -27,26 +58,6 @@ app.get("/ships", function(req, res) {
     }
   });
 });
-
-app.get("/ships/:id", function(req, res) {
-  const { id } = req.params;
-  pirateDb.getTracksByShipId(id, (error, tracks) => {
-    if (error) {
-      console.log('error', error.message)
-      res.status(500).json({ error: error.message });
-    } else {
-      pirateDb.getShipById(id, (error, ship) => {
-        if (error) {
-          console.log('error', error.message)
-          res.status(500).json({ error: error.message });
-        } else {
-          console.log('Reponse to APP: :', {tracks: tracks, ship: ship[0]})
-          res.json({tracks: tracks, ship: ship[0]})
-        }
-      })
-    }
-  });
-})
 
 app.post("/ships/:id", function(req, res) {
   //should require captain Auth

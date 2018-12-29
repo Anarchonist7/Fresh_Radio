@@ -8,15 +8,15 @@ const PiratePNG = require('../assets/images/pirate.png');
 import { SeaBackground } from '../components/SeaBackground';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 export default class ShipCaptainScreen extends React.Component {
+
+    static NavigationOptions = { header: { visibile: false } };
 
     constructor(props){
         super(props)
     }
-
-    static NavigationOptions = { header: { visibile: false } };
 
     render() {
 

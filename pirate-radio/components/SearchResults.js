@@ -22,13 +22,18 @@ export default class SearchResults extends React.Component {
         }
     }
 
-    navigateToShipCrew = () => this.props.navigation.navigate('ShipCrewScreen');
-
     generateResultsList(){
-        let resultsComponentArray = []
+        let resultsComponentArray = [];
         this.props.searchResults.forEach((result, i) => {
             resultsComponentArray.push(
-                <TouchableOpacity style={Styles.SearchList} onPress={ this.navigateToShipCrew }>
+                <TouchableOpacity 
+                    style={Styles.SearchList} 
+                    onPress={() => {
+                        this.props.navigation.navigate('ShipCrewScreen', {
+                            shipId: result.shipId
+                        })
+                    }}
+                >
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text key={i + 500} style={Styles.SmallTextPirate}>
                             <Image key={i + 400} source={PiratePNG} style={ Styles.CaptainIconSmall }/> { result.captain }
@@ -50,11 +55,7 @@ export default class SearchResults extends React.Component {
         this.generateResultsList()
     }
 
-    onComponentDidUpdate(){
-    }
-
     render(){
         return this.generateResultsList()
     }
-
 }
