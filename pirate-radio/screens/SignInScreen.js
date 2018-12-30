@@ -8,6 +8,8 @@ import {
     AsyncStorage
 } from 'react-native';
 
+import { SeaBackground } from '../components/SeaBackground';
+
 export default class SignInScreen extends React.Component {
     static navigationOptions = {
         title: 'Please sign in',
@@ -42,28 +44,30 @@ export default class SignInScreen extends React.Component {
     
     render() {
         return (
-          <View style={styles.container}>
-            <TextInput
-              value={this.state.username}
-              onChangeText={(username) => this.setState({ username })}
-              placeholder={'Username'}
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.password}
-              onChangeText={(password) => this.setState({ password })}
-              placeholder={'Password'}
-              secureTextEntry={true}
-              style={styles.input}
-            />
-            
-            <Button
-              title={'Login'}
-              style={styles.input}
-              onPress={this._signInAsync}
-            //   onPress={this.onLogin.bind(this)}
-            />
-          </View>
+          <SeaBackground>
+            <View style={styles.container}>
+              <TextInput
+                value={this.state.username}
+                onChangeText={(username) => this.setState({ username })}
+                placeholder={'Username'}
+                style={styles.input}
+              />
+              <TextInput
+                value={this.state.password}
+                onChangeText={(password) => this.setState({ password })}
+                placeholder={'Password'}
+                secureTextEntry={true}
+                style={styles.input}
+              />
+              
+              <Button
+                title={'Login'}
+                style={styles.input}
+                onPress={this._signInAsync}
+              //   onPress={this.onLogin.bind(this)}
+              />
+            </View>
+          </SeaBackground>
         );
       }
     };
@@ -71,18 +75,23 @@ export default class SignInScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+      width: '90%',
+      height: '90%',
+      position: 'relative',
+      top: '5%',
+      alignItems: 'center',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'rgba(255,255,255,0.90)',
     },
     input: {
-    width: 200,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 10,
+      width: 200,
+      height: 44,
+      padding: 10,
+      borderWidth: 1,
+      borderColor: 'black',
+      marginBottom: 10,
+      backgroundColor: 'white',
     },
 });
 

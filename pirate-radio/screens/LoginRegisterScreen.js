@@ -42,6 +42,7 @@ export default class SignInScreen extends React.Component {
     
     render() {
         return (
+          
           <View style={styles.container}>
             <TextInput
               value={this.state.username}

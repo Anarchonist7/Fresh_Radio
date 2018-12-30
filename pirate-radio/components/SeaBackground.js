@@ -13,7 +13,7 @@ export class SeaBackground extends React.Component {
                     height: '100%',
                 }}
                 imageStyle={{
-                    resizeMode: 'stretch'
+                    resizeMode: 'cover'
                 }} >
 
                 {this.props.children}
