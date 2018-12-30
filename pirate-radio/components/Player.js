@@ -63,7 +63,7 @@ export default class Player extends Component {
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, this.state.positionMillis, this.state.paused))
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, positionMillis, this.state.paused))
       }
       console.log('-------------------------------------')
     }
