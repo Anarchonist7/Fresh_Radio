@@ -35,6 +35,7 @@ export default class Player extends Component {
   }
 
    onPlaybackStatusUpdate = (status) => {
+    const date = Date.now();
     console.log('---------------Status Update----------------')
       console.log('myPosition:', status.positionMillis)
       console.log('myDuration: ', status.durationMillis)
@@ -52,14 +53,15 @@ export default class Player extends Component {
             isChanging: false,
             player: new Expo.Audio.Sound(),
             selectedTrack: selectedTrack + 1,
-          }, () => this.props.updateCurrentTrack(selectedTrack, 0))
+          }, () => this.props.updateCurrentTrack(selectedTrack, date, 0, this.state.paused))
         })
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused))
+          paused:
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, date, status.positionMillis, this.state.paused))
       }
       console.log('-------------------------------------')
     }

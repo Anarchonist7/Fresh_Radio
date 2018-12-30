@@ -14,7 +14,7 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
@@ -142,7 +142,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getShip(1).then((response) => {    
+    this.getShip(1).then((response) => {
     // this.getShip.then((response) => {
       // console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
       this.setState({

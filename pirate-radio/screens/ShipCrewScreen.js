@@ -18,7 +18,6 @@ const PiratePNG = require('../assets/images/pirate.png');
 export default class ShipCrewScreen extends React.Component {
 
     static NavigationOptions = { header: { visibile: false } };
-
     constructor(props){
         super(props)
         this.state = {
@@ -102,7 +101,7 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.CaptainHeader}> 
+                            <View style={Styles.CaptainHeader}>
                                 <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                                 <View style={Styles.CaptainHeaderTickerContainer}>
                                     <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
