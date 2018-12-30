@@ -90,10 +90,11 @@ module.exports = StyleSheet.create({
         height: '78%',
         backgroundColor: 'grey',
         marginBottom: 13,
-        borderRadius: 15,
+        borderRadius: 7,
     },
 
     ShipFormInputs: {
+        fontFamily: 'Times New Roman',
         width: '95%',
         height: '15%',
         alignSelf: 'center',
@@ -103,7 +104,7 @@ module.exports = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: 'white',
         opacity: 0.8,
-        padding: 2,
+        paddingLeft: 8,
     },
 
     ShipFormButton: {
