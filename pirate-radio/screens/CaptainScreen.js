@@ -7,6 +7,8 @@ import { SeaBackground } from '../components/SeaBackground';
 
 import { SimpleLineIcons } from '@expo/vector-icons';
 
+import TextTicker from 'react-native-text-ticker'
+
 const PiratePNG = require('../assets/images/pirate.png');
 
 export default class CaptainScreen extends React.Component {
@@ -38,15 +40,16 @@ export default class CaptainScreen extends React.Component {
             <SeaBackground >
                 <View style={Styles.Boxes}>
                     <View style={Styles.CaptainHeader}>
-                        <Text style={Styles.CaptainHeaderText}>
-                            <Image source={PiratePNG} style={[ Styles.CaptainIconMedium ]}/> {this.state.userToken}
-                        </Text>
-                        <Button title='logout' onPress={this.signOutAsync}><SimpleLineIcons name='logout' style={Styles.LogoutIcon}/></Button>
-                        
+                        <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
+                        <View style={Styles.CaptainHeaderTickerContainer}>
+                            <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                                Captain {this.state.userToken}
+                            </TextTicker>
+                        </View>
+                        <SimpleLineIcons name='logout' style={Styles.LogoutIcon} onPress={this.signOutAsync}/>
                     </View>
 
                     <View style={Styles.NewShip}>
-                    
 
                     </View>
                     <View style={Styles.YeOldShips}>

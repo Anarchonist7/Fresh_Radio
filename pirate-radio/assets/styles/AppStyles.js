@@ -38,10 +38,13 @@ module.exports = StyleSheet.create({
     },
 
     ShipHeader: {
-        paddingTop: 5,
-        paddingBottom: 10,
+        paddingTop: 20,
+        paddingBottom: 5,
+        paddingLeft: 5,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
         alignSelf: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         width: '95%',
         height: '10%',
         resizeMode: 'contain',
@@ -50,8 +53,10 @@ module.exports = StyleSheet.create({
     },
 
     CaptainHeader: {
-        paddingTop: 5,
+        paddingTop: 20,
+        paddingLeft: 5,
         flexDirection: 'row',
+        flexWrap: 'wrap',
         alignSelf: 'center',
         justifyContent: 'space-between',
         width: '95%',
@@ -60,8 +65,11 @@ module.exports = StyleSheet.create({
         borderRadius: 15,
     },
 
+    CaptainHeaderTickerContainer: {
+        width: '73%',
+    },
+
     CaptainHeaderText: {
-        marginLeft: 20,
         fontFamily: 'BlackPearl',
         color: 'white',
         fontSize: 28,
@@ -97,6 +105,7 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '44%',
         marginTop: 5,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -119,7 +128,7 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '35%',
         marginTop: 5,
-        paddingTop: 15,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -170,7 +179,6 @@ module.exports = StyleSheet.create({
     },
 
     ListHeader: {
-        paddingTop: 15,
         marginBottom: '-5%',
     },
 
@@ -279,12 +287,10 @@ module.exports = StyleSheet.create({
     },
 
     LogoutIcon: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignSelf: 'center',
+        marginTop: 3,
         fontSize: 28,
         marginBottom: 5,
-        marginRight: 20,
+        marginRight: 15,
         color: 'white',
     },
     

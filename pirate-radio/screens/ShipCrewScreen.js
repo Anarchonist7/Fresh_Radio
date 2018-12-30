@@ -9,6 +9,10 @@ import Styles from '../assets/styles/AppStyles';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 
+import TextTicker from 'react-native-text-ticker'
+
+import { MaterialIcons } from '@expo/vector-icons';
+
 const PiratePNG = require('../assets/images/pirate.png');
 
 export default class ShipCrewScreen extends React.Component {
@@ -98,10 +102,14 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.ShipHeader}> 
-                                <Text style={Styles.BigTextPirate}>
-                                    Captain {captain.captainName} <Image source={PiratePNG} style={Styles.CaptainIconMedium} />
-                                </Text>
+                            <View style={Styles.CaptainHeader}> 
+                                <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
+                                <View style={Styles.CaptainHeaderTickerContainer}>
+                                    <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                                        Captain {captain.captainName}
+                                    </TextTicker>
+                                </View>
+                                <MaterialIcons name="file-download" style={Styles.LogoutIcon}/>
                             </View>
 
                             <View style={Styles.NowPlaying}>

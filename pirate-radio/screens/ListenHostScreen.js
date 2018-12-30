@@ -4,12 +4,6 @@ import Styles from '../assets/styles/AppStyles';
 
 import { SeaBackground } from '../components/SeaBackground';
 
-import CaptainScreen from './CaptainScreen';
-import LoginRegisterScreen from './LoginRegisterScreen';
-import SearchScreen from './SearchScreen';
-import ShipCaptainScreen from './ShipCaptainScreen';
-import ShipCrewScreen from './ShipCrewScreen';
-
 import { Ionicons, Feather } from '@expo/vector-icons';
 
 export default class ListenHostScreen extends React.Component {
