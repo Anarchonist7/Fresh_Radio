@@ -10,7 +10,6 @@ import ShipCaptainScreen from '../screens/ShipCaptainScreen';
 import ShipCrewScreen from '../screens/ShipCrewScreen';
 import SignInScreen from '../screens/SignInScreen'
 import HomeScreen from '../screens/HomeScreen'
-import OtherScreen from '../screens/OtherScreen'
 import AuthLoadingScreen from '../screens/AuthLoadingScreen'
 
 
@@ -18,7 +17,6 @@ const AppNavigator = createStackNavigator(
   {
     'SignInScreen' : { screen: SignInScreen },
     'HomeScreen' : { screen: HomeScreen },
-    'OtherScreen' : { screen: OtherScreen },
     'AuthLoadingScreen' : { screen: AuthLoadingScreen },
     'CaptainScreen': { screen: CaptainScreen },
     'HomeScreen': { screen: ListenHostScreen },

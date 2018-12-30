@@ -127,7 +127,7 @@ export default class CaptainScreen extends React.Component {
                         <View style={Styles.YeOldShipsContainer}>
                             <TouchableOpacity 
                                 style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 3})
+                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 3})
                             }}>
                                 <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> daveys-tunes</Text>
                                 <Text style={Styles.SmallTextNormal}>Songs: 20</Text>
@@ -135,7 +135,7 @@ export default class CaptainScreen extends React.Component {
 
                             <TouchableOpacity 
                                 style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 1})
+                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 1})
                             }}>
                                 <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> barbosa-beats</Text>
                                 <Text style={Styles.SmallTextNormal}>Songs: 16</Text>
@@ -143,7 +143,7 @@ export default class CaptainScreen extends React.Component {
 
                             <TouchableOpacity 
                                 style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 2})
+                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 2})
                             }}>
                                 <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
                                 <Text style={Styles.SmallTextNormal}>Songs: 7</Text>
