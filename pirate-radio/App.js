@@ -98,6 +98,7 @@ export default class App extends Component {
 
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
+  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   updateShip = () => {
     fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
@@ -167,6 +168,7 @@ export default class App extends Component {
       ship: this.state.ship,
       updateCurrentTrack: this.updateCurrentTrack,
       shipQueryRequest: this.shipQueryRequest,
+      createNewShipRequest: this.createNewShipRequest,
       downloadTrack: this.downloadTrack,
       updateShip: this.updateShip,
       getShip: this.getShip,

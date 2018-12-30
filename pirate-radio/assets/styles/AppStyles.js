@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
     ListenHostButtons: {
-        resizeMode: 'contain',
         height: '35%',
         width: '95%',
         margin: 10,
@@ -47,7 +46,6 @@ module.exports = StyleSheet.create({
         justifyContent: 'space-between',
         width: '95%',
         height: '10%',
-        resizeMode: 'contain',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -77,26 +75,98 @@ module.exports = StyleSheet.create({
 
     NewShip: {
         marginTop: 5,
-        paddingHorizontal: 10,
-        flexDirection: 'column',
+        paddingTop: 10,
         alignSelf: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         width: '95%',
-        height: '40%',
+        height: '45%',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
+    ShipFormContainer: {
+        alignSelf: 'center',
+        width: '95%',
+        height: '78%',
+        backgroundColor: 'grey',
+        marginBottom: 13,
+        borderRadius: 15,
+    },
+
+    ShipFormInputs: {
+        width: '95%',
+        height: '15%',
+        alignSelf: 'center',
+        marginTop: 5,
+        borderRadius: 5,
+        borderColor: 'black',
+        borderWidth: 1,
+        backgroundColor: 'white',
+        opacity: 0.8,
+        padding: 2,
+    },
+
+    ShipFormButton: {
+        width: '35%',
+        height: '13%',
+        alignSelf: 'flex-end',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        borderRadius: 15,
+        borderColor: 'black',
+        borderWidth: 1,
+        backgroundColor: '#424faf',
+        marginRight: 10,
+        padding: 5,
+    },
+
+    ShipFormLabelText: {
+        fontWeight: 'bold',
+        fontFamily: 'Times New Roman',
+        marginTop: 5,
+        marginLeft: 10,
+    },
+
+    ShipFormButtonText: {
+        fontFamily: 'Times New Roman',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
+    ShipFormButtonIcon: {
+        fontSize: 18,
+    },
+
     YeOldShips: {
         marginTop: 5,
+        paddingTop: 10,
         paddingHorizontal: 10,
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '40%',
+        height: '35%',
         backgroundColor: '#383131',
         borderRadius: 15,
+    },
+
+    YeOldShipsContainer: {
+        marginTop: 20,
+        width: '100%',
+        height: '78%',
+    },
+
+    YeOldShipsItems: {
+        width: '100%',
+        height: '15%',
+        borderRadius: 10,
+        marginTop: 8,
+        backgroundColor: 'grey',
+        paddingHorizontal: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
 
     Results: {
@@ -126,7 +196,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         width: '95%',
-        height: '35%',
+        height: '37%',
         marginTop: 5,
         paddingTop: 10,
         backgroundColor: '#383131',
@@ -173,7 +243,7 @@ module.exports = StyleSheet.create({
         position: 'absolute',
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        top: '86%',
+        top: '88%',
         height: '14%',
         width: '100%'
     },
@@ -194,6 +264,20 @@ module.exports = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 28,
+    },
+
+    MediumTextPirate: {
+        fontFamily: 'BlackPearl',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 22,
+    },
+
+    MediumTextPirateBlack: {
+        fontFamily: 'BlackPearl',
+        color: 'black',
+        textAlign: 'center',
+        fontSize: 22,
     },
 
     BigTextNormal: {
@@ -277,13 +361,11 @@ module.exports = StyleSheet.create({
         width: 35,
         height: 35,
         marginBottom: 5,
-        resizeMode: 'contain',
     },
 
     CaptainIconSmall: {
         width: 20,
         height: 20,
-        resizeMode: 'contain',
     },
 
     LogoutIcon: {
@@ -297,14 +379,17 @@ module.exports = StyleSheet.create({
     PirateShipIcon: {
         width: 80,
         height: 80,
-        resizeMode: 'contain',
         marginRight: 10,
+    },
+
+    PirateShipIconMedium: {
+        width: 30,
+        height: 30,
     },
 
     PirateShipIconSmall: {
         width: 20,
         height: 20,
-        resizeMode: 'contain',
     },
 
     container: {
