@@ -26,9 +26,10 @@ export default class ListenHostScreen extends React.Component {
 
         navigateToCaptain = () => this.props.navigation.navigate('CaptainScreen');
 
-        navigateToShipCaptain = () => this.props.navigation.navigate('ShipCaptainScreen');
+        navigateToLogin= () => this.props.navigation.navigate('AuthLoadingScreen');
 
-        navigateToShipCrew = () => this.props.navigation.navigate('ShipCrewScreen');
+        navigateToShipCrew= () => this.props.navigation.navigate('ShipCrewScreen');
+
 
 
         return (
