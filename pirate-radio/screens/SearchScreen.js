@@ -73,7 +73,7 @@ export default class SearchScreen extends React.Component {
                                 navigation={this.props.navigation}
                             />
                         ) : (
-                            <Text style={[Styles.SmallTextPirate, {paddingLeft: 15}]}>
+                            <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
                                 Nothin hurrr
                             </Text>
                         )}

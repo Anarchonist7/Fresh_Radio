@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
     Alert,
     Button,
+    Text,
+    TouchableOpacity,
     TextInput,
     StyleSheet,
     View,
@@ -45,27 +47,31 @@ export default class SignInScreen extends React.Component {
     render() {
         return (
           <SeaBackground>
-            <View style={styles.container}>
+            <View style={styles.Container}>
               <TextInput
                 value={this.state.username}
                 onChangeText={(username) => this.setState({ username })}
                 placeholder={'Username'}
-                style={styles.input}
+                style={styles.Input}
               />
               <TextInput
                 value={this.state.password}
                 onChangeText={(password) => this.setState({ password })}
                 placeholder={'Password'}
                 secureTextEntry={true}
-                style={styles.input}
+                style={styles.Input}
               />
               
-              <Button
+              <TouchableOpacity
                 title={'Login'}
-                style={styles.input}
+                style={styles.Login}
                 onPress={this._signInAsync}
               //   onPress={this.onLogin.bind(this)}
-              />
+              >
+                <Text style={styles.LoginText}>
+                  Login
+                </Text>
+              </TouchableOpacity>
             </View>
           </SeaBackground>
         );
@@ -74,17 +80,17 @@ export default class SignInScreen extends React.Component {
     
 
 const styles = StyleSheet.create({
-    container: {
-      width: '90%',
-      height: '90%',
+    Container: {
+      width: '92%',
+      height: '92%',
       position: 'relative',
       top: '5%',
       alignItems: 'center',
       alignSelf: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgba(255,255,255,0.90)',
+      backgroundColor: 'rgba(0,0,0,0.84)',
     },
-    input: {
+    Input: {
       width: 200,
       height: 44,
       padding: 10,
@@ -93,5 +99,19 @@ const styles = StyleSheet.create({
       marginBottom: 10,
       backgroundColor: 'white',
     },
+    Login: {
+      width: 105,
+      height: 30,
+      padding: 5,
+      borderWidth: 1,
+      borderRadius: 60,
+      borderColor: 'black',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'mediumslateblue',
+    },
+    LoginText: {
+      fontSize: 15,
+    }
 });
 
