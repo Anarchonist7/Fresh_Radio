@@ -35,7 +35,8 @@ export default class Player extends Component {
   }
 
    onPlaybackStatusUpdate = (status) => {
-    const date = Date.now();
+    // const date = Date.now();
+    const positionMillis = status.positionMillis;
     console.log('---------------Status Update----------------')
       console.log('myPosition:', status.positionMillis)
       console.log('myDuration: ', status.durationMillis)
@@ -60,8 +61,9 @@ export default class Player extends Component {
           currentPosition: Math.floor(status.positionMillis / 1000),
           currentPositionMillis: this.state.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
-          paused:
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, date, status.positionMillis, this.state.paused))
+          paused: this.state.paused,
+          date: Date.now()
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, this.state.positionMillis, this.state.paused))
       }
       console.log('-------------------------------------')
     }
