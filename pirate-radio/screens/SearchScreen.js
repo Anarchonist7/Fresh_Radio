@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { SeaBackground } from '../components/SeaBackground';
 
 import { SearchBar } from 'react-native-elements';
