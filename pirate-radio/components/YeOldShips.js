@@ -12,7 +12,7 @@ import {
 
 import Styles from '../assets/styles/AppStyles';
 
-export default class SearchResults extends React.Component {
+export default class YeOldShips extends React.Component {
 
 
     constructor(props){
@@ -24,27 +24,25 @@ export default class SearchResults extends React.Component {
 
     generateResultsList(){
         let resultsComponentArray = [];
-        this.props.searchResults.slice(-5).reverse().forEach((result, i) => {
+        this.props.yeOldShips.forEach((result, i) => {
             resultsComponentArray.push(
                 <TouchableOpacity
                     key={i}
                     style={Styles.SearchList} 
                     onPress={() => {
-                        this.props.navigation.navigate('ShipCrewScreen', { shipId: result.shipId  })
+                        this.props.navigation.navigate('ShipCaptainScreen', { shipId: result.id  })
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}>
-                            <Image source={PiratePNG} style={ Styles.CaptainIconSmall }/> { result.captain }
+                            <Image source={PiratePNG} style={Styles.PirateShipIconSmall}/> { result.name }
                         </Text>
                         <Text style={Styles.SmallTextNormal}>
-                            Crew: { result.crewNum }
+                            Tracks: //Count
                         </Text>
                     </View>
-                    <Text style={Styles.SmallTextNormal}>
-                        <Image source={PirateShipPNG} style={Styles.PirateShipIconTiny} /> { result.shipName }
-                    </Text>
                 </TouchableOpacity>
             )
+          return   
         })
         return resultsComponentArray
     }

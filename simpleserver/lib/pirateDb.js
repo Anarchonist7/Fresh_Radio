@@ -11,13 +11,24 @@ module.exports = function pirateDb(knex) {
         })
         .catch(error => callback(error));
     },
-    searchShipsByName: (search, callback) => {
+    getShipsByCaptainId: (id, callback) => {
+      knex
+        .select('*')
+        .from('ships')
+        .where({user_id: id})
+        .then((results) => {
+          callback(null, results);
+        })
+        .catch(error => callback(error));
+    },
+    searchShipsByName: (search, callback, numResults) => {
       knex
         .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum', 'ships.id as shipId')
         .from('ships')
         .whereRaw(`LOWER(ships.name) LIKE ?`, [`%${search}%`])
         .orWhereRaw(`LOWER(users.name) LIKE ?`, [`%${search}%`])
-        .limit(5)
+        .limit(numResults)
+        .orderBy('crew')
         .join('users', 'ships.user_id', '=', 'users.id')
         .then((results) => {
           callback(null, results);

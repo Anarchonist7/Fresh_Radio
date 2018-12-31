@@ -12,7 +12,7 @@ import {
 
 import Styles from '../assets/styles/AppStyles';
 
-export default class SearchResults extends React.Component {
+export default class PopularShips extends React.Component {
 
 
     constructor(props){
@@ -24,7 +24,7 @@ export default class SearchResults extends React.Component {
 
     generateResultsList(){
         let resultsComponentArray = [];
-        this.props.searchResults.slice(-5).reverse().forEach((result, i) => {
+        this.props.searchResults.slice(-3).reverse().forEach((result, i) => {
             resultsComponentArray.push(
                 <TouchableOpacity
                     key={i}
@@ -45,6 +45,7 @@ export default class SearchResults extends React.Component {
                     </Text>
                 </TouchableOpacity>
             )
+          return   
         })
         return resultsComponentArray
     }

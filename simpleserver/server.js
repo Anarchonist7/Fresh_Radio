@@ -47,17 +47,31 @@ app.get("/ships/:id", function(req, res) {
 
 app.get("/ships", function(req, res) {
   const {search} = req.query
-  console.log(search)
-  pirateDb.searchShipsByName(search.toLowerCase(), (error, dbResponse) => {
-    if (error) {
-      console.log('error', error.message)
-      res.status(500).json({ error: error.message });
-    } else {
-      console.log('Reponse to APP from search: ', dbResponse)
-      res.json(dbResponse);
-    }
-  });
-});
+
+  if (parseInt(search) === 1){
+    (console.log('1 searched!'))
+    pirateDb.getShipsByCaptainId(1, (error, dbResponse) => {
+      if (error) {
+        console.log('error', error.message)
+        res.status(500).json({ error: error.message });
+      } else {
+        console.log('Reponse to APP from search: ', dbResponse)
+        res.json(dbResponse);
+      }
+    });
+  } else {
+    console.log(search)
+    pirateDb.searchShipsByName(search.toLowerCase(), (error, dbResponse) => {
+      if (error) {
+        console.log('error', error.message)
+        res.status(500).json({ error: error.message });
+      } else {
+        console.log('Reponse to APP from search: ', dbResponse)
+        res.json(dbResponse);
+      }
+    });
+  }
+})
 
 app.post("/ships/:id", function(req, res) {
   //should require captain Auth

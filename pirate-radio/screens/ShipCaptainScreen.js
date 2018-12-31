@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import Styles from '../assets/styles/AppStyles';
 
@@ -22,8 +22,7 @@ export default class ShipCaptainScreen extends React.Component {
 
     render() {
         const {ship, tracks} = this.props.screenProps;
-        const posMillis = ship.currentPositionMillis;
-
+        // console.log('--------captainScreen: ', ship, tracks)
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -40,7 +39,9 @@ export default class ShipCaptainScreen extends React.Component {
 
                     <View style={Styles.Playlist}>
                         <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
-                        <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                        <ScrollView style={Styles.TrackListContainer}>
+                            <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                        </ScrollView>
                     </View>
                 </View>
                 <View style={Styles.Footer}>

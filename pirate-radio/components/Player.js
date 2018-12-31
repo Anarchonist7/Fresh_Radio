@@ -34,10 +34,10 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
     // const date = Date.now();
-    const positionMillis = status.positionMillis;
-    console.log('---------------Status Update----------------')
-      console.log('myPosition:', status.positionMillis)
-      console.log('myDuration: ', status.durationMillis)
+    // const positionMillis = status.positionMillis;
+      // console.log('---------------Status Update----------------')
+     //   console.log('myPosition:', status.positionMillis)
+      //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
           console.log('THIS CONDITION HAS BEEN MET')
@@ -54,7 +54,7 @@ export default class Player extends Component {
           }, () => {
             this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
             this.state.player.playAsync();
-            });
+          });
         })
       } else {
         this.setState({
@@ -63,22 +63,21 @@ export default class Player extends Component {
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, positionMillis, this.state.paused))
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, status.positionMillis, this.state.paused))
       }
-      console.log('-------------------------------------')
     }
 
   componentDidMount() {
-    console.log('|---> componentDidMount')
+    // console.log('|---> componentDidMount')
     loadTrack(this).then(() => {
       setStatusUpdate(this)
     })
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('|---> componentDidUpdate')
+    // console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
-      console.log('|--? selectedTrack change || loaclurl Loaded')
+      // console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
         console.log('syncing to position....')
         this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {

@@ -37,17 +37,25 @@ export class BottomNav extends React.Component {
                     <TouchableOpacity 
                         style={[Styles.BottomNavBackContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                         onPress={() => { this.props.navigation.goBack() }}>
-                        <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavIcons }/>
+                            <Text style={Styles.BottomNavTextPirate}>
+                                <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavBackIcon }/> BAcK
+                            </Text>
                     </TouchableOpacity>
                         { this.state.isMuted ? (
-                                <TouchableOpacity style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
+                                <TouchableOpacity 
+                                style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.unmute}>
-                                    <Feather name='volume-x' style={ Styles.BottomNavIcons } /> 
+                                    <Text style={[Styles.BottomNavTextPirate, {textAlign: 'right'}]}>
+                                        UNMUTE <Feather name='volume-2' style={Styles.BottomNavVolumeIcon}/>
+                                    </Text>
                                 </TouchableOpacity>
                             ) : (
-                                <TouchableOpacity style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
+                                <TouchableOpacity 
+                                style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.mute}>
-                                    <Feather name='volume-2' style={ Styles.BottomNavIcons } />    
+                                    <Text style={[Styles.BottomNavTextPirate, {textAlign: 'right'}]}>
+                                        MUTE <Feather name='volume-x' style={Styles.BottomNavVolumeIcon}/>
+                                    </Text>
                                 </TouchableOpacity>
                             )
                         }

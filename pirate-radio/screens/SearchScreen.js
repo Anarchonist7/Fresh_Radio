@@ -7,6 +7,7 @@ import { SearchBar } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import { BottomNav } from '../components/BottomNav';
 import SearchResults from '../components/SearchResults';
+import PopularShips from '../components/PopularShips';
 
 import Styles from '../assets/styles/AppStyles';
 
@@ -21,8 +22,9 @@ export default class SearchScreen extends React.Component {
         this.state = {
             searchText: '',
             foundShip: false,
-            searchResults: []
-        };
+            searchResults: [],
+            popularShips: []
+        }
     }
     
     navigateToShipCrew = () => this.props.navigation.navigate('ShipCrewScreen');
@@ -38,9 +40,23 @@ export default class SearchScreen extends React.Component {
                 this.setState({
                     searchText: '',
                     foundShip: true,
-                    searchResults: response
+                    searchResults: response,
+                    popularShips: this.state.popularShips
                 })
                 console.log("searchResults", this.state.searchResults);
+            }
+        })
+    }
+
+    componentDidMount(){
+        fetch(`${this.props.screenProps.shipQueryRequest}?search=${this.state.searchText}`, {method: 'GET'}).then((responseData, error) => {
+            if (error){
+                throw new Error('Error: ', error);
+            } else {
+                const response = JSON.parse(responseData._bodyText)
+                this.setState({
+                    popularShips: response
+                })
             }
         })
     }
@@ -66,23 +82,30 @@ export default class SearchScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Results}>
-                        <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Search Results{'\n'}</Text>
-                        {   this.state.foundShip ? (
-                            <SearchResults 
-                                searchResults={this.state.searchResults} 
-                                navigation={this.props.navigation}
-                            />
-                        ) : (
-                            <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
-                                Nothin hurrr
-                            </Text>
-                        )}
+                        <Text style={Styles.BigTextPirate}>Search Results{'\n'}</Text>
+                        <View style={Styles.ResultsContainer}>
+                            {   this.state.foundShip ? (
+                                <SearchResults 
+                                    searchResults={this.state.searchResults} 
+                                    navigation={this.props.navigation}
+                                />
+                            ) : (
+                                <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
+                                    Nothin hurrr
+                                </Text>
+                            )}
+                        </View>
                     </View>
 
                     <View style={Styles.Popular}>
-                        <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Popular Ships{'\n'}</Text>
+                        <Text style={Styles.BigTextPirate}>Popular Ships{'\n'}</Text>
 
-                        <TouchableOpacity 
+                         <PopularShips 
+                                    searchResults={this.state.popularShips} 
+                                    navigation={this.props.navigation}
+                                />
+
+                        {/* <TouchableOpacity 
                             style={Styles.ShipList} 
                             onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 3})
                         }}>
@@ -104,7 +127,7 @@ export default class SearchScreen extends React.Component {
                         }}>
                             <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
                             <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
                 <View style={Styles.Footer}>

@@ -4,6 +4,7 @@ import Styles from '../assets/styles/AppStyles';
 
 import { BottomNav } from '../components/BottomNav';
 import { SeaBackground } from '../components/SeaBackground';
+import YeOldShips from '../components/YeOldShips'
 
 import { SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 
@@ -21,6 +22,7 @@ export default class CaptainScreen extends React.Component {
         super(props)
         this.state = {
             userToken: '',
+            yeOldShips: [],
             newShipName: '',
             newShipMusicPath: '',
             newShipImagePath: '',
@@ -64,6 +66,20 @@ export default class CaptainScreen extends React.Component {
         //     console.log('!!Post to ship')
         // }
     }
+
+    componentDidMount(){
+        fetch(`${this.props.screenProps.shipQueryRequest}?search=1`,{method: 'GET'}).then((responseData, error) => {
+            if (error){
+                throw new Error('Error: ', error);
+            } else {
+                const response = JSON.parse(responseData._bodyText)
+                this.setState({
+                    yeOldShips: response
+                })
+                console.log(this.state.yeOldShips)
+            }
+        })
+    }
     
     render() {
         return (
@@ -81,7 +97,7 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NewShip}>
-                        <Text style={[Styles.MediumTextPirate, Styles.ListHeader]}>
+                        <Text style={Styles.MediumTextPirate}>
                             Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateShipIconMedium} />
                         </Text>
                         <View style={Styles.ShipFormContainer}>
@@ -121,11 +137,21 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.YeOldShips}>
-                        <Text style={[Styles.MediumTextPirate, Styles.ListHeader]}>
+                        <Text style={Styles.MediumTextPirate}>
                             Ye Old Ships <SimpleLineIcons name="anchor" style={Styles.MediumTextPirate} />
                         </Text>
                         <View style={Styles.YeOldShipsContainer}>
-                            <TouchableOpacity 
+                        {   true ? (
+                            <YeOldShips 
+                                yeOldShips={this.state.yeOldShips} 
+                                navigation={this.props.navigation}
+                            />
+                        ) : (
+                            <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
+                                Nothin hurrr
+                            </Text>
+                        )}
+                            {/* <TouchableOpacity 
                                 style={Styles.YeOldShipsItems} 
                                 onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 3})
                             }}>
@@ -147,7 +173,7 @@ export default class CaptainScreen extends React.Component {
                             }}>
                                 <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
                                 <Text style={Styles.SmallTextNormal}>Songs: 7</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>
