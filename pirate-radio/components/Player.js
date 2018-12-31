@@ -63,15 +63,11 @@ export default class Player extends Component {
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, status.positionMillis, this.state.paused))
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, status.positionMillis, this.state.paused, (!this.state.sync)))
       }
     }
 
   componentDidMount() {
-    // console.log('|---> componentDidMount')
-    loadTrack(this).then(() => {
-      setStatusUpdate(this)
-    })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -80,6 +76,7 @@ export default class Player extends Component {
       // console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
         console.log('syncing to position....')
+        console.log(this.state.currentPositionMillis)
         this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             setPlay(this)
