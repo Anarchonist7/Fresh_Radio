@@ -64,6 +64,9 @@ export default class SignInScreen extends React.Component {
               onPress={this._signInAsync}
             //   onPress={this.onLogin.bind(this)}
             />
+               <View style={Styles.Footer}>
+                            <BottomNav navigation={this.props.navigation}/>
+                        </View>
           </View>
         );
       }

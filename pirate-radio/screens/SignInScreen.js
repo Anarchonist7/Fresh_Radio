@@ -11,6 +11,9 @@ import {
 } from 'react-native';
 
 import { SeaBackground } from '../components/SeaBackground';
+import { BottomNav } from '../components/BottomNav';
+import Styles from '../assets/styles/AppStyles';
+import { Ionicons, Feather } from '@expo/vector-icons';
 
 export default class SignInScreen extends React.Component {
     static navigationOptions = {
@@ -32,21 +35,28 @@ export default class SignInScreen extends React.Component {
     }
 
     _signInAsync = async () => {
-        //make a request to server with Username and Password
-            //server checks against database
-            //server responds with token or NULL
-        //if response in !null...
-        // await AsyncStorage.setItem('userToken', responseFROMserverTOKEN);
-        //else
-        // SORRY, try again
-        
         await AsyncStorage.setItem('userToken', this.state.username);
         this.props.navigation.navigate('CaptainScreen');
     };
+
+    checkLogin = async () => {
+      const userToken = await AsyncStorage.getItem('userToken');
+      // This will switch to the App screen or Auth screen and this loading
+      // screen will be unmounted and thrown away.
+      if(userToken) {
+        this.props.navigation.navigate('CaptainScreen');
+      }
+    };
+
+    componentDidMount(){
+        this.checkLogin();
+    }
     
     render() {
         return (
           <SeaBackground>
+            <View></View>
+            <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]}>
             <View style={styles.Container}>
               <TextInput
                 value={this.state.username}
@@ -72,7 +82,14 @@ export default class SignInScreen extends React.Component {
                   Login
                 </Text>
               </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
+
+              
+              <View style={styles.Footer}>
+                <BottomNav navigation={this.props.navigation}/>
+              </View>
+            
           </SeaBackground>
         );
       }

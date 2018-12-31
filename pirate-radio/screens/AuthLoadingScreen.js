@@ -7,17 +7,23 @@ import {
   View,
 } from 'react-native';
 
+import { BottomNav } from '../components/BottomNav';
+import { SeaBackground } from '../components/SeaBackground';
+
 export default class AuthLoadingScreen extends React.Component {
     static navigationOptions = {
         header: null,
         };
     constructor() {
         super();
-        this._bootstrapAsync();
+    }
+
+    componentDidMount(){
+        this.checkLogin();
     }
 
     // Fetch the token from storage then navigate to our appropriate place
-    _bootstrapAsync = async () => {
+    checkLogin = async () => {
         const userToken = await AsyncStorage.getItem('userToken');
 
         // This will switch to the App screen or Auth screen and this loading
@@ -28,13 +34,19 @@ export default class AuthLoadingScreen extends React.Component {
     // Render any loading content that you like here
     render() {
         return (
-            <View style={styles.container}>
-                <ActivityIndicator />
-                <StatusBar barStyle="default" />
-            </View>
+            <SeaBackground>
+                <View style={styles.container}>
+                    <ActivityIndicator />
+                    <StatusBar barStyle="default" />
+                    <View style={styles.Footer}>
+                        <BottomNav navigation={this.props.navigation}/>
+                    </View>
+                </View>
+            </SeaBackground>
         );
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
