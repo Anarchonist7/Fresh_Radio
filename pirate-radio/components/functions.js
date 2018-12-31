@@ -121,7 +121,7 @@ export function onBack() {
        remaining = tracks[shipPosition.currentTrack].durationMillis
      }
    }
-   console.log('Hey buddy here is the shipposition!: ', shipPosition)
+  //  console.log('Hey buddy here is the shipposition!: ', shipPosition)
    return shipPosition;
  }
 
