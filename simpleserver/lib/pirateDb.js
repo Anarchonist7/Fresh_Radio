@@ -37,7 +37,7 @@ module.exports = function pirateDb(knex) {
     },
     getShipById: (id, callback) => {
       knex
-        .select('name', 'current_track as currentTrack', 'current_position_millis as currentPositionMillis', 'is_paused as paused', 'time_stamp as timeStamp')
+        .select('id', 'name', 'current_track as currentTrack', 'current_position_millis as currentPositionMillis', 'is_paused as paused', 'time_stamp as timeStamp')
         .from('ships')
         .where({id: id})
         .then((results) => {

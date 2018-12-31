@@ -25,12 +25,14 @@ export default class App extends Component {
       fontLoading: true,
       ship: {
         name: '',
-        currentTrack: '',
+        id: 1,
+        currentTrack: null,
         currentPositionMillis: 0,
-        duration: '',
-        timeStamp: '',
-        paused: '',
-      }
+        duration: null,
+        timeStamp: null,
+        paused: true,
+      },
+      captain:  null
     }
   }
 
@@ -82,7 +84,6 @@ export default class App extends Component {
   updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
-        name: this.state.ship.name,
         currentTrack: currentTrack,
         currentPositionMillis: currentPositionMillis,
         timeStamp: timeStamp,
@@ -108,7 +109,7 @@ export default class App extends Component {
         'Content-Type': 'application/json',
       }
     })
-    console.log('!!Post to ship')
+    console.log('!Post to ship')
   }
   // make a post req to shipRequest with current track state
 
@@ -141,19 +142,24 @@ export default class App extends Component {
     })
   }
 
+  downloadAllTracksFromShip(id){
+    this.getShip(id).then((response) => {
+      // this.getShip.then((response) => {
+        // console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
+        console.log(response.ship)
+        this.setState({
+          tracks: response.tracks,
+          ship: response.ship,
+          loading: false
+        })
+        this.state.tracks.forEach((track, index) => {
+            this.downloadTrack(index)
+        })
+      });
+  }
+
   componentDidMount() {
-    this.getShip(1).then((response) => {
-    // this.getShip.then((response) => {
-      // console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
-      this.setState({
-        tracks: response.tracks,
-        ship: response.ship,
-        loading: false
-      })
-      this.state.tracks.forEach((track, index) => {
-          this.downloadTrack(index)
-      })
-    });
+    this.downloadAllTracksFromShip(1)
 
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
@@ -164,6 +170,7 @@ export default class App extends Component {
 
   render() {
     const screenProps = {
+      downloadTracks: this.downloadAllTracksFromShip,
       tracks: this.state.tracks,
       ship: this.state.ship,
       updateCurrentTrack: this.updateCurrentTrack,

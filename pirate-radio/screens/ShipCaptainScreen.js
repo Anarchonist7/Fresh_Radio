@@ -19,7 +19,7 @@ export default class ShipCaptainScreen extends React.Component {
     }
 
     render() {
-
+        console.log(this.props)
         const {ship, tracks} = this.props.screenProps;
         // console.log('--------captainScreen: ', ship, tracks)
         return (
