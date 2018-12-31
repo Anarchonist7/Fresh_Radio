@@ -25,7 +25,6 @@ export default class ShipCaptainScreen extends React.Component {
 
     render() {
         const {ship, tracks} = this.props.screenProps;
-        console.log(this.props.screenProps)
         if (this.props.screenProps.shipLoading){
             return <LandingScreen />
         } else {

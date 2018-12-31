@@ -49,7 +49,7 @@ export default class SearchScreen extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`${this.props.screenProps.shipQueryRequest}?search=${this.state.searchText}`, {method: 'GET'}).then((responseData, error) => {
+        fetch(`${this.props.screenProps.shipQueryRequest}?search=${this.state.searchText}`,{method: 'GET'}).then((responseData, error) => {
             if (error){
                 throw new Error('Error: ', error);
             } else {
@@ -86,6 +86,7 @@ export default class SearchScreen extends React.Component {
                         <View style={Styles.ResultsContainer}>
                             {   this.state.foundShip ? (
                                 <SearchResults 
+                                    updateCurrentShip={this.props.screenProps.updateCurrentShip}
                                     searchResults={this.state.searchResults} 
                                     navigation={this.props.navigation}
                                 />
@@ -101,6 +102,7 @@ export default class SearchScreen extends React.Component {
                         <Text style={Styles.BigTextPirate}>Popular Ships{'\n'}</Text>
 
                          <PopularShips 
+                                    updateCurrentShip={this.props.screenProps.updateCurrentShip}
                                     searchResults={this.state.popularShips} 
                                     navigation={this.props.navigation}
                                 />
