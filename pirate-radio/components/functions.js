@@ -84,6 +84,7 @@ export function onBack() {
   }
 
   function calcTotal(tracks) {
+<<<<<<< HEAD
    let total = 0
    tracks.forEach(function(track) {
      total += track.durationMillis
@@ -124,3 +125,38 @@ export function onBack() {
    console.log('Hey buddy here is the shipposition!: ', shipPosition)
    return shipPosition;
  }
+=======
+    let total = 0
+    tracks.forEach(function(track) {
+      total += track.durationMillis
+    });
+  }
+
+  export function account(shipInfo, tracks) {
+    const {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
+    // console.log('-----------holy shit the track info yo: ', tracks)
+    const shipPosition = {
+      currentTrack: currentTrack,
+      currentPositionMillis: currentPositionMillis
+    }
+
+    total = calcTotal(tracks);
+    let timeDiff = Date.now() - timeStamp;
+    let remaining = tracks[currentTrack].durationMillis - currentPositionMillis;
+
+    while(timeDiff > 0) {
+      if (remaining < timeDiff) {
+        console.log('-------Im in the if branch!')
+        shipPosition.currentPositionMillis = currentPositionMillis + timeDiff;
+        shipPosition.currentTrack = currentTrack;
+        timeDiff = 0;
+      } else {
+        console.log('------Im in the else branch')
+        timeDiff -= remaining;
+        shipPosition.currentTrack = shipPosition.currentTrack + 1
+        remaining = tracks[shipPosition.currentTrack].durationMillis
+      }
+    }
+    return shipPosition;
+  }
+>>>>>>> 65c83c0e861a4987c7604a41ce6ac6fc5404f5a8

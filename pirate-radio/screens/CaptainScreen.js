@@ -81,7 +81,7 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NewShip}>
-                        <Text style={[Styles.MediumTextPirate, Styles.ListHeader]}>
+                        <Text style={Styles.MediumTextPirate}>
                             Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateShipIconMedium} />
                         </Text>
                         <View style={Styles.ShipFormContainer}>
@@ -121,7 +121,7 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.YeOldShips}>
-                        <Text style={[Styles.MediumTextPirate, Styles.ListHeader]}>
+                        <Text style={Styles.MediumTextPirate}>
                             Ye Old Ships <SimpleLineIcons name="anchor" style={Styles.MediumTextPirate} />
                         </Text>
                         <View style={Styles.YeOldShipsContainer}>
