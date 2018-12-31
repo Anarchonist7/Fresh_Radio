@@ -89,7 +89,7 @@ export default class Player extends Component {
         })
       })
     }
-<<<<<<< HEAD
+
     // if (this.state.loading === false && this.state.sync === false) {
     //   console.log('|--? initial sync && non-0 intial position')
     //   console.log('This is the return value of our function: ', account(this.props.ship, this.props.tracks))
@@ -107,24 +107,23 @@ export default class Player extends Component {
     //         setPlay(this)
     //     })
     // }
-=======
-    if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-      console.log('|--? initial sync && non-0 intial position')
-      this.state.player.stopAsync()
-        this.setState({
-          sync: true,
-          currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000),
-          currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
-          selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
-          player: new Expo.Audio.Sound()
-        }, () => this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
-          setStatusUpdate(this).then(() => {
-            setPlay(this)
-          })
-        })
-        )
-      }
->>>>>>> 65c83c0e861a4987c7604a41ce6ac6fc5404f5a8
+
+    // if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
+    //   console.log('|--? initial sync && non-0 intial position')
+    //   this.state.player.stopAsync()
+    //     this.setState({
+    //       sync: true,
+    //       currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000),
+    //       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+    //       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
+    //       player: new Expo.Audio.Sound()
+    //     }, () => this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
+    //       setStatusUpdate(this).then(() => {
+    //         setPlay(this)
+    //       })
+    //     })
+    //     )
+    //   }
   }
 
   componentWillUnmount() {
