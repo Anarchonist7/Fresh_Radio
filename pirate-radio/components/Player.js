@@ -21,14 +21,14 @@ export default class Player extends Component {
 
     this.state = {
       paused: this.props.ship.paused,
-      currentPosition: 0,
-      currentPositionMillis: 0,
-      selectedTrack: 0,
-      totalLength: 5000,
+      currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000) || 0,
+      currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis),
+      selectedTrack: this.props.ship.currentTrack,
+      totalLength: props.tracks[this.props.ship.currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
-      sync: false,
+      sync: false
     };
   }
 
@@ -57,7 +57,7 @@ export default class Player extends Component {
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: status.positionMillis,
+          currentPositionMillis: this.state.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
@@ -70,14 +70,6 @@ export default class Player extends Component {
     console.log('|---> componentDidMount')
     loadTrack(this).then(() => {
       setStatusUpdate(this)
-      var accounted = account(this.props.ship, this.props.tracks);
-    }).then( () => {
-      this.setState({
-        currentPositionMillis: accounted.currentPositionMillis,
-        currentPosition: Math.floor(accounted.currentPositionMillis / 1000),
-        selectedTrack: accounted.currentTrack,
-        totalLength: this.state.tracks[accounted.currentTrack].durationMillis
-      })
     })
   }
 

@@ -8,7 +8,7 @@ const PiratePNG = require('../assets/images/pirate.png');
 import { SeaBackground } from '../components/SeaBackground';
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
-
+import { account } from '../components/functions';
 
 
 export default class ShipCaptainScreen extends React.Component {
@@ -23,12 +23,12 @@ export default class ShipCaptainScreen extends React.Component {
     render() {
 
         const {ship, tracks} = this.props.screenProps;
-        // const posMillis = ship.currentPositionMillis;
-        // let account = account(ship, tracks);
+        const posMillis = ship.currentPositionMillis;
+        // let accounted = account(ship, tracks);
         // ship.currentPositionMillis = Math.floor(accounted.currentPositionMillis);
-        // ship.currentPosition = Math.floor(accounted.currentPositionMillis / 1000);
         // ship.currentTrack = accounted.currentTrack
-        // console.log('--------captainScreen: ', ship, tracks)
+        console.log('this is the captains screen')
+        console.log(account(ship, tracks))
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
@@ -40,7 +40,7 @@ export default class ShipCaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NowPlaying}>
-                        <Player ship={this.props.screenProps.ship} tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                        <Player ship={ship} tracks={tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                     </View>
 
                     <View style={Styles.Playlist}>

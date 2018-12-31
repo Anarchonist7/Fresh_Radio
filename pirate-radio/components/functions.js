@@ -83,27 +83,39 @@ export function onBack() {
     context.state.player.setOnPlaybackStatusUpdate(context.onPlaybackStatusUpdate)
   }
 
- //  function calcTotal(tracks) {
- //   let total = 0
- //   tracks.forEach(function(track) {
- //     total += track.durationMillis
- //   });
- // }
+  function calcTotal(tracks) {
+   let total = 0
+   tracks.forEach(function(track) {
+     total += track.durationMillis
+   });
+   return total;
+ }
 
  export function account(shipInfo, tracks) {
    const {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
    // console.log('-----------holy shit the track info yo: ', tracks)
+
+   var total = calcTotal(tracks);
+console.log('here i am!')
+console.log(currentPositionMillis)
    const shipPosition = {
      currentTrack: currentTrack,
      currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp))
    }
 
-   // total = calcTotal(tracks);
+   console.log('total: ', total, 'ship.currentPositionMillis: ', shipPosition.currentPositionMillis)
+   if (shipPosition.currentPositionMillis > total) {
+      shipPosition.currentTrack = 0;
+      shipPosition.currentPositionMillis = 0;
+   }
+   console.log(shipInfo);
+
 
    while(shipPosition.currentPositionMillis > tracks[shipPosition.currentTrack].durationMillis) {
-    console.log('------here be the tracks: ', tracks)
+    // console.log('------here be the tracks: ', tracks)
     shipPosition.currentPositionMillis -= tracks[shipPosition.currentTrack].durationMillis;
     console.log('track before update: ', shipPosition.currentTrack)
+    console.log(shipPosition.currentPositionMillis, '<----->, ', tracks[shipPosition.currentTrack].durationMillis)
     shipPosition.currentTrack++;
     console.log('track aftore update: ', shipPosition.currentTrack)
    }
