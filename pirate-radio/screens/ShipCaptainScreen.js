@@ -21,7 +21,7 @@ export default class ShipCaptainScreen extends React.Component {
     render() {
 
         const {ship, tracks} = this.props.screenProps;
-        console.log('--------captainScreen: ', ship, tracks)
+        // console.log('--------captainScreen: ', ship, tracks)
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>

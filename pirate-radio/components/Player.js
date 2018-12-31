@@ -10,7 +10,7 @@ import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
-import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate } from './functions';
+import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate, account } from './functions';
 import Styles from '../assets/styles/AppStyles';
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -23,10 +23,10 @@ export default class Player extends Component {
     this.state = {
       paused: this.props.ship.paused,
       totalLength: 1,
-      currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000) || 0,
-      currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)) || 0,
-      selectedTrack: this.props.ship.currentTrack,
-      totalLength: this.props.tracks[this.props.ship.currentTrack].durationMillis,
+      currentPosition: 0,
+      currentPositionMillis: 0,
+      selectedTrack: 0,
+      totalLength: this.props.tracks[props.ship.currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -54,7 +54,7 @@ export default class Player extends Component {
             isChanging: false,
             player: new Expo.Audio.Sound(),
             selectedTrack: selectedTrack + 1,
-          }, () => this.props.updateCurrentTrack(selectedTrack, date, 0, this.state.paused))
+          }, () => this.props.updateCurrentTrack(selectedTrack, this.state.date, 0, this.state.paused))
         })
       } else {
         this.setState({
@@ -81,7 +81,7 @@ export default class Player extends Component {
       console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
         console.log('syncing to position....')
-        this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
+        this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             setPlay(this)
           })
@@ -90,7 +90,14 @@ export default class Player extends Component {
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
       console.log('|--? initial sync && non-0 intial position')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
+      this.state.player.stopAsync()
+        this.setState({
+          sync: true,
+          currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000),
+          currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+          selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
+          player: new Expo.Audio.Sound()
+        }, () => this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             setPlay(this)
           })
