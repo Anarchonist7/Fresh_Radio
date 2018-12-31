@@ -66,21 +66,23 @@ export default class SearchScreen extends React.Component {
                     </View>
 
                     <View style={Styles.Results}>
-                        <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Search Results{'\n'}</Text>
-                        {   this.state.foundShip ? (
-                            <SearchResults 
-                                searchResults={this.state.searchResults} 
-                                navigation={this.props.navigation}
-                            />
-                        ) : (
-                            <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
-                                Nothin hurrr
-                            </Text>
-                        )}
+                        <Text style={Styles.BigTextPirate}>Search Results{'\n'}</Text>
+                        <View style={Styles.ResultsContainer}>
+                            {   this.state.foundShip ? (
+                                <SearchResults 
+                                    searchResults={this.state.searchResults} 
+                                    navigation={this.props.navigation}
+                                />
+                            ) : (
+                                <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
+                                    Nothin hurrr
+                                </Text>
+                            )}
+                        </View>
                     </View>
 
                     <View style={Styles.Popular}>
-                        <Text style={[Styles.BigTextPirate, Styles.ListHeader]}>Popular Ships{'\n'}</Text>
+                        <Text style={Styles.BigTextPirate}>Popular Ships{'\n'}</Text>
 
                         <TouchableOpacity 
                             style={Styles.ShipList} 
