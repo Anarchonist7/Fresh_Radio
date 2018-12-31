@@ -83,38 +83,30 @@ export function onBack() {
     context.state.player.setOnPlaybackStatusUpdate(context.onPlaybackStatusUpdate)
   }
 
-  function calcTotal(tracks) {
-   let total = 0
-   tracks.forEach(function(track) {
-     total += track.durationMillis
-   });
- }
+ //  function calcTotal(tracks) {
+ //   let total = 0
+ //   tracks.forEach(function(track) {
+ //     total += track.durationMillis
+ //   });
+ // }
 
  export function account(shipInfo, tracks) {
    const {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
    // console.log('-----------holy shit the track info yo: ', tracks)
    const shipPosition = {
      currentTrack: currentTrack,
-     currentPositionMillis: currentPositionMillis
+     currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp))
    }
 
-   total = calcTotal(tracks);
-   let timeDiff = Date.now() - timeStamp;
-   let remaining = tracks[currentTrack].durationMillis - currentPositionMillis;
+   // total = calcTotal(tracks);
 
-   while(timeDiff > 0) {
-     if (remaining > timeDiff) {
-       console.log('-------Im in the if branch!')
-       shipPosition.currentPositionMillis = currentPositionMillis + timeDiff;
-       shipPosition.currentTrack = currentTrack;
-       timeDiff = 0;
-     } else {
-       console.log('------Im in the else branch')
-       timeDiff -= remaining;
-       shipPosition.currentTrack = shipPosition.currentTrack + 1
-       console.log('------we just incremented the track: ', shipPosition.currentTrack)
-       remaining = tracks[shipPosition.currentTrack].durationMillis
-     }
+   while(shipPosition.currentPositionMillis > tracks[shipPosition.currentTrack].durationMillis) {
+    console.log('------here be the tracks: ', tracks)
+    shipPosition.currentPositionMillis -= tracks[shipPosition.currentTrack].durationMillis;
+    console.log('track before update: ', shipPosition.currentTrack)
+    shipPosition.currentTrack++;
+    console.log('track aftore update: ', shipPosition.currentTrack)
    }
    return shipPosition;
  }
+

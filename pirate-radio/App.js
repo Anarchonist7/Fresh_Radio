@@ -14,7 +14,7 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64';
 
 export default class App extends Component {
 

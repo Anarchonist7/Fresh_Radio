@@ -10,18 +10,25 @@ import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 
 
+
 export default class ShipCaptainScreen extends React.Component {
 
     static NavigationOptions = { header: { visibile: false } };
 
     constructor(props){
         super(props)
+        // accounted = account(props.screenProps.ship, props.screenProps.tracks)
     }
 
     render() {
 
         const {ship, tracks} = this.props.screenProps;
-        console.log('--------captainScreen: ', ship, tracks)
+        // const posMillis = ship.currentPositionMillis;
+        // let account = account(ship, tracks);
+        // ship.currentPositionMillis = Math.floor(accounted.currentPositionMillis);
+        // ship.currentPosition = Math.floor(accounted.currentPositionMillis / 1000);
+        // ship.currentTrack = accounted.currentTrack
+        // console.log('--------captainScreen: ', ship, tracks)
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
