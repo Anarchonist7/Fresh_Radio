@@ -23,7 +23,9 @@ export default class ShipCaptainScreen extends React.Component {
 
     componentDidMount(){
         const shipId = this.props.navigation.getParam('shipId', null);
-        this.props.screenProps.downloadTracks(shipId)
+        this.props.screenProps.loadShip(shipId).then(() => {
+            this.props.screenProps.downloadTracks(shipId)
+        })
     }
 
     render() {
