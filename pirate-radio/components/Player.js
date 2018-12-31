@@ -18,13 +18,13 @@ import { FontAwesome } from '@expo/vector-icons';
 export default class Player extends Component {
   constructor(props) {
     super(props);
-
+    console.log('totallength: ', props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis)
     this.state = {
       paused: this.props.ship.paused,
-      currentPosition: Math.floor(this.props.ship.currentPositionMillis / 1000) || 0,
-      currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis),
-      selectedTrack: this.props.ship.currentTrack,
-      totalLength: props.tracks[this.props.ship.currentTrack].durationMillis,
+      currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
+      currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+      selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
+      totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -57,7 +57,7 @@ export default class Player extends Component {
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: this.state.positionMillis,
+          currentPositionMillis: status.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()

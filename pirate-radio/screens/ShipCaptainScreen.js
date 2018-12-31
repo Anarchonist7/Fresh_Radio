@@ -21,14 +21,9 @@ export default class ShipCaptainScreen extends React.Component {
     }
 
     render() {
-
         const {ship, tracks} = this.props.screenProps;
         const posMillis = ship.currentPositionMillis;
-        // let accounted = account(ship, tracks);
-        // ship.currentPositionMillis = Math.floor(accounted.currentPositionMillis);
-        // ship.currentTrack = accounted.currentTrack
-        console.log('this is the captains screen')
-        console.log(account(ship, tracks))
+
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
