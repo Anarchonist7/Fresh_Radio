@@ -91,6 +91,10 @@ export function onBack() {
  }
 
  export function account(shipInfo, tracks) {
+
+  if (shipInfo.isPaused) {
+    return shipInfo;
+  }
    let {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
    // console.log('-----------holy shit the track info yo: ', tracks)
    const shipPosition = {

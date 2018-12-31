@@ -71,6 +71,7 @@ export default class Player extends Component {
   componentDidMount() {
     console.log('|---> componentDidMount')
     loadTrack(this).then(() => {
+
       setStatusUpdate(this)
     })
   }
@@ -88,16 +89,23 @@ export default class Player extends Component {
         })
       })
     }
-    if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-      console.log('|--? initial sync && non-0 intial position')
-      console.log('This is the return value of our function: ', account(this.props.ship, this.props.tracks))
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
-          setStatusUpdate(this).then(() => {
-            setPlay(this)
-          })
-        })
-        )
-      }
+    // if (this.state.loading === false && this.state.sync === false) {
+    //   console.log('|--? initial sync && non-0 intial position')
+    //   console.log('This is the return value of our function: ', account(this.props.ship, this.props.tracks))
+    //     this.setState({
+    //       sync: true,
+    //       currentPositionMillis: account(this.props.ship, this.props.tracks).currentPositionMillis,
+    //       currentTrack: account(this.props.ship, this.props.tracks).currentTrack
+    //     }).then(() => {
+    //       this.loadTrack(this)
+    //     }).then (() => {
+    //       this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis))
+    //     }).then (() => {
+    //         setStatusUpdate(this)
+    //     }).then(() => {
+    //         setPlay(this)
+    //     })
+    // }
   }
 
   componentWillUnmount() {
