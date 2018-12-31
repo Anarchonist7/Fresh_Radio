@@ -31,11 +31,11 @@ export default class YeOldShips extends React.Component {
                     key={i}
                     style={Styles.SearchList} 
                     onPress={() => {
-                        this.props.navigation.navigate('ShipCrewScreen', { shipId: result.shipId  })
+                        this.props.navigation.navigate('ShipCrewScreen', { shipId: result.id  })
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}>
-                            <Image source={PiratePNG} style={Styles.PirateShipIconSmall}/> { result.shipName }
+                            <Image source={PiratePNG} style={Styles.PirateShipIconSmall}/> { result.name }
                         </Text>
                         <Text style={Styles.SmallTextNormal}>
                             Tracks: //Count
