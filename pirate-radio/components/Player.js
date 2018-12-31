@@ -57,7 +57,7 @@ export default class Player extends Component {
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: this.state.positionMillis,
+          currentPositionMillis: status.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
