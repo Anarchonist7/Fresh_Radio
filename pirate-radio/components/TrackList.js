@@ -13,6 +13,8 @@ import {
 
 import Styles from '../assets/styles/AppStyles';
 
+import { AntDesign } from '@expo/vector-icons';
+
 export default class TrackList extends React.Component {
 
 
@@ -28,9 +30,25 @@ export default class TrackList extends React.Component {
         this.props.tracks.forEach((track, i) => {
             let active = (track.id - 1 === this.props.ship.currentTrack )
             trackComponentArray.push(
-            <Text key={i} style={[Styles.SmallTextNormal, Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
-                <SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> {track.title} by {track.artist}
-            </Text>)
+                <View style={{paddingVertical: 3}}>
+                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                        <View>
+                            <Text style={Styles.MediumTextNormal}>
+                                <SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/>
+                                {track.title}
+                            </Text>
+                        </View>
+                        <View style={{paddingRight: '5%'}}>
+                            <AntDesign name='sound' style={active ? Styles.ActiveIcon : Styles.OffIcon}/>
+                        </View>
+                    </View>
+                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                        <Text style={Styles.TinyTextNormal}>
+                            By {track.artist}{}
+                        </Text>
+                    </View>
+                </View>
+            )
         })
         return trackComponentArray
     }
@@ -44,7 +62,9 @@ export default class TrackList extends React.Component {
 
     render(){
       console.log('current track from tracklist: ', this.props.ship.currentTrack)
-        return this.generateTrackList()
+        return (
+            this.generateTrackList()
+        )
     }
 
 }

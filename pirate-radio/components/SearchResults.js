@@ -41,7 +41,7 @@ export default class SearchResults extends React.Component {
                         </Text>
                     </View>
                     <Text style={Styles.SmallTextNormal}>
-                        <Image source={PirateShipPNG} style={Styles.PirateShipIconSmall} /> { result.shipName }
+                        <Image source={PirateShipPNG} style={Styles.PirateShipIconTiny} /> { result.shipName }
                     </Text>
                 </TouchableOpacity>
             )

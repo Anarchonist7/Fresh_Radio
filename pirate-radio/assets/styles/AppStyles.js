@@ -22,7 +22,7 @@ module.exports = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignSelf: 'center',
-        marginTop: '13%'
+        marginTop: '10%'
     },
 
     Search: {
@@ -132,7 +132,6 @@ module.exports = StyleSheet.create({
     ShipFormButtonText: {
         fontFamily: 'Times New Roman',
         fontSize: 18,
-        fontWeight: 'bold',
     },
 
     ShipFormButtonIcon: {
@@ -180,14 +179,23 @@ module.exports = StyleSheet.create({
         backgroundColor: '#383131',
         borderRadius: 15,
     },
+
+    ResultsContainer: {
+        alignSelf: 'center',
+        width: '95%',
+        height: '80%',
+        marginTop: '2%',
+        borderRadius: 10,
+        backgroundColor: 'grey',
+    },
     
     NowPlaying: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
         height: '38%',
-        marginTop: '5%',
-        paddingTop: 15,
+        marginTop: 5,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -197,7 +205,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         width: '95%',
-        height: '37%',
+        height: '35%',
         marginTop: 5,
         paddingTop: 10,
         backgroundColor: '#383131',
@@ -217,40 +225,61 @@ module.exports = StyleSheet.create({
 
     SearchList: {
         width: '95%',
-        height: '25%',
+        height: '30%',
         borderRadius: 5,
+        borderColor: 'black',
+        borderWidth: 1,
         marginTop: 5,
         marginHorizontal: 8,
         backgroundColor: 'grey',
-        padding: 5,
+        paddingHorizontal: 5,
     },
 
     Playlist: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '32%',
-        marginTop: '5%',
-        paddingTop: 15,
+        height: '39%',
+        marginTop: 5,
+        paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
+    TrackListContainer: {
+        flex: 1,
+        alignSelf: 'center',
+        height: '80%',
+        width: '95%',
+    },
+
     TrackList: {
+        flex: 1,
         paddingHorizontal: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
 
-    Footer: {
-        position: 'absolute',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        top: '88%',
-        height: '14%',
-        width: '100%'
+    TrackName: {
+        flex: 1,
     },
 
-    ListHeader: {
-        marginBottom: '-5%',
+    Off: {
+        opacity: 0.6,
+    },
+
+    Active: {
+        fontWeight: 'bold',
+    },
+
+    ActiveIcon: {
+        flex: 1,
+        color: 'white',
+        fontSize: 18,
+    },
+
+    OffIcon: {
+        opacity: 0,
     },
 
     ListenHostText: {
@@ -261,7 +290,16 @@ module.exports = StyleSheet.create({
     },
 
     BigTextPirate: {
+        marginBottom: '-10%',
         fontFamily: 'BlackPearl',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 28,
+    },
+
+    BigTextNormal: {
+        marginBottom: '-10%',
+        fontFamily: 'Times New Roman',
         color: 'white',
         textAlign: 'center',
         fontSize: 28,
@@ -274,18 +312,10 @@ module.exports = StyleSheet.create({
         fontSize: 22,
     },
 
-    MediumTextPirateBlack: {
-        fontFamily: 'BlackPearl',
-        color: 'black',
-        textAlign: 'center',
-        fontSize: 22,
-    },
-
-    BigTextNormal: {
+   MediumTextNormal: {
         fontFamily: 'Times New Roman',
         color: 'white',
-        textAlign: 'center',
-        fontSize: 28,
+        fontSize: 22,
     },
 
     SmallTextPirate: {
@@ -298,14 +328,29 @@ module.exports = StyleSheet.create({
         fontFamily: 'Times New Roman',
         color: 'white',
         fontSize: 18,
-    },
-      
-    Off: {
-        opacity: 0.6,
+        // includeFontPadding: true,
     },
 
-    Active: {
-        fontWeight: 'bold',
+    TinyTextNormal: {
+        fontFamily: 'Times New Roman',
+        color: 'white',
+        fontSize: 12,
+    },
+
+    BottomNavTextPirate: {
+        fontFamily: 'BlackPearl',
+        color: 'white',
+        fontSize: 20,
+        includeFontPadding: true,
+    },
+
+    Footer: {
+        position: 'absolute',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        top: '90%',
+        height: '14%',
+        width: '100%'
     },
 
     BottomNavElements: {
@@ -314,38 +359,49 @@ module.exports = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
-        width: '20%',
-        height: '65%',
+        width: '45%',
+        height: '20%',
+        aspectRatio: 3/1,
         borderRadius: 40,
         backgroundColor: '#383131',
     },
     BottomNavButtonContainerAndroid: {
         justifyContent: 'center',
-        width: '16%',
-        height: '70%',
+        width: '45%',
+        height: '20%',
+        aspectRatio: 3/1,
         borderRadius: 40,
         backgroundColor: '#383131',
     },
     BottomNavBackContainer: {
-        marginLeft: 10,
+        marginLeft: 8,
+        paddingLeft: 12,
     },
 
     BottomNavVolumeContainer: {
-        marginRight: 10,
+        marginRight: 8,
+        paddingRight: 12,
+    },
+    
+    BottomNavBackIcon: {
+        textAlign: 'left',
+        color: 'white',
+        fontSize: 20,
+    },
+
+    BottomNavVolumeIcon: {
+        textAlign: 'right',
+        color: 'white',
+        fontSize: 20,
     },
 
     ListenHostIcons: {
         textAlign: 'center',
         fontSize: 60,
         color: 'white'
-    },
-
-    BottomNavIcons: {
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 40,
     },
 
     SmallWhiteIcon: {
@@ -391,6 +447,11 @@ module.exports = StyleSheet.create({
     PirateShipIconSmall: {
         width: 20,
         height: 20,
+    },
+
+    PirateShipIconTiny: {
+        width: 15,
+        height: 15,
     },
 
     container: {

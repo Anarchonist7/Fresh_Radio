@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import shorthash from 'shorthash'
 import { SeaBackground } from '../components/SeaBackground';
@@ -117,7 +117,11 @@ export default class ShipCrewScreen extends React.Component {
 
                             <View style={Styles.Playlist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
-                                <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                                <View style={Styles.TrackListContainer}>
+                                    <ScrollView>
+                                        <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                                    </ScrollView>
+                                </View>
                             </View>
                         </View>
                         <View style={Styles.Footer}>
