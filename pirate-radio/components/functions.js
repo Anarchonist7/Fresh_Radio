@@ -92,13 +92,12 @@ export function onBack() {
  }
 
  export function account(shipInfo, tracks) {
-
+console.log('------!------were in account!!!!')
   if (shipInfo.isPaused) {
     return shipInfo;
   }
    let {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
    // console.log('-----------holy shit the track info yo: ', tracks)
-
    var total = calcTotal(tracks)
    const shipPosition = {
      currentTrack: currentTrack,
@@ -106,17 +105,24 @@ export function onBack() {
    }
 
    console.log('total: ', total, 'ship.currentPositionMillis: ', shipPosition.currentPositionMillis, 'trackduration: ', tracks[shipPosition.currentTrack].durationMillis)
-   if (shipPosition.currentPositionMillis > total) {
+   while (shipPosition.currentPositionMillis > total) {
       shipPosition.currentTrack = 0;
-      shipPosition.currentPositionMillis = 0;
+      shipPosition.currentPositionMillis -= total;
    }
    // console.log(shipInfo);
    while(shipPosition.currentPositionMillis > tracks[shipPosition.currentTrack].durationMillis) {
     // console.log('------here be the tracks: ', tracks)
     shipPosition.currentPositionMillis -= tracks[shipPosition.currentTrack].durationMillis;
     console.log('track before update: ', shipPosition.currentTrack)
-    console.log(shipPosition.currentPositionMillis, '<----->, ', tracks[shipPosition.currentTrack].durationMillis)
-    shipPosition.currentTrack++;
+    console.log(shipPosition.currentPositionMillis, '<---1--->, ', tracks[shipPosition.currentTrack].durationMillis)
+    if (shipPosition.currentTrack === tracks.length - 1) {
+      console.log('if statement tripped')
+      shipPosition.currentTrack = 0;
+    } else {
+      shipPosition.currentTrack++;
+    }
+        console.log(shipPosition.currentPositionMillis, '<---2--->, ', tracks[shipPosition.currentTrack].durationMillis)
+
     console.log('track aftore update: ', shipPosition.currentTrack)
    }
   //  console.log('Hey buddy here is the shipposition!: ', shipPosition)
