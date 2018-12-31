@@ -86,7 +86,6 @@ export default class SearchScreen extends React.Component {
                         <View style={Styles.ResultsContainer}>
                             {   this.state.foundShip ? (
                                 <SearchResults 
-                                    updateCurrentShip={this.props.screenProps.updateCurrentShip}
                                     searchResults={this.state.searchResults} 
                                     navigation={this.props.navigation}
                                 />

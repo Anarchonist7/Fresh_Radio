@@ -30,7 +30,6 @@ export default class PopularShips extends React.Component {
                     key={i}
                     style={Styles.SearchList} 
                     onPress={() => {
-                        this.props.updateCurrentShip(result.id)
                         this.props.navigation.navigate('ShipCrewScreen', { shipId: result.shipId  })
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>

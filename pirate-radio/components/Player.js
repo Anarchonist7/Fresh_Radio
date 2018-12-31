@@ -16,17 +16,15 @@ import Styles from '../assets/styles/AppStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default class Player extends Component {
-
   constructor(props) {
     super(props);
-
+    console.log('totallength: ', props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis)
     this.state = {
       paused: this.props.ship.paused,
-      totalLength: 1,
-      currentPosition: 0,
-      currentPositionMillis: 0,
-      selectedTrack: 0,
-      totalLength: this.props.tracks[props.ship.currentTrack].durationMillis,
+      currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
+      currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+      selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
+      totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -36,41 +34,42 @@ export default class Player extends Component {
 
    onPlaybackStatusUpdate = (status) => {
     // const date = Date.now();
-    const positionMillis = status.positionMillis;
+    // const positionMillis = status.positionMillis;
       // console.log('---------------Status Update----------------')
      //   console.log('myPosition:', status.positionMillis)
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-        // console.log('|---> end of track triggered---')
-        const selectedTrack = Number(this.state.selectedTrack);
-        this.state.player.stopAsync()
-        this.state.player.setPositionAsync(0).then( () => {
-          this.setState({
+          console.log('THIS CONDITION HAS BEEN MET')
+          this.state.player.setPositionAsync(0).then( () => {
+            this.state.player.stopAsync()
+            this.setState({
             currentPosition: 0,
             currentPositionMillis: 0,
-            paused: false,
-            totalLength: this.props.tracks[selectedTrack + 1].durationMillis,
+            paused: this.state.paused,
+            totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
             isChanging: false,
             player: new Expo.Audio.Sound(),
-            selectedTrack: selectedTrack + 1,
-          }, () => this.props.updateCurrentTrack(selectedTrack, this.state.date, 0, this.state.paused))
+            selectedTrack: this.state.selectedTrack + 1,
+          }, () => {
+            this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
+            this.state.player.playAsync();
+          });
         })
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: this.state.positionMillis,
+          currentPositionMillis: status.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, positionMillis, this.state.paused))
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, status.positionMillis, this.state.paused))
       }
     }
 
   componentDidMount() {
     // console.log('|---> componentDidMount')
     loadTrack(this).then(() => {
-
       setStatusUpdate(this)
     })
   }
@@ -80,49 +79,23 @@ export default class Player extends Component {
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       // console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
-        // console.log('syncing to position....')
-        this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
+        console.log('syncing to position....')
+        this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             setPlay(this)
           })
         })
       })
     }
-
-    // if (this.state.loading === false && this.state.sync === false) {
-    //   console.log('|--? initial sync && non-0 intial position')
-    //   console.log('This is the return value of our function: ', account(this.props.ship, this.props.tracks))
-    //     this.setState({
-    //       sync: true,
-    //       currentPositionMillis: account(this.props.ship, this.props.tracks).currentPositionMillis,
-    //       currentTrack: account(this.props.ship, this.props.tracks).currentTrack
-    //     }).then(() => {
-    //       this.loadTrack(this)
-    //     }).then (() => {
-    //       this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis))
-    //     }).then (() => {
-    //         setStatusUpdate(this)
-    //     }).then(() => {
-    //         setPlay(this)
-    //     })
-    // }
-
-    // if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-    //   console.log('|--? initial sync && non-0 intial position')
-    //   this.state.player.stopAsync()
-    //     this.setState({
-    //       sync: true,
-    //       currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000),
-    //       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
-    //       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
-    //       player: new Expo.Audio.Sound()
-    //     }, () => this.state.player.setPositionAsync(Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis)).then(() => {
-    //       setStatusUpdate(this).then(() => {
-    //         setPlay(this)
-    //       })
-    //     })
-    //     )
-    //   }
+    if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
+      console.log('|--? initial sync && non-0 intial position')
+        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
+          setStatusUpdate(this).then(() => {
+            setPlay(this)
+          })
+        })
+        )
+      }
   }
 
   componentWillUnmount() {

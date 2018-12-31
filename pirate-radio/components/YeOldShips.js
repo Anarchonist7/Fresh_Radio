@@ -30,7 +30,6 @@ export default class YeOldShips extends React.Component {
                     key={i}
                     style={Styles.SearchList} 
                     onPress={() => {
-                        this.props.updateCurrentShip(result.id)
                         this.props.navigation.navigate('ShipCaptainScreen', { shipId: result.id  })
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>

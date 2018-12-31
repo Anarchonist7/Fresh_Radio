@@ -14,7 +14,7 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
@@ -81,17 +81,6 @@ export default class App extends Component {
     })
   }
 
-  updateCurrentShip = (id) => {
-    console.log('UPDATE SHIP ID TRIG')
-    this.setState({
-      ship: {
-        ...this.state.ship,
-        id: id
-      }
-    })
-    console.log('APP state SHIP: ', this.state.ship)
-  }
-
   updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
@@ -138,7 +127,7 @@ export default class App extends Component {
         } else {
           const response = JSON.parse(responseData._bodyText)
           // console.log("response!!!!!  ", response);
-          const ship = {
+          const data = {
             captain: response.captain,
             ship: response.ship,
             tracks: response.tracks.map(track => {
@@ -148,7 +137,8 @@ export default class App extends Component {
               }
             })
           }
-          resolve(ship);
+          console.log('!!! DATA THAT WAS FETCHED', data)
+          resolve(data);
         }
       })
     })
@@ -163,6 +153,7 @@ export default class App extends Component {
           this.setState({
             tracks: response.tracks,
             ship: response.ship,
+            captain: response.captain,
             shipLoading: false
           })
           this.state.tracks.forEach((track, index) => {
@@ -185,6 +176,7 @@ export default class App extends Component {
   render() {
     const screenProps = {
       downloadTracks: this.downloadAllTracksFromShip,
+      captain: this.state.captain,
       tracks: this.state.tracks,
       ship: this.state.ship,
       updateCurrentTrack: this.updateCurrentTrack,

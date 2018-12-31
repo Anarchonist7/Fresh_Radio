@@ -142,7 +142,6 @@ export default class CaptainScreen extends React.Component {
                         <View style={Styles.YeOldShipsContainer}>
                         {   true ? (
                             <YeOldShips 
-                                updateCurrentShip={this.props.screenProps.updateCurrentShip}
                                 yeOldShips={this.state.yeOldShips} 
                                 navigation={this.props.navigation}
                             />

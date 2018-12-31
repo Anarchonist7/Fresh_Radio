@@ -20,82 +20,17 @@ export default class ShipCrewScreen extends React.Component {
     static NavigationOptions = { header: { visibile: false } };
     constructor(props){
         super(props)
-        this.state = {
-            loading: true
-        }
     }
 
-    shipId = this.props.navigation.getParam('shipId', null);
-
-    downloadTrack = (index) => {
-    console.log('TRYING TO DL: ', this.state.tracks[index].audioUrl)
-    const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-    Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
-      if (exists) {
-        Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
-        .then(({ uri }) => {
-          const start = this.state.tracks.slice(0, index);
-          const end = this.state.tracks.slice(index + 1);
-          this.setState({loading: false, tracks: [
-            ...start,
-            {
-              ...this.state.tracks[index],
-              localUrl: uri
-            },
-            ...end
-            ]}, () => console.log('Async load (file exists) of track ID:', this.state.tracks[index].id, 'complete.'))
-        })
-        .catch(error => {
-          console.error('DOWNLOAD ERROR: ', error);
-        });
-      } else {
-        Expo.FileSystem.downloadAsync(
-          this.state.tracks[index].audioUrl,
-          Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-        )
-          .then(({ uri }) => {
-            const start = this.state.tracks.slice(0, index);
-            const end = this.state.tracks.slice(index + 1);
-            this.setState({loading: false, tracks: [
-              ...start,
-              {
-                ...this.state.tracks[index],
-                localUrl: uri
-              },
-              ...end
-              ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.'))
-          })
-          .catch(error => {
-            console.error('DOWNLOAD ERROR: ', error);
-          });
-      }
-    })
-  }
-
     componentDidMount() {
-        this.props.screenProps.getShip(this.shipId).then((response) => {
-            // console.log('SHIPCREWSCREEN RESPONSE!!!!!', response)
-            // console.log('---THE DATA THAT WORKS: ', this.props.screenProps)
-            this.setState({
-                captain: response.captain,
-                ship: response.ship,
-                tracks: response.tracks
-            }, () => {
-               this.state.tracks.forEach((track, index) => {
-                this.downloadTrack(index)
-            })
-               this.setState({loading: false})
-               console.log('--------the state of my tracks: ', this.state.tracks)
-            })
-        });
+        const shipId = this.props.navigation.getParam('shipId', null);
+        this.props.screenProps.downloadTracks(shipId)
     }
 
     render() {
 
-        const { ship, tracks, captain } = this.state;
-
-        if (this.state.loading === true){
-            console.log('-----------LOADING-----------')
+        const { ship, tracks, captain } = this.props.screenProps;
+        if (this.props.screenProps.shipLoading){
             return <SeaBackground />
         } else {
             return (

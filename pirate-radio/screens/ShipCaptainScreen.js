@@ -9,6 +9,7 @@ import { SeaBackground } from '../components/SeaBackground';
 import LandingScreen from '../screens/LandingScreen'
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
+import { account } from '../components/functions';
 
 
 export default class ShipCaptainScreen extends React.Component {
@@ -17,16 +18,18 @@ export default class ShipCaptainScreen extends React.Component {
 
     constructor(props){
         super(props)
+        // accounted = account(props.screenProps.ship, props.screenProps.tracks)
     }
 
     componentDidMount(){
-        this.props.screenProps.downloadTracks(this.props.screenProps.ship.id)
+        const shipId = this.props.navigation.getParam('shipId', null);
+        this.props.screenProps.downloadTracks(shipId)
     }
 
     render() {
-        const {ship, tracks} = this.props.screenProps;
+        const {ship, tracks, captain} = this.props.screenProps;
         if (this.props.screenProps.shipLoading){
-            return <LandingScreen />
+            return <SeaBackground />
         } else {
             return (
                 <SeaBackground>
@@ -38,8 +41,9 @@ export default class ShipCaptainScreen extends React.Component {
                             </Text>
                         </View>
 
+     
                         <View style={Styles.NowPlaying}>
-                            <Player ship={this.props.screenProps.ship} tracks={this.props.screenProps.tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player ship={ship} tracks={tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                         </View>
 
                         <View style={Styles.Playlist}>
@@ -48,9 +52,10 @@ export default class ShipCaptainScreen extends React.Component {
                                 <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </ScrollView>
                         </View>
-                    </View>
-                    <View style={Styles.Footer}>
-                        <BottomNav navigation={this.props.navigation}/>
+                        <View style={Styles.Footer}>
+                            <BottomNav navigation={this.props.navigation}/>
+
+                        </View>
                     </View>
                 </SeaBackground>
             )
