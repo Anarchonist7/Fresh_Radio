@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import shorthash from 'shorthash'
 import { SeaBackground } from '../components/SeaBackground';
@@ -20,12 +20,27 @@ export default class ShipCrewScreen extends React.Component {
     static NavigationOptions = { header: { visibile: false } };
     constructor(props){
         super(props)
+        this.state = {
+            shipId: this.props.navigation.getParam('shipId', null),
+            isDownloading: false
+        }
+    }
+
+    download = () => {
+        this.setState({
+            isDownloading: true
+        }, () => this.props.screenProps.downloadTracks(this.state.shipId))
+    }
+
+    stopDownload = () => {
+        this.setState({
+            isDownloading: false
+        })
     }
 
     componentDidMount() {
-        const shipId = this.props.navigation.getParam('shipId', null);
-        this.props.screenProps.loadShip(shipId).then(() => {
-            this.props.screenProps.downloadTracks(shipId)
+        this.props.screenProps.loadShip(this.state.shipId).then(() => {
+            // this.props.screenProps.downloadTracks(shipId)
         })
     }
 
@@ -46,11 +61,38 @@ export default class ShipCrewScreen extends React.Component {
                                         Captain {captain.captainName}
                                     </TextTicker>
                                 </View>
-                                <MaterialIcons name="file-download" style={Styles.LogoutIcon}/>
+
+                                {/* <TouchableOpacity onPress={
+                                    this.props.screenProps.downloadTracks(this.state.shipId)
+                                    this.setState({
+                                        isDownloading: true
+                                    })
+                                    }>
+                                    <View>
+                                        <MaterialIcons name="file-download" style={Styles.LogoutIcon}/>
+                                    </View>
+                                </TouchableOpacity> */}
+
                             </View>
 
                             <View style={Styles.NowPlaying}>
                                 <Listener tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                { this.state.isDownloading ? (
+                                        <TouchableOpacity  
+                                        onPress={this.stopDownload}>
+                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
+                                                STOP
+                                            </Text>
+                                        </TouchableOpacity>
+                                    ) : (
+                                        <TouchableOpacity 
+                                        onPress={this.download}>
+                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
+                                                DOWNLOAD
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                }
                             </View>
 
                             <View style={Styles.Playlist}>
