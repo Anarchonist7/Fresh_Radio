@@ -24,14 +24,13 @@ export default class YeOldShips extends React.Component {
 
     generateResultsList(){
         let resultsComponentArray = [];
-        console.log('YE OLD SHIPS IN PROPS: ', this.props.yeOldShips)
         this.props.yeOldShips.forEach((result, i) => {
             resultsComponentArray.push(
                 <TouchableOpacity
                     key={i}
                     style={Styles.SearchList} 
                     onPress={() => {
-                        this.props.navigation.navigate('ShipCrewScreen', { shipId: result.id  })
+                        this.props.navigation.navigate('ShipCaptainScreen', { shipId: result.id  })
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}>

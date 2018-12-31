@@ -108,7 +108,7 @@ export default class App extends Component {
         'Content-Type': 'application/json',
       }
     })
-    console.log('!!Post to ship')
+    console.log('!Post to ship')
   }
   // make a post req to shipRequest with current track state
 
