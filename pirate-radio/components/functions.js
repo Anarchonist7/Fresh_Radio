@@ -91,13 +91,14 @@ export function onBack() {
  }
 
  export function account(shipInfo, tracks) {
-   const {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
+   let {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
    // console.log('-----------holy shit the track info yo: ', tracks)
    const shipPosition = {
      currentTrack: currentTrack,
      currentPositionMillis: currentPositionMillis
    }
-
+   let newCurrentTrack = 0;
+   let newCurrentPosition = 0;
    total = calcTotal(tracks);
    let timeDiff = Date.now() - timeStamp;
    let remaining = tracks[currentTrack].durationMillis - currentPositionMillis;
@@ -106,15 +107,16 @@ export function onBack() {
      if (remaining > timeDiff) {
        console.log('-------Im in the if branch!')
        shipPosition.currentPositionMillis = currentPositionMillis + timeDiff;
-       shipPosition.currentTrack = currentTrack;
        timeDiff = 0;
      } else {
        console.log('------Im in the else branch')
        timeDiff -= remaining;
+       currentPositionMillis = 0
        shipPosition.currentTrack = shipPosition.currentTrack + 1
        console.log('------we just incremented the track: ', shipPosition.currentTrack)
        remaining = tracks[shipPosition.currentTrack].durationMillis
      }
    }
+   console.log('Hey buddy here is the shipposition!: ', shipPosition)
    return shipPosition;
  }
