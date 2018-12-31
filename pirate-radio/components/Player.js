@@ -40,19 +40,21 @@ export default class Player extends Component {
       console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-        console.log('|---> end of track triggered---')
-        const selectedTrack = Number(this.state.selectedTrack);
-        this.state.player.stopAsync()
-        this.state.player.setPositionAsync(0).then( () => {
-          this.setState({
+          console.log('THIS CONDITION HAS BEEN MET')
+          this.state.player.setPositionAsync(0).then( () => {
+            this.state.player.stopAsync()
+            this.setState({
             currentPosition: 0,
             currentPositionMillis: 0,
-            paused: false,
-            totalLength: this.props.tracks[selectedTrack + 1].durationMillis,
+            paused: this.state.paused,
+            totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
             isChanging: false,
             player: new Expo.Audio.Sound(),
-            selectedTrack: selectedTrack + 1,
-          }, () => this.props.updateCurrentTrack(selectedTrack, this.state.date, 0, this.state.paused))
+            selectedTrack: this.state.selectedTrack + 1,
+          }, () => {
+            this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
+            this.state.player.playAsync();
+            });
         })
       } else {
         this.setState({

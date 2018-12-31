@@ -4,9 +4,9 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || 'localhost'
+const LOCALHOST = process.env.LOCALHOST || '192.168.1.64'
 
-const config = require('./knexfile')[ENV];   
+const config = require('./knexfile')[ENV];
 const knex = require('knex')(config);
 const pirateDb = require('./lib/pirateDb')(knex);
 
@@ -33,7 +33,7 @@ app.get("/ships/:id", function(req, res) {
             } else {
                 console.log('Reponse to APP: :', {tracks: tracks, ship: ship[0], captain: captain[0] })
                 res.json({
-                  tracks: tracks, 
+                  tracks: tracks,
                   ship: ship[0],
                   captain: captain[0]
                 })

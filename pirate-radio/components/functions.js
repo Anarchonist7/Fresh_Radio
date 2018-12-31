@@ -103,7 +103,7 @@ console.log(currentPositionMillis)
      currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp))
    }
 
-   console.log('total: ', total, 'ship.currentPositionMillis: ', shipPosition.currentPositionMillis)
+   console.log('total: ', total, 'ship.currentPositionMillis: ', shipPosition.currentPositionMillis, 'trackduration: ', tracks[shipPosition.currentTrack].durationMillis)
    if (shipPosition.currentPositionMillis > total) {
       shipPosition.currentTrack = 0;
       shipPosition.currentPositionMillis = 0;

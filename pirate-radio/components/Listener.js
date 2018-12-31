@@ -10,18 +10,17 @@ import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
-import { loadTrack, setPlay, setStatusUpdate } from './functions';
+import { loadTrack, setPlay, setStatusUpdate, account } from './functions';
 import Styles from '../assets/styles/AppStyles';
 export default class Listener extends Component {
   constructor(props) {
     super(props);
     this.state = {
       paused: this.props.ship.paused,
-      totalLength: 1,
-      currentPosition: Math.floor(this.props.ship.currentPositionMillis),
-      currentPositionMillis: Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)),
-      selectedTrack: this.props.ship.currentTrack,
-      totalLength: this.props.tracks[this.props.ship.currentTrack].durationMillis,
+      currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
+      currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+      selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
+      totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
@@ -44,12 +43,15 @@ export default class Listener extends Component {
           isChanging: false,
           player: new Expo.Audio.Sound(),
           selectedTrack: this.state.selectedTrack + 1,
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true))
+        }, () => {
+          this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
+          this.state.player.playAsync();
+          });
       })
     } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
-          currentPositionMillis: this.state.positionMillis,
+          currentPositionMillis: status.positionMillis,
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis
         }, () => this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true))
       }
@@ -65,7 +67,7 @@ export default class Listener extends Component {
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       loadTrack(this).then(() => {
         console.log('syncing to position....')
-        this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
+        this.state.player.setPositionAsync(this.state.currentPositionMillis).then(() => {
           setStatusUpdate(this).then(() => {
             setPlay(this)
           })
@@ -74,7 +76,7 @@ export default class Listener extends Component {
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
       console.log('TRYING TO SCRUB FROM POSITION')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp))).then(() => {
+        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
               setPlay(this)
           })
