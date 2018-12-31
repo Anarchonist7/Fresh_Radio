@@ -24,13 +24,16 @@ export default class ShipCrewScreen extends React.Component {
 
     componentDidMount() {
         const shipId = this.props.navigation.getParam('shipId', null);
-        this.props.screenProps.downloadTracks(shipId)
+        this.props.screenProps.loadShip(shipId).then(() => {
+            this.props.screenProps.downloadTracks(shipId)
+        })
     }
 
     render() {
 
-        const { ship, tracks, captain } = this.props.screenProps;
-        if (this.props.screenProps.shipLoading){
+        const { ship, tracks, captain, shipLoading } = this.props.screenProps;
+
+        if (shipLoading){
             return <SeaBackground />
         } else {
             return (

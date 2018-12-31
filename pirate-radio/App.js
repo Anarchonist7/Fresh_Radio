@@ -144,27 +144,27 @@ export default class App extends Component {
     })
   }
 
-  downloadAllTracksFromShip = async (id) => {
-    // return new Promise((resolve, reject) => {
+  loadShip = (id) => {
+    return new Promise((resolve, reject) => {
       this.getShip(id).then((response) => {
-        // this.getShip.then((response) => {
-          // console.log('RESPONSE FROM SERVER SHIP INFO', response.ship)
-          // console.log('Response from server for download', response.ship)
-          this.setState({
-            tracks: response.tracks,
-            ship: response.ship,
-            captain: response.captain,
-            shipLoading: false
-          })
-          this.state.tracks.forEach((track, index) => {
-              this.downloadTrack(index)
-          })
-        });
-    // })
+        this.setState({
+          tracks: response.tracks,
+          ship: response.ship,
+          captain: response.captain,
+          shipLoading: false
+        })
+        resolve(this.state)
+      })
+    })
+  }
+
+  downloadAllTracksFromShip = () => {
+    this.state.tracks.forEach((track, index) => {
+        this.downloadTrack(index)
+    })
   }
 
   componentDidMount() {
-    // this.downloadAllTracksFromShip(1)
 
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
@@ -176,14 +176,14 @@ export default class App extends Component {
   render() {
     const screenProps = {
       downloadTracks: this.downloadAllTracksFromShip,
+      downloadTrack: this.downloadTrack,
+      loadShip: this.loadShip,
       captain: this.state.captain,
       tracks: this.state.tracks,
       ship: this.state.ship,
       updateCurrentTrack: this.updateCurrentTrack,
-      updateCurrentShip: this.updateCurrentShip,
       shipQueryRequest: this.shipQueryRequest,
       createNewShipRequest: this.createNewShipRequest,
-      downloadTrack: this.downloadTrack,
       updateShip: this.updateShip,
       getShip: this.getShip,
       shipLoading: this.state.shipLoading
