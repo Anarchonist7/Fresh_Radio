@@ -55,80 +55,37 @@ export default class SignInScreen extends React.Component {
     render() {
         return (
           <SeaBackground>
-            <View></View>
-            <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]}>
-            <View style={styles.Container}>
+            <View style={Styles.SignInContainer}>
               <TextInput
                 value={this.state.username}
                 onChangeText={(username) => this.setState({ username })}
                 placeholder={'Username'}
-                style={styles.Input}
+                style={Styles.SignInInput}
               />
               <TextInput
                 value={this.state.password}
                 onChangeText={(password) => this.setState({ password })}
                 placeholder={'Password'}
                 secureTextEntry={true}
-                style={styles.Input}
+                style={Styles.SignInInput}
               />
               
               <TouchableOpacity
                 title={'Login'}
-                style={styles.Login}
+                style={Styles.SignInLogin}
                 onPress={this._signInAsync}
               //   onPress={this.onLogin.bind(this)}
               >
-                <Text style={styles.LoginText}>
+                <Text style={Styles.SignInLoginText}>
                   Login
                 </Text>
               </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
-
-              
-              <View style={styles.Footer}>
-                <BottomNav navigation={this.props.navigation}/>
-              </View>
-            
+            </View>
+            <View style={Styles.Footer}>
+              <BottomNav navigation={this.props.navigation}/>
+            </View>
           </SeaBackground>
         );
       }
     };
-    
-
-const styles = StyleSheet.create({
-    Container: {
-      width: '92%',
-      height: '92%',
-      position: 'relative',
-      top: '5%',
-      alignItems: 'center',
-      alignSelf: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'rgba(0,0,0,0.84)',
-    },
-    Input: {
-      width: 200,
-      height: 44,
-      padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
-      backgroundColor: 'white',
-    },
-    Login: {
-      width: 105,
-      height: 30,
-      padding: 5,
-      borderWidth: 1,
-      borderRadius: 60,
-      borderColor: 'black',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'mediumslateblue',
-    },
-    LoginText: {
-      fontSize: 15,
-    }
-});
 

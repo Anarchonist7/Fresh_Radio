@@ -84,7 +84,6 @@ export default class CaptainScreen extends React.Component {
         return (
             <SeaBackground >
                 <View style={Styles.Boxes}>
-
                     <View style={Styles.CaptainHeader}>
                         <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
@@ -97,7 +96,7 @@ export default class CaptainScreen extends React.Component {
 
                     <View style={Styles.NewShip}>
                         <Text style={Styles.MediumTextPirate}>
-                            Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateShipIconMedium} />
+                            Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateWheelIconMedium} />
                         </Text>
                         <View style={Styles.ShipFormContainer}>
                             <Text style={Styles.ShipFormLabelText}>Ship Name:</Text> 
@@ -150,29 +149,6 @@ export default class CaptainScreen extends React.Component {
                                 Nothin hurrr
                             </Text>
                         )}
-                            {/* <TouchableOpacity 
-                                style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 3})
-                            }}>
-                                <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> daveys-tunes</Text>
-                                <Text style={Styles.SmallTextNormal}>Songs: 20</Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity 
-                                style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 1})
-                            }}>
-                                <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> barbosa-beats</Text>
-                                <Text style={Styles.SmallTextNormal}>Songs: 16</Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity 
-                                style={Styles.YeOldShipsItems} 
-                                onPress={() => { this.props.navigation.navigate('ShipCaptainScreen', {shipId: 2})
-                            }}>
-                                <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
-                                <Text style={Styles.SmallTextNormal}>Songs: 7</Text>
-                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>

@@ -38,13 +38,12 @@ export default class ShipCaptainScreen extends React.Component {
                     <View style={Styles.Boxes}>
                         <View style={Styles.ShipHeader}>
                             <Text>
-                                <Text style={Styles.BigTextPirate}>Captain Barbosa </Text>
                                 <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                                <Text style={Styles.BigTextPirate}> Captain Barbosa </Text>
                             </Text>
                         </View>
 
-     
-                        <View style={Styles.NowPlaying}>
+                        <View style={Styles.NowPlayingCaptain}>
                             <Player ship={ship} tracks={tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                         </View>
 
@@ -54,10 +53,9 @@ export default class ShipCaptainScreen extends React.Component {
                                 <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </ScrollView>
                         </View>
-                        <View style={Styles.Footer}>
-                            <BottomNav navigation={this.props.navigation}/>
-
-                        </View>
+                    </View>
+                    <View style={Styles.Footer}>
+                        <BottomNav navigation={this.props.navigation}/>
                     </View>
                 </SeaBackground>
             )
