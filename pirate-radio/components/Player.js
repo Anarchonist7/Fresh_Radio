@@ -22,7 +22,7 @@ export default class Player extends Component {
     this.state = {
       paused: this.props.ship.paused,
       currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
-      currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis),
+      currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis + ((Date.now() - account(this.props.ship, this.props.tracks).timeStamp))),
       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
       totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
       player: new Expo.Audio.Sound(),
@@ -33,6 +33,7 @@ export default class Player extends Component {
   }
 
    onPlaybackStatusUpdate = (status) => {
+    var stamp = Date.now();
     // const date = Date.now();
     // const positionMillis = status.positionMillis;
       // console.log('---------------Status Update----------------')
@@ -40,9 +41,24 @@ export default class Player extends Component {
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-          console.log('THIS CONDITION HAS BEEN MET')
+          console.log('-----KING IFFY----')
+
+          console.log(this.state.selectedTrack)
+
+          console.log(this.state.tracks.length - 1)
+          if (this.state.selectedTrack === this.state.tracks.length - 1) {
+            rightTrack = 0
+          } else {
+            rightTrack - this.state.selectedTrack + 1
+          }
+
+          if (this.props.ship.currentTrack === 0) {
+            rightTrack = 0
+          }
+
           this.state.player.setPositionAsync(0).then( () => {
-            this.state.player.stopAsync()
+            this.state.player.stopAsync();
+            console.log('setting pos async')
             this.setState({
             currentPosition: 0,
             currentPositionMillis: 0,
@@ -50,9 +66,10 @@ export default class Player extends Component {
             totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
             isChanging: false,
             player: new Expo.Audio.Sound(),
-            selectedTrack: this.state.selectedTrack + 1,
+            selectedTrack: rightTrack,
+            date: Date.now()
           }, () => {
-            this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
+            this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
             this.state.player.playAsync();
           });
         })
@@ -63,9 +80,14 @@ export default class Player extends Component {
           totalLength: this.props.tracks[this.state.selectedTrack].durationMillis,
           paused: this.state.paused,
           date: Date.now()
-        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, this.state.date, status.positionMillis, this.state.paused, (!this.state.sync)))
-      }
+        }, () => {
+          var date = Date.now();
+          console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
+          console.log(this.state.selectedTrack)
+          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+        })
     }
+  }
 
   componentDidMount() {
   }
@@ -115,12 +137,14 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
             this.setState({paused: false})
+            this.props.sendMessage('play');
             this.state.player.playAsync();
             }
           }
           onPressPause={() => {
             this.setState({paused: true})
-            this.state.player.pauseAsync()
+            this.props.sendMessage('pause');
+            this.state.player.pauseAsync();
             }
           }
           onBack={this.onBack = onBack.bind(this)}

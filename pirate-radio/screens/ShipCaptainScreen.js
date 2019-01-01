@@ -43,9 +43,9 @@ export default class ShipCaptainScreen extends React.Component {
                             </Text>
                         </View>
 
-     
+
                         <View style={Styles.NowPlaying}>
-                            <Player ship={ship} tracks={tracks} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                         </View>
 
                         <View style={Styles.Playlist}>

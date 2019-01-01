@@ -100,7 +100,8 @@ console.log('------!------were in account!!!!')
    const total = calcTotal(tracks)
    const shipPosition = {
      currentTrack: currentTrack,
-     currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp))
+     currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp)),
+     timeStamp: Date.now()
    }
 
    if (shipInfo.paused) {

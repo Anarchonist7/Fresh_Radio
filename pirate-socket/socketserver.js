@@ -1,21 +1,23 @@
-const server = require('http').createServer();
-const io = require('socket.io')(server);
-const PORT = 3003;
-io.on('connection', client => {
-    console.log("Server detects a new client has connected.");
 
-    
-    client.on('message', function(data){ 
-        console.log(data);
-        client.broadcast.emit("PLAY");
-    });
+var express = require('express');
+var http = require('http');
+var socketio = require('socket.io');
 
-    client.on('disconnect', () => { 
-        console.log("Server detects that a client has disconnected");
-    });
-});
+var app = express();
+var server = http.Server(app);
+var websocket = socketio(server);
+server.listen(3003, () => console.log('listening on *:3000'));
+
+// The event will be called when a client is connected.
 
 
-server.listen(PORT, function(){
-    console.log(`Listening on PORT ${PORT}`);
+websocket.on('connection', (socket) => {
+  console.log('A client just joined on', socket.id);
+
+
+  socket.on('message', (message) => {
+  // Save the message document in the `messages` collection.
+    console.log('holy hell batman!');
+
+  });
 });

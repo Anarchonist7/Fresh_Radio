@@ -5,7 +5,7 @@ import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
 import LandingScreen from './screens/LandingScreen';
 import AppNavigator from './navigation/AppNavigator';
-
+import SocketIOClient from 'socket.io-client';
 import shorthash from 'shorthash'
 import Listener from './components/Listener';
 // import Player from './components/Player';
@@ -20,6 +20,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
+    this.socket = SocketIOClient('http://192.168.1.64:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -34,6 +35,13 @@ export default class App extends Component {
       },
       captain:  null
     }
+    this.socket.onopen = () => {
+      this.setState({connected:true})
+    };
+  }
+
+  sendMessage = (message) => {
+    this.socket.send(JSON.stringify({type: 'message', payload: 'shit on my timbers'}));
   }
 
   downloadTrack = (index) => {
@@ -80,7 +88,6 @@ export default class App extends Component {
       }
     })
   }
-
   updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
@@ -101,7 +108,6 @@ export default class App extends Component {
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
-
   updateShip = () => {
     fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
       method: 'POST',
@@ -165,7 +171,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-
+    console.log('------!! component is mountin in app.js!')
+    this.socket.send(JSON.stringify({type: 'message', payload: 'Hello Mr. Server!'}));
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
     }).then(() => this.setState({
@@ -186,7 +193,8 @@ export default class App extends Component {
       createNewShipRequest: this.createNewShipRequest,
       updateShip: this.updateShip,
       getShip: this.getShip,
-      shipLoading: this.state.shipLoading
+      shipLoading: this.state.shipLoading,
+      sendMessage: this.sendMessage
     }
 
 
