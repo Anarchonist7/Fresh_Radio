@@ -41,7 +41,8 @@ export default class App extends Component {
   }
 
   sendMessage = (message) => {
-    this.socket.send(JSON.stringify({type: 'message', payload: 'shit on my timbers'}));
+    console.log('------message: ', message)
+    this.socket.send(JSON.stringify({type: 'message', content: message}));
   }
 
   downloadTrack = (index) => {
@@ -172,7 +173,13 @@ export default class App extends Component {
 
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
-    this.socket.send(JSON.stringify({type: 'message', payload: 'Hello Mr. Server!'}));
+    this.socket.on('message', (message) => {
+       console.log('heres my message back from socket: ', message);
+       this.setState({
+         paused: JSON.parse(message).content
+       })
+    });
+
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
     }).then(() => this.setState({
@@ -194,7 +201,8 @@ export default class App extends Component {
       updateShip: this.updateShip,
       getShip: this.getShip,
       shipLoading: this.state.shipLoading,
-      sendMessage: this.sendMessage
+      sendMessage: this.sendMessage,
+      paused: this.state.paused
     }
 
 

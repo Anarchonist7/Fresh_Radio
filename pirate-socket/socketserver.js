@@ -17,7 +17,14 @@ websocket.on('connection', (socket) => {
 
   socket.on('message', (message) => {
   // Save the message document in the `messages` collection.
-    console.log('holy hell batman!');
+    data = JSON.parse(message);
+    if (data.content === 'play') {
+      console.log('playing');
+      socket.send(JSON.stringify({type: 'message', content: false}));
+    } else if (data.content === 'pause') {
+      console.log('pausing');
+      socket.send(JSON.stringify({type: 'message', content: true}));
+    }
 
   });
 });

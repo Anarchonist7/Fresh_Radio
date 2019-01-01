@@ -93,6 +93,12 @@ export default class Player extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log('-----component did update mahfka!!!')
+    if (this.props.paused) {
+      console.log('we paused yo')
+    } else if (!this.props.paused){
+      console.log('we totally aint paused yo');
+    }
     // console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       // console.log('|--? selectedTrack change || loaclurl Loaded')
