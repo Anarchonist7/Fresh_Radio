@@ -128,7 +128,6 @@ console.log('------!------were in account!!!!')
 
     console.log('track aftore update: ', shipPosition.currentTrack)
    }
-
   //  console.log('Hey buddy here is the shipposition!: ', shipPosition)
    return shipPosition;
  }
