@@ -93,15 +93,18 @@ export function onBack() {
 
  export function account(shipInfo, tracks) {
 console.log('------!------were in account!!!!')
-  if (shipInfo.isPaused) {
-    return shipInfo;
-  }
-   let {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
-   // console.log('-----------holy shit the track info yo: ', tracks)
-   var total = calcTotal(tracks)
+
+  console.log(shipInfo.paused)
+
+   const {timeStamp, currentTrack, currentPositionMillis} = shipInfo;
+   const total = calcTotal(tracks)
    const shipPosition = {
      currentTrack: currentTrack,
      currentPositionMillis: Math.floor(currentPositionMillis + (Date.now() - timeStamp))
+   }
+
+   if (shipInfo.paused) {
+     shipPosition.currentPositionMillis = currentPositionMillis
    }
 
    console.log('total: ', total, 'ship.currentPositionMillis: ', shipPosition.currentPositionMillis, 'trackduration: ', tracks[shipPosition.currentTrack].durationMillis)
@@ -125,6 +128,7 @@ console.log('------!------were in account!!!!')
 
     console.log('track aftore update: ', shipPosition.currentTrack)
    }
+
   //  console.log('Hey buddy here is the shipposition!: ', shipPosition)
    return shipPosition;
  }
