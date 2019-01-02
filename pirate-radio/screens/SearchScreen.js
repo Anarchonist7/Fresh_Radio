@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { SeaBackground } from '../components/SeaBackground';
 
 import { SearchBar } from 'react-native-elements';
@@ -83,7 +83,7 @@ export default class SearchScreen extends React.Component {
 
                     <View style={Styles.Results}>
                         <Text style={Styles.BigTextPirate}>Search Results{'\n'}</Text>
-                        <View style={Styles.ResultsContainer}>
+                        <ScrollView style={Styles.ResultsContainer}>
                             {   this.state.foundShip ? (
                                 <SearchResults 
                                     searchResults={this.state.searchResults} 
@@ -94,41 +94,18 @@ export default class SearchScreen extends React.Component {
                                     Nothin hurrr
                                 </Text>
                             )}
-                        </View>
+                        </ScrollView>
                     </View>
 
                     <View style={Styles.Popular}>
                         <Text style={Styles.BigTextPirate}>Popular Ships{'\n'}</Text>
-
-                         <PopularShips 
-                                    updateCurrentShip={this.props.screenProps.updateCurrentShip}
-                                    searchResults={this.state.popularShips} 
-                                    navigation={this.props.navigation}
-                                />
-
-                        {/* <TouchableOpacity 
-                            style={Styles.ShipList} 
-                            onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 3})
-                        }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> daveys-tunes</Text>
-                            <Text style={Styles.SmallTextNormal}>Crew: 11</Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                            style={Styles.ShipList} 
-                            onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 1})
-                        }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor" /> barbosa-beats</Text>
-                            <Text style={Styles.SmallTextNormal}>Crew: 4</Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                            style={Styles.ShipList} 
-                            onPress={() => { this.props.navigation.navigate('ShipCrewScreen', {shipId: 2})
-                        }}>
-                            <Text style={Styles.SmallTextNormal}><SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/> jacks-jams</Text>
-                            <Text style={Styles.SmallTextNormal}>Crew: 8</Text>
-                        </TouchableOpacity> */}
+                        <ScrollView style={Styles.PopularContainer}>
+                            <PopularShips 
+                                        updateCurrentShip={this.props.screenProps.updateCurrentShip}
+                                        searchResults={this.state.popularShips} 
+                                        navigation={this.props.navigation}
+                                    />
+                        </ScrollView>
                     </View>
                 </View>
                 <View style={Styles.Footer}>

@@ -32,7 +32,7 @@ export default class SearchResults extends React.Component {
                     onPress={() => {
                         this.props.navigation.navigate('ShipCrewScreen', { shipId: result.shipId  })
                     }}>
-                    <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
+                    <View key={i} style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Text style={Styles.SmallTextPirate}>
                             <Image source={PiratePNG} style={ Styles.CaptainIconSmall }/> { result.captain }
                         </Text>

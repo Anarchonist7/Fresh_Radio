@@ -1,7 +1,11 @@
 'use strict' 
 
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+
 
 module.exports = StyleSheet.create({
     ListenHostButtons: {
@@ -37,28 +41,38 @@ module.exports = StyleSheet.create({
     },
 
     ShipHeader: {
-        paddingTop: 20,
-        paddingBottom: 5,
-        paddingLeft: 5,
+        height: '10%',
+        width: '95%',
+        paddingLeft: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignSelf: 'center',
         justifyContent: 'space-between',
-        width: '95%',
-        height: '10%',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
     CaptainHeader: {
-        paddingTop: 20,
-        paddingLeft: 5,
+        width: '95%',
+        height: '10%',
+        paddingLeft: 10,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    CrewHeader: {
+        width: '95%',
+        height: '10%',
+        paddingLeft: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignSelf: 'center',
-        justifyContent: 'space-between',
-        width: '95%',
-        height: '10%',
+        alignItems: 'center',
+        justifyContent: 'left',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -74,22 +88,25 @@ module.exports = StyleSheet.create({
     },
 
     NewShip: {
-        marginTop: 5,
-        paddingTop: 10,
-        alignSelf: 'center',
-        justifyContent: 'space-between',
+        height: 295,
         width: '95%',
-        height: '45%',
+        marginTop: '2%',
+        paddingTop: 10,
+        flexDirection: 'column',
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
     ShipFormContainer: {
-        alignSelf: 'center',
+        height: 220,
         width: '95%',
-        height: '78%',
         backgroundColor: 'grey',
-        marginBottom: 13,
+        alignSelf: 'center',
+        marginTop: '2%',
+        marginBottom: '2%',
+        paddingBottom: '2%',
         borderRadius: 7,
     },
 
@@ -98,28 +115,28 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '15%',
         alignSelf: 'center',
-        marginTop: 5,
         borderRadius: 5,
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: 'white',
         opacity: 0.8,
+        marginTop: 5,
         paddingLeft: 8,
     },
 
     ShipFormButton: {
         width: '35%',
-        height: '13%',
+        height: 30,
         alignSelf: 'flex-end',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
         borderRadius: 15,
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: '#424faf',
+        marginTop: '2%',
         marginRight: 10,
-        padding: 5,
+        paddingHorizontal: 5,
     },
 
     ShipFormLabelText: {
@@ -139,22 +156,20 @@ module.exports = StyleSheet.create({
     },
 
     YeOldShips: {
-        marginTop: 5,
+        height: '30%',
+        width: '95%',
+        marginTop: '2%',
         paddingTop: 10,
-        paddingHorizontal: 10,
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'flex-start',
-        width: '95%',
-        height: '35%',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
     YeOldShipsContainer: {
-        marginTop: 20,
+        height: '70%',
         width: '100%',
-        height: '78%',
     },
 
     YeOldShipsItems: {
@@ -163,7 +178,6 @@ module.exports = StyleSheet.create({
         borderRadius: 10,
         marginTop: 8,
         backgroundColor: 'grey',
-        paddingHorizontal: 5,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -174,7 +188,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         width: '95%',
         height: '44%',
-        marginTop: 5,
+        marginTop: '2%',
         paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
@@ -185,19 +199,49 @@ module.exports = StyleSheet.create({
         width: '95%',
         height: '80%',
         marginTop: '2%',
+        marginBottom: '2%',
+        paddingTop: 10,
+        borderRadius: 10,
+        backgroundColor: 'grey',
+    },
+
+    PopularContainer: {
+        alignSelf: 'center',
+        width: '95%',
+        height: '80%',
+        marginTop: '2%',
+        marginBottom: '2%',
         borderRadius: 10,
         backgroundColor: 'grey',
     },
     
-    NowPlaying: {
+    NowPlayingCaptain: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '38%',
-        marginTop: 5,
+        height: 250,
+        marginTop: '2%',
         paddingTop: 10,
         backgroundColor: '#383131',
         borderRadius: 15,
+    },
+
+    NowPlayingCrew: {
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: 220,
+        marginTop: '2%',
+        paddingTop: 10,
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    DownloadButton: {
+        paddingTop: 10,
+        justifyContent: 'column',
+        alignSelf: 'center',
+        justifyContent: 'center',
     },
 
     Popular: {
@@ -206,8 +250,8 @@ module.exports = StyleSheet.create({
         alignItems: 'center',
         width: '95%',
         height: '35%',
-        marginTop: 5,
         paddingTop: 10,
+        marginTop: '2%',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
@@ -225,14 +269,14 @@ module.exports = StyleSheet.create({
 
     SearchList: {
         width: '95%',
-        height: '30%',
         borderRadius: 5,
         borderColor: 'black',
         borderWidth: 1,
         marginTop: 5,
         marginHorizontal: 8,
         backgroundColor: 'grey',
-        paddingHorizontal: 5,
+        paddingVertical: '2%',
+        paddingHorizontal: '2%',
     },
 
     Playlist: {
@@ -328,7 +372,6 @@ module.exports = StyleSheet.create({
         fontFamily: 'Times New Roman',
         color: 'white',
         fontSize: 18,
-        // includeFontPadding: true,
     },
 
     TinyTextNormal: {
@@ -363,8 +406,7 @@ module.exports = StyleSheet.create({
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
         width: '45%',
-        height: '20%',
-        aspectRatio: 3/1,
+        height: '50%',
         borderRadius: 40,
         backgroundColor: '#383131',
     },
@@ -439,9 +481,9 @@ module.exports = StyleSheet.create({
         marginRight: 10,
     },
 
-    PirateShipIconMedium: {
-        width: 30,
-        height: 30,
+    PirateWheelIconMedium: {
+        width: 25,
+        height: 25,
     },
 
     PirateShipIconSmall: {
@@ -521,4 +563,42 @@ module.exports = StyleSheet.create({
         height: 17,
         width: 17,
     },
+
+    SignInContainer: {
+        width: '92%',
+        height: '82%',
+        position: 'relative',
+        top: '5%',
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.84)',
+      },
+
+      SignInInput: {
+        width: 200,
+        height: 44,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: 'black',
+        marginBottom: 10,
+        backgroundColor: 'white',
+      },
+
+      SignInLogin: {
+        width: 105,
+        height: 30,
+        padding: 5,
+        borderWidth: 1,
+        borderRadius: 60,
+        borderColor: 'black',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'mediumslateblue',
+      },
+      
+      SignInLoginText: {
+        fontSize: 15,
+      }
+
 })
