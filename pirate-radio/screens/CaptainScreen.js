@@ -68,7 +68,9 @@ export default class CaptainScreen extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`${this.props.screenProps.shipQueryRequest}?search=1`,{method: 'GET'}).then((responseData, error) => {
+        fetch(`${this.props.screenProps.shipQueryRequest}?search=1`, {
+            method: 'GET'
+        }).then((responseData, error) => {
             if (error){
                 throw new Error('Error: ', error);
             } else {

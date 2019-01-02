@@ -5,8 +5,6 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import Header from './Header';
-import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
