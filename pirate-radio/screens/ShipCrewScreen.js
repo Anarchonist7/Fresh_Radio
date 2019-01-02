@@ -54,7 +54,7 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.CaptainHeader}>
+                            <View style={Styles.CrewHeader}>
                                 <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                                 <View style={Styles.CaptainHeaderTickerContainer}>
                                     <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
@@ -85,7 +85,10 @@ export default class ShipCrewScreen extends React.Component {
                                             </Text>
                                         </TouchableOpacity>
                                     ) : (
+
                                         <TouchableOpacity
+                                        style={Styles.DownloadButton}
+
                                         onPress={this.download}>
                                             <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
                                                 DOWNLOAD
