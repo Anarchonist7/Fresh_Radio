@@ -20,7 +20,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://192.168.1.64:3003');
+    this.socket = SocketIOClient('http://localhost:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -54,7 +54,7 @@ export default class App extends Component {
         .then(({ uri }) => {
           const start = this.state.tracks.slice(0, index);
           const end = this.state.tracks.slice(index + 1);
-          this.setState({loading: false, tracks: [
+          this.setState({tracks: [
             ...start,
             {
               ...this.state.tracks[index],
@@ -74,7 +74,7 @@ export default class App extends Component {
           .then(({ uri }) => {
             const start = this.state.tracks.slice(0, index);
             const end = this.state.tracks.slice(index + 1);
-            this.setState({loading: false, tracks: [
+            this.setState({tracks: [
               ...start,
               {
                 ...this.state.tracks[index],
@@ -87,8 +87,64 @@ export default class App extends Component {
             console.error('DOWNLOAD ERROR: ', error);
           });
       }
+    }, () => {
+      if(this.state.ship.currentTrack === index){
+        this.setState({loading: false})
+        }
     })
   }
+
+  loadTrack = (index) => {
+    console.log('TRYING TO LOAD: ', this.state.tracks[index].audioUrl)
+    const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+    Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
+      if (exists) {
+        Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
+        .then(({ uri }) => {
+          const start = this.state.tracks.slice(0, index);
+          const end = this.state.tracks.slice(index + 1);
+          this.setState({tracks: [
+            ...start,
+            {
+              ...this.state.tracks[index],
+              localUrl: uri
+            },
+            ...end
+            ]}, () => console.log('Async load (file exists) of track ID:', this.state.tracks[index].id, 'complete.')
+          )
+        })
+        .catch(error => {
+          console.error('DOWNLOAD ERROR: ', error);
+        });
+      } else if (this.state.ship.currentTrack === index || this.state.ship.currentTrack + 1 === index) {
+        Expo.FileSystem.downloadAsync(
+          this.state.tracks[index].audioUrl,
+          Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+        )
+          .then(({ uri }) => {
+            const start = this.state.tracks.slice(0, index);
+            const end = this.state.tracks.slice(index + 1);
+            this.setState({tracks: [
+              ...start,
+              {
+                ...this.state.tracks[index],
+                localUrl: uri
+              },
+              ...end
+              ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.')
+            )
+          })
+          .catch(error => {
+            console.error('DOWNLOAD ERROR: ', error);
+          });
+      }
+    }, () => {
+      if(this.state.ship.currentTrack === index){
+        this.setState({loading: false})
+        }
+    })
+  }
+
   updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
@@ -119,21 +175,17 @@ export default class App extends Component {
     })
     console.log('!Post to ship')
   }
-  // make a post req to shipRequest with current track state
 
-  // getShip = new Promise((resolve, reject) => {
   getShip = (index) => {
     return new Promise((resolve, reject) => {
-      console.log(this.shipQueryRequest + index);
+      console.log('festching: ', this.shipQueryRequest + index);
       fetch(this.shipQueryRequest + index, {
-      // fetch(this.shipRequest, {
       method: 'GET'
       }).then((responseData, error) => {
         if (error){
           throw new Error("Error: ", error);
         } else {
           const response = JSON.parse(responseData._bodyText)
-          // console.log("response!!!!!  ", response);
           const data = {
             captain: response.captain,
             ship: response.ship,
@@ -144,7 +196,6 @@ export default class App extends Component {
               }
             })
           }
-          console.log('!!! DATA THAT WAS FETCHED', data)
           resolve(data);
         }
       })
@@ -166,8 +217,20 @@ export default class App extends Component {
   }
 
   downloadAllTracksFromShip = () => {
-    this.state.tracks.forEach((track, index) => {
-        this.downloadTrack(index)
+    return new Promise((resolve, reject) => {
+      this.state.tracks.forEach((track, index) => {
+          this.downloadTrack(index)
+      })
+      resolve()
+    })
+  }
+
+  loadAllTracksFromShip = () => {
+    return new Promise((resolve, reject) => {
+      this.state.tracks.forEach((track, index) => {
+        this.loadTrack(index)
+      })
+      resolve()
     })
   }
 
@@ -190,7 +253,9 @@ export default class App extends Component {
   render() {
     const screenProps = {
       downloadTracks: this.downloadAllTracksFromShip,
+      loadTracks: this.loadAllTracksFromShip,
       downloadTrack: this.downloadTrack,
+      loadTrack: this.loadTrack,
       loadShip: this.loadShip,
       captain: this.state.captain,
       tracks: this.state.tracks,

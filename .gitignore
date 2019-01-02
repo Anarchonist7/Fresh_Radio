@@ -1,0 +1,13 @@
+./simplerserver/node_modules/**/*
+./pirate-radio/node_modules/**/*
+./pirate-socket/node_modules/**/*
+./simplerserver/.env
+./pirate-radio/.env
+./pirate-socket/.env
+./pirate-radio/expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+.env

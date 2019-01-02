@@ -6,8 +6,9 @@ var socketio = require('socket.io');
 var app = express();
 var server = http.Server(app);
 var websocket = socketio(server);
-server.listen(3003, () => console.log('listening on *:3000'));
 
+server.listen(3003, () => console.log('listening on *:3003'));
+ 
 // The event will be called when a client is connected.
 
 

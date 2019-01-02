@@ -40,7 +40,9 @@ export default class ShipCrewScreen extends React.Component {
 
     componentDidMount() {
         this.props.screenProps.loadShip(this.state.shipId).then(() => {
-            // this.props.screenProps.downloadTracks(shipId)
+            this.props.screenProps.loadTracks().then(() => {
+                console.log('   11!!!!!!!!!!!!!!!!!promised')
+            })
         })
     }
 
