@@ -28,12 +28,47 @@ export default class Player extends Component {
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
-      sync: false
+      sync: false,
+      over: false
     };
+  }
+  restartPlaylist() {
+    console.log('restart ------!------ playlist')
+      this.state.player.setPositionAsync(0).then( () => {
+        console.log('setting pos async')
+        this.setState({
+        currentPosition: 0,
+        currentPositionMillis: 0,
+        paused: this.state.paused,
+        totalLength: this.props.tracks[0].durationMillis,
+        isChanging: false,
+        player: new Expo.Audio.Sound(),
+        selectedTrack: 0,
+        date: Date.now()
+      }, () => {
+        this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+        this.state.player.playAsync();
+      });
+    })
+  }
+
+  onPlaylistEnd() {
+    if (!this.state.over) {
+      this.setState({over: true})
+      console.log(this.state.selectedTrack)
+      console.log("------over dover")
+      setTimeout(this.restartPlaylist, 4000);
+    }
   }
 
    onPlaybackStatusUpdate = (status) => {
+    console.log('statup')
     var stamp = Date.now();
+
+    if (this.state.selectedTrack === 0) {
+      this.setState({over: false})
+    }
+
     // const date = Date.now();
     // const positionMillis = status.positionMillis;
       // console.log('---------------Status Update----------------')
@@ -41,27 +76,51 @@ export default class Player extends Component {
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-          console.log('-----KING IFFY----')
+          console.log('-----KING IFFY----\nHELLOOOOOOOOOOOOOOO')
+          console.log(this.state.selectedTrack, this.state.tracks.length - 1)
+          if (this.state.selectedTrack === this.state.tracks.length - 1) {
+            console.log('wWHOHOHOHO WE GOT TO THE END OF PLAYLIST YO\n000-------000----0---')
+            if (!this.state.over) {
+              this.setState({over: true})
+              console.log('hey we got through the if condition')
+              this.state.player.stopAsync();
 
-
-console.log(this.state.selectedTrack, '<---->', this.state.tracks.length - 1)
-          this.state.player.setPositionAsync(0).then( () => {
-            this.state.player.stopAsync();
-            console.log('setting pos async')
-            this.setState({
-            currentPosition: 0,
-            currentPositionMillis: 0,
-            paused: this.state.paused,
-            totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
-            isChanging: false,
-            player: new Expo.Audio.Sound(),
-            selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
-            date: Date.now()
-          }, () => {
-            this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-            this.state.player.playAsync();
-          });
-        })
+                this.state.player.setPositionAsync(0).then( () => {
+                  console.log('setting pos async')
+                  this.setState({
+                  currentPosition: 0,
+                  currentPositionMillis: 0,
+                  paused: this.state.paused,
+                  totalLength: this.props.tracks[0].durationMillis,
+                  isChanging: false,
+                  player: new Expo.Audio.Sound(),
+                  selectedTrack: 0,
+                  date: Date.now()
+                }, () => {
+                  this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+                  this.state.player.playAsync();
+                });
+              })
+            }
+          } else {
+            this.state.player.setPositionAsync(0).then( () => {
+              this.state.player.stopAsync();
+              console.log('setting pos async')
+              this.setState({
+              currentPosition: 0,
+              currentPositionMillis: 0,
+              paused: this.state.paused,
+              totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
+              isChanging: false,
+              player: new Expo.Audio.Sound(),
+              selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
+              date: Date.now()
+            }, () => {
+              this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+              this.state.player.playAsync();
+            });
+          })
+        }
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
@@ -71,7 +130,7 @@ console.log(this.state.selectedTrack, '<---->', this.state.tracks.length - 1)
           date: Date.now()
         }, () => {
           var date = Date.now();
-          console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
+          // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
           this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
@@ -82,7 +141,7 @@ console.log(this.state.selectedTrack, '<---->', this.state.tracks.length - 1)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('-----component did update mahfka!!!')
+    // console.log('-----component did update mahfka!!!')
     if (this.props.paused) {
       console.log('we paused yo')
     } else if (!this.props.paused){
@@ -119,6 +178,7 @@ console.log(this.state.selectedTrack, '<---->', this.state.tracks.length - 1)
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
+
     if (this.props.paused && this.state.paused === false) {
       this.setState({paused: true});
       this.state.player.pauseAsync();

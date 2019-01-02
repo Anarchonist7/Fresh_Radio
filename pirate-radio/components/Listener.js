@@ -24,30 +24,60 @@ export default class Listener extends Component {
       player: new Expo.Audio.Sound(),
       tracks: props.tracks,
       loading: true,
-      sync: false
+      sync: false,
+      over: false
     };
   }
    onPlaybackStatusUpdate = (status) => {
+      var stamp = Date.now();
+
+      if (this.state.selectedTrack === 0) {
+        this.setState({over: false})
+      }
       console.log('STATUS UPDATE', status.positionMillis)
       console.log('duration: ', status.durationMillis)
       console.log('IDEAL TIMESTART ', Math.floor(this.props.ship.currentPositionMillis + (Date.now() - this.props.ship.timeStamp)))
       if (status.positionMillis === this.state.totalLength) {
-        console.log('THIS CONDITION HAS BEEN MET')
-        this.state.player.setPositionAsync(0).then( () => {
-          this.state.player.stopAsync()
-          this.setState({
-          currentPosition: 0,
-          currentPositionMillis: 0,
-          paused: this.state.paused,
-          totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
-          isChanging: false,
-          player: new Expo.Audio.Sound(),
-          selectedTrack: this.state.selectedTrack + 1,
-        }, () => {
-          this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
-          this.state.player.playAsync();
-          });
-      })
+        if (this.state.selectedTrack === this.state.tracks.length - 1) {
+            if (!this.state.over) {
+              this.setState({over: true})
+              this.state.player.stopAsync();
+
+                this.state.player.setPositionAsync(0).then( () => {
+                  console.log('setting pos async')
+                  this.setState({
+                  currentPosition: 0,
+                  currentPositionMillis: 0,
+                  paused: this.state.paused,
+                  totalLength: this.props.tracks[0].durationMillis,
+                  isChanging: false,
+                  player: new Expo.Audio.Sound(),
+                  selectedTrack: 0,
+                  date: Date.now()
+                }, () => {
+                  this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+                  this.state.player.playAsync();
+                });
+              })
+            }
+          } else {
+            console.log('THIS CONDITION HAS BEEN MET')
+            this.state.player.setPositionAsync(0).then( () => {
+              this.state.player.stopAsync()
+              this.setState({
+              currentPosition: 0,
+              currentPositionMillis: 0,
+              paused: this.state.paused,
+              totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
+              isChanging: false,
+              player: new Expo.Audio.Sound(),
+              selectedTrack: this.state.selectedTrack + 1,
+            }, () => {
+              this.props.updateCurrentTrack(this.state.selectedTrack, Date.now(), status.positionMillis, this.state.paused, true)
+              this.state.player.playAsync();
+            });
+          })
+        }
     } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
@@ -92,6 +122,14 @@ export default class Listener extends Component {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
     console.log('Selected track has a title of: ', track.title)
+
+    if (this.props.paused && this.state.paused === false) {
+      this.setState({paused: true});
+      this.state.player.pauseAsync();
+    } else if (!this.props.paused && this.state.paused) {
+      this.setState({paused: false});
+      this.state.player.playAsync();
+    }
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>

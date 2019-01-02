@@ -76,16 +76,16 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
 
                             <View style={Styles.NowPlaying}>
-                                <Listener tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                <Listener tracks={tracks} ship={ship} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ? (
-                                        <TouchableOpacity  
+                                        <TouchableOpacity
                                         onPress={this.stopDownload}>
                                             <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
                                                 STOP
                                             </Text>
                                         </TouchableOpacity>
                                     ) : (
-                                        <TouchableOpacity 
+                                        <TouchableOpacity
                                         onPress={this.download}>
                                             <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
                                                 DOWNLOAD
