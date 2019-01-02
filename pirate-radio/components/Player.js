@@ -43,19 +43,8 @@ export default class Player extends Component {
       if (status.positionMillis === this.state.totalLength) {
           console.log('-----KING IFFY----')
 
-          console.log(this.state.selectedTrack)
 
-          console.log(this.state.tracks.length - 1)
-          if (this.state.selectedTrack === this.state.tracks.length - 1) {
-            rightTrack = 0
-          } else {
-            rightTrack - this.state.selectedTrack + 1
-          }
-
-          if (this.props.ship.currentTrack === 0) {
-            rightTrack = 0
-          }
-
+console.log(this.state.selectedTrack, '<---->', this.state.tracks.length - 1)
           this.state.player.setPositionAsync(0).then( () => {
             this.state.player.stopAsync();
             console.log('setting pos async')
@@ -66,7 +55,7 @@ export default class Player extends Component {
             totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
             isChanging: false,
             player: new Expo.Audio.Sound(),
-            selectedTrack: rightTrack,
+            selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
             date: Date.now()
           }, () => {
             this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
@@ -130,6 +119,13 @@ export default class Player extends Component {
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
+    if (this.props.paused && this.state.paused === false) {
+      this.setState({paused: true});
+      this.state.player.pauseAsync();
+    } else if (!this.props.paused && this.state.paused) {
+      this.setState({paused: false});
+      this.state.player.playAsync();
+    }
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album}/>
@@ -142,15 +138,15 @@ export default class Player extends Component {
           backDisabled={this.state.selectedTrack === 0}
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
-            this.setState({paused: false})
+
             this.props.sendMessage('play');
-            this.state.player.playAsync();
+
             }
           }
           onPressPause={() => {
-            this.setState({paused: true})
+
             this.props.sendMessage('pause');
-            this.state.player.pauseAsync();
+
             }
           }
           onBack={this.onBack = onBack.bind(this)}
