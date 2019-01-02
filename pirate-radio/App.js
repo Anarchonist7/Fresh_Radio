@@ -24,6 +24,7 @@ export default class App extends Component {
     this.state = {
       shipLoading: true,
       fontLoading: true,
+      isMuted: false,
       ship: {
         name: '',
         id: 1,
@@ -39,6 +40,10 @@ export default class App extends Component {
       this.setState({connected:true})
     };
   }
+
+  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
+  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
+  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message) => {
     console.log('------message: ', message)
@@ -106,9 +111,6 @@ export default class App extends Component {
     )
   }
 
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
-  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
-  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
   updateShip = () => {
     fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
       method: 'POST',
@@ -144,7 +146,7 @@ export default class App extends Component {
               }
             })
           }
-          console.log('!!! DATA THAT WAS FETCHED', data)
+          // console.log('!!! DATA THAT WAS FETCHED', data)
           resolve(data);
         }
       })
@@ -171,6 +173,18 @@ export default class App extends Component {
     })
   }
 
+  muteOrUnmute = () => {
+    if (this.state.isMuted){
+      this.setState({
+        isMuted: false
+      })
+    } else {
+      this.setState({
+        isMuted: true
+      })
+    }
+  }
+
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
@@ -185,6 +199,10 @@ export default class App extends Component {
     }).then(() => this.setState({
       fontLoading: false
     }));
+  }
+
+  componentDidUpdate(){
+    console.log("APP.JS IS MUTED: ", this.state.isMuted);
   }
 
   render() {
@@ -202,7 +220,9 @@ export default class App extends Component {
       getShip: this.getShip,
       shipLoading: this.state.shipLoading,
       sendMessage: this.sendMessage,
-      paused: this.state.paused
+      paused: this.state.paused,
+      muteOrUnmute: this.muteOrUnmute,
+      isMuted: this.state.isMuted,
     }
 
 

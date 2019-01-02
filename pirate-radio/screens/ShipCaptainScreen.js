@@ -44,7 +44,7 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>
-                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                         </View>
 
                         <View style={Styles.Playlist}>
@@ -55,7 +55,7 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
                     </View>
                     <View style={Styles.Footer}>
-                        <BottomNav navigation={this.props.navigation}/>
+                        <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
                     </View>
                 </SeaBackground>
             )

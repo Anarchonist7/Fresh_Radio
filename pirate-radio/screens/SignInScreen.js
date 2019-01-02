@@ -82,7 +82,7 @@ export default class SignInScreen extends React.Component {
               </TouchableOpacity>
             </View>
             <View style={Styles.Footer}>
-              <BottomNav navigation={this.props.navigation}/>
+              <BottomNav navigation={this.props.navigation}  muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
             </View>
           </SeaBackground>
         );

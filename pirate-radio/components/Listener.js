@@ -104,13 +104,21 @@ export default class Listener extends Component {
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
       console.log('TRYING TO SCRUB FROM POSITION')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
-          setStatusUpdate(this).then(() => {
-              setPlay(this)
-          })
+      this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
+        setStatusUpdate(this).then(() => {
+            setPlay(this)
         })
-        )
+      }))
+    }
+    
+    if (this.props.isMuted !== prevProps.isMuted) {
+      if (prevProps.isMuted){
+        this.state.player.setIsMutedAsync(0.0)
+      } else {
+        this.state.player.setIsMutedAsync(1.0)        
       }
+      // this.state.player.soundObject.setIsMutedAsync(!prevProps.isMuted)
+    }
   }
 
   componentWillUnmount() {

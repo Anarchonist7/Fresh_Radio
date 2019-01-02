@@ -72,7 +72,7 @@ module.exports = StyleSheet.create({
         flexWrap: 'wrap',
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'left',
+        justifyContent: 'center',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
