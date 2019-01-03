@@ -38,10 +38,15 @@ export default class ShipCrewScreen extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if (this.props.screenProps.ship.currentTrack !== prevProps.screenProps.ship.currentTrack) {
+            this.props.screenProps.loadTracks()
+        }
+    }
+
     componentDidMount() {
         this.props.screenProps.loadShip(this.state.shipId).then(() => {
             this.props.screenProps.loadTracks().then(() => {
-                console.log('   11!!!!!!!!!!!!!!!!!promised')
             })
         })
     }
