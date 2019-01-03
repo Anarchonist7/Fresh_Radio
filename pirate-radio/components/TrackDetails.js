@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import Styles from '../assets/styles/AppStyles';
 
-const PirateShipPNG = require('../assets/images/pirate-ship.png');
+const PirateShipPNG = require('../assets/images/pirate-ship-2.png');
+const PirateShipGIF = require('../assets/images/rocking-ship.gif');
+
 
 import {
   View,
@@ -20,6 +22,7 @@ const TrackDetails = ({
   title,
   artist,
   album,
+  paused,
   onAddPress,
   onMorePress,
   onTitlePress,
@@ -36,7 +39,11 @@ const TrackDetails = ({
       <Text style={Styles.TrackDetailsArtist} onPress={onArtistPress}>{artist}</Text>
     </View>
     <View>
-      <Image source={PirateShipPNG} style={Styles.PirateShipIcon} />
+      {paused ? (
+        <Image source={PirateShipPNG} style={Styles.PirateShipIcon} />
+      ) : (
+        <Image source={PirateShipGIF} style={Styles.PirateShipIcon} />
+      )}
     </View>
     {/* <TouchableOpacity onPress={onMorePress}>
       <View style={Styles.TrackDetailsMoreButton}>

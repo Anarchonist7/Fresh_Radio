@@ -482,6 +482,8 @@ module.exports = StyleSheet.create({
         width: 80,
         height: 80,
         marginRight: 10,
+        position: 'relative',
+        bottom: 15,
     },
 
     PirateWheelIconMedium: {
@@ -513,7 +515,7 @@ module.exports = StyleSheet.create({
         paddingTop: 24,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingLeft: 40,
+        paddingLeft: 10,
         paddingRight: 20,
     },
 
