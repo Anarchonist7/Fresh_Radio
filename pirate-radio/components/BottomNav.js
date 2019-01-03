@@ -23,6 +23,10 @@ export class BottomNav extends React.Component {
         this.props.muteOrUnmute();
     }
 
+    componentWillUnmount(){
+        this.props.resetMute();
+      }
+
     render() {
 
         return (
