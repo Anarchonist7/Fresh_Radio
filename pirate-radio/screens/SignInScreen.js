@@ -35,8 +35,10 @@ export default class SignInScreen extends React.Component {
     }
 
     _signInAsync = async () => {
-        await AsyncStorage.setItem('userToken', this.state.username);
-        this.props.navigation.navigate('CaptainScreen');
+        this.props.screenProps.authCaptain(this.state.username.toLowerCase()).then((response) => {
+          AsyncStorage.setItem('userToken', response.toString());
+          this.props.navigation.navigate('CaptainScreen');
+        })
     };
 
     checkLogin = async () => {
@@ -55,41 +57,84 @@ export default class SignInScreen extends React.Component {
     render() {
         return (
           <SeaBackground>
-            <View style={Styles.SignInContainer}>
+            <View></View>
+            <TouchableOpacity style={[Styles.ListenHostButtons, {lineHeight: this.height}]}>
+            <View style={styles.Container}>
               <TextInput
                 value={this.state.username}
                 onChangeText={(username) => this.setState({ username })}
                 placeholder={'Username'}
-                style={Styles.SignInInput}
+                style={styles.Input}
               />
               <TextInput
                 value={this.state.password}
                 onChangeText={(password) => this.setState({ password })}
                 placeholder={'Password'}
                 secureTextEntry={true}
-                style={Styles.SignInInput}
+                style={styles.Input}
               />
               
               <TouchableOpacity
                 title={'Login'}
-                style={Styles.SignInLogin}
+                style={styles.Login}
                 onPress={this._signInAsync}
               //   onPress={this.onLogin.bind(this)}
               >
-                <Text style={Styles.SignInLoginText}>
+                <Text style={styles.LoginText}>
                   Login
                 </Text>
               </TouchableOpacity>
-            </View>
-            <View style={Styles.Footer}>
-              <BottomNav 
-              navigation={this.props.navigation} 
-              muteOrUnmute={this.props.screenProps.muteOrUnmute} 
-              resetMute={this.props.screenProps.resetMute} 
-              isMuted={this.props.screenProps.isMuted}/>
-            </View>
+              </View>
+            </TouchableOpacity>
+
+              
+              <View style={styles.Footer}>
+                <BottomNav 
+                  navigation={this.props.navigation} 
+                  muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                  resetMute={this.props.screenProps.resetMute} 
+                  isMuted={this.props.screenProps.isMuted}/>
+              </View>
+            
           </SeaBackground>
         );
       }
     };
+    
+
+const styles = StyleSheet.create({
+    Container: {
+      width: '92%',
+      height: '92%',
+      position: 'relative',
+      top: '5%',
+      alignItems: 'center',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'rgba(0,0,0,0.84)',
+    },
+    Input: {
+      width: 200,
+      height: 44,
+      padding: 10,
+      borderWidth: 1,
+      borderColor: 'black',
+      marginBottom: 10,
+      backgroundColor: 'white',
+    },
+    Login: {
+      width: 105,
+      height: 30,
+      padding: 5,
+      borderWidth: 1,
+      borderRadius: 60,
+      borderColor: 'black',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'mediumslateblue',
+    },
+    LoginText: {
+      fontSize: 15,
+    }
+});
 

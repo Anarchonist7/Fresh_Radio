@@ -68,19 +68,32 @@ export default class CaptainScreen extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`${this.props.screenProps.shipQueryRequest}?search=doing%20less`, {
-            method: 'GET'
-        }).then((responseData, error) => {
-            if (error){
-                throw new Error('Error: ', error);
-            } else {
-                const response = JSON.parse(responseData._bodyText)
-                this.setState({
-                    yeOldShips: response
-                })
-            }
+        const userToken = AsyncStorage.getItem('userToken').then(() => {
+            this.props.screenProps.getCaptain(this.state.userToken).then((response) => {
+                this.setState({captain: response})
+                this.props.screenProps.getYeOldShips(this.state.userToken).then((yeOldShips) => {
+                    this.setState({
+                        captain: response,
+                        yeOldShips: yeOldShips
+                    })
+                }
+            )
+        });
+
+        // fetch(`${this.props.screenProps.shipQueryRequest}?search=doing%20less`, {
+        //     method: 'GET'
+        // }).then((responseData, error) => {
+        //     if (error){
+        //         throw new Error('Error: ', error);
+        //     } else {
+        //         const response = JSON.parse(responseData._bodyText)
+        //         this.setState({
+        //             yeOldShips: response
+        //         })
+        //     }
+        // })
         })
-    }
+    }  
     
     render() {
         return (
@@ -90,7 +103,7 @@ export default class CaptainScreen extends React.Component {
                         <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
                             <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
-                                Captain {this.state.userToken}
+                                Captain
                             </TextTicker>
                         </View>
                         <SimpleLineIcons name='logout' style={Styles.LogoutIcon} onPress={this.signOutAsync}/>
