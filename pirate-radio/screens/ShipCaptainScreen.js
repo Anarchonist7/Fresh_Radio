@@ -36,7 +36,7 @@ export default class ShipCaptainScreen extends React.Component {
             return (
                 <SeaBackground>
                     <View style={Styles.Boxes}>
-                        <View style={Styles.ShipHeader}>
+                        <View style={Styles.ShipCaptainHeader}>
                             <Text>
                                 <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
                                 <Text style={Styles.BigTextPirate}> Captain Barbosa </Text>
@@ -55,7 +55,11 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
                     </View>
                     <View style={Styles.Footer}>
-                        <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
+                        <BottomNav 
+                            navigation={this.props.navigation} 
+                            muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                            resetMute={this.props.screenProps.resetMute} 
+                            isMuted={this.props.screenProps.isMuted}/>
                     </View>
                 </SeaBackground>
             )
