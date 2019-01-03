@@ -5,8 +5,6 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import Header from './Header';
-import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
@@ -162,13 +160,24 @@ export default class Player extends Component {
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
       console.log('|--? initial sync && non-0 intial position')
-        this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
-          setStatusUpdate(this).then(() => {
-            setPlay(this)
-          })
+      this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
+        setStatusUpdate(this).then(() => {
+          setPlay(this)
         })
-        )
+      }))
+    }
+    
+    if (this.props.isMuted !== prevProps.isMuted) {
+      if (prevProps.isMuted){
+        console.log("PLAYER.js", this.props.isMuted);
+        this.state.player.setIsMutedAsync(0.0)
+      } else {
+        console.log("PLAYER.js", this.props.isMuted);
+        this.state.player.setIsMutedAsync(1.0)        
       }
+
+      // this.state.player.soundObject.setIsMutedAsync(!prevProps.isMuted)
+    }
   }
 
   componentWillUnmount() {

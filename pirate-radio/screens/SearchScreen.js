@@ -109,7 +109,7 @@ export default class SearchScreen extends React.Component {
                     </View>
                 </View>
                 <View style={Styles.Footer}>
-                    <BottomNav navigation={this.props.navigation} />
+                    <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenPropsmuteOrUnmute}  isMuted={this.props.screenProps.isMuted}/>
                 </View>
             </SeaBackground>
         )

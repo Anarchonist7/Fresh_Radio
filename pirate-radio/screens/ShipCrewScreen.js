@@ -83,7 +83,7 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
 
                             <View style={Styles.NowPlayingCrew}>
-                                <Listener tracks={tracks} ship={ship} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                <Listener tracks={tracks} ship={ship} paused={this.props.screenProps.paused} isMuted={this.props.screenProps.isMuted} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ? (
                                     <TouchableOpacity
                                         style={Styles.DownloadButton}
@@ -116,7 +116,7 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
                         </View>
                         <View style={Styles.Footer}>
-                            <BottomNav navigation={this.props.navigation}/>
+                            <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
                         </View>
                 </SeaBackground>
             )

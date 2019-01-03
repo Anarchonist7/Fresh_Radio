@@ -14,21 +14,15 @@ export class BottomNav extends React.Component {
         super(props)
     }
 
-    state = {
-        isMuted: false
-    }
 
     mute = () => {
-        this.setState({
-            isMuted: true
-        })
+        this.props.muteOrUnmute();
     }
 
     unmute = () => {
-        this.setState({
-            isMuted: false
-        })
+        this.props.muteOrUnmute();
     }
+
     render() {
 
         return (
@@ -41,7 +35,7 @@ export class BottomNav extends React.Component {
                                 <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavBackIcon }/> BAcK
                             </Text>
                     </TouchableOpacity>
-                        { this.state.isMuted ? (
+                        { this.props.isMuted ? (
                                 <TouchableOpacity 
                                 style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.unmute}>
