@@ -8,7 +8,7 @@ var server = http.Server(app);
 var websocket = socketio(server);
 
 server.listen(3003, () => console.log('listening on *:3003'));
- 
+
 // The event will be called when a client is connected.
 
 
@@ -17,14 +17,13 @@ websocket.on('connection', (socket) => {
 
 
   socket.on('message', (message) => {
-  // Save the message document in the `messages` collection.
     data = JSON.parse(message);
     if (data.content === 'play') {
       console.log('playing');
-      socket.send(JSON.stringify({type: 'message', content: false}));
+      socket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
     } else if (data.content === 'pause') {
       console.log('pausing');
-      socket.send(JSON.stringify({type: 'message', content: true}));
+      socket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
     }
 
   });

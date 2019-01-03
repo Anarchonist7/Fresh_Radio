@@ -166,14 +166,14 @@ export default class Player extends Component {
         })
       }))
     }
-    
+
     if (this.props.isMuted !== prevProps.isMuted) {
       if (prevProps.isMuted){
         console.log("PLAYER.js", this.props.isMuted);
         this.state.player.setIsMutedAsync(0.0)
       } else {
         console.log("PLAYER.js", this.props.isMuted);
-        this.state.player.setIsMutedAsync(1.0)        
+        this.state.player.setIsMutedAsync(1.0)
       }
 
       // this.state.player.soundObject.setIsMutedAsync(!prevProps.isMuted)
@@ -187,13 +187,16 @@ export default class Player extends Component {
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
-
     if (this.props.paused && this.state.paused === false) {
+          console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+
       this.setState({paused: true});
-      this.state.player.pauseAsync();
+      setTimeout(() => {this.state.player.pauseAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
+                console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+
       this.setState({paused: false});
-      this.state.player.playAsync();
+      setTimeout(() => {this.state.player.playAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
       <View>
@@ -208,13 +211,13 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
 
-            this.props.sendMessage('play');
+            this.props.sendMessage('play', Date.now());
 
             }
           }
           onPressPause={() => {
 
-            this.props.sendMessage('pause');
+            this.props.sendMessage('pause', Date.now());
 
             }
           }

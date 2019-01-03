@@ -45,9 +45,9 @@ export default class App extends Component {
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
-  sendMessage = (message) => {
-    console.log('------message: ', message)
-    this.socket.send(JSON.stringify({type: 'message', content: message}));
+  sendMessage = (message, time) => {
+    console.log('------message: ', message, time)
+    this.socket.send(JSON.stringify({type: 'message', content: message, time: time}));
   }
 
   downloadTrack = (index) => {
@@ -258,8 +258,11 @@ export default class App extends Component {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
        console.log('heres my message back from socket: ', message);
+       let data = JSON.parse(message);
        this.setState({
-         paused: JSON.parse(message).content
+         paused: data.content,
+         CT: data.CT,
+         ST: data.ST
        })
     });
 
@@ -299,6 +302,8 @@ export default class App extends Component {
       muteOrUnmute: this.muteOrUnmute,
       resetMute: this.resetMute,
       isMuted: this.state.isMuted,
+      CT: this.state.CT,
+      ST: this.state.ST
     }
 
 
