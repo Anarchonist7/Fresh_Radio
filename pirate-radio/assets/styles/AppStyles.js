@@ -40,23 +40,12 @@ module.exports = StyleSheet.create({
         borderRadius: 15,
     },
 
-    ShipHeader: {
+    CaptainHeader: {
         height: '10%',
         width: '95%',
         paddingLeft: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        alignSelf: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: '#383131',
-        borderRadius: 15,
-    },
-
-    CaptainHeader: {
-        width: '95%',
-        height: '10%',
-        paddingLeft: 10,
-        flexDirection: 'row',
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -64,10 +53,24 @@ module.exports = StyleSheet.create({
         borderRadius: 15,
     },
 
-    CrewHeader: {
-        width: '95%',
+    ShipCrewHeader: {
         height: '10%',
+        width: '95%',
         paddingLeft: 10,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#383131',
+        borderRadius: 15,
+    },
+
+    ShipCaptainHeader: {
+        height: '10%',
+        width: '95%',
+        paddingLeft: 10,
+        paddingBottom: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignSelf: 'center',
@@ -219,7 +222,7 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: 250,
+        height: 280,
         marginTop: '2%',
         paddingTop: 10,
         backgroundColor: '#383131',
@@ -479,6 +482,8 @@ module.exports = StyleSheet.create({
         width: 80,
         height: 80,
         marginRight: 10,
+        position: 'relative',
+        bottom: 15,
     },
 
     PirateWheelIconMedium: {
@@ -510,7 +515,7 @@ module.exports = StyleSheet.create({
         paddingTop: 24,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingLeft: 40,
+        paddingLeft: 10,
         paddingRight: 20,
     },
 
@@ -599,6 +604,53 @@ module.exports = StyleSheet.create({
       
       SignInLoginText: {
         fontSize: 15,
-      }
+      },
+
+      ControlsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 8,
+      },
+      ControlsPlayButton: {
+        height: 72,
+        width: 72,
+        borderWidth: 0,
+        borderColor: 'white',
+        borderRadius: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      ControlsSecondaryControl: {
+        height: 18,
+        width: 18,
+      },
+      ControlsOff: {
+        opacity: 0.30,
+      },
+
+      SeekBarSlider: {
+        marginTop: -12,
+      },
+      SeekBarContainer: {
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 16,
+      },
+      SeekBarTrack: {
+        height: 2,
+        borderRadius: 1,
+      },
+      SeekBarThumb: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'white',
+      },
+      SeekBarText: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        fontSize: 12,
+        textAlign:'center',
+      },
 
 })

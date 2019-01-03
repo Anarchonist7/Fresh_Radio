@@ -250,6 +250,12 @@ export default class App extends Component {
     }
   }
 
+  resetMute = () => {
+    this.setState({
+      isMuted: false
+    })
+  }
+
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
@@ -261,9 +267,13 @@ export default class App extends Component {
 
     Font.loadAsync({
       'BlackPearl': require('./assets/fonts/BlackPearl.ttf'),
-    }).then(() => this.setState({
-      fontLoading: false
-    }));
+    }).then(() => {
+      setTimeout(() => {
+        return this.setState({
+          fontLoading: false
+        });
+      }, 3000);
+    })
   }
 
   componentDidUpdate(){
@@ -289,6 +299,7 @@ export default class App extends Component {
       sendMessage: this.sendMessage,
       paused: this.state.paused,
       muteOrUnmute: this.muteOrUnmute,
+      resetMute: this.resetMute,
       isMuted: this.state.isMuted,
     }
 

@@ -61,7 +61,7 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.CrewHeader}>
+                            <View style={Styles.ShipCrewHeader}>
                                 <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                                 <View style={Styles.CaptainHeaderTickerContainer}>
                                     <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
@@ -116,7 +116,11 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
                         </View>
                         <View style={Styles.Footer}>
-                            <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
+                            <BottomNav 
+                                navigation={this.props.navigation} 
+                                muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                                resetMute={this.props.screenProps.resetMute} 
+                                isMuted={this.props.screenProps.isMuted}/>
                         </View>
                 </SeaBackground>
             )

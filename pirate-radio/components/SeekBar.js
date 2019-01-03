@@ -10,6 +10,8 @@ import {
 
 import Slider from 'react-native-slider';
 
+import Styles from '../assets/styles/AppStyles';
+
 function pad(n, width, z=0) {
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
@@ -29,13 +31,13 @@ const SeekBar = ({
   const elapsed = minutesAndSeconds(currentPosition);
   const remaining = minutesAndSeconds(trackLength - currentPosition);
   return (
-    <View style={styles.container}>
+    <View style={Styles.SeekBarContainer}>
       <View style={{flexDirection: 'row'}}>
-        <Text style={styles.text}>
+        <Text style={Styles.SeekBarText}>
           {elapsed[0] + ":" + elapsed[1]}
         </Text>
         <View style={{flex: 1}} />
-        <Text style={[styles.text, {width: 40}]}>
+        <Text style={[Styles.SeekBarText, {width: 40}]}>
           {trackLength > 1 && "-" + remaining[0] + ":" + remaining[1]}
         </Text>
       </View>
@@ -44,39 +46,13 @@ const SeekBar = ({
         onSlidingStart={onSlidingStart}
         onSlidingComplete={onSeek}
         value={currentPosition}
-        style={styles.slider}
+        style={Styles.SeekBarSlider}
         minimumTrackTintColor='#fff'
         maximumTrackTintColor='rgba(255, 255, 255, 0.14)'
-        thumbStyle={styles.thumb}
-        trackStyle={styles.track}/>
+        thumbStyle={Styles.SeekBarThumb}
+        trackStyle={Styles.SeekBarTrack}/>
     </View>
   );
 };
 
 export default SeekBar;
-
-const styles = StyleSheet.create({
-  slider: {
-    marginTop: -12,
-  },
-  container: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: 16,
-  },
-  track: {
-    height: 2,
-    borderRadius: 1,
-  },
-  thumb: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  text: {
-    color: 'rgba(255, 255, 255, 0.72)',
-    fontSize: 12,
-    textAlign:'center',
-  }
-});

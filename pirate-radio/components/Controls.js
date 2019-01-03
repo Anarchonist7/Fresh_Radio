@@ -8,6 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import Styles from '../assets/styles/AppStyles';
+
+
 const Controls = ({
   paused,
   shuffleOn,
@@ -22,9 +25,9 @@ const Controls = ({
   backDisabled,
   playDisabled
 }) => (
-  <View style={styles.container}>
+  <View style={Styles.ControlsContainer}>
     {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
-      <Image style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}
+      <Image style={[Styles.ControlsSecondaryControl, shuffleOn ? [] : Styles.ControlsOff]}
         source={require('../img/ic_shuffle_white.png')}/>
     </TouchableOpacity> */}
 
@@ -38,12 +41,12 @@ const Controls = ({
     <View style={{width: 20}} />
     {!paused ?
       <TouchableOpacity onPress={onPressPause}>
-        <View style={styles.playButton}>
+        <View style={Styles.ControlsPlayButton}>
           <Image source={require('../img/ic_pause_white_48pt.png')}/>
         </View>
       </TouchableOpacity> :
       <TouchableOpacity onPress={onPressPlay} disabled={playDisabled}>
-        <View style={[styles.playButton, playDisabled ? styles.off : []]}>
+        <View style={[Styles.playButton, playDisabled ? Styles.ControlsOff : []]}>
           <Image source={require('../img/ic_play_arrow_white_48pt.png')}/>
         </View>
       </TouchableOpacity>
@@ -58,35 +61,10 @@ const Controls = ({
 
     <View style={{width: 40}} />
     {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
-      <Image style={[styles.secondaryControl, repeatOn ? [] : styles.off]}
+      <Image style={[Styles.ControlsSecondaryControl, repeatOn ? [] : Styles.ControlsOff]}
         source={require('../img/ic_repeat_white.png')}/>
     </TouchableOpacity> */}
   </View>
 );
 
 export default Controls;
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 8,
-  },
-  playButton: {
-    height: 72,
-    width: 72,
-    borderWidth: 0,
-    borderColor: 'white',
-    borderRadius: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  secondaryControl: {
-    height: 18,
-    width: 18,
-  },
-  off: {
-    opacity: 0.30,
-  }
-})

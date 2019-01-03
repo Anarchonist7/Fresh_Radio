@@ -155,7 +155,11 @@ export default class CaptainScreen extends React.Component {
                     </View>
                 </View>
                 <View style={Styles.Footer}>
-                    <BottomNav navigation={this.props.navigation} muteOrUnmute={this.props.screenProps.muteOrUnmute} isMuted={this.props.screenProps.isMuted}/>
+                    <BottomNav 
+                        navigation={this.props.navigation} 
+                        muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                        resetMute={this.props.screenProps.resetMute} 
+                        isMuted={this.props.screenProps.isMuted}/>
                 </View>
             </SeaBackground>
         )
