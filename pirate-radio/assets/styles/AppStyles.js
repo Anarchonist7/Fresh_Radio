@@ -599,6 +599,53 @@ module.exports = StyleSheet.create({
       
       SignInLoginText: {
         fontSize: 15,
-      }
+      },
+
+      ControlsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 8,
+      },
+      ControlsPlayButton: {
+        height: 72,
+        width: 72,
+        borderWidth: 0,
+        borderColor: 'white',
+        borderRadius: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      ControlsSecondaryControl: {
+        height: 18,
+        width: 18,
+      },
+      ControlsOff: {
+        opacity: 0.30,
+      },
+
+      SeekBarSlider: {
+        marginTop: -12,
+      },
+      SeekBarContainer: {
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 16,
+      },
+      SeekBarTrack: {
+        height: 2,
+        borderRadius: 1,
+      },
+      SeekBarThumb: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'white',
+      },
+      SeekBarText: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        fontSize: 12,
+        textAlign:'center',
+      },
 
 })
