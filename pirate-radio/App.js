@@ -256,6 +256,7 @@ export default class App extends Component {
 
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
+    console.log(this.props.ship)
     this.socket.on('message', (message) => {
        console.log('heres my message back from socket: ', message);
        let data = JSON.parse(message);
@@ -284,6 +285,7 @@ export default class App extends Component {
     })
   }
 
+
   componentDidUpdate(){
     console.log("APP.JS IS MUTED: ", this.state.isMuted);
   }
@@ -308,6 +310,7 @@ export default class App extends Component {
       paused: this.state.paused,
       muteOrUnmute: this.muteOrUnmute,
       resetMute: this.resetMute,
+      resetForBack: this.resetForBack,
       isMuted: this.state.isMuted,
       CT: this.state.CT,
       ST: this.state.ST,

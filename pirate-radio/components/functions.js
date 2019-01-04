@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+let conty;
 export const loadTrack = async (context) => {
+  conty = context
     console.log('|---> loadTrack triggered')
     const track = context.props.tracks[context.state.selectedTrack];
     const player = context.state.player
@@ -58,12 +59,18 @@ export function onBack() {
     }
   }
 
+
+
+
   export function onForward() {
     console.log('|---> onForward triggered')
     if (this.state.selectedTrack < this.props.tracks.length - 1) {
       this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
       this.state.player.stopAsync();
       this.props.sendMessage('pause', Date.now());
+      setTimeout(() => {
+        this.props.sendMessage('play', Date.now());
+      }, 1000)
       this.setState({
         currentPosition: 0,
         paused: true,
@@ -72,10 +79,10 @@ export function onBack() {
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
       }, () => {
-        this.props.updateCurrentTrack(this.state.selectedTrack, 0)
-      })
-    }
+        this.props.updateCurrentTrack(this.state.selectedTrack, 0);
+    })
   }
+}
 
   export const setPlay = async (context) => {
     console.log('|---> setPlay triggered')

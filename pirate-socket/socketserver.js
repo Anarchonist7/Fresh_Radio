@@ -26,7 +26,7 @@ websocket.on('connection', (socket) => {
       websocket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
     } else if (data.content === 'forward') {
       console.log('forwarding');
-      websocket.send(JSON.stringify({type: 'forback', content: 'forward'}));
+      websocket.send(JSON.stringify({type: 'forback', content: data.content}));
     }
 
   });
