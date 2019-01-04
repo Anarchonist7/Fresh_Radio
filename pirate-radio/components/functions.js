@@ -34,7 +34,9 @@ export function seek(time) {
 export function onBack() {
     console.log('|---> onBack triggered')
     if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
-      this.state.player.stopAsync()
+      this.props.sendMessage('back', Date.now());
+      this.state.player.stopAsync();
+      this.props.sendMessage('pause', Date.now());
       this.setState({
         currentPosition: 0,
         paused: this.state.paused,
@@ -42,12 +44,13 @@ export function onBack() {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack - 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => {
+        this.props.sendMessage('pause', Date.now());
+        this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+      })
     } else {
       this.state.player.setPositionAsync(0).then(() => {
-        if(!this.state.paused){
-          this.state.player.playAsync()
-        }
+        this.state.player.pauseAsync();
       });
       this.setState({
         currentPosition: 0,
@@ -58,15 +61,19 @@ export function onBack() {
   export function onForward() {
     console.log('|---> onForward triggered')
     if (this.state.selectedTrack < this.props.tracks.length - 1) {
-      this.state.player.stopAsync()
+      this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
+      this.state.player.stopAsync();
+      this.props.sendMessage('pause', Date.now());
       this.setState({
         currentPosition: 0,
-        paused: this.state.paused,
+        paused: true,
         totalLength: 1,
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => {
+        this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+      })
     }
   }
 
@@ -74,6 +81,8 @@ export function onBack() {
     console.log('|---> setPlay triggered')
     if(!context.state.paused){
       context.state.player.playAsync()
+    } else {
+      context.state.player.pauseAsync()
     }
   }
 

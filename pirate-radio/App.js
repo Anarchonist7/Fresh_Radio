@@ -157,7 +157,7 @@ export default class App extends Component {
         currentTrack: currentTrack,
         currentPositionMillis: currentPositionMillis,
         timeStamp: timeStamp,
-        paused: paused
+        paused: true
       }
     }, () => {
       if (!isListener) {
@@ -259,11 +259,18 @@ export default class App extends Component {
     this.socket.on('message', (message) => {
        console.log('heres my message back from socket: ', message);
        let data = JSON.parse(message);
-       this.setState({
-         paused: data.content,
-         CT: data.CT,
-         ST: data.ST
-       })
+       if (data.type === 'message') {
+         this.setState({
+           paused: data.content,
+           CT: data.CT,
+           ST: data.ST
+         })
+       } else if (data.type === 'forback') {
+        console.log('-----forback triggied')
+        this.setState({
+          forback: data.content
+        })
+       }
     });
 
     Font.loadAsync({
@@ -303,7 +310,8 @@ export default class App extends Component {
       resetMute: this.resetMute,
       isMuted: this.state.isMuted,
       CT: this.state.CT,
-      ST: this.state.ST
+      ST: this.state.ST,
+      forback: this.state.forback
     }
 
 

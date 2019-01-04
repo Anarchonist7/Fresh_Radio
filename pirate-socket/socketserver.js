@@ -24,6 +24,9 @@ websocket.on('connection', (socket) => {
     } else if (data.content === 'pause') {
       console.log('pausing');
       websocket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
+    } else if (data.content === 'forward') {
+      console.log('forwarding');
+      websocket.send(JSON.stringify({type: 'forback', content: 'forward'}));
     }
 
   });

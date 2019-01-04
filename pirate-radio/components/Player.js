@@ -74,13 +74,10 @@ export default class Player extends Component {
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-          console.log('-----KING IFFY----\nHELLOOOOOOOOOOOOOOO')
           console.log(this.state.selectedTrack, this.state.tracks.length - 1)
           if (this.state.selectedTrack === this.state.tracks.length - 1) {
-            console.log('wWHOHOHOHO WE GOT TO THE END OF PLAYLIST YO\n000-------000----0---')
             if (!this.state.over) {
               this.setState({over: true})
-              console.log('hey we got through the if condition')
               this.state.player.stopAsync();
 
                 this.state.player.setPositionAsync(0).then( () => {
@@ -96,7 +93,7 @@ export default class Player extends Component {
                   date: Date.now()
                 }, () => {
                   this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-                  this.state.player.playAsync();
+                  // this.state.player.playAsync();
                 });
               })
             }
@@ -115,7 +112,7 @@ export default class Player extends Component {
               date: Date.now()
             }, () => {
               // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-              this.state.player.playAsync();
+              // this.state.player.playAsync();
             });
           })
         }
@@ -140,10 +137,11 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     // console.log('-----component did update mahfka!!!')
+    setPlay(this)
     if (this.props.paused) {
-      console.log('we paused yo')
+      console.log('we paused yo', this.state.paused)
     } else if (!this.props.paused){
-      console.log('we totally aint paused yo');
+      console.log('we totally aint paused yo', this.state.paused);
     }
     // console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
@@ -180,6 +178,17 @@ export default class Player extends Component {
     }
   }
 
+  forback() {
+    this.setState({
+      currentPosition: 0,
+      paused: true,
+      totalLength: 1,
+      isChanging: false,
+      player: new Expo.Audio.Sound(),
+      selectedTrack: this.props.forback,
+    })
+  }
+
   componentWillUnmount() {
     this.state.player.unloadAsync();
   }
@@ -187,17 +196,22 @@ export default class Player extends Component {
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
-    if (this.props.paused && this.state.paused === false) {
-          console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+    if (this.props.forback !== this.state.selectedTrack) {
+      // this.forback();
+      //listener gets ^ captain gets whatever is below
+      this.props.sendMessage('play', Date.now());
+    }
 
+    if (this.props.paused && this.state.paused === false) {
+       console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
       this.setState({paused: true});
       setTimeout(() => {this.state.player.pauseAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
-                console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
-
+       console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
       this.setState({paused: false});
       setTimeout(() => {this.state.player.playAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
+
     return (
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album} paused={this.state.paused}/>
@@ -211,13 +225,13 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
 
-            {/*this.props.sendMessage('play', Date.now());*/}
+            this.props.sendMessage('play', Date.now());
 
             }
           }
           onPressPause={() => {
 
-            {/*this.props.sendMessage('pause', Date.now());*/}
+            this.props.sendMessage('pause', Date.now());
 
             }
           }
