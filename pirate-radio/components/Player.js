@@ -114,7 +114,7 @@ export default class Player extends Component {
               selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
               date: Date.now()
             }, () => {
-              this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+              // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
               this.state.player.playAsync();
             });
           })
@@ -130,7 +130,7 @@ export default class Player extends Component {
           var date = Date.now();
           // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
-          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+          // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
     }
   }
@@ -211,13 +211,13 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
 
-            this.props.sendMessage('play', Date.now());
+            {/*this.props.sendMessage('play', Date.now());*/}
 
             }
           }
           onPressPause={() => {
 
-            this.props.sendMessage('pause', Date.now());
+            {/*this.props.sendMessage('pause', Date.now());*/}
 
             }
           }
