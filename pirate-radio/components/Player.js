@@ -92,7 +92,7 @@ export default class Player extends Component {
                   selectedTrack: 0,
                   date: Date.now()
                 }, () => {
-                  this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+                  // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
                   // this.state.player.playAsync();
                 });
               })
@@ -111,7 +111,7 @@ export default class Player extends Component {
               selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
               date: Date.now()
             }, () => {
-              this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+              // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
               // this.state.player.playAsync();
             });
           })
@@ -191,8 +191,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          this.props.updateCurrentTrack(this.state.selectedTrack, 0)
-          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          // this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         });
       } else {
         this.state.player.setPositionAsync(0).then(() => {
@@ -216,8 +216,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          this.props.updateCurrentTrack(this.state.selectedTrack, 0);
-          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          // this.props.updateCurrentTrack(this.state.selectedTrack, 0);
+          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         })
       }
     }
