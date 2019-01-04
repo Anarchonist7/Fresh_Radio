@@ -4,7 +4,7 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || '172.218.8.222'
+const LOCALHOST = process.env.LOCALHOST || '75.154.249.173'
 
 const config = require('./knexfile')[ENV];
 const knex = require('knex')(config);
