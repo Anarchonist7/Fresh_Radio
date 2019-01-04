@@ -27,8 +27,8 @@ export default class TrackList extends React.Component {
 
     generateTrackList(){
         let trackComponentArray = []
-        this.props.tracks.forEach((track, i) => {
-            let active = (track.id - 1 === this.props.ship.currentTrack )
+        this.props.tracks.forEach((track, index) => {
+            let active = (index === this.props.ship.currentTrack )
             trackComponentArray.push(
                 <View style={{paddingVertical: 3}}>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>

@@ -27,6 +27,10 @@ export default class ShipCaptainScreen extends React.Component {
             this.props.screenProps.downloadTracks(shipId)
         })
     }
+    
+    componentDidUpdate(){
+        console.log("!!!!SHIPCAPNSCREENEEEDUBS!!!!!!", this.props.screenProps.ship.currentTrack);
+    }
 
     render() {
         const {ship, tracks, captain} = this.props.screenProps;
@@ -36,7 +40,7 @@ export default class ShipCaptainScreen extends React.Component {
             return (
                 <SeaBackground>
                     <View style={Styles.Boxes}>
-                        <View style={Styles.ShipHeader}>
+                        <View style={Styles.ShipCaptainHeader}>
                             <Text>
                                 <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
                                 <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text>
@@ -50,7 +54,7 @@ export default class ShipCaptainScreen extends React.Component {
                         <View style={Styles.Playlist}>
                             <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                             <ScrollView style={Styles.TrackListContainer}>
-                                <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                                <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </ScrollView>
                         </View>
                     </View>

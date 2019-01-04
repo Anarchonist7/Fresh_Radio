@@ -14,13 +14,13 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.75';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://192.168.1.116:3003');
+    this.socket = SocketIOClient('http://192.168.1.75:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -333,28 +333,28 @@ export default class App extends Component {
 
   render() {
     const screenProps = {
-      getYeOldShips: this.getYeOldShips,
-      getCaptain: this.getCaptain,
       authCaptain: this.authCaptain,
-      downloadTracks: this.downloadAllTracksFromShip,
-      loadTracks: this.loadAllTracksFromShip,
+      captain: this.state.captain,
+      createNewShipRequest: this.createNewShipRequest,
       downloadTrack: this.downloadTrack,
+      downloadTracks: this.downloadAllTracksFromShip,
+      getCaptain: this.getCaptain,
+      getShip: this.getShip,
+      getYeOldShips: this.getYeOldShips,
+      isMuted: this.state.isMuted,
+      loadTracks: this.loadAllTracksFromShip,
       loadTrack: this.loadTrack,
       loadShip: this.loadShip,
-      captain: this.state.captain,
-      tracks: this.state.tracks,
-      ship: this.state.ship,
-      updateCurrentTrack: this.updateCurrentTrack,
-      shipQueryRequest: this.shipQueryRequest,
-      createNewShipRequest: this.createNewShipRequest,
-      updateShip: this.updateShip,
-      getShip: this.getShip,
-      shipLoading: this.state.shipLoading,
-      sendMessage: this.sendMessage,
-      paused: this.state.paused,
       muteOrUnmute: this.muteOrUnmute,
+      paused: this.state.paused,
       resetMute: this.resetMute,
-      isMuted: this.state.isMuted,
+      sendMessage: this.sendMessage,
+      ship: this.state.ship,
+      shipLoading: this.state.shipLoading,
+      shipQueryRequest: this.shipQueryRequest,
+      tracks: this.state.tracks,
+      updateCurrentTrack: this.updateCurrentTrack,
+      updateShip: this.updateShip,
     }
 
 
