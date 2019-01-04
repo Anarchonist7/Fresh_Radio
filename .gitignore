@@ -12,4 +12,3 @@ npm-debug.*
 *.mobileprovision
 .env
 ./node_modules
-./simplerserver/public/**/*
