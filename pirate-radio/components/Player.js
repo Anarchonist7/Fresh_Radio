@@ -74,48 +74,54 @@ export default class Player extends Component {
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-          console.log(this.state.selectedTrack, this.state.tracks.length - 1)
-          if (this.state.selectedTrack === this.state.tracks.length - 1) {
-            if (!this.state.over) {
-              this.setState({over: true})
-              this.state.player.stopAsync();
-
-                this.state.player.setPositionAsync(0).then( () => {
-                  console.log('setting pos async')
-                  this.setState({
-                  currentPosition: 0,
-                  currentPositionMillis: 0,
-                  paused: this.state.paused,
-                  totalLength: this.props.tracks[0].durationMillis,
-                  isChanging: false,
-                  player: new Expo.Audio.Sound(),
-                  selectedTrack: 0,
-                  date: Date.now()
-                }, () => {
-                  // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-                  // this.state.player.playAsync();
-                });
-              })
-            }
-          } else {
-            this.state.player.setPositionAsync(0).then( () => {
-              this.state.player.stopAsync();
-              console.log('setting pos async')
-              this.setState({
-              currentPosition: 0,
-              currentPositionMillis: 0,
-              paused: this.state.paused,
-              totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
-              isChanging: false,
-              player: new Expo.Audio.Sound(),
-              selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
-              date: Date.now()
-            }, () => {
-              // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-              // this.state.player.playAsync();
-            });
+        this.state.player.pauseAsync();
+          this.setState({
+            totalLength: this.state.totalLength + 2
+          }, () => {
+            this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
           })
-        }
+          // console.log(this.state.selectedTrack, this.state.tracks.length - 1)
+        //   if (this.state.selectedTrack === this.state.tracks.length - 1) {
+        //     if (!this.state.over) {
+        //       this.setState({over: true})
+        //       this.state.player.stopAsync();
+
+        //         this.state.player.setPositionAsync(0).then( () => {
+        //           console.log('setting pos async')
+        //           this.setState({
+        //           currentPosition: 0,
+        //           currentPositionMillis: 0,
+        //           paused: this.state.paused,
+        //           totalLength: this.props.tracks[0].durationMillis,
+        //           isChanging: false,
+        //           player: new Expo.Audio.Sound(),
+        //           selectedTrack: 0,
+        //           date: Date.now()
+        //         }, () => {
+        //           // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+        //           // this.state.player.playAsync();
+        //         });
+        //       })
+        //     }
+        //   } else {
+        //     this.state.player.setPositionAsync(0).then( () => {
+        //       this.state.player.stopAsync();
+        //       console.log('setting pos async')
+        //       this.setState({
+        //       currentPosition: 0,
+        //       currentPositionMillis: 0,
+        //       paused: this.state.paused,
+        //       totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
+        //       isChanging: false,
+        //       player: new Expo.Audio.Sound(),
+        //       selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
+        //       date: Date.now()
+        //     }, () => {
+        //       // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+        //       // this.state.player.playAsync();
+        //     });
+        //   })
+        // }
       } else {
         this.setState({
           currentPosition: Math.floor(status.positionMillis / 1000),
@@ -191,8 +197,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          // this.props.updateCurrentTrack(this.state.selectedTrack, 0)
-          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         });
       } else {
         this.state.player.setPositionAsync(0).then(() => {
@@ -216,8 +222,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          // this.props.updateCurrentTrack(this.state.selectedTrack, 0);
-          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0);
+          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         })
       }
     }
