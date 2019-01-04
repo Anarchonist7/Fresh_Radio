@@ -20,7 +20,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://localhost:3003');
+    this.socket = SocketIOClient('http://192.168.1.64:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -202,6 +202,12 @@ export default class App extends Component {
         }
       })
     })
+    if (this.state.currentTrack !== this.state.ship.currentTrack) {
+      console.log('--------------------MISMATCH!!!!!!')
+      // this.setState({
+      //     currentTrack: this.state.ship.currentTrack
+      // })
+    }
   }
 
   loadShip = (id) => {
@@ -259,11 +265,20 @@ export default class App extends Component {
     this.socket.on('message', (message) => {
        console.log('heres my message back from socket: ', message);
        let data = JSON.parse(message);
-       this.setState({
-         paused: data.content,
-         CT: data.CT,
-         ST: data.ST
-       })
+       if (data.type === 'message') {
+         this.setState({
+           paused: data.content,
+           CT: data.CT,
+           ST: data.ST
+         })
+       } else if (data.type === 'next') {
+         this.setState({
+          ship: {
+              ...this.state.ship,
+              currentTrack: data.content
+            }
+         })
+       }
     });
 
     Font.loadAsync({

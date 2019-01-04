@@ -24,6 +24,9 @@ websocket.on('connection', (socket) => {
     } else if (data.content === 'pause') {
       console.log('pausing');
       websocket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
+    } else if (!isNaN(data.content)) {
+      console.log('moving');
+      websocket.send(JSON.stringify({type: 'next', content: data.content}));
     }
 
   });

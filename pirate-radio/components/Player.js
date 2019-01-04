@@ -74,13 +74,10 @@ export default class Player extends Component {
       //   console.log('myDuration: ', status.durationMillis)
       // console.log(this.props.tracks.length, Number(this.state.selectedTrack) + 1, this.props.tracks, this.props.tracks[Number(this.state.selectedTrack + 1)])
       if (status.positionMillis === this.state.totalLength) {
-          console.log('-----KING IFFY----\nHELLOOOOOOOOOOOOOOO')
           console.log(this.state.selectedTrack, this.state.tracks.length - 1)
           if (this.state.selectedTrack === this.state.tracks.length - 1) {
-            console.log('wWHOHOHOHO WE GOT TO THE END OF PLAYLIST YO\n000-------000----0---')
             if (!this.state.over) {
               this.setState({over: true})
-              console.log('hey we got through the if condition')
               this.state.player.stopAsync();
 
                 this.state.player.setPositionAsync(0).then( () => {
@@ -96,7 +93,7 @@ export default class Player extends Component {
                   date: Date.now()
                 }, () => {
                   this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-                  this.state.player.playAsync();
+                  // this.state.player.playAsync();
                 });
               })
             }
@@ -114,8 +111,8 @@ export default class Player extends Component {
               selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
               date: Date.now()
             }, () => {
-              // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-              this.state.player.playAsync();
+              this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+              // this.state.player.playAsync();
             });
           })
         }
@@ -130,7 +127,7 @@ export default class Player extends Component {
           var date = Date.now();
           // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
-          // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
     }
   }
@@ -180,6 +177,48 @@ export default class Player extends Component {
     }
   }
 
+  move() {
+    if (this.props.ship.currentTrack < this.state.selectedTrack) {
+         console.log('|---> onBack triggered')
+      if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
+        this.state.player.stopAsync()
+        this.setState({
+          currentPosition: 0,
+          paused: this.state.paused,
+          totalLength: 1,
+          isChanging: false,
+          player: new Expo.Audio.Sound(),
+          selectedTrack: this.props.ship.currentTrack,
+        }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      } else {
+        this.state.player.setPositionAsync(0).then(() => {
+          if(!this.state.paused){
+            this.state.player.playAsync()
+          }
+        });
+        this.setState({
+          currentPosition: 0,
+        });
+      }
+    } else if (this.props.ship.currentTrack > this.state.selectedTrack) {
+       if (this.state.selectedTrack < this.props.tracks.length - 1) {
+        this.state.player.stopAsync();
+        // this.props.sendMessage('pause', Date.now());
+        this.setState({
+          currentPosition: 0,
+          paused: this.state.paused,
+          totalLength: 1,
+          isChanging: false,
+          player: new Expo.Audio.Sound(),
+          selectedTrack: this.props.ship.currentTrack,
+        }, () => {
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0);
+          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+        })
+      }
+    }
+  }
+
   componentWillUnmount() {
     this.state.player.unloadAsync();
   }
@@ -187,16 +226,20 @@ export default class Player extends Component {
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
+    if (this.state.selectedTrack !== this.props.ship.currentTrack) {
+      console.log('----condition triggered!!!!')
+      this.move();
+    }
     if (this.props.paused && this.state.paused === false) {
           console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
 
       this.setState({paused: true});
-      setTimeout(() => {this.state.player.pauseAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+      setTimeout(() => {this.state.player.pauseAsync();}, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
                 console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
 
       this.setState({paused: false});
-      setTimeout(() => {this.state.player.playAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+      setTimeout(() => {this.state.player.playAsync();}, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
       <View>
@@ -211,18 +254,24 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
 
-            {/*this.props.sendMessage('play', Date.now());*/}
+            this.props.sendMessage('play', Date.now());
 
             }
           }
           onPressPause={() => {
 
-            {/*this.props.sendMessage('pause', Date.now());*/}
+            this.props.sendMessage('pause', Date.now());
 
             }
           }
-          onBack={this.onBack = onBack.bind(this)}
-          onForward={this.onForward = onForward.bind(this)}
+          onBack={() => {
+              this.props.sendMessage(this.state.selectedTrack - 1, Date.now());
+            }
+          }
+          onForward={() => {
+              this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
+            }
+          }
           paused={this.state.paused}/>
       </View>
     );
