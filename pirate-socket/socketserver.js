@@ -20,10 +20,10 @@ websocket.on('connection', (socket) => {
     data = JSON.parse(message);
     if (data.content === 'play') {
       console.log('playing');
-      socket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
+      websocket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
     } else if (data.content === 'pause') {
       console.log('pausing');
-      socket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
+      websocket.send(JSON.stringify({type: 'message', content: true, CT: data.time, ST: Date.now()}));
     }
 
   });

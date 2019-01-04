@@ -41,8 +41,8 @@ export default class App extends Component {
     };
   }
 
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
-  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
+  shipRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/1';
+  shipQueryRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message, time) => {
