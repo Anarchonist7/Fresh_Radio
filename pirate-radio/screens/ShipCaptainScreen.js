@@ -24,7 +24,7 @@ export default class ShipCaptainScreen extends React.Component {
     componentDidMount(){
         const shipId = this.props.navigation.getParam('shipId', null);
         this.props.screenProps.loadShip(shipId).then(() => {
-            this.props.screenProps.downloadTracks()
+            this.props.screenProps.downloadTracks(shipId)
         })
     }
 
@@ -36,15 +36,15 @@ export default class ShipCaptainScreen extends React.Component {
             return (
                 <SeaBackground>
                     <View style={Styles.Boxes}>
-                        <View style={Styles.ShipCaptainHeader}>
+                        <View style={Styles.ShipHeader}>
                             <Text>
                                 <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
-                                <Text style={Styles.BigTextPirate}> Captain Barbosa </Text>
+                                <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text>
                             </Text>
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>
-                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                         </View>
 
                         <View style={Styles.Playlist}>
@@ -55,11 +55,11 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
                     </View>
                     <View style={Styles.Footer}>
-                        <BottomNav 
-                            navigation={this.props.navigation} 
-                            muteOrUnmute={this.props.screenProps.muteOrUnmute} 
-                            resetMute={this.props.screenProps.resetMute} 
-                            isMuted={this.props.screenProps.isMuted}/>
+                    <BottomNav 
+                        navigation={this.props.navigation} 
+                        muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                        resetMute={this.props.screenProps.resetMute} 
+                        isMuted={this.props.screenProps.isMuted}/>
                     </View>
                 </SeaBackground>
             )

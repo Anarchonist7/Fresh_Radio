@@ -14,13 +14,13 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://localhost';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://localhost:3003');
+    this.socket = SocketIOClient('http://192.168.1.116:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -43,6 +43,8 @@ export default class App extends Component {
 
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
+  captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
+  captainRequest = LOCALHOST + ':' + PORT + '/captain/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message) => {
@@ -99,6 +101,15 @@ export default class App extends Component {
     })
   }
 
+  downloadAllTracksFromShip = () => {
+    return new Promise((resolve, reject) => {
+      this.state.tracks.forEach((track, index) => {
+          this.downloadTrack(index)
+      })
+      resolve()
+    })
+  }
+
   loadTrack = (index) => {
     console.log('TRYING TO LOAD: ', this.state.tracks[index].audioUrl)
     const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
@@ -122,6 +133,8 @@ export default class App extends Component {
           console.error('DOWNLOAD ERROR: ', error);
         });
       } else if (this.state.ship.currentTrack === index || this.state.ship.currentTrack + 1 === index) {
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', this.state.tracks[this.state.ship.currentTrack])
+        console.log('!!!!!!!!!!~~~~~~~', this.state.tracks[index].audioUrl)
         Expo.FileSystem.downloadAsync(
           this.state.tracks[index].audioUrl,
           Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
@@ -140,13 +153,22 @@ export default class App extends Component {
             )
           })
           .catch(error => {
-            console.error('DOWNLOAD ERROR: ', error);
+            console.error('DOWNLOAD ERROR: ', error, index);
           });
       }
     }, () => {
       if(this.state.ship.currentTrack === index){
         this.setState({loading: false})
         }
+    })
+  }
+
+  loadAllTracksFromShip = () => {
+    return new Promise((resolve, reject) => {
+      this.state.tracks.forEach((track, index) => {
+        this.loadTrack(index)
+      })
+      resolve()
     })
   }
 
@@ -204,6 +226,55 @@ export default class App extends Component {
     })
   }
 
+  getCaptain = (id) => {
+    return new Promise((resolve, reject) => {
+      console.log('GETCAPP')
+      console.log(this.captainRequest + id)
+      fetch(this.captainRequest + id, {
+        method: 'GET'
+        }).then((responseData, error) => {
+          if (error){
+            throw new Error("Error: ", error);
+          } else {
+            const response = JSON.parse(responseData._bodyText)
+            resolve(response[0]);
+          }
+        })
+    })
+  }
+
+  getYeOldShips = (id) => {
+    return new Promise((resolve, reject) => {
+      console.log(this.captainRequest + id)
+      fetch(this.captainRequest + id + '/ships', {
+        method: 'GET'
+        }).then((responseData, error) => {
+          if (error){
+            throw new Error("Error: ", error);
+          } else {
+            const response = JSON.parse(responseData._bodyText)
+            console.log('Response from get captin SHIPS in app:', response)
+            resolve(response);
+          }
+        })
+    })
+  }
+
+  authCaptain = (email, password) => {
+    return new Promise((resolve, reject) => {
+      fetch(this.captainIdRequest + email, {
+        method: 'GET'
+        }).then((responseData, error) => {
+          if (error){
+            throw new Error("Error: ", error);
+          } else {
+            const response = JSON.parse(responseData._bodyText)
+            resolve(response[0].id);
+          }
+        })
+    })
+  }
+
   loadShip = (id) => {
     return new Promise((resolve, reject) => {
       this.getShip(id).then((response) => {
@@ -215,24 +286,6 @@ export default class App extends Component {
         })
         resolve(this.state)
       })
-    })
-  }
-
-  downloadAllTracksFromShip = () => {
-    return new Promise((resolve, reject) => {
-      this.state.tracks.forEach((track, index) => {
-          this.downloadTrack(index)
-      })
-      resolve()
-    })
-  }
-
-  loadAllTracksFromShip = () => {
-    return new Promise((resolve, reject) => {
-      this.state.tracks.forEach((track, index) => {
-        this.loadTrack(index)
-      })
-      resolve()
     })
   }
 
@@ -280,6 +333,9 @@ export default class App extends Component {
 
   render() {
     const screenProps = {
+      getYeOldShips: this.getYeOldShips,
+      getCaptain: this.getCaptain,
+      authCaptain: this.authCaptain,
       downloadTracks: this.downloadAllTracksFromShip,
       loadTracks: this.loadAllTracksFromShip,
       downloadTrack: this.downloadTrack,
