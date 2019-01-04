@@ -26,6 +26,9 @@ export default class CaptainScreen extends React.Component {
             newShipName: '',
             newShipMusicPath: '',
             newShipImagePath: '',
+            captain: {
+                name: 'Captain'
+            }
         }
         this.getUserToken()
     }
@@ -75,23 +78,12 @@ export default class CaptainScreen extends React.Component {
                     this.setState({
                         captain: response,
                         yeOldShips: yeOldShips
+                    }, () => {
+                        console.log('CAPTAIIIIIn', this.state.captain.name)
                     })
                 }
             )
         });
-
-        // fetch(`${this.props.screenProps.shipQueryRequest}?search=doing%20less`, {
-        //     method: 'GET'
-        // }).then((responseData, error) => {
-        //     if (error){
-        //         throw new Error('Error: ', error);
-        //     } else {
-        //         const response = JSON.parse(responseData._bodyText)
-        //         this.setState({
-        //             yeOldShips: response
-        //         })
-        //     }
-        // })
         })
     }  
     
@@ -102,8 +94,9 @@ export default class CaptainScreen extends React.Component {
                     <View style={Styles.CaptainHeader}>
                         <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
+                        
                             <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
-                                Captain
+                                {this.state.captain.name}
                             </TextTicker>
                         </View>
                         <SimpleLineIcons name='logout' style={Styles.LogoutIcon} onPress={this.signOutAsync}/>
