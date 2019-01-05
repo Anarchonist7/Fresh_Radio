@@ -192,7 +192,7 @@ export default class Player extends Component {
          console.log('|---> onBack triggered')
       if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
         this.state.player.stopAsync()
-        this.props.sendMessage('pause', Date.now());
+        // this.props.sendMessage('pause', Date.now());
         this.setState({
           currentPosition: 0,
           paused: this.state.paused,
@@ -217,7 +217,7 @@ export default class Player extends Component {
     } else if (this.props.ship.currentTrack > this.state.selectedTrack) {
        if (this.state.selectedTrack < this.props.tracks.length - 1) {
         this.state.player.stopAsync();
-        this.props.sendMessage('pause', Date.now());
+        // this.props.sendMessage('pause', Date.now());
         this.setState({
           currentPosition: 0,
           paused: this.state.paused,
