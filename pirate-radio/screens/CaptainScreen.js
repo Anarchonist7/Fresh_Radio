@@ -134,11 +134,13 @@ export default class CaptainScreen extends React.Component {
                                 autoCapitalize='none'
                                 clearIcon={{ color: 'black' }}
                                 onChangeText = {this.handleShipImagePath}/>
+                            {/* <View style={Styles.ShipFormButtonContainer}> */}
                             <TouchableOpacity style={Styles.ShipFormButton} onPress={this.ShipFormSubmit}>
                                 <Text style={Styles.ShipFormButtonText}>
                                     Launch  <AntDesign name='sound' style={Styles.ShipFormButtonIcon}/>
                                 </Text>
                             </TouchableOpacity>
+                            {/* </View> */}
                         </View>
                     </View>
 

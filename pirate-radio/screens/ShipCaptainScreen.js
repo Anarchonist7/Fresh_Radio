@@ -10,6 +10,7 @@ import LandingScreen from '../screens/LandingScreen'
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 import { account } from '../components/functions';
+import TextTicker from 'react-native-text-ticker'
 
 
 export default class ShipCaptainScreen extends React.Component {
@@ -41,10 +42,15 @@ export default class ShipCaptainScreen extends React.Component {
                 <SeaBackground>
                     <View style={Styles.Boxes}>
                         <View style={Styles.ShipCaptainHeader}>
-                            <Text>
-                                <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
-                                <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text>
-                            </Text>
+                            {/* <Text> */}
+                            <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
+                            <View style={Styles.ShipHeaderTickerContainer}>
+                                <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                                    {this.props.screenProps.captain.captainName}
+                                </TextTicker>
+                            </View>
+                                {/* <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text> */}
+                            {/* </Text> */}
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>

@@ -3,8 +3,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+const { width, height } = Dimensions.get('window');
 
 
 module.exports = StyleSheet.create({
@@ -41,7 +40,7 @@ module.exports = StyleSheet.create({
     },
 
     CaptainHeader: {
-        height: '10%',
+        height: height * 0.1,
         width: '95%',
         paddingLeft: 10,
         flexDirection: 'row',
@@ -54,23 +53,24 @@ module.exports = StyleSheet.create({
     },
 
     ShipCrewHeader: {
-        height: '10%',
+        // height: '10%',
+        height: height * 0.1,
         width: '95%',
-        paddingLeft: 10,
+        // paddingLeft: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignSelf: 'center',
         alignItems: 'center',
+        alignContent: 'center',
         justifyContent: 'center',
         backgroundColor: '#383131',
         borderRadius: 15,
     },
 
     ShipCaptainHeader: {
-        height: '10%',
+        // height: '10%',
+        height: height * 0.1,
         width: '95%',
-        paddingLeft: 10,
-        paddingBottom: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignSelf: 'center',
@@ -84,6 +84,10 @@ module.exports = StyleSheet.create({
         width: '73%',
     },
 
+    ShipHeaderTickerContainer: {
+        width: '50%',
+    },
+
     CaptainHeaderText: {
         fontFamily: 'BlackPearl',
         color: 'white',
@@ -91,7 +95,8 @@ module.exports = StyleSheet.create({
     },
 
     NewShip: {
-        height: 295,
+        // height: 295,
+        height: height * 0.42,
         width: '95%',
         marginTop: '2%',
         paddingTop: 10,
@@ -103,20 +108,23 @@ module.exports = StyleSheet.create({
     },
 
     ShipFormContainer: {
-        height: 220,
+        // height: 220,
+        // height: '80%',
+        flex: 1.15,
+        height: height * 0.34,
         width: '95%',
         backgroundColor: 'grey',
         alignSelf: 'center',
         marginTop: '2%',
         marginBottom: '2%',
-        paddingBottom: '2%',
+        // paddingBottom: '2%',
         borderRadius: 7,
     },
 
     ShipFormInputs: {
-        fontFamily: 'Times New Roman',
         width: '95%',
-        height: '15%',
+        height: '12%',
+        fontFamily: 'Times New Roman',
         alignSelf: 'center',
         borderRadius: 5,
         borderColor: 'black',
@@ -127,9 +135,20 @@ module.exports = StyleSheet.create({
         paddingLeft: 8,
     },
 
+    // ShipFormButtonContainer: {
+    //     // flex: 0.2,
+    //     width: '100%',
+    //     flexDirection: 'column',
+    //     // justifyContent: 'center',
+    //     alignContent: 'center',
+    // },
+
     ShipFormButton: {
-        width: '35%',
-        height: 30,
+        // width: '35%',
+        aspectRatio: 4/1,
+        width: width * 0.32,
+        // height: 30,
+        // height: '15%',
         alignSelf: 'flex-end',
         alignItems: 'center',
         justifyContent: 'center',
@@ -159,7 +178,7 @@ module.exports = StyleSheet.create({
     },
 
     YeOldShips: {
-        height: '30%',
+        height: '32%',
         width: '95%',
         marginTop: '2%',
         paddingTop: 10,
@@ -222,7 +241,8 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: 280,
+        // height: 280,
+        height: height * 0.4,
         marginTop: '2%',
         paddingTop: 10,
         backgroundColor: '#383131',
@@ -286,7 +306,8 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '39%',
+        // height: '39%',
+        height: height * 0.30,
         marginTop: 5,
         paddingTop: 10,
         backgroundColor: '#383131',
@@ -395,7 +416,7 @@ module.exports = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-end',
         top: '90%',
-        height: '14%',
+        height: height * 0.14,
         width: '100%'
     },
 
@@ -408,16 +429,15 @@ module.exports = StyleSheet.create({
 
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
-        width: '45%',
+        width: '46%',
         height: '50%',
         borderRadius: 40,
         backgroundColor: '#383131',
     },
     BottomNavButtonContainerAndroid: {
         justifyContent: 'center',
-        width: '45%',
+        width: '46%',
         height: '20%',
-        aspectRatio: 3/1,
         borderRadius: 40,
         backgroundColor: '#383131',
     },
@@ -462,7 +482,7 @@ module.exports = StyleSheet.create({
     CaptainIconMedium: {
         width: 35,
         height: 35,
-        marginBottom: 5,
+        // marginBottom: 5,
     },
 
     CaptainIconSmall: {
@@ -607,6 +627,7 @@ module.exports = StyleSheet.create({
       },
 
       ControlsContainer: {
+        height: '15%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
