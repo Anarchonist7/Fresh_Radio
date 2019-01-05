@@ -247,17 +247,17 @@ export default class Player extends Component {
     if (this.props.paused && this.state.paused === false) {
        console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
       this.setState({paused: true});
-      this.state.player.setPositionAsync(this.props.MS);
       console.log('------------MS', this.props.MS)
       setTimeout(() => {this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
       })}, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
        console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+       console.log('---------MS play: ', this.props.MS)
       this.setState({paused: false});
       setTimeout(() => {
           this.state.player.playAsync();
-      }, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+      }, 1500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
       <View>
