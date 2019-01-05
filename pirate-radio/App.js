@@ -45,9 +45,9 @@ export default class App extends Component {
   shipQueryRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
-  sendMessage = (message, time) => {
+  sendMessage = (message, time, MS) => {
     console.log('------message: ', message, time)
-    this.socket.send(JSON.stringify({type: 'message', content: message, time: time}));
+    this.socket.send(JSON.stringify({type: 'message', content: message, time: time, MS: MS || 0}));
   }
 
   downloadTrack = (index) => {
@@ -269,7 +269,8 @@ export default class App extends Component {
          this.setState({
            paused: data.content,
            CT: data.CT,
-           ST: data.ST
+           ST: data.ST,
+           MS: data.MS || 0
          })
        } else if (data.type === 'next') {
          this.setState({
@@ -318,7 +319,8 @@ export default class App extends Component {
       resetMute: this.resetMute,
       isMuted: this.state.isMuted,
       CT: this.state.CT,
-      ST: this.state.ST
+      ST: this.state.ST,
+      MS: this.state.MS
     }
 
 

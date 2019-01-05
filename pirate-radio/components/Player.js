@@ -201,7 +201,7 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          this.props.updateCurrentTrack(this.state.selectedTrack, 0)
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
           setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         });
       } else {
@@ -226,7 +226,7 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          this.props.updateCurrentTrack(this.state.selectedTrack, 0);
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0);
           setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         })
       }
@@ -245,18 +245,15 @@ export default class Player extends Component {
       this.move();
     }
     if (this.props.paused && this.state.paused === false) {
-          console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
-
+       console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
       this.setState({paused: true});
+      this.state.player.setPositionAsync(this.props.MS);
       setTimeout(() => {this.state.player.pauseAsync();}, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
-                console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
-
+       console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
       this.setState({paused: false});
       setTimeout(() => {
-        this.state.player.setPositionAsync(this.props.ship.currentPositionMillis).then(() => {
           this.state.player.playAsync();
-        })
       }, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
