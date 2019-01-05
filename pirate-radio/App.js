@@ -260,6 +260,12 @@ export default class App extends Component {
     })
   }
 
+  resetSeek = () => {
+    this.setState({
+      seeked: true
+    })
+  }
+
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
@@ -271,7 +277,7 @@ export default class App extends Component {
            CT: data.CT,
            ST: data.ST,
            MS: data.MS || 0
-         })
+         });
        } else if (data.type === 'next') {
          this.setState({
           ship: {
@@ -279,6 +285,11 @@ export default class App extends Component {
               currentTrack: data.content
             }
          })
+       } else if (data.type === 'seek') {
+         this.setState({
+          MS: data.MS,
+          seeked: false
+         });
        }
     });
 
@@ -320,7 +331,9 @@ export default class App extends Component {
       isMuted: this.state.isMuted,
       CT: this.state.CT,
       ST: this.state.ST,
-      MS: this.state.MS
+      MS: this.state.MS,
+      seeked: this.state.seeked,
+      resetSeek: this.resetSeek
     }
 
 

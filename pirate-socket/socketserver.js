@@ -25,8 +25,11 @@ websocket.on('connection', (socket) => {
       console.log('pausing');
       websocket.send(JSON.stringify({type: 'message', content: true, MS: data.MS, CT: data.time, ST: Date.now()}));
     } else if (!isNaN(data.content)) {
-      console.log('moving');
+      console.log('change track');
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
+    } else if (data.content === 'seek') {
+      console.log('seeking');
+      websocket.send(JSON.stringify({type: 'seek', content: 'seek', MS: data.MS, CT: data.time, ST: Date.now()}));
     }
 
   });

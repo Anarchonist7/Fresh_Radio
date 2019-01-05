@@ -187,7 +187,7 @@ export default class Player extends Component {
     }
   }
 
-  move() {
+  trackChange() {
     if (this.props.ship.currentTrack < this.state.selectedTrack) {
          console.log('|---> onBack triggered')
       if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
@@ -233,6 +233,17 @@ export default class Player extends Component {
     }
   }
 
+  seekAll() {
+    console.log('---this the seek lag! : ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+    this.setState({paused: true});
+    console.log('------------MS', this.props.MS)
+    setTimeout(() => {this.state.player.pauseAsync().then( () => {
+      this.state.player.setPositionAsync(this.props.MS).then( () => {
+        this.props.sendMessage('play', Date.now());
+      })
+    })}, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+  }
+
   componentWillUnmount() {
     this.state.player.unloadAsync();
   }
@@ -240,9 +251,15 @@ export default class Player extends Component {
   render() {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
+    console.log('---------------', this.props.seeked, '-----------------')
+    if (!this.props.seeked) {
+      this.props.resetSeek();
+      this.seekAll();
+    }
+
     if (this.state.selectedTrack !== this.props.ship.currentTrack) {
       console.log('----condition triggered!!!!')
-      this.move();
+      this.trackChange();
     }
     if (this.props.paused && this.state.paused === false) {
        console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
