@@ -76,12 +76,12 @@ export default class Player extends Component {
 
       ///---------------------below is what's important
       if (status.positionMillis === this.state.totalLength) {
-        // this.state.player.pauseAsync();
-        //   this.setState({
-        //     totalLength: this.state.totalLength + 2
-        //   }, () => {
-        //     this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
-        //   })
+      //   this.state.player.pauseAsync();
+      //     this.setState({
+      //       totalLength: this.state.totalLength + 2
+      //     }, () => {
+      //       this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
+      //     })
           //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^for captain
 
           // console.log(this.state.selectedTrack, this.state.tracks.length - 1)
@@ -257,7 +257,7 @@ export default class Player extends Component {
       this.setState({paused: false});
       setTimeout(() => {
           this.state.player.playAsync();
-      }, 1500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+      }, 1000 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
       <View>
