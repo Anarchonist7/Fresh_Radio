@@ -28,7 +28,7 @@ export function seek(time) {
     this.setState({
       currentPosition: time,
       paused: false
-    }), () => this.state.player.playAsync();
+    }, () => this.props.sendMessage('pause', Date.now(), time * 1000));
   }
 
 export function onBack() {
