@@ -76,12 +76,12 @@ export default class Player extends Component {
 
       ///---------------------below is what's important
       if (status.positionMillis === this.state.totalLength) {
-      //   this.state.player.pauseAsync();
-      //     this.setState({
-      //       totalLength: this.state.totalLength + 2
-      //     }, () => {
-      //       this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
-      //     })
+        this.state.player.pauseAsync();
+          this.setState({
+            totalLength: this.state.totalLength + 2
+          }, () => {
+            this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
+          })
           //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^for captain
 
           // console.log(this.state.selectedTrack, this.state.tracks.length - 1)
@@ -137,7 +137,7 @@ export default class Player extends Component {
           var date = Date.now();
           // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
-          // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
     }
   }
@@ -192,7 +192,7 @@ export default class Player extends Component {
          console.log('|---> onBack triggered')
       if (this.state.currentPosition < 1000 && this.state.selectedTrack > 0) {
         this.state.player.stopAsync()
-        // this.props.sendMessage('pause', Date.now());
+        this.props.sendMessage('pause', Date.now());
         this.setState({
           currentPosition: 0,
           paused: this.state.paused,
@@ -201,8 +201,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          // this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
-          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
+          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         });
       } else {
         this.state.player.setPositionAsync(0).then(() => {
@@ -217,7 +217,7 @@ export default class Player extends Component {
     } else if (this.props.ship.currentTrack > this.state.selectedTrack) {
        if (this.state.selectedTrack < this.props.tracks.length - 1) {
         this.state.player.stopAsync();
-        // this.props.sendMessage('pause', Date.now());
+        this.props.sendMessage('pause', Date.now());
         this.setState({
           currentPosition: 0,
           paused: this.state.paused,
@@ -226,8 +226,8 @@ export default class Player extends Component {
           player: new Expo.Audio.Sound(),
           selectedTrack: this.props.ship.currentTrack,
         }, () => {
-          // this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0);
-          // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
+          this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0);
+          setTimeout(() => {this.props.sendMessage('play', Date.now())}, 2000);
         })
       }
     }
