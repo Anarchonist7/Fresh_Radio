@@ -26,6 +26,9 @@ websocket.on('connection', (socket) => {
     } else if (!isNaN(data.content)) {
       console.log('moving');
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
+    } else if (data.content === 'newSailor') {
+      console.log('a new sailor has joined!');
+      websocket.send(JSON.stringify({type: 'newSailor', content: data.content, ST: Date.now()}));
     }
 
   });

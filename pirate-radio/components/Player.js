@@ -18,7 +18,7 @@ export default class Player extends Component {
     super(props);
     console.log('totallength: ', props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis)
     this.state = {
-      paused: this.props.ship.paused,
+      paused: true,
       currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis + ((Date.now() - account(this.props.ship, this.props.tracks).timeStamp))),
       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
@@ -29,6 +29,8 @@ export default class Player extends Component {
       sync: false,
       over: false
     };
+    //listener only code
+    // this.props.sendMessage('newSailor', Date.now());
   }
   restartPlaylist() {
     console.log('restart ------!------ playlist')
@@ -146,6 +148,12 @@ export default class Player extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+     if (prevProps.sailors < this.props.sailors) {
+      console.log('----*----welcome aboard!-----****')
+      // this.setState({ sailors: this.props.sailors})
+      this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis)
+      // setTimeout(this.props.sendMessage('play', Date.now()), 3500)
+    }
     // console.log('-----component did update mahfka!!!')
     if (this.props.paused) {
       console.log('we paused yo')
@@ -160,7 +168,7 @@ export default class Player extends Component {
         console.log(this.state.currentPositionMillis)
         this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
-            setPlay(this)
+            // setPlay(this)
           })
         })
       })
@@ -169,7 +177,7 @@ export default class Player extends Component {
       console.log('|--? initial sync && non-0 intial position')
       this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
         setStatusUpdate(this).then(() => {
-          setPlay(this)
+          // setPlay(this)
         })
       }))
     }
@@ -209,9 +217,12 @@ export default class Player extends Component {
     this.state.player.unloadAsync();
   }
 
-  render() {
+  render(prevProps) {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
+    //captain code below
+    console.log('----here be ye crew: ', this.props.sailors)
+    //^^^captain only code^^^^
     if (this.state.selectedTrack !== this.props.ship.currentTrack) {
       console.log('----condition triggered!!!!')
       this.state.player.setIsMutedAsync(1.0)

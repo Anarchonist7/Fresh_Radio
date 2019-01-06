@@ -25,6 +25,7 @@ export default class App extends Component {
       shipLoading: true,
       fontLoading: true,
       isMuted: false,
+      sailors: 1,
       ship: {
         name: '',
         id: 1,
@@ -279,6 +280,14 @@ export default class App extends Component {
               currentTrack: data.content
             }
          })
+       } else if (data.type === 'newSailor') {
+        console.log('------we made it back to app sailor!')
+        console.log(this.state.sailors)
+        this.setState({
+          sailors: this.state.sailors + 1
+        }, () => {
+          console.log('----after setting state in app: ', this.state.sailors)
+        })
        }
     });
 
@@ -320,7 +329,8 @@ export default class App extends Component {
       isMuted: this.state.isMuted,
       CT: this.state.CT,
       ST: this.state.ST,
-      MS: this.state.MS
+      MS: this.state.MS,
+      sailors: this.state.sailors
     }
 
 
