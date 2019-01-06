@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
+import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont } from './Constants';
+
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 const { width, height } = Dimensions.get('window');
 
-
-module.exports = StyleSheet.create({
+module.exports = EStyleSheet.create({
     ListenHostButtons: {
         height: '35%',
         width: '95%',
@@ -35,95 +37,62 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         width: '95%',
         height: '10%',
-        backgroundColor: '#383131',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
     CaptainHeader: {
-        height: height * 0.1,
-        width: '95%',
+        ...allHeaders,
         paddingLeft: 10,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignSelf: 'center',
-        alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: '#383131',
-        borderRadius: 15,
     },
-
-    ShipCrewHeader: {
-        // height: '10%',
-        height: height * 0.1,
-        width: '95%',
-        // paddingLeft: 10,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignSelf: 'center',
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#383131',
-        borderRadius: 15,
-    },
-
-    ShipCaptainHeader: {
-        // height: '10%',
-        height: height * 0.1,
-        width: '95%',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#383131',
-        borderRadius: 15,
-    },
-
+    
     CaptainHeaderTickerContainer: {
         width: '73%',
     },
 
-    ShipHeaderTickerContainer: {
-        width: '50%',
+    ShipHeader: {
+        ...allHeaders,
+        justifyContent: 'center',
     },
 
     CaptainHeaderText: {
         fontFamily: 'BlackPearl',
         color: 'white',
-        fontSize: 28,
+        fontSize: '1.55rem',
     },
 
     NewShip: {
-        // height: 295,
-        height: height * 0.42,
+        // height: 275,
+        // height: '16rem',
+        height: height * 0.4,
         width: '95%',
-        marginTop: '2%',
-        paddingTop: 10,
+        marginTop: '0.15rem',
+        paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#383131',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
+    NewShipHeader: {
+        width: '100%',
+        flex: 0.2,
+    },
+
     ShipFormContainer: {
-        // height: 220,
-        // height: '80%',
-        flex: 1.15,
-        height: height * 0.34,
+        flex: 0.8,
         width: '95%',
         backgroundColor: 'grey',
         alignSelf: 'center',
-        marginTop: '2%',
-        marginBottom: '2%',
-        // paddingBottom: '2%',
+        marginBottom: '0.2rem',
         borderRadius: 7,
     },
 
     ShipFormInputs: {
+        height: '1.5rem',
         width: '95%',
-        height: '12%',
         fontFamily: 'Times New Roman',
         alignSelf: 'center',
         borderRadius: 5,
@@ -131,61 +100,51 @@ module.exports = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: 'white',
         opacity: 0.8,
-        marginTop: 5,
+        marginTop: '0.3rem',
         paddingLeft: 8,
     },
 
-    // ShipFormButtonContainer: {
-    //     // flex: 0.2,
-    //     width: '100%',
-    //     flexDirection: 'column',
-    //     // justifyContent: 'center',
-    //     alignContent: 'center',
-    // },
-
     ShipFormButton: {
-        // width: '35%',
         aspectRatio: 4/1,
         width: width * 0.32,
-        // height: 30,
-        // height: '15%',
         alignSelf: 'flex-end',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
         borderColor: 'black',
         borderWidth: 1,
-        backgroundColor: '#424faf',
-        marginTop: '2%',
+        backgroundColor: buttonBlue,
+        marginTop: '0.3rem',
         marginRight: 10,
         paddingHorizontal: 5,
     },
 
     ShipFormLabelText: {
+        fontSize: width * 0.05,
         fontWeight: 'bold',
         fontFamily: 'Times New Roman',
-        marginTop: 5,
+        marginTop: '0.3rem',
         marginLeft: 10,
     },
 
     ShipFormButtonText: {
         fontFamily: 'Times New Roman',
-        fontSize: 18,
+        fontSize: '1rem',
     },
 
     ShipFormButtonIcon: {
-        fontSize: 18,
+        fontSize: '1rem',
     },
 
     YeOldShips: {
-        height: '32%',
+        height: height * 0.30,
         width: '95%',
-        marginTop: '2%',
-        paddingTop: 10,
+        marginTop: '0.15rem',
+        paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#383131',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
@@ -210,9 +169,9 @@ module.exports = StyleSheet.create({
         justifyContent: 'flex-start',
         width: '95%',
         height: '44%',
-        marginTop: '2%',
-        paddingTop: 10,
-        backgroundColor: '#383131',
+        marginTop: '0.15rem',
+        paddingTop: '0.5rem',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
@@ -220,9 +179,9 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         width: '95%',
         height: '80%',
-        marginTop: '2%',
+        marginTop: '0.15rem',
         marginBottom: '2%',
-        paddingTop: 10,
+        paddingTop: '0.5rem',
         borderRadius: 10,
         backgroundColor: 'grey',
     },
@@ -231,40 +190,10 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         width: '95%',
         height: '80%',
-        marginTop: '2%',
-        marginBottom: '2%',
+        marginTop: '0.15rem',
+        marginBottom: '0.15rem',
         borderRadius: 10,
         backgroundColor: 'grey',
-    },
-    
-    NowPlayingCaptain: {
-        alignSelf: 'center',
-        justifyContent: 'flex-start',
-        width: '95%',
-        // height: 280,
-        height: height * 0.4,
-        marginTop: '2%',
-        paddingTop: 10,
-        backgroundColor: '#383131',
-        borderRadius: 15,
-    },
-
-    NowPlayingCrew: {
-        alignSelf: 'center',
-        justifyContent: 'flex-start',
-        width: '95%',
-        height: 220,
-        marginTop: '2%',
-        paddingTop: 10,
-        backgroundColor: '#383131',
-        borderRadius: 15,
-    },
-
-    DownloadButton: {
-        paddingTop: 10,
-        justifyContent: 'column',
-        alignSelf: 'center',
-        justifyContent: 'center',
     },
 
     Popular: {
@@ -273,44 +202,155 @@ module.exports = StyleSheet.create({
         alignItems: 'center',
         width: '95%',
         height: '35%',
-        paddingTop: 10,
-        marginTop: '2%',
-        backgroundColor: '#383131',
+        paddingTop: '0.5rem',
+        marginTop: '0.15rem',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
-    ShipList: {
-        width: '95%',
-        height: '17%',
-        borderRadius: 5,
-        marginTop: 5,
-        backgroundColor: 'grey',
-        padding: 5,
+    PopularFirstLine: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    // SHIP PAGES BELOW!!!!
+    
+    NowPlayingCrew: {
+        ...nowPlaying,
+        // height: 220,
+        height: height * 0.4,
+    },
+
+    NowPlayingCaptain: {
+        ...nowPlaying,
+        // height: 280,
+        height: height * 0.32,
+    },
+
+    TrackDetailsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: '2rem',
+        paddingRight: '1rem',
+        width: '100%',
+    },
+
+    TrackDetailsSongInfo: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '2.8rem',
+        width: '50%',
+    },
+    
+    TrackDetailsTickerText: {
+        fontSize: '1.33rem',
+        textAlign: 'center',
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        color: 'white',
+    },
+
+    TrackDetailsArtistText: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        // width: 200,
+        textAlign: 'center',
+        fontSize: '1rem',
+        marginTop: 4,
+    },
+
+    TrackDetailsAlbumText: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        // width: 200,
+        textAlign: 'center',
+        fontSize: 14,
+        marginTop: 4,
+    },
+
+    TrackDetailsButton: {
+        opacity: 0.72,
+    },
+
+    TrackDetailsMoreButton: {
+        borderColor: 'rgb(255, 255, 255)',
+        borderWidth: 2,
+        opacity: 0.72,
+        borderRadius: 10,
+        width: 20,
+        height: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
+    TrackDetailsMoreButtonIcon: {
+        height: 17,
+        width: 17,
+    },
+
+    SeekBarSlider: {
+        marginTop: -12,
+    },
+
+    SeekBarContainer: {
+        // paddingHorizontal: '1rem',
+        width: '100%',
+        paddingTop: 16,
+    },
+
+    SeekBarTimes: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
 
+    SeekBarTrack: {
+        height: '0.15rem',
+        borderRadius: 1,
+    },
+
+    SeekBarThumb: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'white',
+    },
+
+    SeekBarText: {
+        color: 'rgba(255, 255, 255, 0.72)',
+        // adjustsFontSizeToFit: true,
+        fontSize: '0.75rem',
+        textAlign:'center',
+        width: '2.5rem',
+    },
+
+    DownloadButton: {
+        paddingTop: '0.5rem',
+        justifyContent: 'column',
+        alignSelf: 'center',
+        justifyContent: 'center',
+    },
+
+    // !!!! END OF SHIP PAGES
+
     SearchList: {
         width: '95%',
-        borderRadius: 5,
         borderColor: 'black',
         borderWidth: 1,
-        marginTop: 5,
+        marginTop: '0.3rem',
         marginHorizontal: 8,
         backgroundColor: 'grey',
         paddingVertical: '2%',
         paddingHorizontal: '2%',
+        borderRadius: 5,
     },
 
     Playlist: {
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        // height: '39%',
+        height: '39%',
         height: height * 0.30,
-        marginTop: 5,
-        paddingTop: 10,
-        backgroundColor: '#383131',
+        marginTop: '0.3rem',
+        paddingTop: '0.5rem',
+        backgroundColor: greyBg,
         borderRadius: 15,
     },
 
@@ -338,12 +378,13 @@ module.exports = StyleSheet.create({
 
     Active: {
         fontWeight: 'bold',
+        backgroundColor: '#708090',
     },
 
     ActiveIcon: {
         flex: 1,
         color: 'white',
-        fontSize: 18,
+        fontSize: '1rem',
     },
 
     OffIcon: {
@@ -353,7 +394,8 @@ module.exports = StyleSheet.create({
     ListenHostText: {
         fontFamily: 'BlackPearl',
         color: 'white',
-        fontSize: 60,
+        // fontSize: 60,
+        fontSize: '4rem',
         textAlign: 'center',
     },
 
@@ -362,61 +404,47 @@ module.exports = StyleSheet.create({
         fontFamily: 'BlackPearl',
         color: 'white',
         textAlign: 'center',
-        fontSize: 28,
-    },
-
-    BigTextNormal: {
-        marginBottom: '-10%',
-        fontFamily: 'Times New Roman',
-        color: 'white',
-        textAlign: 'center',
-        fontSize: 28,
+        fontSize: '1.55rem',
     },
 
     MediumTextPirate: {
-        fontFamily: 'BlackPearl',
-        color: 'white',
+        ...pirateFont,
         textAlign: 'center',
-        fontSize: 22,
+        fontSize: '1.25rem',
     },
 
-   MediumTextNormal: {
-        fontFamily: 'Times New Roman',
-        color: 'white',
-        fontSize: 22,
+    MediumTextNormal: {
+        ...normalFont,
+        textAlign: 'center',
+        fontSize: '1.25rem',
     },
-
+    
     SmallTextPirate: {
-        fontFamily: 'BlackPearl',
-        color: 'white',
-        fontSize: 18,
+        ...pirateFont,
+        fontSize: '1rem',
     },
 
     SmallTextNormal: {
-        fontFamily: 'Times New Roman',
-        color: 'white',
-        fontSize: 18,
+        ...normalFont,
+        fontSize: '1rem',
     },
 
     TinyTextNormal: {
-        fontFamily: 'Times New Roman',
-        color: 'white',
-        fontSize: 12,
+        ...normalFont,
+        fontSize: '0.75rem',
     },
 
     BottomNavTextPirate: {
-        fontFamily: 'BlackPearl',
-        color: 'white',
-        fontSize: 20,
-        includeFontPadding: true,
+        ...pirateFont,
+        fontSize: '1.1rem',
     },
 
     Footer: {
+        height: height * 0.14,
         position: 'absolute',
         flexDirection: 'column',
         justifyContent: 'flex-end',
         top: '90%',
-        height: height * 0.14,
         width: '100%'
     },
 
@@ -432,14 +460,14 @@ module.exports = StyleSheet.create({
         width: '46%',
         height: '50%',
         borderRadius: 40,
-        backgroundColor: '#383131',
+        backgroundColor: greyBg,
     },
     BottomNavButtonContainerAndroid: {
         justifyContent: 'center',
         width: '46%',
         height: '20%',
         borderRadius: 40,
-        backgroundColor: '#383131',
+        backgroundColor: greyBg,
     },
     BottomNavBackContainer: {
         marginLeft: 8,
@@ -454,53 +482,47 @@ module.exports = StyleSheet.create({
     BottomNavBackIcon: {
         textAlign: 'left',
         color: 'white',
-        fontSize: 20,
+        fontSize: '1.15rem',
     },
 
     BottomNavVolumeIcon: {
         textAlign: 'right',
         color: 'white',
-        fontSize: 20,
+        fontSize: '1.15rem',
     },
 
     ListenHostIcons: {
         textAlign: 'center',
-        fontSize: 60,
+        fontSize: '4rem',
         color: 'white'
     },
 
     SmallWhiteIcon: {
         color: 'white',
-        fontSize: 14,
-    },
-
-    SmallBlackIcon: {
-        color: 'black',
-        fontSize: 14,
+        fontSize: '0.85rem',
     },
 
     CaptainIconMedium: {
-        width: 35,
-        height: 35,
-        // marginBottom: 5,
+        width: '2rem',
+        height: '2rem',
     },
 
     CaptainIconSmall: {
-        width: 20,
-        height: 20,
+        width: '1.0rem',
+        height: '1.0rem',
     },
 
     LogoutIcon: {
         marginTop: 3,
-        fontSize: 28,
+        fontSize: '1.55rem',
         marginBottom: 5,
         marginRight: 15,
         color: 'white',
     },
     
     PirateShipIcon: {
-        width: 80,
-        height: 80,
+        width: '4.4rem',
+        height: '4.4rem',
         marginRight: 10,
         position: 'relative',
         bottom: 15,
@@ -529,64 +551,6 @@ module.exports = StyleSheet.create({
     audioElement: {
         height: 0,
         width: 0,
-    },
-
-    TrackDetailsContainer: {
-        paddingTop: 24,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingLeft: 10,
-        paddingRight: 20,
-    },
-
-    TrackDetailsWrapper: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 200,
-        height: 50,
-    },
-
-    TrackDetailsTitle: {
-        fontSize: 24,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        color: 'white',
-    },
-
-    TrackDetailsArtist: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        width: 200,
-        textAlign: 'center',
-        fontSize: 18,
-        marginTop: 4,
-    },
-
-    TrackDetailsAlbum: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        width: 200,
-        textAlign: 'center',
-        fontSize: 14,
-        marginTop: 4,
-    },
-
-    TrackDetailsButton: {
-        opacity: 0.72,
-    },
-
-    TrackDetailsMoreButton: {
-        borderColor: 'rgb(255, 255, 255)',
-        borderWidth: 2,
-        opacity: 0.72,
-        borderRadius: 10,
-        width: 20,
-        height: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    
-    TrackDetailsMoreButtonIcon: {
-        height: 17,
-        width: 17,
     },
 
     SignInContainer: {
@@ -633,6 +597,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         paddingTop: 8,
       },
+
       ControlsPlayButton: {
         height: 72,
         width: 72,
@@ -642,36 +607,13 @@ module.exports = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
+
       ControlsSecondaryControl: {
         height: 18,
         width: 18,
       },
+
       ControlsOff: {
         opacity: 0.30,
       },
-
-      SeekBarSlider: {
-        marginTop: -12,
-      },
-      SeekBarContainer: {
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingTop: 16,
-      },
-      SeekBarTrack: {
-        height: 2,
-        borderRadius: 1,
-      },
-      SeekBarThumb: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: 'white',
-      },
-      SeekBarText: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        fontSize: 12,
-        textAlign:'center',
-      },
-
 })

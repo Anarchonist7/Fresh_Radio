@@ -103,9 +103,11 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NewShip}>
-                        <Text style={Styles.MediumTextPirate}>
-                            Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateWheelIconMedium} />
-                        </Text>
+                        <View style={Styles.NewShipHeader}>
+                            <Text style={Styles.MediumTextPirate}>
+                                Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateWheelIconMedium} />
+                            </Text>
+                        </View>
                         <View style={Styles.ShipFormContainer}>
                             <Text style={Styles.ShipFormLabelText}>Ship Name:</Text> 
                             <TextInput
@@ -134,13 +136,11 @@ export default class CaptainScreen extends React.Component {
                                 autoCapitalize='none'
                                 clearIcon={{ color: 'black' }}
                                 onChangeText = {this.handleShipImagePath}/>
-                            {/* <View style={Styles.ShipFormButtonContainer}> */}
                             <TouchableOpacity style={Styles.ShipFormButton} onPress={this.ShipFormSubmit}>
                                 <Text style={Styles.ShipFormButtonText}>
                                     Launch  <AntDesign name='sound' style={Styles.ShipFormButtonIcon}/>
                                 </Text>
                             </TouchableOpacity>
-                            {/* </View> */}
                         </View>
                     </View>
 

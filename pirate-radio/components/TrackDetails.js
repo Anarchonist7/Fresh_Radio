@@ -33,10 +33,10 @@ const TrackDetails = ({
       <Image style={Styles.TrackDetailsButton}
         source={require('../img/ic_add_circle_outline_white.png')} />
     </TouchableOpacity> */}
-    <View style={Styles.TrackDetailsWrapper}>
-      <TextTicker duration={8000} style={Styles.TrackDetailsTitle} marqueeOnMount loop bounce>{title}</TextTicker>
-      <Text style={Styles.TrackDetailsAlbum}>{album}</Text>
-      <Text style={Styles.TrackDetailsArtist} onPress={onArtistPress}>{artist}</Text>
+    <View style={Styles.TrackDetailsSongInfo}>
+      <TextTicker duration={8000} style={Styles.TrackDetailsTickerText} marqueeOnMount loop bounce>{title}</TextTicker>
+      <Text style={Styles.TrackDetailsAlbumText}>{album}</Text>
+      <Text style={Styles.TrackDetailsArtistText} onPress={onArtistPress}>{artist}</Text>
     </View>
     <View>
       {paused ? (

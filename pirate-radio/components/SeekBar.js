@@ -32,14 +32,17 @@ const SeekBar = ({
   const remaining = minutesAndSeconds(trackLength - currentPosition);
   return (
     <View style={Styles.SeekBarContainer}>
-      <View style={{flexDirection: 'row'}}>
-        <Text style={Styles.SeekBarText}>
-          {elapsed[0] + ":" + elapsed[1]}
-        </Text>
-        <View style={{flex: 1}} />
-        <Text style={[Styles.SeekBarText, {width: 40}]}>
-          {trackLength > 1 && "-" + remaining[0] + ":" + remaining[1]}
-        </Text>
+      <View style={Styles.SeekBarTimes}>
+        <View>
+          <Text style={Styles.SeekBarText}>
+            {elapsed[0] + ":" + elapsed[1]}
+          </Text>
+        </View>
+        <View >
+          <Text style={[Styles.SeekBarText]}>
+            {trackLength > 1 && "-" + remaining[0] + ":" + remaining[1]}
+          </Text>
+        </View>
       </View>
       <Slider
         maximumValue={Math.max(trackLength, 1, currentPosition + 1)}

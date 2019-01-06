@@ -41,7 +41,7 @@ export default class ShipCaptainScreen extends React.Component {
             return (
                 <SeaBackground>
                     <View style={Styles.Boxes}>
-                        <View style={Styles.ShipCaptainHeader}>
+                        <View style={Styles.ShipHeader}>
                             {/* <Text> */}
                             <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
                             <View style={Styles.ShipHeaderTickerContainer}>
