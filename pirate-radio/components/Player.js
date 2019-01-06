@@ -245,21 +245,17 @@ export default class Player extends Component {
       this.move();
     }
     if (this.props.paused && this.state.paused === false) {
-       console.log('---this the lag!: ', (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
-      console.log('this is the calculation results: ', 2000 - (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
       this.setState({paused: true});
-      console.log('------------MS', this.props.MS)
+      console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
-      })}, 2000 - (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
+      })}, 1000 - (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
-       console.log('---this the lag!: ', (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
-       console.log('this is the calculation results: ', 2000 - (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
-       console.log('---------MS play: ', this.props.MS)
       this.setState({paused: false});
+      console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
           this.state.player.playAsync();
-      }, 2000 - (((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST)))
+      }, 2000 - (Date.now() - this.props.ST))
     }
     return (
       <View>
