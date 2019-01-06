@@ -197,6 +197,7 @@ export default class Player extends Component {
       isChanging: false,
       player: new Expo.Audio.Sound(),
       selectedTrack: this.props.ship.currentTrack,
+      sync: true
     }, () => {
       // this.props.sendMessage('pause', Date.now(), 0);
       this.state.player.setIsMutedAsync(1.0)
