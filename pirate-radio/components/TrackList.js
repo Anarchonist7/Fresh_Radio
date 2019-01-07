@@ -25,11 +25,16 @@ export default class TrackList extends React.Component {
         }
     }
 
+    skip = () => {
+        console.log('morty')
+    }
+
     generateTrackList(){
         let trackComponentArray = []
         this.props.tracks.forEach((track, index) => {
             let active = (index === this.props.ship.currentTrack )
             trackComponentArray.push(
+                <TouchableOpacity onPress={this.skip}>
                 <View style={{paddingVertical: 3}}>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
@@ -48,6 +53,7 @@ export default class TrackList extends React.Component {
                         </Text>
                     </View>
                 </View>
+            </TouchableOpacity>
             )
         })
         return trackComponentArray
