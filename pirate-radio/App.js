@@ -24,6 +24,7 @@ export default class App extends Component {
       fontLoading: true,
       isMuted: false,
       count: 0,
+      request: false,
       ship: {
         name: '',
         id: 1,
@@ -312,6 +313,12 @@ export default class App extends Component {
     })
   }
 
+  resetReq = () => {
+    this.setState({
+      request: false
+    }, () => console.log('the request now: ', this.state.request))
+  }
+
   componentDidMount() {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
@@ -341,6 +348,10 @@ export default class App extends Component {
               count: this.state.count - 1
           }, () => console.log('HEY----ITS THE COUNT: ', this.state.count));
          }
+       } else if (data.type === 'request') {
+          this.setState({
+            request: true
+          }, () => console.log('HEY ---- YALL GOT A REQUEST BOII!'));
        }
     });
 
@@ -393,7 +404,9 @@ export default class App extends Component {
       CT: this.state.CT,
       ST: this.state.ST,
       MS: this.state.MS,
-      count: this.state.count
+      count: this.state.count,
+      request: this.state.request,
+      resetReq: this.resetReq
     }
 
 

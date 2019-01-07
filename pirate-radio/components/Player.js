@@ -230,6 +230,7 @@ export default class Player extends Component {
           this.state.player.playAsync();
           this.state.player.setIsMutedAsync(0.0);
           this.props.syncFalse();
+          this.props.resetReq();
       }, 3000 - (Date.now() - this.props.ST))
     }
     return (

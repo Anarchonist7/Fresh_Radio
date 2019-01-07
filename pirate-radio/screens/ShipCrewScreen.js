@@ -36,7 +36,7 @@ export default class ShipCrewScreen extends React.Component {
     requestSync = () => {
         this.setState({isSyncing: true}, () => {
 
-            //SYNC REQUEST CODE GOES HERE
+            this.props.screenProps.sendMessage('request', Date.now())
 
         })
         setTimeout(() => this.setState({isSyncing: false}), 3000)
