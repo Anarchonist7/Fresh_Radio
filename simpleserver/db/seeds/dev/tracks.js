@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('../../dotenv').config();
 const ENV = process.env.ENV || "development";
 const LOCALHOST = process.env.LOCALHOST || 'localhost'
 const PORT = process.env.PORT || 8080;
