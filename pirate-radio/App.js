@@ -23,13 +23,13 @@ EStyleSheet.build({
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.75';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.92';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://192.168.1.75:3003');
+    this.socket = SocketIOClient('http://192.168.1.92:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -43,7 +43,7 @@ export default class App extends Component {
         timeStamp: null,
         paused: true,
       },
-      captain:  null
+      captain: null
     }
     this.socket.onopen = () => {
       this.setState({connected:true})
