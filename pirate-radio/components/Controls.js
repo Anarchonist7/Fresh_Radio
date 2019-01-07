@@ -33,44 +33,41 @@ const Controls = ({
 
 }) => (
   <View style={Styles.ControlsContainer}>
-    {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
-      <Image style={[Styles.ControlsSecondaryControl, shuffleOn ? [] : Styles.ControlsOff]}
-        source={require('../img/ic_shuffle_white.png')}/>
-    </TouchableOpacity> */}
+    <View>
+      <TouchableOpacity onPress={onBack} disabled={backDisabled}>
+        <Image style={[Styles.ControlSeekIcons, (backDisabled || playLoading) && {opacity: 0.3}]} source={require('../img/ic_skip_previous_white_36pt.png')}/>
+      </TouchableOpacity>
+    </View>
 
-    <View style={{width: 40}} />
-    <TouchableOpacity onPress={onBack}
-      disabled={backDisabled}>
-      <Image style={[(backDisabled || playLoading) && {opacity: 0.3}]}
-      source={require('../img/ic_skip_previous_white_36pt.png')}/>
-    </TouchableOpacity>
-
-    <View style={{width: 20}} />
-    {!paused ?
+    <View>
+    {!paused ? (
       <TouchableOpacity onPress={onPressPause}>
         <View style={Styles.ControlsPlayButton}>
-        { playLoading ?  <BarIndicator color='white' /> : <Image source={require('../img/ic_pause_white_48pt.png')}/> }
+          { playLoading ? (
+          <BarIndicator color='white' /> 
+          ) : (
+          <Image source={require('../img/ic_pause_white_48pt.png')} style={Styles.ControlPlayIcons}/> 
+          )}
         </View>
-      </TouchableOpacity> :
+      </TouchableOpacity> 
+    ) : (
       <TouchableOpacity onPress={onPressPlay} disabled={playDisabled}>
-        <View style={[Styles.playButton, playDisabled ? Styles.ControlsOff : []]}>
-        { playLoading ?  <BarIndicator color='white'/> : <Image source={require('../img/ic_play_arrow_white_48pt.png')}/> }
+        <View style={[playDisabled ? Styles.ControlsOff : []]}>
+        { playLoading ?  <BarIndicator color='white'/> : <Image source={require('../img/ic_play_arrow_white_48pt.png')} style={Styles.ControlPlayIcons}/> }
         </View>
       </TouchableOpacity>
-    }
+    )}
+    </View>
 
-    <View style={{width: 20}} />
-    <TouchableOpacity onPress={onForward}
-      disabled={forwardDisabled}>
-     <Image style={[(forwardDisabled || playLoading) && {opacity: 0.3}]}
+    <View>
+    <TouchableOpacity 
+    onPress={onForward}
+    disabled={forwardDisabled}>
+      <Image 
+      style={[Styles.ControlSeekIcons,(forwardDisabled || playLoading) && {opacity: 0.3}]}
       source={require('../img/ic_skip_next_white_36pt.png')}/>
     </TouchableOpacity>
-
-    <View style={{width: 40}} />
-    {/* <TouchableOpacity activeOpacity={0.0} onPress={onPressRepeat}>
-      <Image style={[Styles.ControlsSecondaryControl, repeatOn ? [] : Styles.ControlsOff]}
-        source={require('../img/ic_repeat_white.png')}/>
-    </TouchableOpacity> */}
+    </View>
   </View>
 );
 
