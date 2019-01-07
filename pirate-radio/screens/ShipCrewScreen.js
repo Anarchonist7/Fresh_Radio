@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import shorthash from 'shorthash'
 import { SeaBackground } from '../components/SeaBackground';
@@ -22,7 +22,8 @@ export default class ShipCrewScreen extends React.Component {
         super(props)
         this.state = {
             shipId: this.props.navigation.getParam('shipId', null),
-            isDownloading: false
+            isDownloading: false,
+            isSyncing: false
         }
     }
 
@@ -30,12 +31,16 @@ export default class ShipCrewScreen extends React.Component {
         this.setState({
             isDownloading: true
         }, () => this.props.screenProps.downloadTracks(this.state.shipId))
+        setTimeout(() => this.setState({isDownloading: false}), 3000)
     }
 
-    stopDownload = () => {
-        this.setState({
-            isDownloading: false
+    requestSync = () => {
+        this.setState({isSyncing: true}, () => {
+
+            //SYNC REQUEST CODE GOES HERE
+
         })
+        setTimeout(() => this.setState({isSyncing: false}), 3000)
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -84,28 +89,25 @@ export default class ShipCrewScreen extends React.Component {
 
                             <View style={Styles.NowPlayingCrew}>
                             <Player1 MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                                { this.state.isDownloading ? (
-                                    <TouchableOpacity
-                                        style={Styles.DownloadButton}
-                                        onPress={this.stopDownload}>
-                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
-                                                STOP
-                                            </Text>
-                                        </TouchableOpacity>
-                                    ) : (
-
+                                { this.state.isDownloading ?  <ActivityIndicator /> : (
                                         <TouchableOpacity
-                                        style={Styles.DownloadButton}
-
                                         onPress={this.download}>
-                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
+                                            <Text>
                                                 DOWNLOAD
                                             </Text>
                                         </TouchableOpacity>
                                     )
                                 }
+                                { this.state.isSyncing ? <ActivityIndicator /> : (
+                                        <TouchableOpacity
+                                            onPress={this.requestSync}>
+                                            <Text>
+                                                REQUEST SYNC
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                }
                             </View>
-
                             <View style={Styles.Playlist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                                 <View style={Styles.TrackListContainer}>

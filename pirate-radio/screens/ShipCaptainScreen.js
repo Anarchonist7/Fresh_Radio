@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import Styles from '../assets/styles/AppStyles';
 
@@ -19,13 +19,34 @@ export default class ShipCaptainScreen extends React.Component {
 
     constructor(props){
         super(props)
+        this.state = {
+            isDownloading: false,
+            isSyncing: false
+        }
         // accounted = account(props.screenProps.ship, props.screenProps.tracks)
+    }
+
+    download = () => {
+        this.setState({
+            isDownloading: true
+        }, () => this.props.screenProps.downloadTracks(this.state.shipId))
+        setTimeout(() => this.setState({isDownloading: false}), 3000)
+    }
+
+    crewSync = () => {
+        this.setState({isSyncing: true}, () => {
+
+            //SYNC THE CREW CODE GOES HERE
+
+        })
+        setTimeout(() => this.setState({isSyncing: false}), 3000)
     }
 
     componentDidMount(){
         const shipId = this.props.navigation.getParam('shipId', null);
         this.props.screenProps.loadShip(shipId).then(() => {
-            this.props.screenProps.downloadTracks(shipId)
+            this.props.screenProps.loadTracks().then(() => {
+            })
         })
     }
     
@@ -55,6 +76,24 @@ export default class ShipCaptainScreen extends React.Component {
 
                         <View style={Styles.NowPlayingCaptain}>
                             <Player MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                { this.state.isDownloading ?  <ActivityIndicator /> : (
+                                            <TouchableOpacity
+                                            onPress={this.download}>
+                                                <Text>
+                                                    DOWNLOAD
+                                                </Text>
+                                            </TouchableOpacity>
+                                        )
+                                    }
+                                    { this.state.isSyncing ? <ActivityIndicator /> : (
+                                            <TouchableOpacity
+                                                onPress={this.crewSync}>
+                                                <Text>
+                                                    REQUEST SYNC
+                                                </Text>
+                                            </TouchableOpacity>
+                                        )
+                                    }
                         </View>
 
                         <View style={Styles.Playlist}>
