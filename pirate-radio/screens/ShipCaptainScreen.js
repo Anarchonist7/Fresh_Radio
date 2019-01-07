@@ -20,7 +20,8 @@ export default class ShipCaptainScreen extends React.Component {
         super(props)
         this.state = {
             isDownloading: false,
-            isSyncing: false
+            isSyncing: false,
+            request: false
         }
         // accounted = account(props.screenProps.ship, props.screenProps.tracks)
     }
@@ -61,12 +62,19 @@ export default class ShipCaptainScreen extends React.Component {
         })
     }
 
-    componentDidUpdate(){
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", this.state.isSyncing);
-    }
-
     render() {
         const {ship, tracks, captain} = this.props.screenProps;
+        if (this.props.screenProps.request === true && this.state.request === false) {
+            console.log('request made!');
+            this.setState({
+                request: true
+            })
+        } else if (this.props.screenProps.request === false && this.state.request === true) {
+            console.log('request satisfied!');
+            this.setState({
+                request: false
+            })
+        }
         if (this.props.screenProps.shipLoading){
             return <SeaBackground />
         } else {
@@ -82,7 +90,7 @@ export default class ShipCaptainScreen extends React.Component {
 
                         <View style={Styles.NowPlayingCaptain}>
 
-                            <Player syncFalse={this.syncFalse} syncTrue={this.syncTrue} isSyncing={this.state.isSyncing} count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player resetReq={this.props.screenProps.resetReq} syncFalse={this.syncFalse} syncTrue={this.syncTrue} isSyncing={this.state.isSyncing} count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ?  <ActivityIndicator /> : (
                                             <TouchableOpacity
                                             onPress={this.download}>

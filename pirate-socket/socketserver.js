@@ -29,6 +29,9 @@ websocket.on('connection', (socket) => {
     } else if (data.content === 'avast!') {
       console.log('walk the plank ye scurvy dawg!');
       websocket.send(JSON.stringify({type: 'count', content: 'avast!'}));
+    } else if (data.content === 'request') {
+      console.log('arrr requesting sync mr.captain!');
+      websocket.send(JSON.stringify({type: 'request', content: 'request'}));
     }
   });
 });
