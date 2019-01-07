@@ -84,7 +84,7 @@ export default class ShipCaptainScreen extends React.Component {
                                             <TouchableOpacity
                                                 onPress={this.crewSync}>
                                                 <Text>
-                                                    REQUEST SYNC
+                                                    SYNC CREW
                                                 </Text>
                                             </TouchableOpacity>
                                         )
