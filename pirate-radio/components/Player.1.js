@@ -221,7 +221,7 @@ export default class Player extends Component {
         this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
       })}, 3000 - (Date.now() - this.props.ST))
-    } else if (!this.props.paused && this.state.paused) {
+    } else if (this.props.paused === false && this.state.paused) {
       this.setState({paused: false});
       console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
