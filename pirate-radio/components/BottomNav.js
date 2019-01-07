@@ -35,7 +35,7 @@ export class BottomNav extends React.Component {
                     <TouchableOpacity 
                         style={[Styles.BottomNavBackContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                         onPress={() => { this.props.navigation.goBack() }}>
-                            <Text style={Styles.BottomNavTextPirate}>
+                            <Text style={Styles.SmallTextPirate}>
                                 <Ionicons name='md-arrow-round-back' style={ Styles.BottomNavBackIcon }/> BAcK
                             </Text>
                     </TouchableOpacity>
@@ -43,7 +43,7 @@ export class BottomNav extends React.Component {
                                 <TouchableOpacity 
                                 style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.unmute}>
-                                    <Text style={[Styles.BottomNavTextPirate, {textAlign: 'right'}]}>
+                                    <Text style={[Styles.SmallTextPirate, {textAlign: 'right'}]}>
                                         UNMUTE <Feather name='volume-2' style={Styles.BottomNavVolumeIcon}/>
                                     </Text>
                                 </TouchableOpacity>
@@ -51,7 +51,7 @@ export class BottomNav extends React.Component {
                                 <TouchableOpacity 
                                 style={[Styles.BottomNavVolumeContainer, Platform.OS === 'ios' ? (Styles.BottomNavButtonContainerIOS) : (Styles.BottomNavButtonContainerAndroid) ]} 
                                 onPress={this.mute}>
-                                    <Text style={[Styles.BottomNavTextPirate, {textAlign: 'right'}]}>
+                                    <Text style={[Styles.SmallTextPirate, {textAlign: 'right'}]}>
                                         MUTE <Feather name='volume-x' style={Styles.BottomNavVolumeIcon}/>
                                     </Text>
                                 </TouchableOpacity>

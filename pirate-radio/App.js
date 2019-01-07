@@ -13,7 +13,7 @@ import Listener from './components/Listener';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 const { width, height } = Dimensions.get('window');
-const rem = height > 500 ? 18 : 12;
+const rem = height/width > 2 ? 20 : 14;
 
 EStyleSheet.build({
   $rem: rem

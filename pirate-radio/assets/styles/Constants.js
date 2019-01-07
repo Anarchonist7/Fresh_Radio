@@ -15,21 +15,38 @@ export const allHeaders = {
     backgroundColor: greyBg,
     borderRadius: 15,
 }
+
 export const nowPlaying = {
     alignSelf: 'center',
     justifyContent: 'flex-start',
     width: width * 0.95,
     marginTop: '0.15rem',
-    paddingTop: '2rem',
+    paddingTop: '1rem',
     paddingHorizontal: '0.6rem',
     backgroundColor: greyBg,
     borderRadius: 15,
 }
+
+export const allPlaylists = {
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
+    width: '95%',
+    marginTop: '0.3rem',
+    paddingTop: '0.5rem',
+    backgroundColor: greyBg,
+    borderRadius: 15,
+}
+
 export const normalFont = {
     fontFamily: 'Times New Roman',
     color: 'white',
 }
 export const pirateFont = {
     fontFamily: 'BlackPearl',
+    color: 'white',
+}
+
+export const trackFont = {
+    fontFamily: 'Helvetica',
     color: 'white',
 }

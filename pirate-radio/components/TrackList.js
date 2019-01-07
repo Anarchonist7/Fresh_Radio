@@ -34,7 +34,7 @@ export default class TrackList extends React.Component {
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
                             <Text style={Styles.MediumTextNormal}>
-                                <SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/>
+                                <SimpleLineIcons style={Styles.TinyIcon} name="anchor"/>
                                 {track.title}
                             </Text>
                         </View>

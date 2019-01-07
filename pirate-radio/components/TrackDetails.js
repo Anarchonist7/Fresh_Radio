@@ -29,28 +29,18 @@ const TrackDetails = ({
   onArtistPress,
 }) => (
   <View style={Styles.TrackDetailsContainer}>
-    {/* <TouchableOpacity onPress={onAddPress}>
-      <Image style={Styles.TrackDetailsButton}
-        source={require('../img/ic_add_circle_outline_white.png')} />
-    </TouchableOpacity> */}
     <View style={Styles.TrackDetailsSongInfo}>
       <TextTicker duration={8000} style={Styles.TrackDetailsTickerText} marqueeOnMount loop bounce>{title}</TextTicker>
-      <Text style={Styles.TrackDetailsAlbumText}>{album}</Text>
-      <Text style={Styles.TrackDetailsArtistText} onPress={onArtistPress}>{artist}</Text>
+      <Text style={Styles.TrackDetailsText}>{album}</Text>
+      <Text style={Styles.TrackDetailsText} onPress={onArtistPress}>{artist}</Text>
     </View>
-    <View>
+    <View style={Styles.TrackDetailsShipIconContainer}>
       {paused ? (
         <Image source={PirateShipPNG} style={Styles.PirateShipIcon} />
       ) : (
         <Image source={PirateShipGIF} style={Styles.PirateShipIcon} />
       )}
     </View>
-    {/* <TouchableOpacity onPress={onMorePress}>
-      <View style={Styles.TrackDetailsMoreButton}>
-        <Image style={Styles.TrackDetailsMoreButtonIcon}
-          source={require('../img/ic_more_horiz_white.png')} />
-      </View>
-    </TouchableOpacity> */}
   </View>
 );
 

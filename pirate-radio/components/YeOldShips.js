@@ -34,7 +34,7 @@ export default class YeOldShips extends React.Component {
                     }}>
                     <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}>
-                            <Image source={PiratePNG} style={Styles.CaptainIconSmall}/> { result.name }
+                            <Image source={PiratePNG} style={Styles.SmallIcon}/> { result.name }
                         </Text>
                         <Text style={[Styles.SmallTextNormal, {paddingTop: 4}]}>
                             Tracks: //Count

@@ -10,7 +10,9 @@ import LandingScreen from '../screens/LandingScreen'
 import Player from '../components/Player';
 import TrackList from '../components/TrackList';
 import { account } from '../components/functions';
+
 import TextTicker from 'react-native-text-ticker'
+import { Ionicons, Feather } from '@expo/vector-icons';
 
 
 export default class ShipCaptainScreen extends React.Component {
@@ -55,7 +57,7 @@ export default class ShipCaptainScreen extends React.Component {
     }
 
     render() {
-        const {ship, tracks, captain} = this.props.screenProps;
+        const {ship, tracks, captain, count } = this.props.screenProps;
         if (this.props.screenProps.shipLoading){
             return <SeaBackground />
         } else {
@@ -63,41 +65,54 @@ export default class ShipCaptainScreen extends React.Component {
                 <SeaBackground>
                     <View style={Styles.Boxes}>
                         <View style={Styles.ShipHeader}>
-                            {/* <Text> */}
-                            <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
-                            <View style={Styles.ShipHeaderTickerContainer}>
+                            <Image source={PiratePNG} style={ Styles.MediumIcon } />
+                            <View style={Styles.CaptainHeaderTickerContainer}>
                                 <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
-                                    {this.props.screenProps.captain.captainName}
+                                    {captain.captainName}
                                 </TextTicker>
                             </View>
-                                {/* <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text> */}
-                            {/* </Text> */}
+                            <Text style={Styles.CaptainHeaderText}>
+                                {count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
+                            </Text>
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>
-
-                            <Player count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                                { this.state.isDownloading ?  <ActivityIndicator /> : (
+                            <Player 
+                            count={this.props.screenProps.count} 
+                            MS={this.props.screenProps.MS} 
+                            currentTrack={this.props.screenProps.currentTrack} 
+                            ship={ship} tracks={tracks} 
+                            sendMessage={this.props.screenProps.sendMessage} 
+                            isMuted={this.props.screenProps.isMuted} 
+                            paused={this.props.screenProps.paused} 
+                            CT={this.props.screenProps.CT} 
+                            ST={this.props.screenProps.ST} 
+                            updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                <View style={Styles.NowPlayingButtonsContainer}>
+                                    { this.state.isDownloading ?  <ActivityIndicator style={Styles.DownloadButton}/> : (
                                             <TouchableOpacity
-                                            onPress={this.download}>
-                                                <Text>
+                                            onPress={this.download}
+                                            style={Styles.DownloadButton}>
+                                                <Text style={Styles.TinyTextPirate}>
                                                     DOWNLOAD
                                                 </Text>
                                             </TouchableOpacity>
                                         )
                                     }
-                                    { this.state.isSyncing ? <ActivityIndicator /> : (
+                                    { this.state.isSyncing ? <ActivityIndicator style={Styles.SyncButton}/> : (
                                             <TouchableOpacity
-                                                onPress={this.crewSync}>
-                                                <Text>
-                                                    REQUEST SYNC
+                                                onPress={this.requestSync}
+                                                style={Styles.SyncButton}>
+                                                <Text style={Styles.TinyTextPirate}>
+                                                    SYNc
                                                 </Text>
                                             </TouchableOpacity>
                                         )
                                     }
+                                </View>
                         </View>
 
-                        <View style={Styles.Playlist}>
+                        <View style={Styles.shipCaptainPlaylist}>
                             <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                             <ScrollView style={Styles.TrackListContainer}>
                                 <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
@@ -105,11 +120,11 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
                     </View>
                     <View style={Styles.Footer}>
-                    <BottomNav
-                        navigation={this.props.navigation}
-                        muteOrUnmute={this.props.screenProps.muteOrUnmute}
-                        resetMute={this.props.screenProps.resetMute}
-                        isMuted={this.props.screenProps.isMuted}/>
+                        <BottomNav
+                            navigation={this.props.navigation}
+                            muteOrUnmute={this.props.screenProps.muteOrUnmute}
+                            resetMute={this.props.screenProps.resetMute}
+                            isMuted={this.props.screenProps.isMuted}/>
                     </View>
                 </SeaBackground>
             )

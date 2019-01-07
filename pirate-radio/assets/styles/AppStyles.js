@@ -2,16 +2,31 @@
 
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont } from './Constants';
+import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont, trackFont, allPlaylists } from './Constants';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 const { width, height } = Dimensions.get('window');
 
 module.exports = EStyleSheet.create({
+    Boxes: {
+        height: height,
+        width: width,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignSelf: 'center',
+        marginTop: '10%'
+    },
+
     SpaceBetween: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+    },
+
+    ListenHostIcons: {
+        textAlign: 'center',
+        fontSize: '4rem',
+        color: 'white'
     },
 
     NewShipHeader: {
@@ -21,6 +36,8 @@ module.exports = EStyleSheet.create({
 
     ShipHeader: {
         ...allHeaders,
+        paddingLeft: '0.5rem',
+        paddingRight: '2rem',
         justifyContent: 'space-between',
     },
 
@@ -51,23 +68,13 @@ module.exports = EStyleSheet.create({
         backgroundColor: 'black'
     },
 
-    Boxes: {
-        height: '100%',
-        width: '100%',
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignSelf: 'center',
-        marginTop: '10%'
-    },
-
     Search: {
         paddingHorizontal: 10,
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'center',
         width: '95%',
-        height: '10%',
+        height: height * 0.10,
         backgroundColor: greyBg,
         borderRadius: 15,
     },
@@ -133,11 +140,11 @@ module.exports = EStyleSheet.create({
     },
 
     ShipFormButtonText: {
-        fontFamily: 'Times New Roman',
+        ...normalFont,
         fontSize: '1rem',
     },
 
-    ShipFormButtonIcon: {
+    StandardText: {
         fontSize: '1rem',
     },
 
@@ -173,7 +180,7 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: '44%',
+        height: height * 0.42,
         marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
@@ -206,7 +213,7 @@ module.exports = EStyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         width: '95%',
-        height: '35%',
+        height: height * 0.30,
         paddingTop: '0.5rem',
         marginTop: '0.15rem',
         backgroundColor: greyBg,
@@ -222,83 +229,66 @@ module.exports = EStyleSheet.create({
     
     NowPlayingCrew: {
         ...nowPlaying,
-        // height: 220,
-        height: height * 0.4,
+        height: height * 0.32,
     },
 
     NowPlayingCaptain: {
         ...nowPlaying,
-        // height: 280,
-        height: height * 0.32,
+        height: height * 0.39,
     },
 
     TrackDetailsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingLeft: '2rem',
-        paddingRight: '1rem',
+        height: '7rem',
         width: '100%',
+        overflow: 'hidden',
     },
-
+    
     TrackDetailsSongInfo: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: '2.8rem',
-        width: '50%',
+        height: '100%',
+        width: '55%',
+        marginHorizontal: '0.5rem',
+        // backgroundColor: 'blue',
+    },
+    
+    TrackDetailsShipIconContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        width: '45%',
+        paddingTop: '1rem',
+        // backgroundColor: 'red',
     },
     
     TrackDetailsTickerText: {
-        fontSize: '1.33rem',
-        textAlign: 'center',
-        alignSelf: 'center',
+        ...trackFont,
+        fontSize: '1.4rem',
         fontWeight: 'bold',
-        color: 'white',
     },
 
-    TrackDetailsArtistText: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        // width: 200,
-        textAlign: 'center',
-        fontSize: '1rem',
-        marginTop: 4,
-    },
-
-    TrackDetailsAlbumText: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        // width: 200,
-        textAlign: 'center',
-        fontSize: 14,
-        marginTop: 4,
+    TrackDetailsText: {
+        ...trackFont,
+        fontSize: '1.2rem',
+        marginTop: '0.1rem',
+        opacity: 0.72,
     },
 
     TrackDetailsButton: {
         opacity: 0.72,
     },
 
-    TrackDetailsMoreButton: {
-        borderColor: 'rgb(255, 255, 255)',
-        borderWidth: 2,
-        opacity: 0.72,
-        borderRadius: 10,
-        width: 20,
-        height: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    
-    TrackDetailsMoreButtonIcon: {
-        height: 17,
-        width: 17,
+    SeekBarContainer: {
+        height: '1.5rem',
+        width: '100%',
+        marginBottom: '1rem',
     },
 
     SeekBarSlider: {
         marginTop: -12,
-    },
-
-    SeekBarContainer: {
-        // paddingHorizontal: '1rem',
-        width: '100%',
-        paddingTop: 16,
     },
 
     SeekBarTrack: {
@@ -314,31 +304,60 @@ module.exports = EStyleSheet.create({
     },
 
     SeekBarText: {
-        color: 'rgba(255, 255, 255, 0.72)',
-        // adjustsFontSizeToFit: true,
+        ...trackFont,
+        opacity: 0.72,
         fontSize: '0.75rem',
         textAlign:'center',
         width: '2.5rem',
+    },
+
+    ControlsContainer: {
+        height: '3rem',
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    ControlPlayIcons: {
+        height: '2.5rem',
+        width: '2.5rem',
+    },
+
+    ControlSeekIcons: {
+        height: '2rem',
+        width: '2rem',
+    },
+
+    ControlsOff: {
+        opacity: 0.30,
+    },
+
+    NowPlayingButtonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        height: '2.5rem',
     },
 
     DownloadButton: {
         backgroundColor: buttonBlue,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '6rem',
-        height: '1.5rem',
+        width: '40%',
+        height: '1.6rem',
         marginLeft: '0.5rem',
-        borderRadius: 15,
+        borderRadius: 20,
     },
 
     SyncButton: {
         backgroundColor: buttonBlue,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '8rem',
-        width: '1.5rem',
+        width: '40%',
+        height: '1.6rem',
         marginRight: '0.5rem',
-        borderRadius: 15,
+        borderRadius: 20,
     },
 
     // !!!! END OF SHIP PAGES
@@ -355,16 +374,14 @@ module.exports = EStyleSheet.create({
         borderRadius: 5,
     },
 
-    Playlist: {
-        alignSelf: 'center',
-        justifyContent: 'flex-start',
-        width: '95%',
-        height: '39%',
-        height: height * 0.30,
-        marginTop: '0.3rem',
-        paddingTop: '0.5rem',
-        backgroundColor: greyBg,
-        borderRadius: 15,
+    shipCaptainPlaylist: {
+        ...allPlaylists,
+        height: height * 0.33,
+    },
+
+    shipCrewPlaylist: {
+        ...allPlaylists,
+        height: height * 0.40,
     },
 
     TrackListContainer: {
@@ -442,15 +459,98 @@ module.exports = EStyleSheet.create({
         fontSize: '1rem',
     },
 
+    TinyTextPirate: {
+        ...pirateFont,
+        fontSize: '0.75rem',
+    },
+
     TinyTextNormal: {
         ...normalFont,
         fontSize: '0.75rem',
     },
-
-    BottomNavTextPirate: {
-        ...pirateFont,
-        fontSize: '1.1rem',
+    
+    MediumIcon: {
+        width: '1.5rem',
+        height: '1.5rem',
     },
+    
+    SmallIcon: {
+        width: '1.0rem',
+        height: '1.0rem',
+    },
+    
+    TinyIcon: {
+        color: 'white',
+        fontSize: '0.85rem',
+    },
+
+    LogoutIcon: {
+        marginTop: '0.25rem',
+        marginRight: '1rem',
+        fontSize: '1.55rem',
+        color: 'white',
+    },
+    
+    PirateShipIcon: {
+        flex: 0.65,
+        aspectRatio: 1/1,
+        position: 'relative',
+        bottom: '1rem',
+    },
+
+    TinyIcon: {
+        width: '0.8rem',
+        height: '0.8rem',
+    },
+
+    container: {
+        flex: 1,
+        backgroundColor: 'rgb(4,4,4)',
+    },
+
+    audioElement: {
+        height: 0,
+        width: 0,
+    },
+
+    SignInContainer: {
+        width: '92%',
+        height: '82%',
+        position: 'relative',
+        top: '5%',
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.84)',
+    },
+
+    SignInInput: {
+        width: 200,
+        height: 44,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: 'black',
+        marginBottom: 10,
+        backgroundColor: 'white',
+    },
+
+    SignInLogin: {
+        width: 105,
+        height: 30,
+        padding: 5,
+        borderWidth: 1,
+        borderRadius: 60,
+        borderColor: 'black',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'mediumslateblue',
+    },
+      
+    SignInLoginText: {
+        fontSize: 15,
+    },
+
+    // Footer begins here!!!!
 
     Footer: {
         height: height * 0.14,
@@ -504,129 +604,5 @@ module.exports = EStyleSheet.create({
         fontSize: '1.15rem',
     },
 
-    ListenHostIcons: {
-        textAlign: 'center',
-        fontSize: '4rem',
-        color: 'white'
-    },
-
-    SmallWhiteIcon: {
-        color: 'white',
-        fontSize: '0.85rem',
-    },
-
-    CaptainIconMedium: {
-        width: '2rem',
-        height: '2rem',
-    },
-
-    CaptainIconSmall: {
-        width: '1.0rem',
-        height: '1.0rem',
-    },
-
-    LogoutIcon: {
-        marginTop: 3,
-        fontSize: '1.55rem',
-        marginBottom: 5,
-        marginRight: 15,
-        color: 'white',
-    },
-    
-    PirateShipIcon: {
-        width: '4.4rem',
-        height: '4.4rem',
-        marginRight: 10,
-        position: 'relative',
-        bottom: 15,
-    },
-
-    PirateWheelIconMedium: {
-        width: 25,
-        height: 25,
-    },
-
-    PirateShipIconSmall: {
-        width: 20,
-        height: 20,
-    },
-
-    PirateShipIconTiny: {
-        width: 15,
-        height: 15,
-    },
-
-    container: {
-        flex: 1,
-        backgroundColor: 'rgb(4,4,4)',
-    },
-
-    audioElement: {
-        height: 0,
-        width: 0,
-    },
-
-    SignInContainer: {
-        width: '92%',
-        height: '82%',
-        position: 'relative',
-        top: '5%',
-        alignItems: 'center',
-        alignSelf: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(0,0,0,0.84)',
-      },
-
-      SignInInput: {
-        width: 200,
-        height: 44,
-        padding: 10,
-        borderWidth: 1,
-        borderColor: 'black',
-        marginBottom: 10,
-        backgroundColor: 'white',
-      },
-
-      SignInLogin: {
-        width: 105,
-        height: 30,
-        padding: 5,
-        borderWidth: 1,
-        borderRadius: 60,
-        borderColor: 'black',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'mediumslateblue',
-      },
-      
-      SignInLoginText: {
-        fontSize: 15,
-      },
-
-      ControlsContainer: {
-        height: '15%',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 8,
-      },
-
-      ControlsPlayButton: {
-        height: 72,
-        width: 72,
-        borderWidth: 0,
-        borderColor: 'white',
-        borderRadius: 36,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-
-      ControlsSecondaryControl: {
-        height: 18,
-        width: 18,
-      },
-
-      ControlsOff: {
-        opacity: 0.30,
-      },
+    // !!!! Footer ends here
 })

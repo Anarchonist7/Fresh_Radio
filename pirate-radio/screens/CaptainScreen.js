@@ -92,7 +92,7 @@ export default class CaptainScreen extends React.Component {
             <SeaBackground >
                 <View style={Styles.Boxes}>
                     <View style={Styles.CaptainHeader}>
-                        <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
+                        <Image source={PiratePNG} style={Styles.MediumIcon}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
                         
                             <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
@@ -105,7 +105,7 @@ export default class CaptainScreen extends React.Component {
                     <View style={Styles.NewShip}>
                         <View style={Styles.NewShipHeader}>
                             <Text style={Styles.MediumTextPirate}>
-                                Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateWheelIconMedium} />
+                                Create New Ship <Image source={ShipWheelPNG} style={Styles.MediumIcon} />
                             </Text>
                         </View>
                         <View style={Styles.ShipFormContainer}>
@@ -138,7 +138,7 @@ export default class CaptainScreen extends React.Component {
                                 onChangeText = {this.handleShipImagePath}/>
                             <TouchableOpacity style={Styles.ShipFormButton} onPress={this.ShipFormSubmit}>
                                 <Text style={Styles.ShipFormButtonText}>
-                                    Launch  <AntDesign name='sound' style={Styles.ShipFormButtonIcon}/>
+                                    Launch  <AntDesign name='sound' style={Styles.StandardText}/>
                                 </Text>
                             </TouchableOpacity>
                         </View>
