@@ -1,9 +1,8 @@
-./simplerserver/node_modules/**/*
-./pirate-radio/node_modules/**/*
-./pirate-socket/node_modules/**/*
-./simplerserver/.env
-./pirate-radio/.env
-./pirate-socket/.env
+/simplerserver/node_modules/**/*
+/pirate-radio/node_modules/**/*
+/pirate-socket/node_modules/**/*
+/*/node_modules
+/simplerserver/.env
 ./pirate-radio/expo/*
 npm-debug.*
 *.jks
@@ -11,4 +10,5 @@ npm-debug.*
 *.key
 *.mobileprovision
 .env
-./node_modules
+/pirate-radio/env.js
+/simplerserver/.env

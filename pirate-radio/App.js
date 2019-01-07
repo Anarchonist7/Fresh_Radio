@@ -10,17 +10,15 @@ import shorthash from 'shorthash'
 import Listener from './components/Listener';
 // import Player from './components/Player';
 
-//THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
-const ENV = process.env.ENV || "development";
-const PORT = process.env.PORT || 8080;
-
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64';
+import ENV from './../env'
+const PORT = ENV.REST_PORT || 8080;
+const LOCALHOST = ENV.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://192.168.1.64:3003');
+    this.socket = SocketIOClient(LOCALHOST + ':' + ENV.SOCKET_PORT);
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -41,11 +39,11 @@ export default class App extends Component {
     };
   }
 
-  shipRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/1';
-  shipQueryRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/';
-  captainIdRequest = 'http://192.168.1.64' + ':' + PORT + '/captain/find/';
-  captainRequest = 'http://192.168.1.64' + ':' + PORT + '/captain/';
-  createNewShipRequest = 'http://192.168.1.64' + ':' + PORT + '/captains/:id/ships';
+  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
+  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
+  captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
+  captainRequest = LOCALHOST + ':' + PORT + '/captain/';
+  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message, time, MS) => {
     console.log('------message: ', message, time)
