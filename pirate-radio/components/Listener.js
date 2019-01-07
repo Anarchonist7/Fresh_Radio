@@ -110,12 +110,12 @@ export default class Listener extends Component {
         })
       }))
     }
-    
+
     if (this.props.isMuted !== prevProps.isMuted) {
       if (prevProps.isMuted){
         this.state.player.setIsMutedAsync(0.0)
       } else {
-        this.state.player.setIsMutedAsync(1.0)        
+        this.state.player.setIsMutedAsync(1.0)
       }
       // this.state.player.soundObject.setIsMutedAsync(!prevProps.isMuted)
     }
@@ -129,12 +129,16 @@ export default class Listener extends Component {
     const totalLength = Math.floor(this.state.totalLength / 1000);
     console.log('Selected track has a title of: ', track.title)
 
-    if (this.props.paused && this.state.paused === false) {
+     if (this.props.paused && this.state.paused === false) {
+          console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+
       this.setState({paused: true});
-      this.state.player.pauseAsync();
+      setTimeout(() => {this.state.player.pauseAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
+                console.log('---this the lag!: ', ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
+
       this.setState({paused: false});
-      this.state.player.playAsync();
+      setTimeout(() => {this.state.player.playAsync();}, 500 - ((Date.now() - this.props.CT) / 2) + (Date.now() - this.props.ST))
     }
     return (
       <View>

@@ -19,17 +19,19 @@ EStyleSheet.build({
   $rem: rem
 });
 
-//THESE ARE NOT WORKING......... all get || used   TODO: impliment env in react native
-const ENV = process.env.ENV || "development";
-const PORT = process.env.PORT || 8080;
-
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.92';
+import ENV from './env'
+const PORT = ENV.REST_PORT || 8080;
+const LOCALHOST = ENV.LOCALHOST || 'http://localhost';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
+<<<<<<< HEAD
     this.socket = SocketIOClient('http://192.168.1.92:3003');
+=======
+    this.socket = SocketIOClient(LOCALHOST + ':' + ENV.SOCKET_PORT);
+>>>>>>> master
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -56,9 +58,9 @@ export default class App extends Component {
   captainRequest = LOCALHOST + ':' + PORT + '/captain/';
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
-  sendMessage = (message) => {
-    console.log('------message: ', message)
-    this.socket.send(JSON.stringify({type: 'message', content: message}));
+  sendMessage = (message, time, MS) => {
+    console.log('------message: ', message, time)
+    this.socket.send(JSON.stringify({type: 'message', content: message, time: time, MS: MS || 0}));
   }
 
   downloadTrack = (index) => {
@@ -233,6 +235,12 @@ export default class App extends Component {
         }
       })
     })
+    if (this.state.currentTrack !== this.state.ship.currentTrack) {
+      console.log('--------------------MISMATCH!!!!!!')
+      // this.setState({
+      //     currentTrack: this.state.ship.currentTrack
+      // })
+    }
   }
 
   getCaptain = (id) => {
@@ -320,9 +328,22 @@ export default class App extends Component {
     console.log('------!! component is mountin in app.js!')
     this.socket.on('message', (message) => {
        console.log('heres my message back from socket: ', message);
-       this.setState({
-         paused: JSON.parse(message).content
-       })
+       let data = JSON.parse(message);
+       if (data.type === 'message') {
+         this.setState({
+           paused: data.content,
+           CT: data.CT,
+           ST: data.ST,
+           MS: data.MS || 0
+         })
+       } else if (data.type === 'next') {
+         this.setState({
+          ship: {
+              ...this.state.ship,
+              currentTrack: data.content
+            }
+         })
+       }
     });
 
     Font.loadAsync({
@@ -364,6 +385,16 @@ export default class App extends Component {
       tracks: this.state.tracks,
       updateCurrentTrack: this.updateCurrentTrack,
       updateShip: this.updateShip,
+      getShip: this.getShip,
+      shipLoading: this.state.shipLoading,
+      sendMessage: this.sendMessage,
+      paused: this.state.paused,
+      muteOrUnmute: this.muteOrUnmute,
+      resetMute: this.resetMute,
+      isMuted: this.state.isMuted,
+      CT: this.state.CT,
+      ST: this.state.ST,
+      MS: this.state.MS
     }
 
 

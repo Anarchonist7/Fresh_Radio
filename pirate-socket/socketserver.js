@@ -6,26 +6,24 @@ var socketio = require('socket.io');
 var app = express();
 var server = http.Server(app);
 var websocket = socketio(server);
-
 server.listen(3003, () => console.log('listening on *:3003'));
- 
-// The event will be called when a client is connected.
 
+// The event will be called when a client is connected.
 
 websocket.on('connection', (socket) => {
   console.log('A client just joined on', socket.id);
 
-
   socket.on('message', (message) => {
-  // Save the message document in the `messages` collection.
     data = JSON.parse(message);
     if (data.content === 'play') {
       console.log('playing');
-      websocket.send(JSON.stringify({type: 'message', content: false}));
+      websocket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
     } else if (data.content === 'pause') {
       console.log('pausing');
-      websocket.send(JSON.stringify({type: 'message', content: true}));
+      websocket.send(JSON.stringify({type: 'message', content: true, MS: data.MS, CT: data.time, ST: Date.now()}));
+    } else if (!isNaN(data.content)) {
+      console.log('moving');
+      websocket.send(JSON.stringify({type: 'next', content: data.content}));
     }
-
   });
 });

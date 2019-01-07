@@ -22,13 +22,17 @@ export const loadTrack = async (context) => {
 
 export function seek(time) {
     console.log('|---> seekTime triggered: ', time)
+    this.state.player.setIsMutedAsync(1.0)
     time = Math.round(time);
     this.refs.audioElement && this.refs.audioElement.seek(time);
     this.state.player.setPositionAsync(time * 1000);
     this.setState({
       currentPosition: time,
       paused: false
-    }), () => this.state.player.playAsync();
+    }, () => {
+      this.props.sendMessage('pause', Date.now(), time * 1000);
+      setTimeout(() => {this.props.sendMessage('play', Date.now());}, 4000)
+    })
   }
 
 export function onBack() {
