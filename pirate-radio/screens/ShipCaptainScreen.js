@@ -50,7 +50,7 @@ export default class ShipCaptainScreen extends React.Component {
         console.log('APPPPPPPPERRREEENTLY NOOOOOOOT')
         this.setState({isSyncing: true})
     }
-    
+
 
     syncFalse = () => {
         this.setState({
@@ -99,21 +99,21 @@ export default class ShipCaptainScreen extends React.Component {
 
                         <View style={Styles.NowPlayingCaptain}>
 
-                            <Player 
-                            resetReq={this.props.screenProps.resetReq} 
-                            syncFalse={this.syncFalse} 
-                            syncTrue={this.syncTrue} 
-                            isSyncing={this.state.isSyncing} 
-                            count={this.props.screenProps.count} 
-                            MS={this.props.screenProps.MS} 
-                            currentTrack={this.props.screenProps.currentTrack} 
-                            ship={ship} 
-                            tracks={tracks} 
-                            sendMessage={this.props.screenProps.sendMessage} 
-                            isMuted={this.props.screenProps.isMuted} 
-                            paused={this.props.screenProps.paused} 
-                            CT={this.props.screenProps.CT} 
-                            ST={this.props.screenProps.ST} 
+                            <Player
+                            resetReq={this.props.screenProps.resetReq}
+                            syncFalse={this.syncFalse}
+                            syncTrue={this.syncTrue}
+                            isSyncing={this.state.isSyncing}
+                            count={this.props.screenProps.count}
+                            MS={this.props.screenProps.MS}
+                            currentTrack={this.props.screenProps.currentTrack}
+                            ship={ship}
+                            tracks={tracks}
+                            sendMessage={this.props.screenProps.sendMessage}
+                            isMuted={this.props.screenProps.isMuted}
+                            paused={this.props.screenProps.paused}
+                            CT={this.props.screenProps.CT}
+                            ST={this.props.screenProps.ST}
                             updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 <View style={Styles.NowPlayingButtonsContainer}>
                                     { this.state.isDownloading ?  <ActivityIndicator style={Styles.DownloadButton}/> : (
@@ -128,7 +128,7 @@ export default class ShipCaptainScreen extends React.Component {
                                     }
                                     { this.state.isSyncing ? <ActivityIndicator style={Styles.SyncButton}/> : (
                                             <TouchableOpacity
-                                                onPress={this.requestSync}
+                                                onPress={this.crewSync}
                                                 style={Styles.SyncButton}>
                                                 <Text style={Styles.TinyTextPirate}>
                                                     SYNc
