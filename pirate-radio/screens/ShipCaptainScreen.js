@@ -34,11 +34,17 @@ export default class ShipCaptainScreen extends React.Component {
 
     crewSync = () => {
         this.setState({isSyncing: true}, () => {
-
-            //SYNC THE CREW CODE GOES HERE
-
+            this.props.screenProps.sendMessage('pause', Date.now(), this.props.screenProps.ship.currentPositionMillis)
+            setTimeout(() => {
+                this.props.screenProps.sendMessage('play', Date.now());
+            }, 4500)
         })
-        setTimeout(() => this.setState({isSyncing: false}), 3000)
+    }
+
+    syncFalse = () => {
+        this.setState({
+            isSyncing: false
+        })
     }
 
     componentDidMount(){
@@ -70,7 +76,7 @@ export default class ShipCaptainScreen extends React.Component {
 
                         <View style={Styles.NowPlayingCaptain}>
 
-                            <Player count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player syncFalse={this.syncFalse} count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ?  <ActivityIndicator /> : (
                                             <TouchableOpacity
                                             onPress={this.download}>

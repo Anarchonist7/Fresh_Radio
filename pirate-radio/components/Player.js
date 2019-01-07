@@ -232,7 +232,8 @@ export default class Player extends Component {
       console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
           this.state.player.playAsync();
-          this.state.player.setIsMutedAsync(0.0)
+          this.state.player.setIsMutedAsync(0.0);
+          this.props.syncFalse();
       }, 3000 - (Date.now() - this.props.ST))
     }
     return (

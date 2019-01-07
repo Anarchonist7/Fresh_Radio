@@ -15,10 +15,10 @@ websocket.on('connection', (socket) => {
   socket.on('message', (message) => {
     data = JSON.parse(message);
     if (data.content === 'play') {
-      console.log('playing');
+      console.log('playing', Date.now());
       websocket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
     } else if (data.content === 'pause') {
-      console.log('pausing');
+      console.log('pausing', Date.now());
       websocket.send(JSON.stringify({type: 'message', content: true, MS: data.MS, CT: data.time, ST: Date.now()}));
     } else if (!isNaN(data.content)) {
       console.log('moving');
