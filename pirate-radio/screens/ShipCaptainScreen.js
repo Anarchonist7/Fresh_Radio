@@ -41,6 +41,12 @@ export default class ShipCaptainScreen extends React.Component {
         })
     }
 
+    syncTrue = () => {
+        console.log('APPPPPPPPERRREEENTLY NOOOOOOOT')
+        this.setState({isSyncing: true})
+    }
+    
+
     syncFalse = () => {
         this.setState({
             isSyncing: false
@@ -56,7 +62,7 @@ export default class ShipCaptainScreen extends React.Component {
     }
 
     componentDidUpdate(){
-        console.log("!!!!SHIPCAPNSCREENEEEDUBS!!!!!!", this.props.screenProps.ship.currentTrack);
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", this.state.isSyncing);
     }
 
     render() {
@@ -76,7 +82,7 @@ export default class ShipCaptainScreen extends React.Component {
 
                         <View style={Styles.NowPlayingCaptain}>
 
-                            <Player syncFalse={this.syncFalse} count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player syncFalse={this.syncFalse} syncTrue={this.syncTrue} isSyncing={this.state.isSyncing} count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ?  <ActivityIndicator /> : (
                                             <TouchableOpacity
                                             onPress={this.download}>

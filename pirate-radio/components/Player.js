@@ -10,17 +10,6 @@ import SeekBar from './SeekBar';
 import Controls from './Controls';
 import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate, account } from './functions';
 import Styles from '../assets/styles/AppStyles';
-import {
-  BallIndicator,
-  BarIndicator,
-  DotIndicator,
-  MaterialIndicator,
-  PacmanIndicator,
-  PulseIndicator,
-  SkypeIndicator,
-  UIActivityIndicator,
-  WaveIndicator
-} from 'react-native-indicators';
 
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -154,27 +143,32 @@ export default class Player extends Component {
     }
   }
 
-  controlLoading() {
-    this.setState({
-      forwardDisabled: true,
-      backDisabled: true,
-      playLoading: true,
-    })
-  }
+  // controlLoading() {
+  //   this.setState({
+  //     forwardDisabled: true,
+  //     backDisabled: true,
+  //     playLoading: true,
+  //   })
+  // }
 
-  resetControlLoading() {
-    this.setState({
-      forwardDisabled: false,
-      backDisabled: false,
-      playLoading: false,
-    })
-  }
+  // resetControlLoading() {
+  //   this.setState({
+  //     forwardDisabled: false,
+  //     backDisabled: false,
+  //     playLoading: false,
+  //   })
+  // }
 
   componentDidMount() {
     this.props.sendMessage('ahoy!', Date.now());
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // if (this.state.isSyncing !== prevProps.isSyncing && !this.props.isSyncing) {
+    //   this.resetControlLoading()
+    // }
+
+
     // console.log('-----component did update mahfka!!!')
     // if (this.props.paused) {
     //   console.log('we paused yo')
@@ -274,26 +268,26 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
             this.props.sendMessage('play', Date.now());
-            this.controlLoading()
+            this.props.syncTrue()
             }
           }
           onPressPause={() => {
             this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis);
-            this.controlLoading()
+            this.props.syncTrue()
             }
           }
           onBack={() => {
               this.props.sendMessage(this.state.selectedTrack - 1, Date.now());
-              this.controlLoading()
+              this.props.syncTrue()
             }
           }
           onForward={() => {
               this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
-              this.controlLoading()
+              this.props.syncTrue()
             }
           }
           paused={this.state.paused}
-          playLoading={this.state.playLoading}
+          playLoading={this.props.isSyncing}
           />
       </View>
     );
