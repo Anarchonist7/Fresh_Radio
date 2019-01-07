@@ -93,10 +93,10 @@ export default class CaptainScreen extends React.Component {
             <SeaBackground >
                 <View style={Styles.Boxes}>
                     <View style={Styles.CaptainHeader}>
-                        <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
+                        <Image source={PiratePNG} style={Styles.MediumIcon}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
-                        
-                            <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                    
+                            <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount={true}>
                                 {this.state.captain.name}
                             </TextTicker>
                         </View>
@@ -104,9 +104,11 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NewShip}>
-                        <Text style={Styles.MediumTextPirate}>
-                            Create New Ship <Image source={ShipWheelPNG} style={Styles.PirateWheelIconMedium} />
-                        </Text>
+                        <View style={Styles.NewShipHeader}>
+                            <Text style={Styles.MediumTextPirate}>
+                                Create New Ship <Image source={ShipWheelPNG} style={Styles.MediumIcon} />
+                            </Text>
+                        </View>
                         <View style={Styles.ShipFormContainer}>
                             <Text style={Styles.ShipFormLabelText}>Ship Name:</Text> 
                             <TextInput
@@ -137,7 +139,7 @@ export default class CaptainScreen extends React.Component {
                                 onChangeText = {this.handleShipImagePath}/>
                             <TouchableOpacity style={Styles.ShipFormButton} onPress={this.ShipFormSubmit}>
                                 <Text style={Styles.ShipFormButtonText}>
-                                    Launch  <AntDesign name='sound' style={Styles.ShipFormButtonIcon}/>
+                                    Launch  <AntDesign name='sound' style={Styles.StandardText}/>
                                 </Text>
                             </TouchableOpacity>
                         </View>

@@ -32,16 +32,16 @@ export default class PopularShips extends React.Component {
                     onPress={() => {
                         this.props.navigation.navigate('ShipCrewScreen', { shipId: result.shipId  })
                     }}>
-                    <View key={i} style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <View key={i} style={Styles.PopularFirstLine}>
                         <Text style={Styles.SmallTextPirate}>
-                            <Image source={PiratePNG} style={ Styles.CaptainIconSmall }/> { result.captain }
+                            <Image source={PiratePNG} style={ Styles.SmallIcon }/> { result.captain }
                         </Text>
                         <Text style={Styles.SmallTextNormal}>
                             Crew: { result.crewNum }
                         </Text>
                     </View>
                     <Text style={Styles.SmallTextNormal}>
-                        <Image source={PirateShipPNG} style={Styles.PirateShipIconTiny} /> { result.shipName }
+                        <Image source={PirateShipPNG} style={Styles.TinyIcon} /> { result.shipName }
                     </Text>
                 </TouchableOpacity>
             )

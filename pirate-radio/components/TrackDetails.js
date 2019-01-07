@@ -29,28 +29,20 @@ const TrackDetails = ({
   onArtistPress,
 }) => (
   <View style={Styles.TrackDetailsContainer}>
-    {/* <TouchableOpacity onPress={onAddPress}>
-      <Image style={Styles.TrackDetailsButton}
-        source={require('../img/ic_add_circle_outline_white.png')} />
-    </TouchableOpacity> */}
-    <View style={Styles.TrackDetailsWrapper}>
-      <TextTicker duration={8000} style={Styles.TrackDetailsTitle} marqueeOnMount loop bounce>{title}</TextTicker>
-      <Text style={Styles.TrackDetailsAlbum}>{album}</Text>
-      <Text style={Styles.TrackDetailsArtist} onPress={onArtistPress}>{artist}</Text>
+    <View style={Styles.TrackDetailsSongInfo}>
+      <TextTicker duration={8000} marqueeOnMount={true} style={Styles.TrackDetailsTickerText}>{title}</TextTicker>
+      <View style={{opacity: 0.72}}>
+        <TextTicker marqueeOnMount={false} bounce={false} loop={false} scroll={true} style={Styles.TrackDetailsText}>{album}</TextTicker>
+        <TextTicker marqueeOnMount={false} bounce={false} loop={false} scroll={true} style={Styles.TrackDetailsText}>{artist}</TextTicker>
+      </View>
     </View>
-    <View>
+    <View style={Styles.TrackDetailsShipIconContainer}>
       {paused ? (
         <Image source={PirateShipPNG} style={Styles.PirateShipIcon} />
       ) : (
         <Image source={PirateShipGIF} style={Styles.PirateShipIcon} />
       )}
     </View>
-    {/* <TouchableOpacity onPress={onMorePress}>
-      <View style={Styles.TrackDetailsMoreButton}>
-        <Image style={Styles.TrackDetailsMoreButtonIcon}
-          source={require('../img/ic_more_horiz_white.png')} />
-      </View>
-    </TouchableOpacity> */}
   </View>
 );
 

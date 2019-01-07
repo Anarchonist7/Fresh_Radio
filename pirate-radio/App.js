@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
+import { Platform, StatusBar, View, Text, Dimensions } from 'react-native';
 
 import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 
@@ -8,7 +8,16 @@ import AppNavigator from './navigation/AppNavigator';
 import SocketIOClient from 'socket.io-client';
 import shorthash from 'shorthash'
 import Listener from './components/Listener';
+
 // import Player from './components/Player';
+
+import EStyleSheet from 'react-native-extended-stylesheet';
+const { width, height } = Dimensions.get('window');
+const rem = height/width > 2 ? 20 : 14;
+
+EStyleSheet.build({
+  $rem: rem
+});
 
 import ENV from './env'
 const PORT = ENV.REST_PORT || 8080;
@@ -34,7 +43,7 @@ export default class App extends Component {
         timeStamp: null,
         paused: true,
       },
-      captain:  null
+      captain: null
     }
     this.socket.onopen = () => {
       this.setState({connected:true})

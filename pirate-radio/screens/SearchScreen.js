@@ -111,7 +111,7 @@ export default class SearchScreen extends React.Component {
                 <View style={Styles.Footer}>
                     <BottomNav 
                         navigation={this.props.navigation}
-                        muteOrUnmute={this.props.screenPropsmuteOrUnmute} 
+                        muteOrUnmute={this.props.screenProps.muteOrUnmute} 
                         resetMute={this.props.screenProps.resetMute} 
                         isMuted={this.props.screenProps.isMuted}/>
                 </View>

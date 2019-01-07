@@ -9,6 +9,7 @@ import Styles from '../assets/styles/AppStyles';
 import TrackList from '../components/TrackList';
 
 import TextTicker from 'react-native-text-ticker'
+import { Ionicons, Feather } from '@expo/vector-icons';
 
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -57,7 +58,7 @@ export default class ShipCrewScreen extends React.Component {
 
     render() {
 
-        const { ship, tracks, captain, shipLoading } = this.props.screenProps;
+        const { ship, tracks, captain, shipLoading, count } = this.props.screenProps;
 
         if (shipLoading){
             return <SeaBackground />
@@ -65,50 +66,54 @@ export default class ShipCrewScreen extends React.Component {
             return (
                 <SeaBackground>
                         <View style={Styles.Boxes}>
-                            <View style={Styles.ShipCrewHeader}>
-                                <Image source={PiratePNG} style={Styles.CaptainIconMedium}/>
+                            <View style={Styles.ShipHeader}>
+                                <Image source={PiratePNG} style={ Styles.MediumIcon } />
                                 <View style={Styles.CaptainHeaderTickerContainer}>
-                                    <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                                    <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount={true}>
                                         {captain.captainName}
                                     </TextTicker>
                                 </View>
-
-                                {/* <TouchableOpacity onPress={
-                                    this.props.screenProps.downloadTracks(this.state.shipId)
-                                    this.setState({
-                                        isDownloading: true
-                                    })
-                                    }>
-                                    <View>
-                                        <MaterialIcons name="file-download" style={Styles.LogoutIcon}/>
-                                    </View>
-                                </TouchableOpacity> */}
-
+                                <Text style={Styles.CaptainHeaderText}>
+                                    {count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
+                                </Text>
                             </View>
 
                             <View style={Styles.NowPlayingCrew}>
-
-                            <Listener count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                                { this.state.isDownloading ?  <ActivityIndicator /> : (
-                                        <TouchableOpacity
-                                        onPress={this.download}>
-                                            <Text>
-                                                DOWNLOAD
-                                            </Text>
-                                        </TouchableOpacity>
-                                    )
-                                }
-                                { this.state.isSyncing ? <ActivityIndicator /> : (
-                                        <TouchableOpacity
-                                            onPress={this.requestSync}>
-                                            <Text>
-                                                REQUEST SYNC
-                                            </Text>
-                                        </TouchableOpacity>
-                                    )
-                                }
+                                <Listener 
+                                count={this.props.screenProps.count} 
+                                MS={this.props.screenProps.MS} 
+                                currentTrack={this.props.screenProps.currentTrack} 
+                                ship={ship} tracks={tracks} 
+                                sendMessage={this.props.screenProps.sendMessage} 
+                                isMuted={this.props.screenProps.isMuted} 
+                                paused={this.props.screenProps.paused} 
+                                CT={this.props.screenProps.CT} 
+                                ST={this.props.screenProps.ST} 
+                                updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                                    <View style={Styles.NowPlayingButtonsContainer}>
+                                        { this.state.isDownloading ?  <ActivityIndicator style={Styles.DownloadButton}/> : (
+                                                <TouchableOpacity
+                                                onPress={this.download}
+                                                style={Styles.DownloadButton}>
+                                                    <Text style={Styles.TinyTextPirate}>
+                                                        DOWNLOAD
+                                                    </Text>
+                                                </TouchableOpacity>
+                                            )
+                                        }
+                                        { this.state.isSyncing ? <ActivityIndicator style={Styles.SyncButton}/> : (
+                                                <TouchableOpacity
+                                                    onPress={this.requestSync}
+                                                    style={Styles.SyncButton}>
+                                                    <Text style={Styles.TinyTextPirate}>
+                                                        SYNc
+                                                    </Text>
+                                                </TouchableOpacity>
+                                            )
+                                        }
+                                    </View>
                             </View>
-                            <View style={Styles.Playlist}>
+                            <View style={Styles.shipCrewPlaylist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                                 <View style={Styles.TrackListContainer}>
                                     <ScrollView>
