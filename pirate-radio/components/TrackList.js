@@ -24,23 +24,11 @@ export default class TrackList extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            trackList: [],
-            skip: false
+            trackList: []
         }
     }
 
-    skip = () => {
-        console.log('pressed')
-        this.setState({
-            skip: true
-        })
-    }
 
-    resetSkip = () => {
-        this.setState({
-            skip: false
-        })
-    }
 
 
 
