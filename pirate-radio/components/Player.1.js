@@ -235,34 +235,8 @@ export default class Player extends Component {
       <View>
         <TrackDetails title={track.title} artist={track.artist} album={track.album} paused={this.state.paused}/>
         <SeekBar
-          onSeek={this.seek = seek.bind(this)}
           trackLength={totalLength}
           currentPosition={this.state.currentPosition || 0} />
-        <Controls
-          forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
-          backDisabled={this.state.selectedTrack === 0}
-          playDisabled={(track.localUrl !== null) === false}
-          onPressPlay={() => {
-
-            this.props.sendMessage('play', Date.now());
-
-            }
-          }
-          onPressPause={() => {
-
-            this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis);
-
-            }
-          }
-          onBack={() => {
-              this.props.sendMessage(this.state.selectedTrack - 1, Date.now());
-            }
-          }
-          onForward={() => {
-              this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
-            }
-          }
-          paused={this.state.paused}/>
       </View>
     );
   }
