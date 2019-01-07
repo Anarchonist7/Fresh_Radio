@@ -252,7 +252,7 @@ export default class Player extends Component {
           onPressPause={() => {
 
             this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis);
-
+            this.state.player.setIsMutedAsync(1.0);
             }
           }
           onBack={() => {
