@@ -26,6 +26,8 @@ export default class App extends Component {
       fontLoading: true,
       isMuted: false,
       sailors: 1,
+      rank: false,
+      paused: true,
       ship: {
         name: '',
         id: 1,
@@ -49,6 +51,13 @@ export default class App extends Component {
   sendMessage = (message, time, MS) => {
     console.log('------message: ', message, time)
     this.socket.send(JSON.stringify({type: 'message', content: message, time: time, MS: MS || 0}));
+  }
+
+  isCaptain = (rank) => {
+    console.log('i am captain!')
+    this.setState({
+      rank: rank
+    })
   }
 
   downloadTrack = (index) => {
@@ -283,11 +292,13 @@ export default class App extends Component {
        } else if (data.type === 'newSailor') {
         console.log('------we made it back to app sailor!')
         console.log(this.state.sailors)
-        this.setState({
-          sailors: this.state.sailors + 1
-        }, () => {
-          console.log('----after setting state in app: ', this.state.sailors)
-        })
+        this.sendMessage('pause', Date.now(), this.state.ship.currentPositionMillis);
+        setTimeout(this.sendMessage('play', Date.now()), 3500);
+        // this.setState({
+        //   sailors: this.state.sailors + 1
+        // }, () => {
+        //   console.log('----after setting state in app: ', this.state.sailors)
+        // })
        }
     });
 
@@ -330,7 +341,8 @@ export default class App extends Component {
       CT: this.state.CT,
       ST: this.state.ST,
       MS: this.state.MS,
-      sailors: this.state.sailors
+      sailors: this.state.sailors,
+      isCaptain: this.isCaptain
     }
 
 

@@ -29,8 +29,8 @@ export default class Player extends Component {
       sync: false,
       over: false
     };
+    this.props.isCaptain(true);
     //listener only code
-    // this.props.sendMessage('newSailor', Date.now());
   }
   restartPlaylist() {
     console.log('restart ------!------ playlist')
@@ -78,12 +78,12 @@ export default class Player extends Component {
 
       ///---------------------below is what's important
       if (status.positionMillis === this.state.totalLength) {
-        // this.state.player.pauseAsync();
-        //   this.setState({
-        //     totalLength: this.state.totalLength + 2
-        //   }, () => {
-        //     this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
-        //   })
+        this.state.player.pauseAsync();
+          this.setState({
+            totalLength: this.state.totalLength + 2
+          }, () => {
+            this.props.sendMessage(this.state.selectedTrack + 1, Date.now())
+          })
           //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^for captain
 
           // console.log(this.state.selectedTrack, this.state.tracks.length - 1)
@@ -139,33 +139,34 @@ export default class Player extends Component {
           var date = Date.now();
           // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
-          // this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
     }
   }
 
   componentDidMount() {
+
   }
 
   componentDidUpdate(prevProps, prevState) {
-     if (prevProps.sailors < this.props.sailors) {
-      console.log('----*----welcome aboard!-----****')
-      // this.setState({ sailors: this.props.sailors})
-      this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis)
-      // setTimeout(this.props.sendMessage('play', Date.now()), 3500)
-    }
-    // console.log('-----component did update mahfka!!!')
-    if (this.props.paused) {
-      console.log('we paused yo')
-    } else if (!this.props.paused){
-      console.log('we totally aint paused yo');
-    }
+    //  if (prevProps.sailors < this.props.sailors) {
+    //   console.log('----*----welcome aboard!-----****')
+    //   // this.setState({ sailors: this.props.sailors})
+    //   this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis)
+    //   // setTimeout(this.props.sendMessage('play', Date.now()), 3500)
+    // }
+    // // console.log('-----component did update mahfka!!!')
+    // if (this.props.paused) {
+    //   console.log('we paused yo')
+    // } else if (!this.props.paused){
+    //   console.log('we totally aint paused yo');
+    // }
     // console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       // console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
-        console.log('syncing to position....')
-        console.log(this.state.currentPositionMillis)
+        // console.log('syncing to position....')
+        // console.log(this.state.currentPositionMillis)
         this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             // setPlay(this)
@@ -174,7 +175,7 @@ export default class Player extends Component {
       })
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-      console.log('|--? initial sync && non-0 intial position')
+      // console.log('|--? initial sync && non-0 intial position')
       this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
         setStatusUpdate(this).then(() => {
           // setPlay(this)
@@ -184,10 +185,10 @@ export default class Player extends Component {
 
     if (this.props.isMuted !== prevProps.isMuted) {
       if (prevProps.isMuted){
-        console.log("PLAYER.js", this.props.isMuted);
+        // console.log("PLAYER.js", this.props.isMuted);
         this.state.player.setIsMutedAsync(0.0)
       } else {
-        console.log("PLAYER.js", this.props.isMuted);
+        // console.log("PLAYER.js", this.props.isMuted);
         this.state.player.setIsMutedAsync(1.0)
       }
 
@@ -206,10 +207,10 @@ export default class Player extends Component {
       player: new Expo.Audio.Sound(),
       selectedTrack: this.props.ship.currentTrack
     }, () => {
-      // this.props.sendMessage('pause', Date.now(), 0);
-      this.state.player.setIsMutedAsync(1.0)
-      // this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
-      // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 3500);
+      // this.state.player.setIsMutedAsync(1.0)
+      this.props.sendMessage('pause', Date.now(), 0);
+      this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
+      setTimeout(() => {this.props.sendMessage('play', Date.now())}, 3500);
     });
   }
 
@@ -221,27 +222,26 @@ export default class Player extends Component {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
     //captain code below
-    console.log('----here be ye crew: ', this.props.sailors)
+    // console.log('----here be ye crew: ', this.props.sailors)
     //^^^captain only code^^^^
     if (this.state.selectedTrack !== this.props.ship.currentTrack) {
-      console.log('----condition triggered!!!!')
-      this.state.player.setIsMutedAsync(1.0)
+      // this.state.player.setIsMutedAsync(1.0)
       this.move();
     }
     if (this.props.paused && this.state.paused === false) {
-      this.setState({paused: true});
       console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
         this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
       })}, 1000 - (Date.now() - this.props.ST))
+      this.setState({paused: true});
     } else if (!this.props.paused && this.state.paused) {
-      this.setState({paused: false});
       console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
           this.state.player.playAsync();
           this.state.player.setIsMutedAsync(0.0)
       }, 2000 - (Date.now() - this.props.ST))
+      this.setState({paused: false});
     }
     return (
       <View>
