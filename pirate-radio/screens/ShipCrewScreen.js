@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { BottomNav } from '../components/BottomNav';
 import shorthash from 'shorthash'
 import { SeaBackground } from '../components/SeaBackground';
@@ -31,22 +31,16 @@ export default class ShipCrewScreen extends React.Component {
         this.setState({
             isDownloading: true
         }, () => this.props.screenProps.downloadTracks(this.state.shipId))
+        setTimeout(() => this.setState({isDownloading: false}), 3000)
     }
 
-    sync = () => {
-        
+    requestSync = () => {
         this.setState({isSyncing: true}, () => {
 
             //SYNC REQUEST CODE GOES HERE
 
         })
         setTimeout(() => this.setState({isSyncing: false}), 3000)
-    }
-
-    stopDownload = () => {
-        this.setState({
-            isDownloading: false
-        })
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -95,19 +89,8 @@ export default class ShipCrewScreen extends React.Component {
 
                             <View style={Styles.NowPlayingCrew}>
                             <Player1 MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                                { this.state.isDownloading ? (
-                                    <TouchableOpacity
-                                        style={Styles.DownloadButton}
-                                        onPress={this.stopDownload}>
-                                            <Text style={{textAlign: 'right'}}>
-                                                STOP
-                                            </Text>
-                                        </TouchableOpacity>
-                                    ) : (
-
+                                { this.state.isDownloading ?  <ActivityIndicator /> : (
                                         <TouchableOpacity
-                                        style={Styles.DownloadButton}
-
                                         onPress={this.download}>
                                             <Text>
                                                 DOWNLOAD
@@ -115,19 +98,9 @@ export default class ShipCrewScreen extends React.Component {
                                         </TouchableOpacity>
                                     )
                                 }
-                                { this.state.isSyncing ? (
-                                    <TouchableOpacity
-                                        style={Styles.DownloadButton}>
-                                            <Text>
-                                                SYNCING...
-                                            </Text>
-                                        </TouchableOpacity>
-                                    ) : (
-
+                                { this.state.isSyncing ? <ActivityIndicator /> : (
                                         <TouchableOpacity
-                                        style={Styles.DownloadButton}
-
-                                        onPress={this.sync}>
+                                            onPress={this.requestSync}>
                                             <Text>
                                                 REQUEST SYNC
                                             </Text>
