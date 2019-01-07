@@ -19,13 +19,23 @@ import { AntDesign } from '@expo/vector-icons';
 export default class Track extends React.Component {
   constructor(props){
         super(props)
+
+        this.state = {
+          skip: this.props.skip,
+        }
     }
+
 
   render() {
     const track = this.props.track
     const active = this.props.active
+    console.log('the index of track!', this.props.thing)
+    console.log('----THIS STATE SKIP: ', this.props.ship)
+
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+        this.props.sendMessage(this.props.thing, Date.now());
+      }}>
                 <View style={{paddingVertical: 3}}>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
@@ -44,7 +54,7 @@ export default class Track extends React.Component {
                         </Text>
                     </View>
                 </View>
-            </TouchableOpacity>
+        </TouchableOpacity>
     )
   }
 }

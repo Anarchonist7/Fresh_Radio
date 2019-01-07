@@ -24,20 +24,32 @@ export default class TrackList extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            trackList: []
+            trackList: [],
+            skip: false
         }
     }
 
-    skip = (index) => {
-        console.log('morty', index)
+    skip = () => {
+        console.log('pressed')
+        this.setState({
+            skip: true
+        })
     }
+
+    resetSkip = () => {
+        this.setState({
+            skip: false
+        })
+    }
+
+
 
     generateTrackList(){
         let trackComponentArray = []
         this.props.tracks.forEach((track, index) => {
             let active = (index === this.props.ship.currentTrack )
             trackComponentArray.push(
-              <Track track={track} index={index} active={active}/>
+              <Track sendMessage={this.props.sendMessage} tracks={this.props.tracks} thing={index} track={track} index={index} active={active}/>
             )
         })
         return trackComponentArray
