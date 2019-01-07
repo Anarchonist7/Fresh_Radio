@@ -6,7 +6,6 @@ import { SeaBackground } from '../components/SeaBackground';
 import Listener from '../components/Listener';
 import Styles from '../assets/styles/AppStyles';
 
-import Player1 from '../components/Player.1';
 import TrackList from '../components/TrackList';
 
 import TextTicker from 'react-native-text-ticker'
@@ -89,7 +88,7 @@ export default class ShipCrewScreen extends React.Component {
 
                             <View style={Styles.NowPlayingCrew}>
 
-                            <Player1 count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Listener count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ?  <ActivityIndicator /> : (
                                         <TouchableOpacity
                                         onPress={this.download}>
