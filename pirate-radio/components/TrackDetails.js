@@ -30,9 +30,9 @@ const TrackDetails = ({
 }) => (
   <View style={Styles.TrackDetailsContainer}>
     <View style={Styles.TrackDetailsSongInfo}>
-      <TextTicker duration={8000} style={Styles.TrackDetailsTickerText} marqueeOnMount loop bounce>{title}</TextTicker>
-      <Text style={Styles.TrackDetailsText}>{album}</Text>
-      <Text style={Styles.TrackDetailsText} onPress={onArtistPress}>{artist}</Text>
+      <TextTicker duration={8000} marqueeOnMount={true} style={Styles.TrackDetailsTickerText}>{title}</TextTicker>
+      <TextTicker marqueeOnMount={false} bounce={false} loop={false} scroll style={Styles.TrackDetailsText}>{album}</TextTicker>
+      <TextTicker marqueeOnMount={false} bounce={false} loop={false} scroll style={Styles.TrackDetailsText}>{artist}</TextTicker>
     </View>
     <View style={Styles.TrackDetailsShipIconContainer}>
       {paused ? (
