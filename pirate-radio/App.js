@@ -10,7 +10,7 @@ import shorthash from 'shorthash'
 import Listener from './components/Listener';
 // import Player from './components/Player';
 
-import ENV from './../env'
+import ENV from './env'
 const PORT = ENV.REST_PORT || 8080;
 const LOCALHOST = ENV.LOCALHOST || 'http://localhost';
 
