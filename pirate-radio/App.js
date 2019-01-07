@@ -27,11 +27,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-<<<<<<< HEAD
-    this.socket = SocketIOClient('http://192.168.1.92:3003');
-=======
     this.socket = SocketIOClient(LOCALHOST + ':' + ENV.SOCKET_PORT);
->>>>>>> master
     this.state = {
       shipLoading: true,
       fontLoading: true,
