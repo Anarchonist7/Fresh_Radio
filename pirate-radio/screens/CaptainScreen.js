@@ -79,6 +79,7 @@ export default class CaptainScreen extends React.Component {
                         captain: response,
                         yeOldShips: yeOldShips
                     }, () => {
+                        console.log('YEEEEEEEE OOOOOOOOLD SHIIIIIIP', yeOldShips)
                         console.log('CAPTAIIIIIn', this.state.captain.name)
                     })
                 }

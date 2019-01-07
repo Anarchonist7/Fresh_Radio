@@ -37,7 +37,7 @@ export default class YeOldShips extends React.Component {
                             <Image source={PiratePNG} style={Styles.PirateShipIconSmall}/> { result.name }
                         </Text>
                         <Text style={[Styles.SmallTextNormal, {paddingTop: 4}]}>
-                            Tracks: //Count
+                            5 Songs
                         </Text>
                     </View>
                 </TouchableOpacity>

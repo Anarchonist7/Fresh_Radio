@@ -27,7 +27,11 @@ export default class Player extends Component {
       tracks: props.tracks,
       loading: true,
       sync: false,
-      over: false
+      over: false,
+      forwardLoading: false,
+      backLoading: false,
+      playLoading: false,
+      pauseLoading: false
     };
   }
   // restartPlaylist() {
@@ -243,9 +247,7 @@ export default class Player extends Component {
           backDisabled={this.state.selectedTrack === 0}
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
-
             this.props.sendMessage('play', Date.now());
-
             }
           }
           onPressPause={() => {
@@ -262,7 +264,12 @@ export default class Player extends Component {
               this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
             }
           }
-          paused={this.state.paused}/>
+          paused={this.state.paused}
+          forwardLoading={this.state.forwardLoading}
+          backLoading={this.state.backLoading}
+          playLoading={this.state.playLoading}
+          pauseLoading={this.state.pauseLoading}
+          />
       </View>
     );
   }
