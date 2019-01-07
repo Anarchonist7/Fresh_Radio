@@ -22,7 +22,8 @@ export default class ShipCrewScreen extends React.Component {
         super(props)
         this.state = {
             shipId: this.props.navigation.getParam('shipId', null),
-            isDownloading: false
+            isDownloading: false,
+            isSyncing: false
         }
     }
 
@@ -30,6 +31,16 @@ export default class ShipCrewScreen extends React.Component {
         this.setState({
             isDownloading: true
         }, () => this.props.screenProps.downloadTracks(this.state.shipId))
+    }
+
+    sync = () => {
+        
+        this.setState({isSyncing: true}, () => {
+
+            //SYNC REQUEST CODE GOES HERE
+
+        })
+        setTimeout(() => this.setState({isSyncing: false}), 3000)
     }
 
     stopDownload = () => {
@@ -88,7 +99,7 @@ export default class ShipCrewScreen extends React.Component {
                                     <TouchableOpacity
                                         style={Styles.DownloadButton}
                                         onPress={this.stopDownload}>
-                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
+                                            <Text style={{textAlign: 'right'}}>
                                                 STOP
                                             </Text>
                                         </TouchableOpacity>
@@ -98,14 +109,32 @@ export default class ShipCrewScreen extends React.Component {
                                         style={Styles.DownloadButton}
 
                                         onPress={this.download}>
-                                            <Text style={[Styles.BottomNavTextPirate, {textAlign: 'center'}]}>
+                                            <Text>
                                                 DOWNLOAD
                                             </Text>
                                         </TouchableOpacity>
                                     )
                                 }
-                            </View>
+                                { this.state.isSyncing ? (
+                                    <TouchableOpacity
+                                        style={Styles.DownloadButton}>
+                                            <Text>
+                                                SYNCING...
+                                            </Text>
+                                        </TouchableOpacity>
+                                    ) : (
 
+                                        <TouchableOpacity
+                                        style={Styles.DownloadButton}
+
+                                        onPress={this.sync}>
+                                            <Text>
+                                                REQUEST SYNC
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                }
+                            </View>
                             <View style={Styles.Playlist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                                 <View style={Styles.TrackListContainer}>
