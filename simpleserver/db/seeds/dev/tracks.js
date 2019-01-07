@@ -5,11 +5,11 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('songs').insert([
-        {id: 1, title: 'Rouge', artist: 'TOKiMONSTA', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune1.mp3', duration_millis: 133198, ship_id: 1, order: 1},
-        {id: 2, title: 'Estrange (Feat. Io Echo)', artist: 'TOKiMONSTA', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune2.mp3', duration_millis: 258011, ship_id: 1, order: 2},
-        {id: 3, title: 'Cirrus', artist: 'Bonobo', album: 'The North Borders', audio_url: 'http://192.168.1.116:8080/tune3.mp3', duration_millis: 349257, ship_id: 1, order: 3},
+        {id: 1, title: 'Rouge', artist: 'TOKiMONSTA', album: 'Lune Rouge', audio_url: 'http://192.168.1.64:8080/tune1.mp3', duration_millis: 133198, ship_id: 1, order: 1},
+        {id: 2, title: 'Estrange (Feat. Io Echo)', artist: 'TOKiMONSTA', album: 'Lune Rouge', audio_url: 'http://192.168.1.64:8080/tune2.mp3', duration_millis: 258011, ship_id: 1, order: 2},
+        {id: 3, title: 'Cirrus', artist: 'Bonobo', album: 'The North Borders', audio_url: 'http://192.168.1.64:8080/tune3.mp3', duration_millis: 349257, ship_id: 1, order: 3},
         {id: 4, title: 'Elevate This Sound', artist: 'Calyx, Teebee', album: 'Elevate This Sound', audio_url: 'http://192.168.1.116:8080/tune4.mp3', duration_millis: 315637, ship_id: 1, order: 4},
-        {id: 5, title: 'Rouge', artist: 'TOKiMONSTA', album: 'The North Borders', audio_url: 'http://192.168.1.116:8080/tune1.mp3', duration_millis: 133198, ship_id: 2, order: 1},
+        {id: 5, title: 'Rouge', artist: 'TOKiMONSTA', album: 'The North Borders', audio_url: 'http://192.168.1.64:8080/tune1.mp3', duration_millis: 133198, ship_id: 2, order: 1},
         {id: 6, title: 'Estrange (Feat. Io Echo)', artist: 'TOKiMONSTA', album: 'Elevate This Sound', audio_url: 'http://192.168.1.116:8080/tune2.mp3', duration_millis: 258011, ship_id: 2, order: 2},
         {id: 7, title: 'Cirrus', artist: 'Bonobo', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune3.mp3', duration_millis: 315637, ship_id: 3, order: 1},
         {id: 8, title: 'Rouge', artist: 'TOKiMONSTA', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune1.mp3', duration_millis: 133198, ship_id: 3, order: 1},
@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         {id: 14, title: 'Cirrus', artist: 'Bonobo', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune3.mp3', duration_millis: 315637, ship_id: 3, order: 1},
         {id: 15, title: 'Cirrus', artist: 'Bonobo', album: 'Lune Rouge', audio_url: 'http://192.168.1.116:8080/tune3.mp3', duration_millis: 315637, ship_id: 3, order: 1},
         {id: 16, title: 'Estrange (Feat. Io Echo)', artist: 'TOKiMONSTA', album: 'Elevate This Sound', audio_url: 'http://192.168.1.116:8080/tune2.mp3', duration_millis: 258011, ship_id: 3, order: 1},
-        {id: 17, title: 'Truth', artist: 'Alexander', album: 'Alexander', duration_millis: 260963, audio_url: 'http://192.168.1.116:8080/03%20Truth.mp3', ship_id: 1, order: 18},
+        {id: 17, title: 'Truth', artist: 'Alexander', album: 'Alexander', duration_millis: 260963, audio_url: 'http://192.168.1.64:8080/03%20Truth.mp3', ship_id: 1, order: 18},
         {id: 18, title: 'Mango Tree', artist: 'Angus & Julia Stone', album: 'A Book Like This', duration_millis: 216659, audio_url: 'http://192.168.1.116:8080/15%20Mango%20Tree.mp3', ship_id: 4, order: 19},
         {id: 19, title: 'Private Lawns', artist: 'Angus & Julia Stone', album: 'A Book Like This', duration_millis: 185338, audio_url: 'http://192.168.1.116:8080/Private%20Lawns.mp3', ship_id: 4, order: 20},
         {id: 20, title: 'Big Jet Plane', artist: 'Angus & Julia Stone', album: 'Down The Way', duration_millis: 239177, audio_url: 'http://192.168.1.116:8080/04%20Big%20Jet%20Plane.mp3', ship_id: 4, order: 21},

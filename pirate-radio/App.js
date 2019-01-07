@@ -14,13 +14,13 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.64';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient('http://192.168.1.116:3003');
+    this.socket = SocketIOClient('http://192.168.1.64:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -41,11 +41,11 @@ export default class App extends Component {
     };
   }
 
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
-  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
-  captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
-  captainRequest = LOCALHOST + ':' + PORT + '/captain/';
-  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
+  shipRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/1';
+  shipQueryRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/';
+  captainIdRequest = 'http://192.168.1.64' + ':' + PORT + '/captain/find/';
+  captainRequest = 'http://192.168.1.64' + ':' + PORT + '/captain/';
+  createNewShipRequest = 'http://192.168.1.64' + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message, time, MS) => {
     console.log('------message: ', message, time)
