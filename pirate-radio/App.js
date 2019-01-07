@@ -14,17 +14,13 @@ import Listener from './components/Listener';
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
 
-const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.75';
+const LOCALHOST = process.env.LOCALHOST || 'http://192.168.1.116';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
-<<<<<<< HEAD
-    this.socket = SocketIOClient('http://192.168.1.64:3003');
-=======
-    this.socket = SocketIOClient('http://192.168.1.75:3003');
->>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
+    this.socket = SocketIOClient('http://192.168.1.116:3003');
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -45,15 +41,10 @@ export default class App extends Component {
     };
   }
 
-<<<<<<< HEAD
-  shipRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/1';
-  shipQueryRequest = 'http://192.168.1.64' + ':' + PORT + '/ships/';
-=======
   shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
   captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
   captainRequest = LOCALHOST + ':' + PORT + '/captain/';
->>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
   createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
 
   sendMessage = (message, time, MS) => {
@@ -383,7 +374,6 @@ export default class App extends Component {
       tracks: this.state.tracks,
       updateCurrentTrack: this.updateCurrentTrack,
       updateShip: this.updateShip,
-<<<<<<< HEAD
       getShip: this.getShip,
       shipLoading: this.state.shipLoading,
       sendMessage: this.sendMessage,
@@ -394,8 +384,6 @@ export default class App extends Component {
       CT: this.state.CT,
       ST: this.state.ST,
       MS: this.state.MS
-=======
->>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
     }
 
 

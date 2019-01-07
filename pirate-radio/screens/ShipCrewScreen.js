@@ -6,7 +6,7 @@ import { SeaBackground } from '../components/SeaBackground';
 import Listener from '../components/Listener';
 import Styles from '../assets/styles/AppStyles';
 
-import Player from '../components/Player';
+import Player1 from '../components/Player.1';
 import TrackList from '../components/TrackList';
 
 import TextTicker from 'react-native-text-ticker'
@@ -83,7 +83,7 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
 
                             <View style={Styles.NowPlayingCrew}>
-                                <Listener tracks={tracks} ship={ship} paused={this.props.screenProps.paused} isMuted={this.props.screenProps.isMuted} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player1 MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ? (
                                     <TouchableOpacity
                                         style={Styles.DownloadButton}

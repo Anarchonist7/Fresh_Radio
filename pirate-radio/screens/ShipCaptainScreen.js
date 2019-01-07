@@ -48,11 +48,7 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>
-<<<<<<< HEAD
                             <Player MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-=======
-                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
->>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
                         </View>
 
                         <View style={Styles.Playlist}>
@@ -63,19 +59,11 @@ export default class ShipCaptainScreen extends React.Component {
                         </View>
                     </View>
                     <View style={Styles.Footer}>
-<<<<<<< HEAD
-                        <BottomNav
-                            navigation={this.props.navigation}
-                            muteOrUnmute={this.props.screenProps.muteOrUnmute}
-                            resetMute={this.props.screenProps.resetMute}
-                            isMuted={this.props.screenProps.isMuted}/>
-=======
                     <BottomNav 
                         navigation={this.props.navigation} 
                         muteOrUnmute={this.props.screenProps.muteOrUnmute} 
                         resetMute={this.props.screenProps.resetMute} 
                         isMuted={this.props.screenProps.isMuted}/>
->>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
                     </View>
                 </SeaBackground>
             )
