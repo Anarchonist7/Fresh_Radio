@@ -138,7 +138,7 @@ export default class Player extends Component {
           var date = Date.now();
           // console.log('-----HERES YUR ENCHILADA: ', status.positionMillis, date, stamp)
           console.log(this.state.selectedTrack)
-          this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
+          this.props.updateCurrentTrack(this.props.ship, this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, (!this.state.sync))
         })
     }
   }
@@ -160,6 +160,7 @@ export default class Player extends Component {
   // }
 
   componentDidMount() {
+    console.log('J:KSFGJH:SFGHS:FGOHS:FGHOJDS:OFGIHJSD:FOGIJHDS:FOGIHJD:SFGOHD:SFGHU', this.props.ship)
     this.props.sendMessage('ahoy!', Date.now());
   }
 

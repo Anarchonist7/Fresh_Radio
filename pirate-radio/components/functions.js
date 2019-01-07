@@ -46,7 +46,7 @@ export function onBack() {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack - 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => this.props.updateCurrentTrack(this.props.ship.id, this.state.selectedTrack, 0))
     } else {
       this.state.player.setPositionAsync(0).then(() => {
         if(!this.state.paused){
@@ -70,7 +70,7 @@ export function onBack() {
         isChanging: false,
         player: new Expo.Audio.Sound(),
         selectedTrack: this.state.selectedTrack + 1,
-      }, () => this.props.updateCurrentTrack(this.state.selectedTrack, 0))
+      }, () => this.props.updateCurrentTrack(this.props.ship.id, this.state.selectedTrack, 0))
     }
   }
 

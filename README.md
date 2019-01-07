@@ -6,6 +6,8 @@ Pirate Radio is a social music app which synchronizes playback across multiple d
 
 Clone the repo to your local machine.
 
+You will need a postgres database to run the server. Create a database called 'pirateradio'
+
 In /simpleserver/ ...
 * (optional) setup environment variables - a .env file with PORT and LOCALHOST values for your server. 
 * npm install

@@ -50,7 +50,7 @@ export default class App extends Component {
     };
   }
 
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
+  shipRequest = LOCALHOST + ':' + PORT + '/ships';
   shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
   captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
   captainRequest = LOCALHOST + ':' + PORT + '/captain/';
@@ -181,7 +181,7 @@ export default class App extends Component {
     })
   }
 
-  updateCurrentTrack = (currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
+  updateCurrentTrack = (shipId, currentTrack, timeStamp, currentPositionMillis, paused, isListener) => {
     this.setState({
       ship: {
         ...this.state.ship,
@@ -192,14 +192,14 @@ export default class App extends Component {
       }
     }, () => {
       if (!isListener) {
-       this.updateShip()
+       this.updateShip(shipId)
       }
     }
     )
   }
 
-  updateShip = () => {
-    fetch(`${this.shipRequest}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
+  updateShip = (shipId) => {
+    fetch(`${this.shipRequest}/${shipId}?currentTrack=${this.state.ship.currentTrack}&timeStamp=${this.state.ship.timeStamp}&currentPositionMillis=${this.state.ship.currentPositionMillis}&paused=${this.state.ship.paused}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
