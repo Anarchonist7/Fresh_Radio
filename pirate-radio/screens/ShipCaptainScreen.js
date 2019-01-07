@@ -24,8 +24,12 @@ export default class ShipCaptainScreen extends React.Component {
     componentDidMount(){
         const shipId = this.props.navigation.getParam('shipId', null);
         this.props.screenProps.loadShip(shipId).then(() => {
-            this.props.screenProps.downloadTracks()
+            this.props.screenProps.downloadTracks(shipId)
         })
+    }
+    
+    componentDidUpdate(){
+        console.log("!!!!SHIPCAPNSCREENEEEDUBS!!!!!!", this.props.screenProps.ship.currentTrack);
     }
 
     render() {
@@ -39,27 +43,39 @@ export default class ShipCaptainScreen extends React.Component {
                         <View style={Styles.ShipCaptainHeader}>
                             <Text>
                                 <Image source={PiratePNG} style={ Styles.CaptainIconMedium } />
-                                <Text style={Styles.BigTextPirate}> Captain Barbosa </Text>
+                                <Text style={Styles.BigTextPirate}> {this.props.screenProps.captain.captainName} </Text>
                             </Text>
                         </View>
 
                         <View style={Styles.NowPlayingCaptain}>
+<<<<<<< HEAD
                             <Player MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+=======
+                            <Player ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} paused={this.props.screenProps.paused} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+>>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
                         </View>
 
                         <View style={Styles.Playlist}>
                             <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                             <ScrollView style={Styles.TrackListContainer}>
-                                <TrackList tracks={this.props.screenProps.tracks} ship={this.props.screenProps.ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                                <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </ScrollView>
                         </View>
                     </View>
                     <View style={Styles.Footer}>
+<<<<<<< HEAD
                         <BottomNav
                             navigation={this.props.navigation}
                             muteOrUnmute={this.props.screenProps.muteOrUnmute}
                             resetMute={this.props.screenProps.resetMute}
                             isMuted={this.props.screenProps.isMuted}/>
+=======
+                    <BottomNav 
+                        navigation={this.props.navigation} 
+                        muteOrUnmute={this.props.screenProps.muteOrUnmute} 
+                        resetMute={this.props.screenProps.resetMute} 
+                        isMuted={this.props.screenProps.isMuted}/>
+>>>>>>> 4fde0b7c89615074f10c43ae8c8711bc72a6fcd1
                     </View>
                 </SeaBackground>
             )

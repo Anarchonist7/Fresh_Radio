@@ -1,0 +1,2385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2019-01-03T05:08:38Z</date>
+	<key>Application Version</key><string>12.9.2.5</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>616AC2FA4139B333</string>
+	<key>Tracks</key>
+	<dict>
+		<key>7526</key>
+		<dict>
+			<key>Track ID</key><integer>7526</integer>
+			<key>Name</key><string>Astronaut</string>
+			<key>Artist</key><string>k-os</string>
+			<key>Album</key><string>Yes!</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4713326</integer>
+			<key>Total Time</key><integer>194586</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:26Z</date>
+			<key>Date Added</key><date>2015-04-28T01:57:50Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3557080641</integer>
+			<key>Play Date UTC</key><date>2016-09-19T04:57:21Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-09-21T00:07:17Z</date>
+			<key>Normalization</key><integer>3078</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>30DDC0666B64E009</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Yes!/02%20Astronaut.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>9952</key>
+		<dict>
+			<key>Track ID</key><integer>9952</integer>
+			<key>Name</key><string>Truth</string>
+			<key>Artist</key><string>Alexander</string>
+			<key>Album</key><string>Alexander</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>10491808</integer>
+			<key>Total Time</key><integer>260963</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:48Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>30</integer>
+			<key>Play Date</key><integer>3625411734</integer>
+			<key>Play Date UTC</key><date>2018-11-19T02:48:54Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2015-08-18T05:50:52Z</date>
+			<key>Normalization</key><integer>2269</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>CEA0CF18EAA5ADF8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Alexander/Alexander/03%20Truth.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>10018</key>
+		<dict>
+			<key>Track ID</key><integer>10018</integer>
+			<key>Name</key><string>Mango Tree</string>
+			<key>Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album</key><string>A Book Like This</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>1525787</integer>
+			<key>Total Time</key><integer>216659</integer>
+			<key>Track Number</key><integer>15</integer>
+			<key>BPM</key><integer>109</integer>
+			<key>Date Modified</key><date>2013-05-22T04:38:30Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>56</integer>
+			<key>Sample Rate</key><integer>22050</integer>
+			<key>Play Count</key><integer>24</integer>
+			<key>Play Date</key><integer>3625402785</integer>
+			<key>Play Date UTC</key><date>2018-11-19T00:19:45Z</date>
+			<key>Sort Album</key><string>Book Like This</string>
+			<key>Persistent ID</key><string>6169F49776CDBDE8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Angus%20&#38;%20Julia%20Stone/A%20Book%20Like%20This/15%20Mango%20Tree.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>10020</key>
+		<dict>
+			<key>Track ID</key><integer>10020</integer>
+			<key>Name</key><string>Private Lawns</string>
+			<key>Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album</key><string>A Book Like This</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>2965627</integer>
+			<key>Total Time</key><integer>185338</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:58Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>16</integer>
+			<key>Play Date</key><integer>3625402970</integer>
+			<key>Play Date UTC</key><date>2018-11-19T00:22:50Z</date>
+			<key>Normalization</key><integer>1258</integer>
+			<key>Sort Album</key><string>Book Like This</string>
+			<key>Persistent ID</key><string>616464FB7909EE67</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Angus%20&#38;%20Julia%20Stone/A%20Book%20Like%20This/Private%20Lawns.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>10022</key>
+		<dict>
+			<key>Track ID</key><integer>10022</integer>
+			<key>Name</key><string>Big Jet Plane</string>
+			<key>Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album</key><string>Down The Way</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5269962</integer>
+			<key>Total Time</key><integer>239177</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:56Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>175</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>24</integer>
+			<key>Play Date</key><integer>3625403209</integer>
+			<key>Play Date UTC</key><date>2018-11-19T00:26:49Z</date>
+			<key>Normalization</key><integer>1922</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>B0BFC636B8BDCD89</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Angus%20&#38;%20Julia%20Stone/Down%20The%20Way/04%20Big%20Jet%20Plane.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>10024</key>
+		<dict>
+			<key>Track ID</key><integer>10024</integer>
+			<key>Name</key><string>Santa Monica Dream</string>
+			<key>Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album Artist</key><string>Angus &#38; Julia Stone</string>
+			<key>Album</key><string>Down The Way</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7191994</integer>
+			<key>Total Time</key><integer>330240</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:14Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>173</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>10</integer>
+			<key>Play Date</key><integer>3625403540</integer>
+			<key>Play Date UTC</key><date>2018-11-19T00:32:20Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2017-12-24T04:07:13Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>8940EC0F1A06E584</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Angus%20&#38;%20Julia%20Stone/Down%20The%20Way/05%20Santa%20Monica%20Dream.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>10634</key>
+		<dict>
+			<key>Track ID</key><integer>10634</integer>
+			<key>Name</key><string>All I Want Is You</string>
+			<key>Artist</key><string>Ball Park Music</string>
+			<key>Album Artist</key><string>Ball Park Music</string>
+			<key>Album</key><string>Rolling On the Floor, Laughing Ourselves to Sleep</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3379200</integer>
+			<key>Total Time</key><integer>211069</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:48Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>0</string>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3603365039</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:43:59Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2017-12-24T04:07:33Z</date>
+			<key>Normalization</key><integer>2264</integer>
+			<key>Persistent ID</key><string>FFAEAE26DA6FA5FC</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Ball%20Park%20Music/Rolling%20On%20the%20Floor,%20Laughing%20Ourselves%20to%20Sleep/All%20I%20Want%20Is%20You.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>12286</key>
+		<dict>
+			<key>Track ID</key><integer>12286</integer>
+			<key>Name</key><string>Blood to Gold</string>
+			<key>Artist</key><string>Boy &#38; Bear</string>
+			<key>Album</key><string>LOOSE L!PS</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5521632</integer>
+			<key>Total Time</key><integer>137299</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:30Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>http://looselipsmusic.com</string>
+			<key>Play Count</key><integer>21</integer>
+			<key>Play Date</key><integer>3603366655</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:10:55Z</date>
+			<key>Normalization</key><integer>3807</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C3B9D1D004332053</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Boy%20&#38;%20Bear/LOOSE%20L!PS/01%20Blood%20to%20Gold.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>12310</key>
+		<dict>
+			<key>Track ID</key><integer>12310</integer>
+			<key>Name</key><string>Rabbit Song</string>
+			<key>Artist</key><string>Boy &#38; Bear</string>
+			<key>Album</key><string>With Emperor Antarctica - EP</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7082446</integer>
+			<key>Total Time</key><integer>177057</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:18Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>23</integer>
+			<key>Play Date</key><integer>3600870083</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:41:23Z</date>
+			<key>Persistent ID</key><string>93FF1D0EE9D4E512</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Boy%20&#38;%20Bear/With%20Emperor%20Antarctica%20-%20EP/02%20Rabbit%20Song.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>12312</key>
+		<dict>
+			<key>Track ID</key><integer>12312</integer>
+			<key>Name</key><string>The Storm</string>
+			<key>Artist</key><string>Boy &#38; Bear</string>
+			<key>Album</key><string>With Emperor Antarctica - EP</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9434511</integer>
+			<key>Total Time</key><integer>235859</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:44Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3600857851</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:17:31Z</date>
+			<key>Sort Name</key><string>Storm</string>
+			<key>Persistent ID</key><string>75264072BD487E20</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Boy%20&#38;%20Bear/With%20Emperor%20Antarctica%20-%20EP/04%20The%20Storm.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>12314</key>
+		<dict>
+			<key>Track ID</key><integer>12314</integer>
+			<key>Name</key><string>Dressed To Digress</string>
+			<key>Artist</key><string>Boy Crisis</string>
+			<key>Album</key><string>Dressed to Digress - EP</string>
+			<key>Genre</key><string>Dance</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4957616</integer>
+			<key>Total Time</key><integer>190093</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:26Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>207</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3600860780</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:06:20Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-02-07T18:00:53Z</date>
+			<key>Normalization</key><integer>3836</integer>
+			<key>Persistent ID</key><string>761BC7464C841039</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Boy%20Crisis/Dressed%20to%20Digress%20-%20EP/13%20Dressed%20To%20Digress.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13102</key>
+		<dict>
+			<key>Track ID</key><integer>13102</integer>
+			<key>Name</key><string>Bowls</string>
+			<key>Artist</key><string>Caribou</string>
+			<key>Album</key><string>Swim</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>11026580</integer>
+			<key>Total Time</key><integer>381335</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>BPM</key><integer>120</integer>
+			<key>Date Modified</key><date>2012-06-18T05:39:28Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>230</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3607270492</integer>
+			<key>Play Date UTC</key><date>2018-04-23T02:34:52Z</date>
+			<key>Persistent ID</key><string>4CED296C876D59D1</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Caribou/Swim/05%20Bowls.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13328</key>
+		<dict>
+			<key>Track ID</key><integer>13328</integer>
+			<key>Name</key><string>Mine Is Yours</string>
+			<key>Artist</key><string>Cold War Kids</string>
+			<key>Album Artist</key><string>Cold War Kids</string>
+			<key>Album</key><string>Mine Is Yours</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7805056</integer>
+			<key>Total Time</key><integer>256783</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:10Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>240</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> </string>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3600861676</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:21:16Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2018-01-20T04:41:28Z</date>
+			<key>Normalization</key><integer>3342</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>38C61EFEE8451173</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Cold%20War%20Kids/Mine%20Is%20Yours/01%20Mine%20Is%20Yours.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13566</key>
+		<dict>
+			<key>Track ID</key><integer>13566</integer>
+			<key>Name</key><string>Ten Crack Commandments</string>
+			<key>Artist</key><string>The Notorious B.I.G.</string>
+			<key>Composer</key><string>C. Wallace, C. Martin</string>
+			<key>Album</key><string>Greatest Hits</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6939620</integer>
+			<key>Total Time</key><integer>203946</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>17</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>BPM</key><integer>174</integer>
+			<key>Date Modified</key><date>2016-03-27T11:25:33Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>29</integer>
+			<key>Play Date</key><integer>3607166567</integer>
+			<key>Play Date UTC</key><date>2018-04-21T21:42:47Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2017-07-26T23:28:21Z</date>
+			<key>Normalization</key><integer>4747</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>Notorious B.I.G.</string>
+			<key>Persistent ID</key><string>887AA187C0CA1525</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Greatest%20Hits/09%20Ten%20Crack%20Commandments.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13568</key>
+		<dict>
+			<key>Track ID</key><integer>13568</integer>
+			<key>Name</key><string>No One Does It Like You</string>
+			<key>Artist</key><string>Department Of Eagles</string>
+			<key>Album</key><string>In Ear Park</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5685733</integer>
+			<key>Total Time</key><integer>236800</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>21</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:02Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Part Of Gapless Album</key><true/>
+			<key>Volume Adjustment</key><integer>255</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3600861912</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:25:12Z</date>
+			<key>Normalization</key><integer>4335</integer>
+			<key>Compilation</key><true/>
+			<key>Persistent ID</key><string>1F622AE50D46AF36</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/In%20Ear%20Park/04%20No%20One%20Does%20It%20Like%20You.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13570</key>
+		<dict>
+			<key>Track ID</key><integer>13570</integer>
+			<key>Name</key><string>The Lovesong</string>
+			<key>Artist</key><string>k-os</string>
+			<key>Album</key><string>Joyful Rebellion</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5694875</integer>
+			<key>Total Time</key><integer>256888</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:36Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>177</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3603362861</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:07:41Z</date>
+			<key>Normalization</key><integer>3726</integer>
+			<key>Compilation</key><true/>
+			<key>Sort Name</key><string>Lovesong</string>
+			<key>Persistent ID</key><string>38B714E45F3DB61B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Joyful%20Rebellion/07%20The%20Lovesong.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13572</key>
+		<dict>
+			<key>Track ID</key><integer>13572</integer>
+			<key>Name</key><string>Mango Pickle Down River (with The Wilcannia Mob)</string>
+			<key>Artist</key><string>M.I.A.</string>
+			<key>Album</key><string>Kala</string>
+			<key>Genre</key><string>Electronic/Dance</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5611692</integer>
+			<key>Total Time</key><integer>233743</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:06Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>7</integer>
+			<key>Play Date</key><integer>3600864420</integer>
+			<key>Play Date UTC</key><date>2018-02-08T00:07:00Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Compilation</key><true/>
+			<key>Persistent ID</key><string>0BAD07708162CA82</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Kala/Mango%20Pickle%20Down%20River%20(with%20The%20Wilcannia%20Mob).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13714</key>
+		<dict>
+			<key>Track ID</key><integer>13714</integer>
+			<key>Name</key><string>I Wish I Knew Natalie Portman</string>
+			<key>Artist</key><string>k-os</string>
+			<key>Album</key><string>Yes!</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4441590</integer>
+			<key>Total Time</key><integer>190014</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:04Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>185</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Jalibury</string>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3603365229</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:47:09Z</date>
+			<key>Normalization</key><integer>7413</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>78FB1155B1EBB099</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Yes!/05%20I%20Wish%20I%20Knew%20Natalie%20Portman%201.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13748</key>
+		<dict>
+			<key>Track ID</key><integer>13748</integer>
+			<key>Name</key><string>Go Outside</string>
+			<key>Artist</key><string>Cults</string>
+			<key>Album</key><string>Cults 7"</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8138343</integer>
+			<key>Total Time</key><integer>201717</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2012</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:58Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>http://aurgasm.us</string>
+			<key>Play Count</key><integer>17</integer>
+			<key>Play Date</key><integer>3610620860</integer>
+			<key>Play Date UTC</key><date>2018-05-31T21:14:20Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-08-03T08:00:53Z</date>
+			<key>Normalization</key><integer>3522</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2065688DA5EE9123</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Cults/Cults%207_/01%20Go%20Outside.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13750</key>
+		<dict>
+			<key>Track ID</key><integer>13750</integer>
+			<key>Name</key><string>Take Me Over</string>
+			<key>Artist</key><string>Cut Copy</string>
+			<key>Album Artist</key><string>Cut Copy</string>
+			<key>Album</key><string>Zonoscope</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3872960</integer>
+			<key>Total Time</key><integer>235102</integer>
+			<key>Date Modified</key><date>2011-11-02T20:44:00Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3603360479</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:27:59Z</date>
+			<key>Normalization</key><integer>4575</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>82E3D64A5BE4A444</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Cut%20Copy/Zonoscope/Take%20Me%20Over.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13922</key>
+		<dict>
+			<key>Track ID</key><integer>13922</integer>
+			<key>Name</key><string>Robots</string>
+			<key>Artist</key><string>Dan Mangan</string>
+			<key>Composer</key><string>Dan Mangan</string>
+			<key>Album</key><string>Nice, Nice, Very Nice</string>
+			<key>Genre</key><string>Alternative &#38; Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9785748</integer>
+			<key>Total Time</key><integer>244584</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:24Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> 00000000 00000210 00000B58 0000000000A48818 00000000 009527AD 00000000 00000000 00000000 00000000 00000000 00000000</string>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3600861419</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:16:59Z</date>
+			<key>Normalization</key><integer>4806</integer>
+			<key>Persistent ID</key><string>1966A2A8624AC6DE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Dan%20Mangan/Nice,%20Nice,%20Very%20Nice/02%20Robots.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>13924</key>
+		<dict>
+			<key>Track ID</key><integer>13924</integer>
+			<key>Name</key><string>Little Girl (feat. Julian Casablancas)</string>
+			<key>Artist</key><string>Danger Mouse &#38; Sparklehorse</string>
+			<key>Album</key><string>Dark Night of the Soul (Deluxe Edition)</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5494784</integer>
+			<key>Total Time</key><integer>273005</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:02Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>160</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3600870356</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:45:56Z</date>
+			<key>Normalization</key><integer>6239</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C58EC7FED10205A9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Danger%20Mouse%20&#38;%20Sparklehorse/Dark%20Night%20of%20the%20Soul%20(Deluxe%20Edition)/04%20Little%20Girl%20(feat.%20Julian%20Casablancas).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>14048</key>
+		<dict>
+			<key>Track ID</key><integer>14048</integer>
+			<key>Name</key><string>Black History Month</string>
+			<key>Artist</key><string>Death From Above 1979</string>
+			<key>Composer</key><string>DFA 1979</string>
+			<key>Album</key><string>You're A Woman, I'm A Machine</string>
+			<key>Genre</key><string>Alternative &#38; Punk</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3706899</integer>
+			<key>Total Time</key><integer>228297</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>2004</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:14Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3603361446</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:44:06Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-08-03T07:24:31Z</date>
+			<key>Normalization</key><integer>6770</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A2378D1BC9CB1230</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Death%20From%20Above%201979/You're%20A%20Woman,%20I'm%20A%20Machine/06%20Black%20History%20Month.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>14196</key>
+		<dict>
+			<key>Track ID</key><integer>14196</integer>
+			<key>Name</key><string>Stillness is the Move</string>
+			<key>Artist</key><string>Dirty Projectors</string>
+			<key>Album</key><string>Bitte Orca</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>10062601</integer>
+			<key>Total Time</key><integer>314383</integer>
+			<key>Track Number</key><integer>24</integer>
+			<key>Track Count</key><integer>100</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:32Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>16</integer>
+			<key>Play Date</key><integer>3619553446</integer>
+			<key>Play Date UTC</key><date>2018-09-12T06:30:46Z</date>
+			<key>Normalization</key><integer>4685</integer>
+			<key>Persistent ID</key><string>5C12AC34582750DD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Dirty%20Projectors/Bitte%20Orca/24%20Stillness%20is%20the%20Move.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15110</key>
+		<dict>
+			<key>Track ID</key><integer>15110</integer>
+			<key>Name</key><string>Shit Goddamm</string>
+			<key>Artist</key><string>Eagles of Death Metal</string>
+			<key>Album</key><string>Death by Sexy</string>
+			<key>Genre</key><string>Rock</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3497289</integer>
+			<key>Total Time</key><integer>218540</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:28Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3600862131</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:28:51Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-03-08T21:21:04Z</date>
+			<key>Normalization</key><integer>3524</integer>
+			<key>Persistent ID</key><string>1B087686EFB962BC</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Eagles%20of%20Death%20Metal/Death%20by%20Sexy/Shit%20Goddamm.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15118</key>
+		<dict>
+			<key>Track ID</key><integer>15118</integer>
+			<key>Name</key><string>Grounds for Divorce</string>
+			<key>Artist</key><string>Elbow</string>
+			<key>Album</key><string>Seldom Seen Kid</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>1986646</integer>
+			<key>Total Time</key><integer>248058</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:00Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>64</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>12</integer>
+			<key>Play Date</key><integer>3603360945</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:35:45Z</date>
+			<key>Normalization</key><integer>2221</integer>
+			<key>Persistent ID</key><string>831D4DA5281D0566</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Elbow/Seldom%20Seen%20Kid/Grounds%20for%20Divorce.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15320</key>
+		<dict>
+			<key>Track ID</key><integer>15320</integer>
+			<key>Name</key><string>Praise You</string>
+			<key>Artist</key><string>Fat Boy Slim</string>
+			<key>Album</key><string>You've Come A Long Way, Baby</string>
+			<key>Genre</key><string>House</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5460496</integer>
+			<key>Total Time</key><integer>322220</integer>
+			<key>Date Modified</key><date>2016-03-17T15:07:54Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>7</integer>
+			<key>Play Date</key><integer>3603363878</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:24:38Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-01-11T02:37:52Z</date>
+			<key>Normalization</key><integer>2822</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>8F74613513AE7DA8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Fat%20Boy%20Slim/You've%20Come%20A%20Long%20Way,%20Baby/Praise%20You.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15498</key>
+		<dict>
+			<key>Track ID</key><integer>15498</integer>
+			<key>Name</key><string>Ragged Wood</string>
+			<key>Artist</key><string>Fleet Foxes</string>
+			<key>Album</key><string>Fleet Foxes</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7899586</integer>
+			<key>Total Time</key><integer>307278</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:20Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>205</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>25</integer>
+			<key>Play Date</key><integer>3600868688</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:18:08Z</date>
+			<key>Normalization</key><integer>5841</integer>
+			<key>Persistent ID</key><string>0094280D08A3C089</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Fleet%20Foxes/Fleet%20Foxes/03%20Ragged%20Wood.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15850</key>
+		<dict>
+			<key>Track ID</key><integer>15850</integer>
+			<key>Name</key><string>Surprise Hotel</string>
+			<key>Artist</key><string>Fool's Gold</string>
+			<key>Album</key><string>Fool's Gold</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>13482040</integer>
+			<key>Total Time</key><integer>407954</integer>
+			<key>Track Number</key><integer>96</integer>
+			<key>Track Count</key><integer>125</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:34Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>263</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3603368032</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:33:52Z</date>
+			<key>Normalization</key><integer>8179</integer>
+			<key>Persistent ID</key><string>F89B45C75D5D58B7</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Fool's%20Gold/Fool's%20Gold/96%20Surprise%20Hotel.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15940</key>
+		<dict>
+			<key>Track ID</key><integer>15940</integer>
+			<key>Name</key><string>When They Fight They Fight</string>
+			<key>Artist</key><string>Generationals</string>
+			<key>Album</key><string>Con Law</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3214709</integer>
+			<key>Total Time</key><integer>200254</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:54Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Free download from http://www.last.fm/music/Generationals</string>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3623859903</integer>
+			<key>Play Date UTC</key><date>2018-11-01T02:45:03Z</date>
+			<key>Normalization</key><integer>701</integer>
+			<key>Persistent ID</key><string>018B4FC5966ACE9E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Generationals/Con%20Law/01%20When%20They%20Fight%20They%20Fight.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15942</key>
+		<dict>
+			<key>Track ID</key><integer>15942</integer>
+			<key>Name</key><string>Faces in the Dark</string>
+			<key>Artist</key><string>Generationals</string>
+			<key>Album</key><string>Con Law</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3622208</integer>
+			<key>Total Time</key><integer>225724</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:50Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Free download from http://www.last.fm/music/Generationals</string>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3600854505</integer>
+			<key>Play Date UTC</key><date>2018-02-07T21:21:45Z</date>
+			<key>Normalization</key><integer>749</integer>
+			<key>Persistent ID</key><string>8062FC253E209816</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Generationals/Con%20Law/03%20Faces%20in%20the%20Dark.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15944</key>
+		<dict>
+			<key>Track ID</key><integer>15944</integer>
+			<key>Name</key><string>wildlife*12809</string>
+			<key>Artist</key><string>Generationals</string>
+			<key>Album</key><string>Con Law</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>2712585</integer>
+			<key>Total Time</key><integer>169482</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:56Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>10</integer>
+			<key>Play Date</key><integer>3600855679</integer>
+			<key>Play Date UTC</key><date>2018-02-07T21:41:19Z</date>
+			<key>Normalization</key><integer>10408</integer>
+			<key>Persistent ID</key><string>967FE97926644FC2</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Generationals/Con%20Law/06%20wildlife_12809.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15946</key>
+		<dict>
+			<key>Track ID</key><integer>15946</integer>
+			<key>Name</key><string>Trust</string>
+			<key>Artist</key><string>Generationals</string>
+			<key>Album</key><string>Trust - EP</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7239099</integer>
+			<key>Total Time</key><integer>219160</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>21</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:20Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3600854724</integer>
+			<key>Play Date UTC</key><date>2018-02-07T21:25:24Z</date>
+			<key>Normalization</key><integer>5295</integer>
+			<key>Persistent ID</key><string>439831382367367C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Generationals/Trust%20-%20EP/01%20Trust.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15948</key>
+		<dict>
+			<key>Track ID</key><integer>15948</integer>
+			<key>Name</key><string>Greenleaf</string>
+			<key>Artist</key><string>Generationals</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8693596</integer>
+			<key>Total Time</key><integer>217234</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:00Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3603367344</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:22:24Z</date>
+			<key>Normalization</key><integer>5889</integer>
+			<key>Persistent ID</key><string>7AE20FCF7509FB6C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Generationals/Unknown%20Album/Greenleaf.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15950</key>
+		<dict>
+			<key>Track ID</key><integer>15950</integer>
+			<key>Name</key><string>D.A.N.C.E.</string>
+			<key>Artist</key><string>Get Cape, Wear Cape, Fly</string>
+			<key>Genre</key><string>Dance</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6239778</integer>
+			<key>Total Time</key><integer>237191</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:50Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>210</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3600867079</integer>
+			<key>Play Date UTC</key><date>2018-02-08T00:51:19Z</date>
+			<key>Normalization</key><integer>1143</integer>
+			<key>Persistent ID</key><string>626C82DE3D874C50</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Get%20Cape,%20Wear%20Cape,%20Fly/Unknown%20Album/D.A.N.C.E..mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>16144</key>
+		<dict>
+			<key>Track ID</key><integer>16144</integer>
+			<key>Name</key><string>Clint Eastwood</string>
+			<key>Artist</key><string>Gorillaz</string>
+			<key>Album Artist</key><string>Gorillaz</string>
+			<key>Composer</key><string>Gorillaz</string>
+			<key>Album</key><string>Gorillaz</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5685248</integer>
+			<key>Total Time</key><integer>355186</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2001</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:38Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Created 07 March 2001</string>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3603366283</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:04:43Z</date>
+			<key>Normalization</key><integer>2934</integer>
+			<key>Persistent ID</key><string>FA6990547590480E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Gorillaz/Gorillaz/01%20Clint%20Eastwood.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>16520</key>
+		<dict>
+			<key>Track ID</key><integer>16520</integer>
+			<key>Name</key><string>Boy From School (Hot Chip Cover)</string>
+			<key>Artist</key><string>Grizzly Bear</string>
+			<key>Album</key><string>B-Sides &#38; Demos</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4050671</integer>
+			<key>Total Time</key><integer>253100</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:36Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3603364595</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:36:35Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2017-12-27T12:58:17Z</date>
+			<key>Normalization</key><integer>216</integer>
+			<key>Persistent ID</key><string>5E236392ED061E5B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Grizzly%20Bear/B-Sides%20&#38;%20Demos/01%20Boy%20From%20School%20(Hot%20Chip%20Cover).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>16654</key>
+		<dict>
+			<key>Track ID</key><integer>16654</integer>
+			<key>Name</key><string>The Nosebleed Section</string>
+			<key>Artist</key><string>Hilltop Hoods</string>
+			<key>Album</key><string>State of the Art</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5296822</integer>
+			<key>Total Time</key><integer>219689</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Year</key><integer>2003</integer>
+			<key>BPM</key><integer>97</integer>
+			<key>Date Modified</key><date>2018-10-05T05:51:05Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3603362464</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:01:04Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2018-08-04T01:50:19Z</date>
+			<key>Normalization</key><integer>3475</integer>
+			<key>Sort Name</key><string>Nosebleed Section</string>
+			<key>Persistent ID</key><string>D0F2785FAC0A7C39</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Hilltop%20Hoods/State%20of%20the%20Art/09%20The%20Nosebleed%20Section.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>16820</key>
+		<dict>
+			<key>Track ID</key><integer>16820</integer>
+			<key>Name</key><string>Me And Lazarus</string>
+			<key>Artist</key><string>Iron &#38; Wine</string>
+			<key>Album</key><string>Kiss Each Other Clean</string>
+			<key>Genre</key><string>Folk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5789015</integer>
+			<key>Total Time</key><integer>182909</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:08Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>222</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3600867262</integer>
+			<key>Play Date UTC</key><date>2018-02-08T00:54:22Z</date>
+			<key>Normalization</key><integer>1711</integer>
+			<key>Persistent ID</key><string>6001F51A26C8F1E0</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Iron%20&#38;%20Wine/Kiss%20Each%20Other%20Clean/02%20Me%20And%20Lazarus.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>17012</key>
+		<dict>
+			<key>Track ID</key><integer>17012</integer>
+			<key>Name</key><string>Big Wave</string>
+			<key>Artist</key><string>Jenny and Johnny</string>
+			<key>Album</key><string>I'm Having Fun Now</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8019606</integer>
+			<key>Total Time</key><integer>235937</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:30Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>271</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>11</integer>
+			<key>Play Date</key><integer>3603365669</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:54:29Z</date>
+			<key>Normalization</key><integer>8606</integer>
+			<key>Persistent ID</key><string>B62E7EE48EC07DB3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Jenny%20and%20Johnny/I'm%20Having%20Fun%20Now/04%20Big%20Wave.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>17472</key>
+		<dict>
+			<key>Track ID</key><integer>17472</integer>
+			<key>Name</key><string>Far Away</string>
+			<key>Artist</key><string>Jose Gonzalez</string>
+			<key>Album</key><string>Red Dead Redemption Original Soundtrack</string>
+			<key>Genre</key><string>Soundtrack</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9621577</integer>
+			<key>Total Time</key><integer>279745</integer>
+			<key>Track Number</key><integer>16</integer>
+			<key>Track Count</key><integer>19</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:30Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3603367624</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:27:04Z</date>
+			<key>Normalization</key><integer>1294</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>959CD249039E8CB9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Jose%20Gonzalez/Red%20Dead%20Redemption%20Original%20Soundtrack/16%20Far%20Away.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18306</key>
+		<dict>
+			<key>Track ID</key><integer>18306</integer>
+			<key>Name</key><string>Sun Hands</string>
+			<key>Artist</key><string>Local Natives</string>
+			<key>Album</key><string>Gorilla Manor</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6704013</integer>
+			<key>Total Time</key><integer>292911</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:48Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>183</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3600857401</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:10:01Z</date>
+			<key>Normalization</key><integer>3893</integer>
+			<key>Persistent ID</key><string>3AD53099EC91F945</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Local%20Natives/Gorilla%20Manor/03%20Sun%20Hands.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18434</key>
+		<dict>
+			<key>Track ID</key><integer>18434</integer>
+			<key>Name</key><string>Things U Did</string>
+			<key>Artist</key><string>Love Lake</string>
+			<key>Album</key><string>Love Lake</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6422794</integer>
+			<key>Total Time</key><integer>185706</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>21</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:26Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3600869059</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:24:19Z</date>
+			<key>Normalization</key><integer>1450</integer>
+			<key>Persistent ID</key><string>E97846506BB10476</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Love%20Lake/Love%20Lake/12%20Things%20U%20Did.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18486</key>
+		<dict>
+			<key>Track ID</key><integer>18486</integer>
+			<key>Name</key><string>Fighters</string>
+			<key>Artist</key><string>Lupe Fiasco</string>
+			<key>Album</key><string>The Cool</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3436336</integer>
+			<key>Total Time</key><integer>214073</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:50Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>1</string>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3600857615</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:13:35Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2018-08-03T07:25:52Z</date>
+			<key>Normalization</key><integer>1402</integer>
+			<key>Sort Album</key><string>Cool</string>
+			<key>Persistent ID</key><string>29403135A49D0A4E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Lupe%20Fiasco/The%20Cool/Fighters.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18542</key>
+		<dict>
+			<key>Track ID</key><integer>18542</integer>
+			<key>Name</key><string>Get Some</string>
+			<key>Artist</key><string>Lykke Li</string>
+			<key>Album Artist</key><string>Lykke Li</string>
+			<key>Album</key><string>Wounded Rhymes</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4913152</integer>
+			<key>Total Time</key><integer>204643</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:12Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3600858677</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:31:17Z</date>
+			<key>Normalization</key><integer>5667</integer>
+			<key>Persistent ID</key><string>1573E982B6D2BE1B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Lykke%20Li/Wounded%20Rhymes/01%20Get%20Some.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18544</key>
+		<dict>
+			<key>Track ID</key><integer>18544</integer>
+			<key>Name</key><string>Youth Knows No Pain</string>
+			<key>Artist</key><string>Lykke Li</string>
+			<key>Album</key><string>Wounded Rhymes</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7272448</integer>
+			<key>Total Time</key><integer>179905</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:56Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3603360244</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:24:04Z</date>
+			<key>Normalization</key><integer>8252</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A6BD52E6EEE2AB04</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Lykke%20Li/Wounded%20Rhymes/01%20Youth%20Knows%20No%20Pain.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18622</key>
+		<dict>
+			<key>Track ID</key><integer>18622</integer>
+			<key>Name</key><string>Hold The Line Feat Lexxus &#38; Santigold</string>
+			<key>Artist</key><string>Major Lazer</string>
+			<key>Album</key><string>Guns Don't Kill People...Lazers Do</string>
+			<key>Genre</key><string>Dance</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3236978</integer>
+			<key>Total Time</key><integer>125988</integer>
+			<key>Track Number</key><integer>44</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:02Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3600859042</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:37:22Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2017-03-21T01:42:30Z</date>
+			<key>Normalization</key><integer>4867</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>48E534C0FD8CDDBD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Major%20Lazer/Guns%20Don't%20Kill%20People...Lazers%20Do/44%20Hold%20The%20Line%20Feat%20Lexxus%20&#38;%20Santigold.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18630</key>
+		<dict>
+			<key>Track ID</key><integer>18630</integer>
+			<key>Name</key><string>Somebody To Love Me ft. Boy George &#38; Miike Snow</string>
+			<key>Artist</key><string>Mark Ronson</string>
+			<key>Album</key><string>Record Collection (Deluxe Version)</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6434816</integer>
+			<key>Total Time</key><integer>298083</integer>
+			<key>Track Number</key><integer>64</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:40Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>172</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3600864938</integer>
+			<key>Play Date UTC</key><date>2018-02-08T00:15:38Z</date>
+			<key>Normalization</key><integer>4965</integer>
+			<key>Persistent ID</key><string>B9EF28EEE8727F76</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Mark%20Ronson/Record%20Collection%20(Deluxe%20Version)/64%20Somebody%20To%20Love%20Me%20ft.%20Boy%20George%20&#38;%20Miike%20Snow.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18708</key>
+		<dict>
+			<key>Track ID</key><integer>18708</integer>
+			<key>Name</key><string>Cameras</string>
+			<key>Artist</key><string>Matt &#38; Kim</string>
+			<key>Album</key><string>Sidewalks</string>
+			<key>Genre</key><string>Rock</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7484736</integer>
+			<key>Total Time</key><integer>212767</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:36Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>281</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3603367127</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:18:47Z</date>
+			<key>Normalization</key><integer>8617</integer>
+			<key>Persistent ID</key><string>B4A5BEBD2B2E3358</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Matt%20&#38;%20Kim/Sidewalks/03%20Cameras.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>19086</key>
+		<dict>
+			<key>Track ID</key><integer>19086</integer>
+			<key>Name</key><string>Float On</string>
+			<key>Artist</key><string>Modest Mouse</string>
+			<key>Album</key><string>Good News For People Who Love Bad News</string>
+			<key>Genre</key><string>Alternative &#38; Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6054818</integer>
+			<key>Total Time</key><integer>209580</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2004</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:52Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>230</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>#chr [Efnet] cp</string>
+			<key>Play Count</key><integer>15</integer>
+			<key>Play Date</key><integer>3600863184</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:46:24Z</date>
+			<key>Normalization</key><integer>6197</integer>
+			<key>Persistent ID</key><string>B344FCC3469CD44C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Modest%20Mouse/Good%20News%20For%20People%20Who%20Love%20Bad%20News/01%20Float%20On.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>19092</key>
+		<dict>
+			<key>Track ID</key><integer>19092</integer>
+			<key>Name</key><string>The World At Large</string>
+			<key>Artist</key><string>Modest Mouse</string>
+			<key>Album</key><string>Good News For People Who Love Bad News</string>
+			<key>Genre</key><string>Alternative &#38; Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5450761</integer>
+			<key>Total Time</key><integer>272013</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>2004</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:46Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>160</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3603361217</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:40:17Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2017-09-14T21:07:43Z</date>
+			<key>Normalization</key><integer>5793</integer>
+			<key>Sort Name</key><string>World At Large</string>
+			<key>Persistent ID</key><string>BA953FCC172413CA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Modest%20Mouse/Good%20News%20For%20People%20Who%20Love%20Bad%20News/02%20The%20World%20At%20Large%201.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>19260</key>
+		<dict>
+			<key>Track ID</key><integer>19260</integer>
+			<key>Name</key><string>The Stand</string>
+			<key>Artist</key><string>Mother Mother</string>
+			<key>Album Artist</key><string>Mother Mother</string>
+			<key>Album</key><string>Eureka</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7672678</integer>
+			<key>Total Time</key><integer>176561</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:42Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3607270670</integer>
+			<key>Play Date UTC</key><date>2018-04-23T02:37:50Z</date>
+			<key>Normalization</key><integer>7338</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Stand</string>
+			<key>Persistent ID</key><string>3F09AFD29A8D093B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Mother%20Mother/Eureka/02%20The%20Stand.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>20502</key>
+		<dict>
+			<key>Track ID</key><integer>20502</integer>
+			<key>Name</key><string>The Festival Song Ft. 360 And Hailey Cramer</string>
+			<key>Artist</key><string>Pez</string>
+			<key>Album</key><string>A Mind Of My Own</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5328498</integer>
+			<key>Total Time</key><integer>261616</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2016-01-18T14:53:45Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>162</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>www.torrentazos.com</string>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3600860590</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:03:10Z</date>
+			<key>Normalization</key><integer>1787</integer>
+			<key>Sort Album</key><string>Mind Of My Own</string>
+			<key>Sort Name</key><string>Festival Song Ft. 360 And Hailey Cramer</string>
+			<key>Persistent ID</key><string>F353F747A4419FBA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Pez/A%20Mind%20Of%20My%20Own/03%20The%20Festival%20Song%20Ft.%20360%20And%20Hailey%20Cramer.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>20504</key>
+		<dict>
+			<key>Track ID</key><integer>20504</integer>
+			<key>Name</key><string>Voices</string>
+			<key>Artist</key><string>Phantogram</string>
+			<key>Album</key><string>Mouthful of Diamonds</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8015617</integer>
+			<key>Total Time</key><integer>239733</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>21</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:52Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>7</integer>
+			<key>Play Date</key><integer>3600856874</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:01:14Z</date>
+			<key>Normalization</key><integer>8981</integer>
+			<key>Persistent ID</key><string>1DBE158C0830C2B9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Phantogram/Mouthful%20of%20Diamonds/03%20Voices.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>20944</key>
+		<dict>
+			<key>Track ID</key><integer>20944</integer>
+			<key>Name</key><string>Beg Steal or Borrow</string>
+			<key>Artist</key><string>Ray LaMontagne &#38; The Pariah Dogs</string>
+			<key>Album Artist</key><string>Ray LaMontagne &#38; the Pariah Dogs</string>
+			<key>Composer</key><string>Ray LaMontagne</string>
+			<key>Album</key><string>God Willin' &#38; The Creek Don't Rise</string>
+			<key>Genre</key><string>Folk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6621184</integer>
+			<key>Total Time</key><integer>274860</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:28Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> </string>
+			<key>Play Count</key><integer>15</integer>
+			<key>Play Date</key><integer>3600863938</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:58:58Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-07-26T02:45:09Z</date>
+			<key>Normalization</key><integer>1505</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C0073E484A8792CC</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Ray%20LaMontagne%20&#38;%20the%20Pariah%20Dogs/God%20Willin'%20&#38;%20The%20Creek%20Don't%20Rise/04%20Beg%20Steal%20or%20Borrow.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>20946</key>
+		<dict>
+			<key>Track ID</key><integer>20946</integer>
+			<key>Name</key><string>For the Summer</string>
+			<key>Artist</key><string>Ray LaMontagne &#38; The Pariah Dogs</string>
+			<key>Album Artist</key><string>Ray LaMontagne &#38; the Pariah Dogs</string>
+			<key>Composer</key><string>Ray LaMontagne</string>
+			<key>Album</key><string>God Willin' &#38; The Creek Don't Rise</string>
+			<key>Genre</key><string>Folk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5646336</integer>
+			<key>Total Time</key><integer>234161</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:54Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> </string>
+			<key>Play Count</key><integer>11</integer>
+			<key>Play Date</key><integer>3603366517</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:08:37Z</date>
+			<key>Normalization</key><integer>1410</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>FE00E86C88A41BBA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Ray%20LaMontagne%20&#38;%20the%20Pariah%20Dogs/God%20Willin'%20&#38;%20The%20Creek%20Don't%20Rise/08%20For%20the%20Summer.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>21886</key>
+		<dict>
+			<key>Track ID</key><integer>21886</integer>
+			<key>Name</key><string>I Wanna Know</string>
+			<key>Artist</key><string>Röyksopp</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9273344</integer>
+			<key>Total Time</key><integer>231810</integer>
+			<key>Track Number</key><integer>48</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:38Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3600870589</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:49:49Z</date>
+			<key>Normalization</key><integer>5524</integer>
+			<key>Persistent ID</key><string>7E001F54A6355C05</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Ro%CC%88yksopp/Unknown%20Album/48%20I%20Wanna%20Know.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>22652</key>
+		<dict>
+			<key>Track ID</key><integer>22652</integer>
+			<key>Name</key><string>Rill Rill</string>
+			<key>Artist</key><string>Sleigh Bells</string>
+			<key>Album</key><string>Treats</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9197451</integer>
+			<key>Total Time</key><integer>229877</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:22Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> 00000000 00000210 00000880 00000000009AA570 00000000 008C2DB7 00000000 00000000 00000000 00000000 00000000 00000000</string>
+			<key>Play Count</key><integer>12</integer>
+			<key>Play Date</key><integer>3600862974</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:42:54Z</date>
+			<key>Normalization</key><integer>8145</integer>
+			<key>Persistent ID</key><string>1ECF43B49F534166</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Sleigh%20Bells/Treats/07%20Rill%20Rill.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>22720</key>
+		<dict>
+			<key>Track ID</key><integer>22720</integer>
+			<key>Name</key><string>Weekend</string>
+			<key>Artist</key><string>Smith Westerns</string>
+			<key>Album</key><string>Dye It Blonde</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8038544</integer>
+			<key>Total Time</key><integer>200097</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:24Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3600856395</integer>
+			<key>Play Date UTC</key><date>2018-02-07T21:53:15Z</date>
+			<key>Normalization</key><integer>8870</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>B66E484F72C98D7D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Smith%20Westerns/Dye%20It%20Blonde/01%20Weekend.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>22820</key>
+		<dict>
+			<key>Track ID</key><integer>22820</integer>
+			<key>Name</key><string>Osaka Loop Line</string>
+			<key>Artist</key><string>Discovery</string>
+			<key>Album Artist</key><string>Soundtrack</string>
+			<key>Album</key><string>LP (Bonus Track Version)</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3895796</integer>
+			<key>Total Time</key><integer>242233</integer>
+			<key>Track Number</key><integer>62</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:12Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>0</string>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3623592423</integer>
+			<key>Play Date UTC</key><date>2018-10-29T00:27:03Z</date>
+			<key>Normalization</key><integer>2926</integer>
+			<key>Persistent ID</key><string>697842634650F03D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Soundtrack/LP%20(Bonus%20Track%20Version)/62%20Osaka%20Loop%20Line.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>22822</key>
+		<dict>
+			<key>Track ID</key><integer>22822</integer>
+			<key>Name</key><string>Something Good Can Work</string>
+			<key>Artist</key><string>Two Door Cinema Club</string>
+			<key>Album Artist</key><string>Soundtrack</string>
+			<key>Album</key><string>Something Good Can Work - Single</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6714649</integer>
+			<key>Total Time</key><integer>167000</integer>
+			<key>Track Number</key><integer>78</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:30Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> </string>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3600862298</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:31:38Z</date>
+			<key>Normalization</key><integer>3583</integer>
+			<key>Persistent ID</key><string>9BC20C9D445BA282</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Soundtrack/Something%20Good%20Can%20Work%20-%20Single/78%20Something%20Good%20Can%20Work.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24184</key>
+		<dict>
+			<key>Track ID</key><integer>24184</integer>
+			<key>Name</key><string>Come Back Clean (Featuring Emily Haines)</string>
+			<key>Artist</key><string>The Crystal Method</string>
+			<key>Album</key><string>Divided By Night</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>11979963</integer>
+			<key>Total Time</key><integer>297351</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:42Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>6</integer>
+			<key>Play Date</key><integer>3603362244</integer>
+			<key>Play Date UTC</key><date>2018-03-08T21:57:24Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2017-03-12T23:07:42Z</date>
+			<key>Normalization</key><integer>1985</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>Crystal Method</string>
+			<key>Persistent ID</key><string>FB0EEA6E9DD9BC54</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Crystal%20Method/Divided%20By%20Night/Come%20Back%20Clean%20(Featuring%20Emily%20Haines).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24226</key>
+		<dict>
+			<key>Track ID</key><integer>24226</integer>
+			<key>Name</key><string>Down By the Water</string>
+			<key>Artist</key><string>The Drums</string>
+			<key>Album Artist</key><string>The Drums</string>
+			<key>Album</key><string>The Drums</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Purchased AAC audio file</string>
+			<key>Size</key><integer>7330263</integer>
+			<key>Total Time</key><integer>206167</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>7</integer>
+			<key>Year</key><integer>2009</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:16Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3600863390</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:49:50Z</date>
+			<key>Release Date</key><date>2009-09-30T07:00:00Z</date>
+			<key>Normalization</key><integer>3355</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Drums</string>
+			<key>Sort Album Artist</key><string>Drums</string>
+			<key>Sort Artist</key><string>Drums</string>
+			<key>Persistent ID</key><string>0A07D659380D2BAD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Purchased</key><true/>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Drums/The%20Drums/06%20Down%20By%20the%20Water.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24302</key>
+		<dict>
+			<key>Track ID</key><integer>24302</integer>
+			<key>Name</key><string>Pasa de Kaka</string>
+			<key>Artist</key><string>The Five One</string>
+			<key>Album Artist</key><string>The Five One</string>
+			<key>Album</key><string>MANDATORY EP</string>
+			<key>Genre</key><string>Alternative Hip Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7081579</integer>
+			<key>Total Time</key><integer>154070</integer>
+			<key>BPM</key><integer>105</integer>
+			<key>Date Modified</key><date>2016-03-27T14:38:24Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>"MANDATORY on iTunes Now"</string>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3607166363</integer>
+			<key>Play Date UTC</key><date>2018-04-21T21:39:23Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-04-01T00:42:44Z</date>
+			<key>Normalization</key><integer>3107</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album Artist</key><string>Five One</string>
+			<key>Sort Artist</key><string>Five One</string>
+			<key>Persistent ID</key><string>F4B97D9915A8B35A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Five%20One/MANDATORY%20EP/Pasa%20de%20Kaka.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24306</key>
+		<dict>
+			<key>Track ID</key><integer>24306</integer>
+			<key>Name</key><string>The Yeah Yeah Yeah Song</string>
+			<key>Artist</key><string>The Flaming Lips</string>
+			<key>Composer</key><string>Wayne Coyne, Steven Drozd, Michael Ivins, Dave Fridmann, Greg Kurstin</string>
+			<key>Album</key><string>At War With The Mystics</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4724670</integer>
+			<key>Total Time</key><integer>291373</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:20Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>10</integer>
+			<key>Play Date</key><integer>3600865970</integer>
+			<key>Play Date UTC</key><date>2018-02-08T00:32:50Z</date>
+			<key>Normalization</key><integer>11371</integer>
+			<key>Sort Artist</key><string>Flaming Lips</string>
+			<key>Sort Name</key><string>Yeah Yeah Yeah Song</string>
+			<key>Persistent ID</key><string>5535FF1AC0C1AE75</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Flaming%20Lips/At%20War%20With%20The%20Mystics/01%20The%20Yeah%20Yeah%20Yeah%20Song.m4a</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24698</key>
+		<dict>
+			<key>Track ID</key><integer>24698</integer>
+			<key>Name</key><string>Dancing With The Dj </string>
+			<key>Artist</key><string>The Knocks</string>
+			<key>Album</key><string>Dancing With The DJ</string>
+			<key>Genre</key><string>Dance</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9586688</integer>
+			<key>Total Time</key><integer>239072</integer>
+			<key>Track Number</key><integer>54</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:38Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3600856634</integer>
+			<key>Play Date UTC</key><date>2018-02-07T21:57:14Z</date>
+			<key>Normalization</key><integer>5701</integer>
+			<key>Sort Artist</key><string>Knocks</string>
+			<key>Persistent ID</key><string>D2350ED567D39EE2</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Knocks/Dancing%20With%20The%20DJ/54%20Dancing%20With%20The%20Dj.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24798</key>
+		<dict>
+			<key>Track ID</key><integer>24798</integer>
+			<key>Name</key><string>Love Me Like You</string>
+			<key>Artist</key><string>The Magic Numbers</string>
+			<key>Album</key><string>The Magic Numbers</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7874774</integer>
+			<key>Total Time</key><integer>291004</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:10Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>216</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>12</integer>
+			<key>Play Date</key><integer>3600858472</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:27:52Z</date>
+			<key>Normalization</key><integer>7873</integer>
+			<key>Sort Album</key><string>Magic Numbers</string>
+			<key>Sort Artist</key><string>Magic Numbers</string>
+			<key>Persistent ID</key><string>A6493E6BF28AB7D5</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Magic%20Numbers/The%20Magic%20Numbers/05%20Love%20Me%20Like%20You.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>24998</key>
+		<dict>
+			<key>Track ID</key><integer>24998</integer>
+			<key>Name</key><string>Punching In A Dream</string>
+			<key>Artist</key><string>The Naked And Famous</string>
+			<key>Album</key><string>Passive Me, Aggressive You</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8226224</integer>
+			<key>Total Time</key><integer>238184</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:16Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>267</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> 0000216C 000024A8 0000CD22 0000EC4E 00031293 0003228A 00008000 00008000 0000417C 0000417C</string>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3600859460</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:44:20Z</date>
+			<key>Normalization</key><integer>9383</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>Naked And Famous</string>
+			<key>Persistent ID</key><string>61A8714C08A38034</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Naked%20And%20Famous/Passive%20Me,%20Aggressive%20You/02%20Punching%20In%20A%20Dream.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>25018</key>
+		<dict>
+			<key>Track ID</key><integer>25018</integer>
+			<key>Name</key><string>Girls Like You</string>
+			<key>Artist</key><string>The Naked And Famous</string>
+			<key>Album</key><string>Passive Me, Aggressive You</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>11442555</integer>
+			<key>Total Time</key><integer>364538</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:56Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>245</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> 00001A23 00001C60 0000B3BF 0000BA24 00027A77 00027A77 00008000 00008000 000002A1 000002A1</string>
+			<key>Play Count</key><integer>7</integer>
+			<key>Play Date</key><integer>3605524411</integer>
+			<key>Play Date UTC</key><date>2018-04-02T21:33:31Z</date>
+			<key>Normalization</key><integer>7264</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>Naked And Famous</string>
+			<key>Persistent ID</key><string>517E954DA08F6B17</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Naked%20And%20Famous/Passive%20Me,%20Aggressive%20You/13%20Girls%20Like%20You.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>25024</key>
+		<dict>
+			<key>Track ID</key><integer>25024</integer>
+			<key>Name</key><string>Young Blood</string>
+			<key>Artist</key><string>The Naked And Famous</string>
+			<key>Album Artist</key><string>The Naked And Famous </string>
+			<key>Album</key><string>Young Blood - Single</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3745694</integer>
+			<key>Total Time</key><integer>233456</integer>
+			<key>Date Modified</key><date>2011-11-02T20:44:02Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3603364828</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:40:28Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2018-08-03T08:01:45Z</date>
+			<key>Normalization</key><integer>4109</integer>
+			<key>Sort Album Artist</key><string>Naked And Famous </string>
+			<key>Sort Artist</key><string>Naked And Famous</string>
+			<key>Persistent ID</key><string>F7610925DA0095D7</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Naked%20And%20Famous/Young%20Blood%20-%20Single/Young%20Blood.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>25400</key>
+		<dict>
+			<key>Track ID</key><integer>25400</integer>
+			<key>Name</key><string>Heaven's on fire</string>
+			<key>Artist</key><string>The Radio Dept.</string>
+			<key>Album</key><string>Clinging to a Scheme</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8600481</integer>
+			<key>Total Time</key><integer>213916</integer>
+			<key>Track Number</key><integer>40</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:43:34Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3600867613</integer>
+			<key>Play Date UTC</key><date>2018-02-08T01:00:13Z</date>
+			<key>Normalization</key><integer>6743</integer>
+			<key>Sort Artist</key><string>Radio Dept.</string>
+			<key>Persistent ID</key><string>14C18A23BE0CCDAE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/The%20Radio%20Dept_/Clinging%20to%20a%20Scheme/40%20Heaven's%20on%20fire.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>25406</key>
+		<dict>
+			<key>Track ID</key><integer>25406</integer>
+			<key>Name</key><string>Precious Metals</string>
+			<key>Artist</key><string>the Russian Futurists</string>
+			<key>Album</key><string>let's get ready to crumble</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3382630</integer>
+			<key>Total Time</key><integer>140852</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:14Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string> 000017B5 00001571 000076FB 00006253 00015FA7 00015FA7 00008000 00008000 00007547 00007547</string>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3603362604</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:03:24Z</date>
+			<key>Normalization</key><integer>6909</integer>
+			<key>Sort Artist</key><string>Russian Futurists</string>
+			<key>Persistent ID</key><string>3A9CEAC7693BA7EE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/the%20Russian%20Futurists/let's%20get%20ready%20to%20crumble/03%20Precious%20Metals.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>26136</key>
+		<dict>
+			<key>Track ID</key><integer>26136</integer>
+			<key>Name</key><string>Four Seasons In One Day</string>
+			<key>Artist</key><string>Paul Kelly &#38; Angus Stone</string>
+			<key>Album Artist</key><string>Various Artists</string>
+			<key>Album</key><string>He Will Have His Way - The Songs of Tim &#38; Neil Finn</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>6156911</integer>
+			<key>Total Time</key><integer>258560</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-11-02T20:42:58Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>190</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3603366914</integer>
+			<key>Play Date UTC</key><date>2018-03-08T23:15:14Z</date>
+			<key>Normalization</key><integer>1638</integer>
+			<key>Persistent ID</key><string>66D0BDEB17E2E407</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Various%20Artists/He%20Will%20Have%20His%20Way%20-%20The%20Songs%20of%20Tim%20&#38;%20Neil%20Finn/04%20Four%20Seasons%20In%20One%20Day.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>26142</key>
+		<dict>
+			<key>Track ID</key><integer>26142</integer>
+			<key>Name</key><string>The Mama Papa</string>
+			<key>Artist</key><string>Plants And Animals</string>
+			<key>Album Artist</key><string>Various Artists</string>
+			<key>Album</key><string>La La Land</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7634778</integer>
+			<key>Total Time</key><integer>258533</integer>
+			<key>Track Number</key><integer>101</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:38Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>235</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>www.BlalocksIRP.com</string>
+			<key>Play Count</key><integer>10</integer>
+			<key>Play Date</key><integer>3603365928</integer>
+			<key>Play Date UTC</key><date>2018-03-08T22:58:48Z</date>
+			<key>Normalization</key><integer>3947</integer>
+			<key>Sort Name</key><string>Mama Papa</string>
+			<key>Persistent ID</key><string>E3C8D7C7C5EFA111</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Various%20Artists/La%20La%20Land/101%20The%20Mama%20Papa.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>26146</key>
+		<dict>
+			<key>Track ID</key><integer>26146</integer>
+			<key>Name</key><string>Undertow</string>
+			<key>Artist</key><string>Warpaint</string>
+			<key>Album</key><string>The Fool</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>10082471</integer>
+			<key>Total Time</key><integer>241867</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>1</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:32:50Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3600860328</integer>
+			<key>Play Date UTC</key><date>2018-02-07T22:58:48Z</date>
+			<key>Normalization</key><integer>1938</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Fool</string>
+			<key>Persistent ID</key><string>EA73497FE515DDF6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Warpaint/The%20Fool/01%20Undertow.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>26606</key>
+		<dict>
+			<key>Track ID</key><integer>26606</integer>
+			<key>Name</key><string>Dear God 2.0</string>
+			<key>Artist</key><string>Monsters of Folk &#38; The Roots</string>
+			<key>Album</key><string>Dear God 2.0 - Single</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4805249</integer>
+			<key>Total Time</key><integer>239046</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2011-12-12T03:31:44Z</date>
+			<key>Date Added</key><date>2015-06-16T20:29:57Z</date>
+			<key>Bit Rate</key><integer>160</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>14</integer>
+			<key>Play Date</key><integer>3600861174</integer>
+			<key>Play Date UTC</key><date>2018-02-07T23:12:54Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2018-11-18T05:35:13Z</date>
+			<key>Normalization</key><integer>1602</integer>
+			<key>Compilation</key><true/>
+			<key>Persistent ID</key><string>1D50F33C50A04CF9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Compilations/Dear%20God%202.0%20-%20Single/Dear%20God%202.0.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>Doing Less</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>110603</integer>
+			<key>Playlist Persistent ID</key><string>FE55F1A464D33CA6</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>9952</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>10020</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>10018</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>10022</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>10024</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>10634</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>12286</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>12310</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>12312</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>12314</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13102</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13328</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24184</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13748</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13750</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13922</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13924</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>14048</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13568</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>14196</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>22820</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24226</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15110</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15118</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15320</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24302</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24306</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15498</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15850</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15940</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15942</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15944</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15946</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15948</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15950</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>16144</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>16520</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>16654</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>16820</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>17012</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>17472</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13570</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>7526</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13714</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24698</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18306</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18434</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18486</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18542</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18544</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13572</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24798</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18622</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18630</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18708</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>19086</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>19092</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>26606</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>26606</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>19260</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>24998</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>25018</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>25024</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>13566</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>26136</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>20502</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>20504</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>26142</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>25400</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>20944</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>20946</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>21886</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>25406</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>22652</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>22720</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>22822</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>26146</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,8 +13,7 @@ server.listen(3003, () => console.log('listening on *:3003'));
 
 websocket.on('connection', (socket) => {
   console.log('A client just joined on', socket.id);
-
-
+  
   socket.on('message', (message) => {
     data = JSON.parse(message);
     if (data.content === 'play') {
@@ -27,6 +26,5 @@ websocket.on('connection', (socket) => {
       console.log('moving');
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
     }
-
   });
 });

@@ -21,6 +21,26 @@ module.exports = function pirateDb(knex) {
         })
         .catch(error => callback(error));
     },
+    getCaptainById: (id, callback) => {
+      knex
+      .select('email', 'id', 'name')
+      .from('users')
+      .where({id: id})
+      .then((results) => {
+        callback(null, results);
+      })
+      .catch(error => callback(error));
+    },
+    getCaptainIdByEmail: (email, callback) => {
+      knex
+      .select('id')
+      .from('users')
+      .where({email: email})
+      .then((results) => {
+        callback(null, results);
+      })
+      .catch(error => callback(error));
+    },
     searchShipsByName: (search, callback, numResults) => {
       knex
         .select('users.name as captain', 'ships.name as shipName', 'ships.crew as crewNum', 'ships.id as shipId')

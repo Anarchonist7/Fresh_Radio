@@ -4,7 +4,7 @@ const bodyParser  = require("body-parser");
 require('dotenv').config();
 const ENV = process.env.ENV || "development";
 const PORT = process.env.PORT || 8080;
-const LOCALHOST = process.env.LOCALHOST || '172.218.8.222'
+const LOCALHOST = process.env.LOCALHOST || '192.168.1.75'
 
 const config = require('./knexfile')[ENV];
 const knex = require('knex')(config);
@@ -41,6 +41,46 @@ app.get("/ships/:id", function(req, res) {
           })
         }
       })
+    }
+  });
+})
+
+
+app.get("/captain/:id", function(req, res) {
+  //should require captain Auth
+  const {id} = req.params
+  pirateDb.getCaptainById(id, (error, dbResponse) => {
+    if (error) {
+      console.log('error', error.message)
+      res.status(500).json({ error: error.message });
+    } else {
+      res.json(dbResponse);
+    }
+  });
+})
+
+app.get("/captain/:id/ships", function(req, res) {
+  const {id} = req.params
+  pirateDb.getShipsByCaptainId(id, (error, dbResponse) => {
+    if (error) {
+      console.log('error', error.message)
+      res.status(500).json({ error: error.message });
+    } else {
+      res.json(dbResponse);
+    }
+  });
+})
+
+
+app.get("/captain/find/:email", function(req, res) {
+  //should require captain Auth
+  const {email} = req.params
+  pirateDb.getCaptainIdByEmail(email, (error, dbResponse) => {
+    if (error) {
+      console.log('error', error.message)
+      res.status(500).json({ error: error.message });
+    } else {
+      res.json(dbResponse);
     }
   });
 })
