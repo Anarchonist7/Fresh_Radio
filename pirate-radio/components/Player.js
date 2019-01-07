@@ -276,7 +276,7 @@ export default class Player extends Component {
           onPressPause={() => {
             this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis);
             this.props.syncTrue()
-            }
+            setTimeout(() => {this.props.syncFalse()}, 3000)}
           }
           onBack={() => {
               this.props.sendMessage(this.state.selectedTrack - 1, Date.now());
