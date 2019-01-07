@@ -32,7 +32,7 @@ const SeekBar = ({
   const remaining = minutesAndSeconds(trackLength - currentPosition);
   return (
     <View style={Styles.SeekBarContainer}>
-      <View style={Styles.SeekBarTimes}>
+      <View style={Styles.SpaceBetween}>
         <View>
           <Text style={Styles.SeekBarText}>
             {elapsed[0] + ":" + elapsed[1]}

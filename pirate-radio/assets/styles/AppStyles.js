@@ -9,6 +9,37 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 const { width, height } = Dimensions.get('window');
 
 module.exports = EStyleSheet.create({
+    SpaceBetween: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    NewShipHeader: {
+        width: '100%',
+        flex: 0.2,
+    },
+
+    ShipHeader: {
+        ...allHeaders,
+        justifyContent: 'space-between',
+    },
+
+    CaptainHeader: {
+        ...allHeaders,
+        paddingLeft: 10,
+        justifyContent: 'space-between',
+    },
+    
+    CaptainHeaderTickerContainer: {
+        width: '73%',
+    },
+
+    CaptainHeaderText: {
+        fontFamily: 'BlackPearl',
+        color: 'white',
+        fontSize: '1.55rem',
+    },
+
     ListenHostButtons: {
         height: '35%',
         width: '95%',
@@ -41,27 +72,6 @@ module.exports = EStyleSheet.create({
         borderRadius: 15,
     },
 
-    CaptainHeader: {
-        ...allHeaders,
-        paddingLeft: 10,
-        justifyContent: 'space-between',
-    },
-    
-    CaptainHeaderTickerContainer: {
-        width: '73%',
-    },
-
-    ShipHeader: {
-        ...allHeaders,
-        justifyContent: 'center',
-    },
-
-    CaptainHeaderText: {
-        fontFamily: 'BlackPearl',
-        color: 'white',
-        fontSize: '1.55rem',
-    },
-
     NewShip: {
         // height: 275,
         // height: '16rem',
@@ -74,11 +84,6 @@ module.exports = EStyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: greyBg,
         borderRadius: 15,
-    },
-
-    NewShipHeader: {
-        width: '100%',
-        flex: 0.2,
     },
 
     ShipFormContainer: {
@@ -296,11 +301,6 @@ module.exports = EStyleSheet.create({
         paddingTop: 16,
     },
 
-    SeekBarTimes: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-
     SeekBarTrack: {
         height: '0.15rem',
         borderRadius: 1,
@@ -322,10 +322,23 @@ module.exports = EStyleSheet.create({
     },
 
     DownloadButton: {
-        paddingTop: '0.5rem',
-        justifyContent: 'column',
-        alignSelf: 'center',
+        backgroundColor: buttonBlue,
+        alignItems: 'center',
         justifyContent: 'center',
+        width: '6rem',
+        height: '1.5rem',
+        marginLeft: '0.5rem',
+        borderRadius: 15,
+    },
+
+    SyncButton: {
+        backgroundColor: buttonBlue,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '8rem',
+        width: '1.5rem',
+        marginRight: '0.5rem',
+        borderRadius: 15,
     },
 
     // !!!! END OF SHIP PAGES
