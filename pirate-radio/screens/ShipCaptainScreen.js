@@ -62,11 +62,13 @@ export default class ShipCaptainScreen extends React.Component {
 
     render() {
         const {ship, tracks, captain} = this.props.screenProps;
-        if (this.props.screenProps.request === true) {
+        if (this.props.screenProps.request === true && this.state.request === false) {
+            console.log('request made!');
             this.setState({
                 request: true
             })
-        } else {
+        } else if (this.props.screenProps.request === false && this.state.request === true) {
+            console.log('request satisfied!');
             this.setState({
                 request: false
             })
