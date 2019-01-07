@@ -7,15 +7,28 @@ Pirate Radio is a social music app which synchronizes playback across multiple d
 Clone the repo to your local machine.
 
 In /simpleserver/ ...
-* Setup environment variables
-* npm install 
+* (optional) setup environment variables - a .env file with PORT and LOCALHOST values for your server. 
+* npm install
+* npm knex migrate:latest
+* npm knex seed:run
 * run the server with 
+```
+nodemon server.js
+```
 
 In /pirate-radio/ ...
-* Setup environment variables
+* (optional) setup environment variables - a env.js file which contains
+```
+    REST_PORT: <server PORT>,
+    SOCKET_PORT: 3003,
+    LOCALHOST: <your server ip>
+```
 * npm install
-* run the app with npm start
-* launch an emulator on your local machine with i or a or launch the app on your mobile device through the expo app
+* run the app with 
+```
+npm start
+```
+* launch an emulator on your local machine from terminal with i or a. Launch the app on your mobile device through the expo app
 
 ## Built With
 
