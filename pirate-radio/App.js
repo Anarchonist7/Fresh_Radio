@@ -23,6 +23,7 @@ export default class App extends Component {
       shipLoading: true,
       fontLoading: true,
       isMuted: false,
+      count: 0,
       ship: {
         name: '',
         id: 1,
@@ -330,6 +331,16 @@ export default class App extends Component {
               currentTrack: data.content
             }
          })
+       } else if (data.type === 'count') {
+        if (data.content === 'ahoy!') {
+           this.setState({
+             count: this.state.count + 1
+           }, () => console.log('HEY-----ITS THE COUNT: ', this.state.count));
+         } else {
+            this.setState({
+              count: this.state.count - 1
+          }, () => console.log('HEY----ITS THE COUNT: ', this.state.count));
+         }
        }
     });
 
@@ -381,7 +392,8 @@ export default class App extends Component {
       isMuted: this.state.isMuted,
       CT: this.state.CT,
       ST: this.state.ST,
-      MS: this.state.MS
+      MS: this.state.MS,
+      count: this.state.count
     }
 
 

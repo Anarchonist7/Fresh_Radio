@@ -143,6 +143,7 @@ export default class Player extends Component {
   }
 
   componentDidMount() {
+    this.props.sendMessage('ahoy!', Date.now());
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -206,6 +207,7 @@ export default class Player extends Component {
 
   componentWillUnmount() {
     this.state.player.unloadAsync();
+    this.props.sendMessage('avast!', Date.now());
   }
 
   render() {

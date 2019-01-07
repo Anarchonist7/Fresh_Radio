@@ -83,7 +83,7 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
 
                             <View style={Styles.NowPlayingCrew}>
-                            <Player1 MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
+                            <Player1 count={this.props.screenProps.count} MS={this.props.screenProps.MS} currentTrack={this.props.screenProps.currentTrack} ship={ship} tracks={tracks} sendMessage={this.props.screenProps.sendMessage} isMuted={this.props.screenProps.isMuted} paused={this.props.screenProps.paused} CT={this.props.screenProps.CT} ST={this.props.screenProps.ST} updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                 { this.state.isDownloading ? (
                                     <TouchableOpacity
                                         style={Styles.DownloadButton}
@@ -116,10 +116,10 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
                         </View>
                         <View style={Styles.Footer}>
-                            <BottomNav 
-                                navigation={this.props.navigation} 
-                                muteOrUnmute={this.props.screenProps.muteOrUnmute} 
-                                resetMute={this.props.screenProps.resetMute} 
+                            <BottomNav
+                                navigation={this.props.navigation}
+                                muteOrUnmute={this.props.screenProps.muteOrUnmute}
+                                resetMute={this.props.screenProps.resetMute}
                                 isMuted={this.props.screenProps.isMuted}/>
                         </View>
                 </SeaBackground>

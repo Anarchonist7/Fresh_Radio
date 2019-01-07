@@ -9,7 +9,6 @@ var websocket = socketio(server);
 server.listen(3003, () => console.log('listening on *:3003'));
 
 // The event will be called when a client is connected.
-
 websocket.on('connection', (socket) => {
   console.log('A client just joined on', socket.id);
 
@@ -24,6 +23,12 @@ websocket.on('connection', (socket) => {
     } else if (!isNaN(data.content)) {
       console.log('moving');
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
+    } else if (data.content === 'ahoy!') {
+      console.log('we got a joiner!');
+      websocket.send(JSON.stringify({type: 'count', content: 'ahoy!'}));
+    } else if (data.content === 'avast!') {
+      console.log('walk the plank ye scurvy dawg!');
+      websocket.send(JSON.stringify({type: 'count', content: 'avast!'}));
     }
   });
 });
