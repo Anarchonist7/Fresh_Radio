@@ -3,6 +3,8 @@
 /pirate-socket/node_modules/**/*
 /*/node_modules
 /simplerserver/.env
+./simplerserver/.env
+*/.env
 ./pirate-radio/expo/*
 npm-debug.*
 *.jks
