@@ -112,7 +112,7 @@ export default class ShipCaptainScreen extends React.Component {
                         <View style={Styles.Playlist}>
                             <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                             <ScrollView style={Styles.TrackListContainer}>
-                                <TrackList tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
+                                <TrackList sendMessage={this.props.screenProps.sendMessage} tracks={tracks} ship={ship} updateCurrentTrack={this.props.screenProps.updateCurrentTrack}/>
                             </ScrollView>
                         </View>
                     </View>
