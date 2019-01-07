@@ -95,8 +95,8 @@ export default class CaptainScreen extends React.Component {
                     <View style={Styles.CaptainHeader}>
                         <Image source={PiratePNG} style={Styles.MediumIcon}/>
                         <View style={Styles.CaptainHeaderTickerContainer}>
-                        
-                            <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                    
+                            <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount={true}>
                                 {this.state.captain.name}
                             </TextTicker>
                         </View>

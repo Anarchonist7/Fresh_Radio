@@ -69,7 +69,7 @@ export default class ShipCrewScreen extends React.Component {
                             <View style={Styles.ShipHeader}>
                                 <Image source={PiratePNG} style={ Styles.MediumIcon } />
                                 <View style={Styles.CaptainHeaderTickerContainer}>
-                                    <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount loop bounce>
+                                    <TextTicker style={Styles.CaptainHeaderText} duration={8000} marqueeOnMount={true}>
                                         {captain.captainName}
                                     </TextTicker>
                                 </View>
