@@ -30,34 +30,34 @@ export default class Player extends Component {
       over: false
     };
   }
-  restartPlaylist() {
-    console.log('restart ------!------ playlist')
-      this.state.player.setPositionAsync(0).then( () => {
-        console.log('setting pos async')
-        this.setState({
-        currentPosition: 0,
-        currentPositionMillis: 0,
-        paused: this.state.paused,
-        totalLength: this.props.tracks[0].durationMillis,
-        isChanging: false,
-        player: new Expo.Audio.Sound(),
-        selectedTrack: 0,
-        date: Date.now()
-      }, () => {
-        this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
-        this.state.player.playAsync();
-      });
-    })
-  }
+  // restartPlaylist() {
+  //   console.log('restart ------!------ playlist')
+  //     this.state.player.setPositionAsync(0).then( () => {
+  //       console.log('setting pos async')
+  //       this.setState({
+  //       currentPosition: 0,
+  //       currentPositionMillis: 0,
+  //       paused: this.state.paused,
+  //       totalLength: this.props.tracks[0].durationMillis,
+  //       isChanging: false,
+  //       player: new Expo.Audio.Sound(),
+  //       selectedTrack: 0,
+  //       date: Date.now()
+  //     }, () => {
+  //       this.props.updateCurrentTrack(this.state.selectedTrack, stamp, status.positionMillis, this.state.paused, true)
+  //       this.state.player.playAsync();
+  //     });
+  //   })
+  // }
 
-  onPlaylistEnd() {
-    if (!this.state.over) {
-      this.setState({over: true})
-      console.log(this.state.selectedTrack)
-      console.log("------over dover")
-      setTimeout(this.restartPlaylist, 4000);
-    }
-  }
+  // onPlaylistEnd() {
+  //   if (!this.state.over) {
+  //     this.setState({over: true})
+  //     console.log(this.state.selectedTrack)
+  //     console.log("------over dover")
+  //     setTimeout(this.restartPlaylist, 4000);
+  //   }
+  // }
 
    onPlaybackStatusUpdate = (status) => {
     console.log('statup')
@@ -147,17 +147,17 @@ export default class Player extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     // console.log('-----component did update mahfka!!!')
-    if (this.props.paused) {
-      console.log('we paused yo')
-    } else if (!this.props.paused){
-      console.log('we totally aint paused yo');
-    }
+    // if (this.props.paused) {
+    //   console.log('we paused yo')
+    // } else if (!this.props.paused){
+    //   console.log('we totally aint paused yo');
+    // }
     // console.log('|---> componentDidUpdate')
     if (this.state.selectedTrack !== prevState.selectedTrack || this.props.tracks[this.state.selectedTrack].localUrl !== prevProps.tracks[this.state.selectedTrack].localUrl) {
       // console.log('|--? selectedTrack change || loaclurl Loaded')
       loadTrack(this).then(() => {
-        console.log('syncing to position....')
-        console.log(this.state.currentPositionMillis)
+        // console.log('syncing to position....')
+        // console.log(this.state.currentPositionMillis)
         this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
           setStatusUpdate(this).then(() => {
             // setPlay(this)
@@ -166,7 +166,7 @@ export default class Player extends Component {
       })
     }
     if (this.props.ship.currentPositionMillis !== 0 && this.state.loading === false && this.state.sync === false) {
-      console.log('|--? initial sync && non-0 intial position')
+      // console.log('|--? initial sync && non-0 intial position')
       this.setState({sync: true}, () => this.state.player.setPositionAsync(Math.floor(this.state.currentPositionMillis)).then(() => {
         setStatusUpdate(this).then(() => {
           // setPlay(this)
@@ -176,10 +176,10 @@ export default class Player extends Component {
 
     if (this.props.isMuted !== prevProps.isMuted) {
       if (prevProps.isMuted){
-        console.log("PLAYER.js", this.props.isMuted);
+        // console.log("PLAYER.js", this.props.isMuted);
         this.state.player.setIsMutedAsync(0.0)
       } else {
-        console.log("PLAYER.js", this.props.isMuted);
+        // console.log("PLAYER.js", this.props.isMuted);
         this.state.player.setIsMutedAsync(1.0)
       }
 
@@ -199,9 +199,8 @@ export default class Player extends Component {
       selectedTrack: this.props.ship.currentTrack
     }, () => {
       // this.props.sendMessage('pause', Date.now(), 0);
-      this.state.player.setIsMutedAsync(1.0)
       // this.props.updateCurrentTrack(this.state.selectedTrack, 0, 0)
-      // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 3500);
+      // setTimeout(() => {this.props.sendMessage('play', Date.now())}, 4500);
     });
   }
 
@@ -213,8 +212,6 @@ export default class Player extends Component {
     const track = this.props.tracks[this.state.selectedTrack];
     const totalLength = Math.floor(this.state.totalLength / 1000);
     if (this.state.selectedTrack !== this.props.ship.currentTrack) {
-      console.log('----condition triggered!!!!')
-      this.state.player.setIsMutedAsync(1.0)
       this.move();
     }
     if (this.props.paused && this.state.paused === false) {
@@ -223,14 +220,14 @@ export default class Player extends Component {
       setTimeout(() => {
         this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
-      })}, 2000 - (Date.now() - this.props.ST))
+      })}, 3000 - (Date.now() - this.props.ST))
     } else if (!this.props.paused && this.state.paused) {
       this.setState({paused: false});
       console.log('latency from server: ', Date.now() - this.props.ST)
       setTimeout(() => {
           this.state.player.playAsync();
           this.state.player.setIsMutedAsync(0.0)
-      }, 2000 - (Date.now() - this.props.ST))
+      }, 3000 - (Date.now() - this.props.ST))
     }
     return (
       <View>

@@ -31,7 +31,7 @@ export function seek(time) {
       paused: false
     }, () => {
       this.props.sendMessage('pause', Date.now(), time * 1000);
-      setTimeout(() => {this.props.sendMessage('play', Date.now());}, 3500)
+      setTimeout(() => {this.props.sendMessage('play', Date.now());}, 4000)
     })
   }
 
