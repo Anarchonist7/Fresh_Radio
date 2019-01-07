@@ -10,6 +10,17 @@ import SeekBar from './SeekBar';
 import Controls from './Controls';
 import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate, account } from './functions';
 import Styles from '../assets/styles/AppStyles';
+import {
+  BallIndicator,
+  BarIndicator,
+  DotIndicator,
+  MaterialIndicator,
+  PacmanIndicator,
+  PulseIndicator,
+  SkypeIndicator,
+  UIActivityIndicator,
+  WaveIndicator
+} from 'react-native-indicators';
 
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -28,10 +39,7 @@ export default class Player extends Component {
       loading: true,
       sync: false,
       over: false,
-      forwardLoading: false,
-      backLoading: false,
       playLoading: false,
-      pauseLoading: false
     };
   }
   // restartPlaylist() {
@@ -146,6 +154,22 @@ export default class Player extends Component {
     }
   }
 
+  controlLoading() {
+    this.setState({
+      forwardDisabled: true,
+      backDisabled: true,
+      playLoading: true,
+    })
+  }
+
+  resetControlLoading() {
+    this.setState({
+      forwardDisabled: false,
+      backDisabled: false,
+      playLoading: false,
+    })
+  }
+
   componentDidMount() {
     this.props.sendMessage('ahoy!', Date.now());
   }
@@ -201,6 +225,7 @@ export default class Player extends Component {
       totalLength: 2,
       isChanging: false,
       player: new Expo.Audio.Sound(),
+      playLoading: true,
       selectedTrack: this.props.ship.currentTrack
     }, () => {
       this.props.sendMessage('pause', Date.now(), 0);
@@ -249,27 +274,26 @@ export default class Player extends Component {
           playDisabled={(track.localUrl !== null) === false}
           onPressPlay={() => {
             this.props.sendMessage('play', Date.now());
+            this.controlLoading()
             }
           }
           onPressPause={() => {
-
             this.props.sendMessage('pause', Date.now(), this.state.currentPositionMillis);
-
+            this.controlLoading()
             }
           }
           onBack={() => {
               this.props.sendMessage(this.state.selectedTrack - 1, Date.now());
+              this.controlLoading()
             }
           }
           onForward={() => {
               this.props.sendMessage(this.state.selectedTrack + 1, Date.now());
+              this.controlLoading()
             }
           }
           paused={this.state.paused}
-          forwardLoading={this.state.forwardLoading}
-          backLoading={this.state.backLoading}
           playLoading={this.state.playLoading}
-          pauseLoading={this.state.pauseLoading}
           />
       </View>
     );
