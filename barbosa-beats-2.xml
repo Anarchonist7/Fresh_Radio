@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2019-01-07T18:48:52Z</date>
+	<key>Application Version</key><string>12.9.2.5</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>616AC2FA4139B333</string>
+	<key>Tracks</key>
+	<dict>
+		<key>12152</key>
+		<dict>
+			<key>Track ID</key><integer>12152</integer>
+			<key>Name</key><string>Ghost Ship</string>
+			<key>Artist</key><string>Bonobo</string>
+			<key>Album Artist</key><string>Bonobo</string>
+			<key>Album</key><string>Black Sands Remixed</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9673750</integer>
+			<key>Total Time</key><integer>241789</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2012</integer>
+			<key>Date Modified</key><date>2012-02-12T19:07:24Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>www.NewAlbumReleases.net</string>
+			<key>Play Count</key><integer>4</integer>
+			<key>Play Date</key><integer>3629640678</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:31:18Z</date>
+			<key>Persistent ID</key><string>53500D81E45572E0</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Bonobo/Black%20Sands%20Remixed/08%20Ghost%20Ship.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15030</key>
+		<dict>
+			<key>Track ID</key><integer>15030</integer>
+			<key>Name</key><string>Captain Kelly's Kitchen</string>
+			<key>Artist</key><string>Dropkick Murphys</string>
+			<key>Album</key><string>The Warrior's Code</string>
+			<key>Genre</key><string>Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>5103805</integer>
+			<key>Total Time</key><integer>168881</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2007-11-15T00:38:10Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>241</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>T34M.EdN</string>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3629640847</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:34:07Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2019-01-07T00:07:09Z</date>
+			<key>Normalization</key><integer>12167</integer>
+			<key>Sort Album</key><string>Warrior's Code</string>
+			<key>Persistent ID</key><string>BFE1230B2299AF3E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Dropkick%20Murphys/The%20Warrior's%20Code/03%20Captain%20Kelly's%20Kitchen.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15046</key>
+		<dict>
+			<key>Track ID</key><integer>15046</integer>
+			<key>Name</key><string>I'm Shipping Up to Boston</string>
+			<key>Artist</key><string>Dropkick Murphys</string>
+			<key>Album</key><string>The Warrior's Code</string>
+			<key>Genre</key><string>Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4772067</integer>
+			<key>Total Time</key><integer>166504</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>BPM</key><integer>131</integer>
+			<key>Date Modified</key><date>2018-08-05T01:41:38Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>228</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>T34M.EdN</string>
+			<key>Play Count</key><integer>7</integer>
+			<key>Play Date</key><integer>3629640165</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:22:45Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2019-01-06T23:55:22Z</date>
+			<key>Normalization</key><integer>7956</integer>
+			<key>Sort Album</key><string>Warrior's Code</string>
+			<key>Persistent ID</key><string>960DE950A6DAAF49</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Dropkick%20Murphys/The%20Warrior's%20Code/11%20I'm%20Shipping%20Up%20to%20Boston.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>15630</key>
+		<dict>
+			<key>Track ID</key><integer>15630</integer>
+			<key>Name</key><string>Salty Dog</string>
+			<key>Artist</key><string>Flogging Molly</string>
+			<key>Album Artist</key><string>Flogging Molly</string>
+			<key>Composer</key><string>Dave King/Flogging Molly</string>
+			<key>Album</key><string>Swagger</string>
+			<key>Genre</key><string>Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>2265425</integer>
+			<key>Total Time</key><integer>141453</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>2000</integer>
+			<key>Date Modified</key><date>2007-11-15T00:39:18Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3629640436</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:27:16Z</date>
+			<key>Normalization</key><integer>3718</integer>
+			<key>Persistent ID</key><string>ADBF387FDCEC917D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Flogging%20Molly/Swagger/01%20Salty%20Dog.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>18788</key>
+		<dict>
+			<key>Track ID</key><integer>18788</integer>
+			<key>Name</key><string>Sloop John B</string>
+			<key>Artist</key><string>Me First And The Gimme Gimmes</string>
+			<key>Album Artist</key><string>Me First and the Gimme Gimmes</string>
+			<key>Composer</key><string>Brian Wilson</string>
+			<key>Album</key><string>Blow In The Wind</string>
+			<key>Genre</key><string>Punk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>2072576</integer>
+			<key>Total Time</key><integer>129384</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>2001</integer>
+			<key>Date Modified</key><date>2007-11-15T00:42:08Z</date>
+			<key>Date Added</key><date>2015-05-26T02:56:19Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Sound Killa X</string>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3629640295</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:24:55Z</date>
+			<key>Normalization</key><integer>2836</integer>
+			<key>Persistent ID</key><string>7FE91E1847B946DE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Me%20First%20and%20the%20Gimme%20Gimmes/Blow%20In%20The%20Wind/02%20Sloop%20John%20B.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>42234</key>
+		<dict>
+			<key>Track ID</key><integer>42234</integer>
+			<key>Name</key><string>He's A Pirate</string>
+			<key>Artist</key><string>Pirates of the Caribean</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>4168877</integer>
+			<key>Total Time</key><integer>173270</integer>
+			<key>Date Modified</key><date>2019-01-07T00:06:46Z</date>
+			<key>Date Added</key><date>2019-01-07T00:06:07Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3629641020</integer>
+			<key>Play Date UTC</key><date>2019-01-07T01:37:00Z</date>
+			<key>Persistent ID</key><string>6F80B0E3015ABE04</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file:///Users/Aaron/Music/iTunes/iTunes%20Media/Music/Pirates%20of%20the%20Caribean/Unknown%20Album/He's%20A%20Pirate.mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>barbosa-beats</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>110382</integer>
+			<key>Playlist Persistent ID</key><string>64C18C3455585F0D</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>15046</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>18788</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15630</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>12152</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>15030</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>42234</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
