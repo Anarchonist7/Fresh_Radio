@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont, trackFont, allPlaylists, allSyncButtons } from './Constants';
+import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont, trackFont, allPlaylists } from './Constants';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -67,30 +67,40 @@ module.exports = EStyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'black'
     },
-
-    Search: {
-        alignSelf: 'center',
-        justifyContent: 'center',
-        width: '95%',
-        borderRadius: 15,
-    },
-
+    
     SearchContainer: {
+        flexDirection: 'column',
+        alignSelf: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
         borderRadius: 15,
+        height: height * 0.06,
+        width: '95%'
     },
     
     SearchInputText: {
         ...normalFont,
+        height: '85%',
+        fontSize: '1rem',
         color: 'white',
-        fontSize: 20,
     },
+
+    // SearchIcons: {
+    //     flexDirection: 'column',
+    //     alignContent: 'center',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     height: '80%',
+    //     color: 'white',
+    //     size: '1rem',
+    // },
 
     NewShip: {
         // height: 275,
         // height: '16rem',
         height: height * 0.4,
         width: '95%',
-        marginTop: 3,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -157,7 +167,7 @@ module.exports = EStyleSheet.create({
     YeOldShips: {
         height: height * 0.30,
         width: '95%',
-        marginTop: 3,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -186,8 +196,8 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: height * 0.36,
-        marginTop: 3,
+        height: height * 0.385,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -197,8 +207,8 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: height * 0.36,
-        marginTop: 3,
+        height: height * 0.385,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -208,7 +218,7 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         width: '97%',
         height: '80%',
-        marginVertical: 5,
+        marginVertical: '0.15rem',
         paddingTop: '0.15rem',
         borderRadius: 10,
         backgroundColor: 'grey',
@@ -218,7 +228,7 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         width: '97%',
         height: '80%',
-        marginVertical: 5,
+        marginVertical: '0.15rem',
         paddingTop: '0.15rem',
         borderRadius: 10,
         backgroundColor: 'grey',
@@ -255,6 +265,7 @@ module.exports = EStyleSheet.create({
         height: '100%',
         width: '55%',
         marginHorizontal: '0.5rem',
+        // backgroundColor: 'blue',
     },
     
     TrackDetailsShipIconContainer: {
@@ -264,6 +275,7 @@ module.exports = EStyleSheet.create({
         height: '100%',
         width: '45%',
         paddingTop: '1rem',
+        // backgroundColor: 'red',
     },
     
     TrackDetailsTickerText: {
@@ -274,7 +286,6 @@ module.exports = EStyleSheet.create({
 
     TrackDetailsText: {
         ...trackFont,
-        textAlign: 'center',
         fontSize: '1.2rem',
         marginTop: '0.1rem',
         opacity: 0.72,
@@ -287,7 +298,7 @@ module.exports = EStyleSheet.create({
     SeekBarContainer: {
         height: '1.5rem',
         width: '100%',
-        marginBottom: 15,
+        marginBottom: '1rem',
     },
 
     SeekBarSlider: {
@@ -353,14 +364,14 @@ module.exports = EStyleSheet.create({
         borderRadius: 20,
     },
 
-    SyncBlueButton: {
-        ...allSyncButtons,
+    SyncButton: {
         backgroundColor: buttonBlue,
-    },
-
-    SyncRedButton: {
-        ...allSyncButtons,
-        backgroundColor: '#a32a2a',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '40%',
+        height: '1.6rem',
+        marginRight: '0.5rem',
+        borderRadius: 20,
     },
 
     // !!!! END OF SHIP PAGES
