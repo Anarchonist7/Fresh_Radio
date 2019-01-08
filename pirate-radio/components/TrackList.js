@@ -28,10 +28,6 @@ export default class TrackList extends React.Component {
         }
     }
 
-
-
-
-
     generateTrackList(){
         let trackComponentArray = []
         this.props.tracks.forEach((track, index) => {

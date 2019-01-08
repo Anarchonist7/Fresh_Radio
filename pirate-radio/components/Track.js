@@ -39,8 +39,8 @@ export default class Track extends React.Component {
                 <View style={{paddingVertical: 3}}>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
-                            <Text style={Styles.MediumTextNormal}>
-                                <SimpleLineIcons style={Styles.SmallWhiteIcon} name="anchor"/>
+                            <Text style={Styles.SmallTextNormal}>
+                                <SimpleLineIcons style={Styles.SmallIcon} name="anchor"/>
                                 {track.title}
                             </Text>
                         </View>
@@ -49,7 +49,7 @@ export default class Track extends React.Component {
                         </View>
                     </View>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
-                        <Text style={Styles.TinyTextNormal}>
+                        <Text style={[Styles.TinyTextNormal, {fontStyle: 'italic'}]}>
                             By {track.artist}{}
                         </Text>
                     </View>

@@ -90,7 +90,7 @@ export default class ShipCrewScreen extends React.Component {
                                 CT={this.props.screenProps.CT} 
                                 ST={this.props.screenProps.ST} 
                                 updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
-                                    <View style={Styles.NowPlayingButtonsContainer}>
+                                    <View style={[Styles.NowPlayingButtonsContainer, {marginTop: 5}]}>
                                         { this.state.isDownloading ?  <ActivityIndicator style={Styles.DownloadButton}/> : (
                                                 <TouchableOpacity
                                                 onPress={this.download}
