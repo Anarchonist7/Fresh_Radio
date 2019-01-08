@@ -161,7 +161,7 @@ module.exports = EStyleSheet.create({
     },
 
     YeOldShips: {
-        height: height * 0.35,
+        height: height * 0.36,
         width: '95%',
         marginTop: 2,
         paddingTop: '0.5rem',
@@ -378,20 +378,19 @@ module.exports = EStyleSheet.create({
         borderRadius: 5,
     },
 
-    shipCaptainPlaylist: {
+    ShipCaptainPlaylist: {
         ...allPlaylists,
-        height: height * 0.33,
+        height: height * 0.34,
     },
 
-    shipCrewPlaylist: {
+    ShipCrewPlaylist: {
         ...allPlaylists,
         height: height * 0.40,
     },
 
     TrackListContainer: {
-        flex: 1,
+        flex: 4,
         alignSelf: 'center',
-        height: '80%',
         width: '95%',
     },
 

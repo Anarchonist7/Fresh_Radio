@@ -113,7 +113,7 @@ export default class ShipCrewScreen extends React.Component {
                                         }
                                     </View>
                             </View>
-                            <View style={Styles.shipCrewPlaylist}>
+                            <View style={Styles.ShipCrewPlaylist}>
                                 <Text style={Styles.BigTextPirate}>{ship.name}{'\n'}</Text>
                                 <View style={Styles.TrackListContainer}>
                                     <ScrollView>
