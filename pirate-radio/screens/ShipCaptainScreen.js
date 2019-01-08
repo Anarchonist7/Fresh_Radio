@@ -125,10 +125,10 @@ export default class ShipCaptainScreen extends React.Component {
                                             </TouchableOpacity>
                                         )
                                     }
-                                    { this.state.isSyncing ? <ActivityIndicator style={Styles.SyncButton}/> : (
+                                    { this.state.isSyncing ? <ActivityIndicator style={Styles.SyncRedButton}/> : (
                                             <TouchableOpacity
                                                 onPress={this.crewSync}
-                                                style={Styles.SyncButton}>
+                                                style={[this.state.request ? Styles.SyncRedButton : Styles.SyncBlueButton]}>
                                                 <Text style={Styles.TinyTextPirate}>
                                                     SYNc
                                                 </Text>
