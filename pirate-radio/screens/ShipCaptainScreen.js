@@ -93,7 +93,7 @@ export default class ShipCaptainScreen extends React.Component {
                                 </TextTicker>
                             </View>
                             <Text style={Styles.CaptainHeaderText}>
-                                {this.props.screenProps.count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
+                                {this.state.count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
                             </Text>
                         </View>
 
