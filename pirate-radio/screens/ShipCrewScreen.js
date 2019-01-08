@@ -79,16 +79,16 @@ export default class ShipCrewScreen extends React.Component {
                             </View>
 
                             <View style={Styles.NowPlayingCrew}>
-                                <Listener 
-                                count={this.props.screenProps.count} 
-                                MS={this.props.screenProps.MS} 
-                                currentTrack={this.props.screenProps.currentTrack} 
-                                ship={ship} tracks={tracks} 
-                                sendMessage={this.props.screenProps.sendMessage} 
-                                isMuted={this.props.screenProps.isMuted} 
-                                paused={this.props.screenProps.paused} 
-                                CT={this.props.screenProps.CT} 
-                                ST={this.props.screenProps.ST} 
+                                <Listener
+                                count={this.props.screenProps.count}
+                                MS={this.props.screenProps.MS}
+                                currentTrack={this.props.screenProps.currentTrack}
+                                ship={ship} tracks={tracks}
+                                sendMessage={this.props.screenProps.sendMessage}
+                                isMuted={this.props.screenProps.isMuted}
+                                paused={this.props.screenProps.paused}
+                                CT={this.props.screenProps.CT}
+                                ST={this.props.screenProps.ST}
                                 updateCurrentTrack={this.props.screenProps.updateCurrentTrack.bind(this)}/>
                                     <View style={Styles.NowPlayingButtonsContainer}>
                                         { this.state.isDownloading ?  <ActivityIndicator style={Styles.DownloadButton}/> : (
