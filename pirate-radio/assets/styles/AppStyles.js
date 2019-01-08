@@ -265,7 +265,6 @@ module.exports = EStyleSheet.create({
         height: '100%',
         width: '55%',
         marginHorizontal: '0.5rem',
-        // backgroundColor: 'blue',
     },
     
     TrackDetailsShipIconContainer: {
@@ -279,6 +278,8 @@ module.exports = EStyleSheet.create({
     
     TrackDetailsTickerText: {
         ...trackFont,
+        width: '100%',
+        backgroundColor: 'red',
         textAlign: 'center',
         fontSize: '1.4rem',
         fontWeight: 'bold',
@@ -286,6 +287,7 @@ module.exports = EStyleSheet.create({
 
     TrackDetailsText: {
         ...trackFont,
+        width: '100%',
         textAlign: 'center',
         fontSize: '1.2rem',
         marginTop: '0.1rem',
