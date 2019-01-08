@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont, trackFont, allPlaylists } from './Constants';
+import { greyBg, buttonBlue, allHeaders, nowPlaying, normalFont, pirateFont, trackFont, allPlaylists, allSyncButtons } from './Constants';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -275,17 +275,18 @@ module.exports = EStyleSheet.create({
         height: '100%',
         width: '45%',
         paddingTop: '1rem',
-        // backgroundColor: 'red',
     },
     
     TrackDetailsTickerText: {
         ...trackFont,
+        textAlign: 'center',
         fontSize: '1.4rem',
         fontWeight: 'bold',
     },
 
     TrackDetailsText: {
         ...trackFont,
+        textAlign: 'center',
         fontSize: '1.2rem',
         marginTop: '0.1rem',
         opacity: 0.72,
@@ -364,14 +365,14 @@ module.exports = EStyleSheet.create({
         borderRadius: 20,
     },
 
-    SyncButton: {
+    SyncBlueButton: {
+        ...allSyncButtons,
         backgroundColor: buttonBlue,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '40%',
-        height: '1.6rem',
-        marginRight: '0.5rem',
-        borderRadius: 20,
+    },
+
+    SyncRedButton: {
+        ...allSyncButtons,
+        backgroundColor: '#9b2933',
     },
 
     // !!!! END OF SHIP PAGES
