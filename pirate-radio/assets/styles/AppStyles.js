@@ -67,17 +67,33 @@ module.exports = EStyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'black'
     },
-
-    Search: {
-        paddingHorizontal: 10,
+    
+    SearchContainer: {
         flexDirection: 'column',
         alignSelf: 'center',
+        alignContent: 'center',
         justifyContent: 'center',
-        width: '95%',
-        height: height * 0.10,
-        backgroundColor: greyBg,
         borderRadius: 15,
+        height: height * 0.06,
+        width: '95%'
     },
+    
+    SearchInputText: {
+        ...normalFont,
+        height: '85%',
+        fontSize: '1rem',
+        color: 'white',
+    },
+
+    // SearchIcons: {
+    //     flexDirection: 'column',
+    //     alignContent: 'center',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     height: '80%',
+    //     color: 'white',
+    //     size: '1rem',
+    // },
 
     NewShip: {
         // height: 275,
@@ -180,44 +196,42 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: height * 0.42,
+        height: height * 0.385,
         marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
     },
 
+    Popular: {
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        width: '95%',
+        height: height * 0.385,
+        marginTop: '0.15rem',
+        paddingTop: '0.5rem',
+        backgroundColor: greyBg,
+        borderRadius: 15,
+    },
+    
     ResultsContainer: {
         alignSelf: 'center',
-        width: '95%',
+        width: '97%',
         height: '80%',
-        marginTop: '0.15rem',
-        marginBottom: '2%',
-        paddingTop: '0.5rem',
+        marginVertical: '0.15rem',
+        paddingTop: '0.15rem',
         borderRadius: 10,
         backgroundColor: 'grey',
     },
 
     PopularContainer: {
         alignSelf: 'center',
-        width: '95%',
+        width: '97%',
         height: '80%',
-        marginTop: '0.15rem',
-        marginBottom: '0.15rem',
+        marginVertical: '0.15rem',
+        paddingTop: '0.15rem',
         borderRadius: 10,
         backgroundColor: 'grey',
-    },
-
-    Popular: {
-        alignSelf: 'center',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        width: '95%',
-        height: height * 0.30,
-        paddingTop: '0.5rem',
-        marginTop: '0.15rem',
-        backgroundColor: greyBg,
-        borderRadius: 15,
     },
 
     PopularFirstLine: {

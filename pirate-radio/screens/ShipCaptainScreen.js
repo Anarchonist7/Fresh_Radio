@@ -25,7 +25,6 @@ export default class ShipCaptainScreen extends React.Component {
             isDownloading: false,
             isSyncing: false,
             request: false,
-            count: this.props.screenProps.count,
         }
         // accounted = account(props.screenProps.ship, props.screenProps.tracks)
     }
@@ -67,7 +66,7 @@ export default class ShipCaptainScreen extends React.Component {
     }
 
     render() {
-        const {ship, tracks, captain } = this.props.screenProps;
+        const {ship, tracks, captain, count } = this.props.screenProps;
         if (this.props.screenProps.request === true && this.state.request === false) {
             console.log('request made!');
             this.setState({
@@ -93,7 +92,7 @@ export default class ShipCaptainScreen extends React.Component {
                                 </TextTicker>
                             </View>
                             <Text style={Styles.CaptainHeaderText}>
-                                {this.state.count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
+                                {count} <Feather name="headphones" style={ Styles.CaptainHeaderText} />
                             </Text>
                         </View>
 

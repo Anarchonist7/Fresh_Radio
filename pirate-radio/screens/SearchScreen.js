@@ -67,19 +67,18 @@ export default class SearchScreen extends React.Component {
         return (
             <SeaBackground>
                 <View style={Styles.Boxes}>
-                    <View style={Styles.Search}>
-                        <SearchBar
-                            ref={SearchBar => {this.SearchBar = SearchBar}}
-                            autoCorrect={false}
-                            autoCapitalize='none'
-                            clearIcon={{ color: 'white' }}
-                            inputStyle={Styles.SmallTextNormal}
-                            onChangeText={(searchText) => this.setState({searchText})}
-                            placeholder='Search'
-                            placeholderTextColor='white'
-                            onEndEditing={this.searchShips}
-                        />
-                    </View>
+                    <SearchBar
+                        autoCorrect={false}
+                        autoCapitalize='none'
+                        clearIcon={{ color: 'white' }}
+                        onChangeText={(searchText) => this.setState({searchText})}
+                        placeholder='Search'
+                        placeholderTextColor='white'
+                        onEndEditing={this.searchShips}
+                        containerStyle={Styles.SearchContainer}
+                        inputStyle={Styles.SearchInputText}
+                        leftIconContainerStyle={{paddingBottom: 20}}
+                    />
 
                     <View style={Styles.Results}>
                         <Text style={Styles.BigTextPirate}>Search Results{'\n'}</Text>
