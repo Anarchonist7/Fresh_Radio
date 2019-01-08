@@ -348,19 +348,25 @@ export default class App extends Component {
             }
          })
        } else if (data.type === 'count') {
-        if (data.content === 'ahoy!') {
-           this.setState({
-             count: this.state.count + 1
-           }, () => console.log('HEY-----ITS THE COUNT: ', this.state.count));
-         } else {
-            this.setState({
-              count: this.state.count - 1
-          }, () => console.log('HEY----ITS THE COUNT: ', this.state.count));
-         }
-       } else if (data.type === 'request') {
-          this.setState({
-            request: true
-          }, () => console.log('HEY ---- YALL GOT A REQUEST BOII!'));
+          this.setState({count: data.content})
+       //  if (data.content === 'ahoy!') {
+       //     this.setState({
+       //       count: this.state.count + 1
+       //     }, () => console.log('HEY-----ITS THE COUNT: ', this.state.count));
+       //   } else {
+       //      this.setState({
+       //        count: this.state.count - 1
+       //    }, () => console.log('HEY----ITS THE COUNT: ', this.state.count));
+       //   }
+       // } else if (data.type === 'request') {
+       //    this.setState({
+       //      request: true
+       //    }, () => console.log('HEY ---- YALL GOT A REQUEST BOII!'));
+       // }
+     }
+
+     if (data.type === 'request') {
+        this.setState({ request: true })
        }
     });
 
