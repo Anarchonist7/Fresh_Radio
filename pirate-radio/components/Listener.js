@@ -18,7 +18,7 @@ export default class Player extends Component {
     super(props);
     console.log('totallength: ', props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis)
     this.state = {
-      paused: true,
+      paused: false,
       currentPosition: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis / 1000) || 0,
       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis + ((Date.now() - account(this.props.ship, this.props.tracks).timeStamp))),
       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
@@ -29,6 +29,7 @@ export default class Player extends Component {
       sync: false,
       over: false
     };
+    this.state.player.setIsMutedAsync(1.0);
   }
   // restartPlaylist() {
   //   console.log('restart ------!------ playlist')
