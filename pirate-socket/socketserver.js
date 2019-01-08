@@ -16,10 +16,10 @@ websocket.on('connection', (socket) => {
     data = JSON.parse(message);
     if (data.content === 'play') {
       console.log('playing', Date.now());
-      websocket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now()}));
+      websocket.send(JSON.stringify({type: 'message', content: false, CT: data.time, ST: Date.now() + 2000}));
     } else if (data.content === 'pause') {
       console.log('pausing', Date.now());
-      websocket.send(JSON.stringify({type: 'message', content: true, MS: data.MS, CT: data.time, ST: Date.now()}));
+      websocket.send(JSON.stringify({type: 'message', content: true, MS: data.MS, CT: data.time, ST: Date.now() + 2000}));
     } else if (!isNaN(data.content)) {
       console.log('moving');
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
