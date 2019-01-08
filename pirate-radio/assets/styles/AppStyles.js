@@ -29,11 +29,6 @@ module.exports = EStyleSheet.create({
         color: 'white'
     },
 
-    NewShipHeader: {
-        width: '100%',
-        flex: 0.2,
-    },
-
     ShipHeader: {
         ...allHeaders,
         paddingLeft: '0.5rem',
@@ -68,39 +63,32 @@ module.exports = EStyleSheet.create({
         backgroundColor: 'black'
     },
     
-    SearchContainer: {
+    Search: {
         flexDirection: 'column',
         alignSelf: 'center',
         alignContent: 'center',
         justifyContent: 'center',
         borderRadius: 15,
-        height: height * 0.06,
-        width: '95%'
+        width: '95%',
+        borderWidth: 0,
+    },
+
+    SearchContainer: {
+        borderRadius: 15,
+        backgroundColor: greyBg,
     },
     
     SearchInputText: {
         ...normalFont,
-        height: '85%',
         fontSize: '1rem',
         color: 'white',
+        backgroundColor: '#484848',
     },
 
-    // SearchIcons: {
-    //     flexDirection: 'column',
-    //     alignContent: 'center',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     height: '80%',
-    //     color: 'white',
-    //     size: '1rem',
-    // },
-
     NewShip: {
-        // height: 275,
-        // height: '16rem',
-        height: height * 0.4,
+        height: height * 0.38,
         width: '95%',
-        marginTop: '0.15rem',
+        marginTop: 2,
         paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -109,12 +97,19 @@ module.exports = EStyleSheet.create({
         borderRadius: 15,
     },
 
+    NewShipHeader: {
+        width: '100%',
+        flex: 1.5,
+    },
+
     ShipFormContainer: {
-        flex: 0.8,
+        flex: 8.5,
         width: '95%',
         backgroundColor: 'grey',
         alignSelf: 'center',
-        marginBottom: '0.2rem',
+        justifyContent: 'center',
+        marginBottom: 5,
+        marginTop: 5,
         borderRadius: 7,
     },
 
@@ -123,6 +118,7 @@ module.exports = EStyleSheet.create({
         width: '95%',
         fontFamily: 'Times New Roman',
         alignSelf: 'center',
+        fontSize: '1rem',
         borderRadius: 5,
         borderColor: 'black',
         borderWidth: 1,
@@ -148,7 +144,7 @@ module.exports = EStyleSheet.create({
     },
 
     ShipFormLabelText: {
-        fontSize: width * 0.05,
+        fontSize: '1rem',
         fontWeight: 'bold',
         fontFamily: 'Times New Roman',
         marginTop: '0.3rem',
@@ -165,9 +161,9 @@ module.exports = EStyleSheet.create({
     },
 
     YeOldShips: {
-        height: height * 0.30,
+        height: height * 0.36,
         width: '95%',
-        marginTop: '0.15rem',
+        marginTop: 2,
         paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -196,8 +192,8 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: height * 0.385,
-        marginTop: '0.15rem',
+        height: height * 0.36,
+        marginTop: 2,
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -208,7 +204,7 @@ module.exports = EStyleSheet.create({
         justifyContent: 'flex-start',
         width: '95%',
         height: height * 0.385,
-        marginTop: '0.15rem',
+        marginTop: 2,
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -216,22 +212,20 @@ module.exports = EStyleSheet.create({
     
     ResultsContainer: {
         alignSelf: 'center',
-        width: '97%',
-        height: '80%',
-        marginVertical: '0.15rem',
-        paddingTop: '0.15rem',
-        borderRadius: 10,
-        backgroundColor: 'grey',
+        flex: 1,
+        width: '100%',
+        marginVertical: 5,
+        borderRadius: 15,
+        backgroundColor: greyBg,
     },
 
     PopularContainer: {
         alignSelf: 'center',
-        width: '97%',
-        height: '80%',
-        marginVertical: '0.15rem',
-        paddingTop: '0.15rem',
-        borderRadius: 10,
-        backgroundColor: 'grey',
+        flex: 1,
+        width: '100%',
+        marginVertical: 5,
+        borderRadius: 15,
+        backgroundColor: greyBg,
     },
 
     PopularFirstLine: {
@@ -262,44 +256,36 @@ module.exports = EStyleSheet.create({
     TrackDetailsSongInfo: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
-        width: '55%',
+        flex: 3,
         marginHorizontal: '0.5rem',
-        // backgroundColor: 'blue',
     },
     
     TrackDetailsShipIconContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
-        width: '45%',
+        flex: 2,
         paddingTop: '1rem',
     },
     
-    TrackDetailsTickerText: {
+    TrackDetailsPrimaryText: {
         ...trackFont,
         textAlign: 'center',
         fontSize: '1.4rem',
         fontWeight: 'bold',
     },
 
-    TrackDetailsText: {
+    TrackDetailsSecondaryText: {
         ...trackFont,
         textAlign: 'center',
         fontSize: '1.2rem',
         marginTop: '0.1rem',
-        opacity: 0.72,
-    },
-
-    TrackDetailsButton: {
-        opacity: 0.72,
     },
 
     SeekBarContainer: {
         height: '1.5rem',
         width: '100%',
-        marginBottom: '1rem',
+        marginBottom: 5,
     },
 
     SeekBarSlider: {
@@ -332,6 +318,7 @@ module.exports = EStyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 5,
     },
 
     ControlPlayIcons: {
@@ -359,6 +346,8 @@ module.exports = EStyleSheet.create({
         backgroundColor: buttonBlue,
         alignItems: 'center',
         justifyContent: 'center',
+        borderColor: 'black',
+        borderWidth: 1,
         width: '40%',
         height: '1.6rem',
         marginLeft: '0.5rem',
@@ -389,20 +378,19 @@ module.exports = EStyleSheet.create({
         borderRadius: 5,
     },
 
-    shipCaptainPlaylist: {
+    ShipCaptainPlaylist: {
         ...allPlaylists,
-        height: height * 0.33,
+        height: height * 0.34,
     },
 
-    shipCrewPlaylist: {
+    ShipCrewPlaylist: {
         ...allPlaylists,
         height: height * 0.40,
     },
 
     TrackListContainer: {
-        flex: 1,
+        flex: 4,
         alignSelf: 'center',
-        height: '80%',
         width: '95%',
     },
 
@@ -411,10 +399,6 @@ module.exports = EStyleSheet.create({
         paddingHorizontal: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-    },
-
-    TrackName: {
-        flex: 1,
     },
 
     Off: {
@@ -427,9 +411,10 @@ module.exports = EStyleSheet.create({
     },
 
     ActiveIcon: {
-        flex: 1,
         color: 'white',
-        fontSize: '1rem',
+        fontSize: '1.25rem',
+        position: 'relative',
+        top: '0.275rem',
     },
 
     OffIcon: {

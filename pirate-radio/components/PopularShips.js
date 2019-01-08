@@ -40,7 +40,7 @@ export default class PopularShips extends React.Component {
                             Crew: { result.crewNum }
                         </Text>
                     </View>
-                    <Text style={Styles.SmallTextNormal}>
+                    <Text style={[Styles.SmallTextNormal, {fontStyle: 'italic'}]}>
                         <Image source={PirateShipPNG} style={Styles.TinyIcon} /> { result.shipName }
                     </Text>
                 </TouchableOpacity>

@@ -259,10 +259,10 @@ export default class Player extends Component {
     }
     return (
       <View>
-        <TrackDetails 
-          title={track.title} 
-          artist={track.artist} 
-          album={track.album} 
+        <TrackDetails
+          title={track.title}
+          artist={track.artist}
+          album={track.album}
           paused={this.state.paused}/>
         <SeekBar
           onSeek={this.seek = seek.bind(this)}

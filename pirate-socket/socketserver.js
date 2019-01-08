@@ -6,6 +6,7 @@ var socketio = require('socket.io');
 var app = express();
 var server = http.Server(app);
 var websocket = socketio(server);
+var damned = 0;
 server.listen(3003, () => console.log('listening on *:3003'));
 
 // The event will be called when a client is connected.
@@ -25,10 +26,12 @@ websocket.on('connection', (socket) => {
       websocket.send(JSON.stringify({type: 'next', content: data.content}));
     } else if (data.content === 'ahoy!') {
       console.log('we got a joiner!');
-      websocket.send(JSON.stringify({type: 'count', content: 'ahoy!'}));
+      damned++;
+      websocket.send(JSON.stringify({type: 'count', content: damned}));
     } else if (data.content === 'avast!') {
       console.log('walk the plank ye scurvy dawg!');
-      websocket.send(JSON.stringify({type: 'count', content: 'avast!'}));
+      damned--;
+      websocket.send(JSON.stringify({type: 'count', content: damned}));
     } else if (data.content === 'request') {
       console.log('arrr requesting sync mr.captain!');
       websocket.send(JSON.stringify({type: 'request', content: 'request'}));

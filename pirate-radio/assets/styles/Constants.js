@@ -7,7 +7,7 @@ export const greyBg = '#383131';
 export const buttonBlue = '#424faf';
 
 export const allHeaders = {
-    height: height * 0.1,
+    height: height * 0.08,
     width: '95%',
     flexDirection: 'row',
     alignSelf: 'center',
@@ -40,6 +40,8 @@ export const allPlaylists = {
 export const allSyncButtons = {
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: 'black',
+    borderWidth: 1,
     width: '40%',
     height: '1.6rem',
     marginRight: '0.5rem',

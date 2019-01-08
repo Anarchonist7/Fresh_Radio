@@ -104,7 +104,7 @@ export default class CaptainScreen extends React.Component {
                     </View>
 
                     <View style={Styles.NewShip}>
-                        <View style={Styles.NewShipHeader}>
+                        <View style={Styles.ContainerHeader}>
                             <Text style={Styles.MediumTextPirate}>
                                 Create New Ship <Image source={ShipWheelPNG} style={Styles.MediumIcon} />
                             </Text>
