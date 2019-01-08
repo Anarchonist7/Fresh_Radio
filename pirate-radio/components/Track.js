@@ -49,7 +49,7 @@ export default class Track extends React.Component {
                         </View>
                     </View>
                     <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
-                        <Text style={Styles.TinyTextNormal}>
+                        <Text style={[Styles.TinyTextNormal, {fontStyle: 'italic'}]}>
                             By {track.artist}{}
                         </Text>
                     </View>

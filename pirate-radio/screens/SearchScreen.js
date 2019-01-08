@@ -69,15 +69,16 @@ export default class SearchScreen extends React.Component {
                 <View style={Styles.Boxes}>
                     <View style={Styles.Search}>
                         <SearchBar
-                            ref={SearchBar => {this.SearchBar = SearchBar}}
                             autoCorrect={false}
                             autoCapitalize='none'
                             clearIcon={{ color: 'white' }}
-                            inputStyle={Styles.SmallTextNormal}
                             onChangeText={(searchText) => this.setState({searchText})}
                             placeholder='Search'
                             placeholderTextColor='white'
                             onEndEditing={this.searchShips}
+                            containerStyle={Styles.SearchContainer}
+                            // inputContainerStyle=
+                            inputStyle={Styles.SearchInputText}
                         />
                     </View>
 
@@ -90,7 +91,7 @@ export default class SearchScreen extends React.Component {
                                     navigation={this.props.navigation}
                                 />
                             ) : (
-                                <Text style={[Styles.SmallTextNormal, {paddingLeft: 15}]}>
+                                <Text style={[Styles.SmallTextNormal, {paddingLeft: 15, paddingTop: 15}]}>
                                     Nothin hurrr
                                 </Text>
                             )}

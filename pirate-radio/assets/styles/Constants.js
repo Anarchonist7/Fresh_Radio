@@ -37,6 +37,15 @@ export const allPlaylists = {
     borderRadius: 15,
 }
 
+export const allSyncButtons = {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '40%',
+    height: '1.6rem',
+    marginRight: '0.5rem',
+    borderRadius: 20,
+}
+
 export const normalFont = {
     fontFamily: 'Times New Roman',
     color: 'white',
