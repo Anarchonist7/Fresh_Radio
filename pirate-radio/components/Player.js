@@ -159,6 +159,29 @@ export default class Player extends Component {
   //   })
   // }
 
+  play = (ST, clear) => {
+    if (Date.now() >= ST) {
+          clearInterval(clear);
+          this.state.player.playAsync().then( () => {
+            this.state.player.setIsMutedAsync(0.0);
+            this.props.syncFalse();
+            this.props.resetReq();
+         })
+      }
+  }
+
+  pause = (ST, clear, MS) => {
+      if (Date.now() >= ST) {
+        clearInterval(clear);
+          this.state.player.pauseAsync().then( () => {
+            this.state.player.setPositionAsync(MS);
+            this.state.player.setIsMutedAsync(1.0);
+            this.props.syncFalse();
+            this.props.resetReq();
+         })
+      }
+  }
+
   componentDidMount() {
     this.props.sendMessage('ahoy!', Date.now());
   }
@@ -240,29 +263,23 @@ export default class Player extends Component {
       this.move();
     }
     if (this.props.paused && this.state.paused === false) {
+      var pauseInterval = setInterval(() => {
+            this.pause(this.props.ST, pauseInterval, this.props.MS);
+          }, 4)
       this.setState({paused: true});
-      console.log('latency from server: ', Date.now() - this.props.ST)
-      setTimeout(() => {
-        this.state.player.pauseAsync().then( () => {
-        this.state.player.setPositionAsync(this.props.MS);
-      })}, 3000 - (Date.now() - this.props.ST))
+
     } else if (this.props.paused === false && this.state.paused) {
+      var playInterval = setInterval(() => {
+            this.play(this.props.ST, playInterval);
+          }, 4)
       this.setState({paused: false});
-      console.log('latency from server: ', Date.now() - this.props.ST)
-      setTimeout(() => {
-          this.state.player.playAsync().then( () => {
-            this.state.player.setIsMutedAsync(0.0);
-            this.props.syncFalse();
-            this.props.resetReq();
-          })
-      }, 3000 - (Date.now() - this.props.ST))
     }
     return (
       <View>
-        <TrackDetails 
-          title={track.title} 
-          artist={track.artist} 
-          album={track.album} 
+        <TrackDetails
+          title={track.title}
+          artist={track.artist}
+          album={track.album}
           paused={this.state.paused}/>
         <SeekBar
           onSeek={this.seek = seek.bind(this)}
