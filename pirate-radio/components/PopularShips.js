@@ -24,7 +24,7 @@ export default class PopularShips extends React.Component {
 
     generateResultsList(){
         let resultsComponentArray = [];
-        this.props.searchResults.slice(-3).reverse().forEach((result, i) => {
+        this.props.searchResults.slice(-5).reverse().forEach((result, i) => {
             resultsComponentArray.push(
                 <TouchableOpacity
                     key={i}

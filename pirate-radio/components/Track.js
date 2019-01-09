@@ -41,7 +41,7 @@ export default class Track extends React.Component {
                         <View>
                             <Text style={Styles.SmallTextNormal}>
                                 <SimpleLineIcons style={Styles.SmallIcon} name="anchor"/>
-                                {track.title}
+                                {' '}{track.title}
                             </Text>
                         </View>
                         <View style={{paddingRight: '5%'}}>

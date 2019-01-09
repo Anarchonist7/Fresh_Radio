@@ -13,7 +13,16 @@ import Listener from './components/Listener';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 const { width, height } = Dimensions.get('window');
-const rem = height/width > 2 ? 20 : 14;
+let rem = 14;
+if (width > 768) {
+  rem = 45;
+} else if (width > 414) {
+  rem = 26;
+} else if (width > 375) {
+  rem = 18;
+} else if (width > 320) {
+  rem = 16;
+}
 
 EStyleSheet.build({
   $rem: rem
@@ -424,8 +433,6 @@ export default class App extends Component {
       resetReq: this.resetReq
     }
 
-
-    // if (this.state.loading === true ||
     if (this.state.fontLoading === true) {
       return <LandingScreen />
     } else {

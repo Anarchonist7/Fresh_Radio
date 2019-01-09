@@ -86,10 +86,10 @@ module.exports = EStyleSheet.create({
     },
 
     NewShip: {
-        height: height * 0.38,
+        // height: height * 0.36,
         width: '95%',
         marginTop: 2,
-        paddingTop: '0.5rem',
+        paddingVertical: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'flex-start',
@@ -99,18 +99,18 @@ module.exports = EStyleSheet.create({
 
     NewShipHeader: {
         width: '100%',
-        flex: 1.5,
+        // flex: 1.5,
     },
 
     ShipFormContainer: {
-        flex: 8.5,
+        // flex: 8.5,
         width: '95%',
         backgroundColor: 'grey',
         alignSelf: 'center',
         justifyContent: 'center',
-        marginBottom: 5,
-        marginTop: 5,
+        marginVertical: '0.15rem',
         borderRadius: 7,
+        paddingBottom: '0.15rem',
     },
 
     ShipFormInputs: {
@@ -153,7 +153,7 @@ module.exports = EStyleSheet.create({
 
     ShipFormButtonText: {
         ...normalFont,
-        fontSize: '1rem',
+        fontSize: '1.2rem',
     },
 
     StandardText: {
@@ -161,7 +161,8 @@ module.exports = EStyleSheet.create({
     },
 
     YeOldShips: {
-        height: height * 0.36,
+        // height: height * 0.36,
+        flex: 0.75,
         width: '95%',
         marginTop: 2,
         paddingTop: '0.5rem',
@@ -173,7 +174,7 @@ module.exports = EStyleSheet.create({
     },
 
     YeOldShipsContainer: {
-        height: '70%',
+        flex: 8.5,
         width: '100%',
     },
 
@@ -193,7 +194,7 @@ module.exports = EStyleSheet.create({
         justifyContent: 'flex-start',
         width: '95%',
         height: height * 0.36,
-        marginTop: 2,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -203,8 +204,8 @@ module.exports = EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'flex-start',
         width: '95%',
-        height: height * 0.385,
-        marginTop: 2,
+        height: height * 0.40,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         backgroundColor: greyBg,
         borderRadius: 15,
@@ -237,18 +238,18 @@ module.exports = EStyleSheet.create({
     
     NowPlayingCrew: {
         ...nowPlaying,
-        height: height * 0.32,
+        height: height * 0.30,
     },
 
     NowPlayingCaptain: {
         ...nowPlaying,
-        height: height * 0.39,
+        height: height * 0.36,
     },
 
     TrackDetailsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        height: '7rem',
+        height: '6rem',
         width: '100%',
         overflow: 'hidden',
     },
@@ -318,17 +319,16 @@ module.exports = EStyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 5,
     },
 
     ControlPlayIcons: {
-        height: '2.5rem',
-        width: '2.5rem',
+        height: '3rem',
+        width: '3rem',
     },
 
     ControlSeekIcons: {
-        height: '2rem',
-        width: '2rem',
+        height: '2.5rem',
+        width: '2.5rem',
     },
 
     ControlsOff: {
@@ -337,9 +337,10 @@ module.exports = EStyleSheet.create({
 
     NowPlayingButtonsContainer: {
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        height: '2.5rem',
+        marginTop: '0.5rem',
     },
 
     DownloadButton: {
@@ -349,7 +350,7 @@ module.exports = EStyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         width: '40%',
-        height: '1.6rem',
+        height: '2.2rem',
         marginLeft: '0.5rem',
         borderRadius: 20,
     },
@@ -380,17 +381,18 @@ module.exports = EStyleSheet.create({
 
     ShipCaptainPlaylist: {
         ...allPlaylists,
-        height: height * 0.34,
+        height: height * 0.385,
     },
 
     ShipCrewPlaylist: {
         ...allPlaylists,
-        height: height * 0.40,
+        height: height * 0.45,
     },
 
     TrackListContainer: {
-        flex: 4,
+        flex: 1,
         alignSelf: 'center',
+        height: '80%',
         width: '95%',
     },
 
@@ -495,7 +497,7 @@ module.exports = EStyleSheet.create({
         flex: 0.65,
         aspectRatio: 1/1,
         position: 'relative',
-        bottom: '1rem',
+        bottom: '0.5rem',
     },
 
     TinyIcon: {
@@ -571,14 +573,14 @@ module.exports = EStyleSheet.create({
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
         width: '46%',
-        height: '50%',
+        height: '40%',
         borderRadius: 40,
         backgroundColor: greyBg,
     },
     BottomNavButtonContainerAndroid: {
         justifyContent: 'center',
         width: '46%',
-        height: '20%',
+        height: '40%',
         borderRadius: 40,
         backgroundColor: greyBg,
     },

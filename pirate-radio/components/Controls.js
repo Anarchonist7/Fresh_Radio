@@ -44,7 +44,7 @@ const Controls = ({
       <TouchableOpacity onPress={onPressPause}>
         <View style={Styles.ControlsPlayButton}>
           { playLoading ? (
-          <BarIndicator color='white' /> 
+          <BarIndicator color='white' style={Styles.ControlPlayIcons} /> 
           ) : (
           <Image source={require('../img/ic_pause_white_48pt.png')} style={Styles.ControlPlayIcons}/> 
           )}

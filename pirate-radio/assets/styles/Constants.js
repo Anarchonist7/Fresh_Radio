@@ -7,7 +7,7 @@ export const greyBg = '#383131';
 export const buttonBlue = '#424faf';
 
 export const allHeaders = {
-    height: height * 0.08,
+    height: height * 0.07,
     width: '95%',
     flexDirection: 'row',
     alignSelf: 'center',
@@ -18,10 +18,10 @@ export const allHeaders = {
 
 export const nowPlaying = {
     alignSelf: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     width: width * 0.95,
     marginTop: '0.15rem',
-    paddingTop: '1rem',
+    paddingTop: '0.5rem',
     paddingHorizontal: '0.6rem',
     backgroundColor: greyBg,
     borderRadius: 15,
@@ -31,7 +31,7 @@ export const allPlaylists = {
     alignSelf: 'center',
     justifyContent: 'flex-start',
     width: '95%',
-    marginTop: '0.3rem',
+    marginTop: '0.15rem',
     paddingTop: '0.5rem',
     backgroundColor: greyBg,
     borderRadius: 15,
@@ -43,7 +43,7 @@ export const allSyncButtons = {
     borderColor: 'black',
     borderWidth: 1,
     width: '40%',
-    height: '1.6rem',
+    height: '2.2rem',
     marginRight: '0.5rem',
     borderRadius: 20,
 }
