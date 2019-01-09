@@ -241,14 +241,16 @@ export default class Player extends Component {
     }
     if (this.props.paused && this.state.paused === false) {
       this.setState({paused: true});
-      console.log('latency from server: ', Date.now() - this.props.ST)
+      console.log('latency from server: ', Date() - this.props.ST)
+      console.log(Date.now() + '\n' + this.props.ST)
       setTimeout(() => {
         this.state.player.pauseAsync().then( () => {
         this.state.player.setPositionAsync(this.props.MS);
       })}, 3000 - (Date.now() - this.props.ST))
     } else if (this.props.paused === false && this.state.paused) {
       this.setState({paused: false});
-      console.log('latency from server: ', Date.now() - this.props.ST)
+      console.log('latency from server: ', Date() - this.props.ST)
+      console.log(Date.now() + '\n' + this.props.ST)
       setTimeout(() => {
           this.state.player.playAsync().then( () => {
             this.state.player.setIsMutedAsync(0.0);
