@@ -9,7 +9,6 @@
 npm-debug.*
 *.jks
 *.p12
-*.key
 *.mobileprovision
 .env
 /pirate-radio/env.js
