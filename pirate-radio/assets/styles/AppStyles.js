@@ -80,13 +80,11 @@ module.exports = EStyleSheet.create({
     
     SearchInputText: {
         ...normalFont,
-        fontSize: '1rem',
         color: 'white',
         backgroundColor: '#484848',
     },
 
     NewShip: {
-        // height: height * 0.36,
         width: '95%',
         marginTop: 2,
         paddingVertical: '0.5rem',
@@ -114,7 +112,6 @@ module.exports = EStyleSheet.create({
     },
 
     ShipFormInputs: {
-        height: '1.5rem',
         width: '95%',
         fontFamily: 'Times New Roman',
         alignSelf: 'center',
@@ -125,6 +122,7 @@ module.exports = EStyleSheet.create({
         backgroundColor: 'white',
         opacity: 0.8,
         marginTop: '0.3rem',
+        paddingVertical: '0.25rem',
         paddingLeft: 8,
     },
 
@@ -162,9 +160,9 @@ module.exports = EStyleSheet.create({
 
     YeOldShips: {
         // height: height * 0.36,
-        flex: 0.75,
+        flex: 0.8,
         width: '95%',
-        marginTop: 2,
+        marginTop: '0.15rem',
         paddingTop: '0.5rem',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -180,7 +178,7 @@ module.exports = EStyleSheet.create({
 
     YeOldShipsItems: {
         width: '100%',
-        height: '15%',
+        // height: '15%',
         borderRadius: 10,
         marginTop: 8,
         backgroundColor: 'grey',
@@ -238,12 +236,10 @@ module.exports = EStyleSheet.create({
     
     NowPlayingCrew: {
         ...nowPlaying,
-        height: height * 0.30,
     },
 
     NowPlayingCaptain: {
         ...nowPlaying,
-        height: height * 0.36,
     },
 
     TrackDetailsContainer: {
@@ -381,12 +377,15 @@ module.exports = EStyleSheet.create({
 
     ShipCaptainPlaylist: {
         ...allPlaylists,
-        height: height * 0.385,
+        flex: 0.8,
+        marginBottom: '1rem',
+        // height: height * 0.385,
     },
 
     ShipCrewPlaylist: {
         ...allPlaylists,
-        height: height * 0.45,
+        flex: 0.8,
+        // height: height * 0.45,
     },
 
     TrackListContainer: {
@@ -566,6 +565,7 @@ module.exports = EStyleSheet.create({
     BottomNavElements: {
         height: '100%',
         width: '100%',
+        paddingTop: '1rem',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
@@ -573,7 +573,7 @@ module.exports = EStyleSheet.create({
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
         width: '46%',
-        height: '40%',
+        height: '42%',
         borderRadius: 40,
         backgroundColor: greyBg,
     },

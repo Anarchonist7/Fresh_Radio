@@ -7,8 +7,9 @@ export const greyBg = '#383131';
 export const buttonBlue = '#424faf';
 
 export const allHeaders = {
-    height: height * 0.07,
+    // height: height * 0.07,
     width: '95%',
+    paddingVertical: '0.5rem',
     flexDirection: 'row',
     alignSelf: 'center',
     alignItems: 'center',
@@ -21,7 +22,7 @@ export const nowPlaying = {
     justifyContent: 'center',
     width: width * 0.95,
     marginTop: '0.15rem',
-    paddingTop: '0.5rem',
+    paddingVertical: '1.5rem',
     paddingHorizontal: '0.6rem',
     backgroundColor: greyBg,
     borderRadius: 15,
