@@ -29,8 +29,6 @@ export default class Track extends React.Component {
   render() {
     const track = this.props.track
     const active = this.props.active
-    console.log('the index of track!', this.props.thing)
-    console.log('----THIS STATE SKIP: ', this.props.ship)
 
     return (
       <TouchableOpacity onPress={() => {
