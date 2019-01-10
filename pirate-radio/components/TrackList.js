@@ -34,8 +34,8 @@ export default class TrackList extends React.Component {
         this.props.tracks.forEach((track, index) => {
             let active = (index === this.props.ship.currentTrack )
                 if (this.props.captain === 'no') {
-                    trackComponentArray.push( <View style={{paddingVertical: 3}}>
-                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                    trackComponentArray.push( <View key={index} style={{paddingVertical: 3}}>
+                    <View style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
                             <Text style={Styles.SmallTextNormal}>
                                 <SimpleLineIcons style={Styles.SmallIcon} name="anchor"/>
@@ -46,14 +46,14 @@ export default class TrackList extends React.Component {
                             <AntDesign name='sound' style={active ? Styles.ActiveIcon : Styles.OffIcon}/>
                         </View>
                     </View>
-                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                    <View style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <Text style={[Styles.TinyTextNormal, {fontStyle: 'italic'}]}>
                             By {track.artist}{}
                         </Text>
                     </View>
                 </View> )
                 } else {
-                   trackComponentArray.push (track = <Track sendMessage={this.props.sendMessage} tracks={this.props.tracks} thing={index} track={track} index={index} active={active}/>)
+                   trackComponentArray.push (track = <Track key={index} sendMessage={this.props.sendMessage} tracks={this.props.tracks} thing={index} track={track} index={index} active={active}/>)
                 }
         })
         return trackComponentArray

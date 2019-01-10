@@ -32,7 +32,7 @@ export default class YeOldShips extends React.Component {
                     onPress={() => {
                         this.props.navigation.navigate('ShipCaptainScreen', { shipId: result.id  })
                     }}>
-                    <View key={i} style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
+                    <View style={[, {flexDirection: 'row', justifyContent: 'space-between'}]}>
                         <Text style={Styles.SmallTextPirate}>
                             <Image source={PiratePNG} style={Styles.SmallIcon}/> { result.name }
                         </Text>
