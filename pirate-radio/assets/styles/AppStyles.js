@@ -469,6 +469,11 @@ module.exports = EStyleSheet.create({
         ...normalFont,
         fontSize: '0.75rem',
     },
+
+    BottomNavText: {
+        ...pirateFont,
+        fontSize: '1.2rem',
+    },
     
     MediumIcon: {
         width: '1.5rem',
@@ -564,7 +569,6 @@ module.exports = EStyleSheet.create({
 
     BottomNavElements: {
         height: '100%',
-        width: '100%',
         paddingTop: '1rem',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -572,38 +576,38 @@ module.exports = EStyleSheet.create({
 
     BottomNavButtonContainerIOS: {
         justifyContent: 'center',
-        width: '46%',
-        height: '42%',
+        width: '44%',
+        height: '48%',
         borderRadius: 40,
         backgroundColor: greyBg,
     },
     BottomNavButtonContainerAndroid: {
         justifyContent: 'center',
-        width: '46%',
-        height: '40%',
+        width: '44%',
+        height: '48%',
         borderRadius: 40,
         backgroundColor: greyBg,
     },
     BottomNavBackContainer: {
-        marginLeft: 8,
+        marginLeft: '3%',
         paddingLeft: 12,
     },
 
     BottomNavVolumeContainer: {
-        marginRight: 8,
+        marginRight: '3%',
         paddingRight: 12,
     },
     
     BottomNavBackIcon: {
         textAlign: 'left',
         color: 'white',
-        fontSize: '1.15rem',
+        fontSize: '1.2rem',
     },
 
     BottomNavVolumeIcon: {
         textAlign: 'right',
         color: 'white',
-        fontSize: '1.15rem',
+        fontSize: '1.2rem',
     },
 
     // !!!! Footer ends here
