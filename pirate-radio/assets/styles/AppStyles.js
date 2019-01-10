@@ -340,10 +340,7 @@ module.exports = EStyleSheet.create({
     },
 
     NowPlayingButtonIcons: {
-        fontSize: '1rem',
-        marginTop: '1rem',
-        alignItems: 'center',
-        justifyContent: 'center',
+        fontSize: '0.9rem',
     },
 
     DownloadButton: {
