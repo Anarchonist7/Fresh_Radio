@@ -9,9 +9,7 @@ import Styles from '../assets/styles/AppStyles';
 import TrackList from '../components/TrackList';
 
 import TextTicker from 'react-native-text-ticker'
-import { Ionicons, Feather } from '@expo/vector-icons';
-
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const PiratePNG = require('../assets/images/pirate.png');
 
@@ -96,7 +94,7 @@ export default class ShipCrewScreen extends React.Component {
                                                 onPress={this.download}
                                                 style={Styles.DownloadButton}>
                                                     <Text style={Styles.TinyTextPirate}>
-                                                        DOWNLOAD
+                                                        DOWNLOAD <MaterialCommunityIcons name="download" style={Styles.NowPlayingButtonIcons} />
                                                     </Text>
                                                 </TouchableOpacity>
                                             )
@@ -106,7 +104,7 @@ export default class ShipCrewScreen extends React.Component {
                                                     onPress={this.requestSync}
                                                     style={this.state.request ? Styles.SyncRedButton : Styles.SyncBlueButton}>
                                                     <Text style={Styles.TinyTextPirate}>
-                                                        SYNc
+                                                        SYNc <Ionicons name="ios-sync" style={Styles.NowPlayingButtonIcons} />
                                                     </Text>
                                                 </TouchableOpacity>
                                             )

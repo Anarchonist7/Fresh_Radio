@@ -12,7 +12,7 @@ import TrackList from '../components/TrackList';
 import { account } from '../components/functions';
 
 import TextTicker from 'react-native-text-ticker'
-import { Ionicons, Feather } from '@expo/vector-icons';
+import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 export default class ShipCaptainScreen extends React.Component {
@@ -120,7 +120,7 @@ export default class ShipCaptainScreen extends React.Component {
                                             onPress={this.download}
                                             style={Styles.DownloadButton}>
                                                 <Text style={Styles.TinyTextPirate}>
-                                                    DOWNLOAD
+                                                    DOWNLOAD <MaterialCommunityIcons name="download" style={Styles.NowPlayingButtonIcons} />
                                                 </Text>
                                             </TouchableOpacity>
                                         )
@@ -130,7 +130,7 @@ export default class ShipCaptainScreen extends React.Component {
                                                 onPress={this.crewSync}
                                                 style={[this.state.request ? Styles.SyncRedButton : Styles.SyncBlueButton]}>
                                                 <Text style={Styles.TinyTextPirate}>
-                                                    SYNc
+                                                    SYNc <Ionicons name="ios-sync" style={Styles.NowPlayingButtonIcons} />
                                                 </Text>
                                             </TouchableOpacity>
                                         )

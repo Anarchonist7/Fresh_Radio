@@ -339,6 +339,13 @@ module.exports = EStyleSheet.create({
         marginTop: '0.5rem',
     },
 
+    NowPlayingButtonIcons: {
+        fontSize: '1rem',
+        marginTop: '1rem',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
     DownloadButton: {
         backgroundColor: buttonBlue,
         alignItems: 'center',
