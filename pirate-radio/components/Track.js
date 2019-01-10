@@ -35,7 +35,7 @@ export default class Track extends React.Component {
         this.props.sendMessage(this.props.thing, Date.now());
       }}>
                 <View style={{paddingVertical: 3}}>
-                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                    <View style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <View>
                             <Text style={Styles.SmallTextNormal}>
                                 <SimpleLineIcons style={Styles.SmallIcon} name="anchor"/>
@@ -46,7 +46,7 @@ export default class Track extends React.Component {
                             <AntDesign name='sound' style={active ? Styles.ActiveIcon : Styles.OffIcon}/>
                         </View>
                     </View>
-                    <View key={i} style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
+                    <View style={[Styles.TrackList, !track.localUrl ? Styles.Off : [], active ? Styles.Active : []]}>
                         <Text style={[Styles.TinyTextNormal, {fontStyle: 'italic'}]}>
                             By {track.artist}{}
                         </Text>

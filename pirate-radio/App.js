@@ -6,6 +6,7 @@ import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
 import LandingScreen from './screens/LandingScreen';
 import AppNavigator from './navigation/AppNavigator';
 import SocketIOClient from 'socket.io-client';
+const herokuSocket = require('socket.io-client')('ws://tranquil-badlands-67521.herokuapp.com')
 import shorthash from 'shorthash'
 import Listener from './components/Listener';
 
@@ -36,7 +37,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.socket = SocketIOClient(LOCALHOST + ':' + ENV.SOCKET_PORT);
+    this.socket = herokuSocket;
     this.state = {
       shipLoading: true,
       fontLoading: true,
@@ -59,15 +60,15 @@ export default class App extends Component {
     };
   }
 
-  shipRequest = LOCALHOST + ':' + PORT + '/ships/1';
-  shipQueryRequest = LOCALHOST + ':' + PORT + '/ships/';
-  captainIdRequest = LOCALHOST + ':' + PORT + '/captain/find/';
-  captainRequest = LOCALHOST + ':' + PORT + '/captain/';
-  createNewShipRequest = LOCALHOST + ':' + PORT + '/captains/:id/ships';
+  shipRequest = LOCALHOST + 'ships/1';
+  shipQueryRequest = LOCALHOST + 'ships/';
+  captainIdRequest = LOCALHOST + 'captain/find/';
+  captainRequest = LOCALHOST + 'captain/';
+  createNewShipRequest = LOCALHOST + 'captains/:id/ships';
 
   sendMessage = (message, time, MS) => {
     console.log('------message: ', message, time)
-    this.socket.send(JSON.stringify({type: 'message', content: message, time: time, MS: MS || 0}));
+    this.socket.send({type: 'message', content: message, time: time, MS: MS || 0});
   }
 
   downloadTrack = (index) => {
