@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pirate-radio",
-    "slug": "pirate-radio",
+    "name": "pirate-radio-heroku",
+    "slug": "pirate-radio-heroku",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
