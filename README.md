@@ -44,7 +44,7 @@ npm start
 
 ## Authors
 
-* **Dawson Lee** - [Anarchonist7](https://github.com/Anarchonist7)
+* **Dawson Ley** - [Anarchonist7](https://github.com/Anarchonist7)
 
 * **Aaron Rosenberg** - [aaronrbg](https://github.com/aaronrbg)
 
