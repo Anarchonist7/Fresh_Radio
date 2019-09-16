@@ -13,4 +13,5 @@ npm-debug.*
 *.mobileprovision
 .env
 /pirate-radio/env.js
+/node_modules
 /simplerserver/.env
