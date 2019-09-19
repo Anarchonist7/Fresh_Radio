@@ -259,11 +259,27 @@ export default class App extends Component {
       fetch(this.captainRequest + id, {
         method: 'GET'
         }).then((responseData, error) => {
+          setTimeout(() => {
+            console.log("normal shit");
+            console.log("state yo: " + this.state.captain.id, this.state.captain.name, this.state.captain.email);
+           }, 10000);
           if (error){
+            console.log("THERES AN ERROR DAMMIT")
             throw new Error("Error: ", error);
           } else {
-            const response = JSON.parse(responseData._bodyText)
-            resolve(response[0]);
+            console.log('what kind of shit is this');
+            try {
+              // var response = JSON.parse(responseData._bodyText)
+              responseData.json().then((data) => {
+                console.log("response: " + data[0]);
+                resolve(data[0]);
+                this.setState({
+                  captain: data[0]
+                })
+              });
+            } catch(error) {
+              console.log('error: ' + error);
+            }
           }
         })
     })
@@ -295,6 +311,7 @@ export default class App extends Component {
             throw new Error("Error: ", error);
           } else {
             const response = JSON.parse(responseData._bodyText)
+            console.log("json: " + JSON.stringify(response));
             resolve(response[0].id);
           }
         })
