@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar, View, Text, Dimensions } from 'react-native';
-
-import { AppLoading, Asset, FileSystem, Font, Icon } from 'expo';
-
+import * as FileSystem from 'expo-file-system';
+import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
+import { Ionicons } from '@expo/vector-icons';
+import { AppLoading } from 'expo';
 import LandingScreen from './screens/LandingScreen';
 import AppNavigator from './navigation/AppNavigator';
 import SocketIOClient from 'socket.io-client';

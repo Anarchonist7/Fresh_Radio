@@ -3,7 +3,7 @@
     "name": "pirate-radio",
     "slug": "pirate-radio",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "sdkVersion": "34.0.0",
     "platforms": [
       "ios",
       "android"

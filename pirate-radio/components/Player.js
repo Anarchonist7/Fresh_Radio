@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Audio } from 'expo-av';
 import {
   View,
   Text,
@@ -23,7 +24,7 @@ export default class Player extends Component {
       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis + ((Date.now() - account(this.props.ship, this.props.tracks).timeStamp))),
       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
       totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
-      player: new Expo.Audio.Sound(),
+      player: new Audio.Sound(),
       tracks: props.tracks,
       loading: true,
       sync: false,
@@ -218,7 +219,7 @@ export default class Player extends Component {
       paused: this.state.paused,
       totalLength: 2,
       isChanging: false,
-      player: new Expo.Audio.Sound(),
+      player: new Audio.Sound(),
       playLoading: true,
       selectedTrack: this.props.ship.currentTrack
     }, () => {
@@ -249,12 +250,13 @@ export default class Player extends Component {
     } else if (this.props.paused === false && this.state.paused) {
       this.setState({paused: false});
       console.log('latency from server: ', Date.now() - this.props.ST)
+      console.log("this player: " + this.state.player)
       setTimeout(() => {
-          this.state.player.playAsync().then( () => {
+            this.state.player.playAsync().then( () => {
             this.state.player.setIsMutedAsync(0.0);
             this.props.syncFalse();
             this.props.resetReq();
-          })
+          }).catch(error => console.log("yah : " + error));
       }, 3000 - (Date.now() - this.props.ST))
     }
     return (

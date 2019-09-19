@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import TrackDetails from './TrackDetails';
+import { Audio } from 'expo-av';
 import SeekBar from './SeekBar';
 import Controls from './Controls';
 import { loadTrack, seek, onBack, onForward, setPlay, setStatusUpdate, account } from './functions';
@@ -23,7 +24,7 @@ export default class Player extends Component {
       currentPositionMillis: Math.floor(account(this.props.ship, this.props.tracks).currentPositionMillis + ((Date.now() - account(this.props.ship, this.props.tracks).timeStamp))),
       selectedTrack: account(this.props.ship, this.props.tracks).currentTrack,
       totalLength: props.tracks[account(this.props.ship, props.tracks).currentTrack].durationMillis,
-      player: new Expo.Audio.Sound(),
+      player: new Audio.Sound(),
       tracks: props.tracks,
       loading: true,
       sync: false,
@@ -41,7 +42,7 @@ export default class Player extends Component {
   //       paused: this.state.paused,
   //       totalLength: this.props.tracks[0].durationMillis,
   //       isChanging: false,
-  //       player: new Expo.Audio.Sound(),
+  //       player: new Audio.Sound(),
   //       selectedTrack: 0,
   //       date: Date.now()
   //     }, () => {
@@ -99,7 +100,7 @@ export default class Player extends Component {
         //           paused: this.state.paused,
         //           totalLength: this.props.tracks[0].durationMillis,
         //           isChanging: false,
-        //           player: new Expo.Audio.Sound(),
+        //           player: new Audio.Sound(),
         //           selectedTrack: 0,
         //           date: Date.now()
         //         }, () => {
@@ -118,7 +119,7 @@ export default class Player extends Component {
         //       paused: this.state.paused,
         //       totalLength: this.props.tracks[this.state.selectedTrack + 1].durationMillis,
         //       isChanging: false,
-        //       player: new Expo.Audio.Sound(),
+        //       player: new Audio.Sound(),
         //       selectedTrack: this.state.selectedTrack === this.state.tracks.length - 1 ? this.state.selectedTrack - (this.state.selectedTrack.length -1) : this.state.selectedTrack + 1,
         //       date: Date.now()
         //     }, () => {
@@ -197,7 +198,7 @@ export default class Player extends Component {
       paused: this.state.paused,
       totalLength: 2,
       isChanging: false,
-      player: new Expo.Audio.Sound(),
+      player: new Audio.Sound(),
       selectedTrack: this.props.ship.currentTrack
     }, () => {
       // this.props.sendMessage('pause', Date.now(), 0);
