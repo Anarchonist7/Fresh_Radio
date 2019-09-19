@@ -74,29 +74,20 @@ export default class App extends Component {
 
   downloadTrack = (index) => {
     console.log('TRYING TO DL: ', this.state.tracks[index].audioUrl)
-    const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-    Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
+    const localfilepath = FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+    FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
       if (exists) {
-        Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
+        FileSystem.getInfoAsync(FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
         .then(({ uri }) => {
-          const start = this.state.tracks.slice(0, index);
-          const end = this.state.tracks.slice(index + 1);
-          this.setState({tracks: [
-            ...start,
-            {
-              ...this.state.tracks[index],
-              localUrl: uri
-            },
-            ...end
-            ]}, () => console.log('Async load (file exists) of track ID:', this.state.tracks[index].id, 'complete.'))
+           
         })
         .catch(error => {
-          console.error('DOWNLOAD ERROR: ', error);
+          console.error('DOWNLOAD ERROR 1: ', error);
         });
       } else {
-        Expo.FileSystem.downloadAsync(
+        FileSystem.downloadAsync(
           this.state.tracks[index].audioUrl,
-          Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+          FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
         )
           .then(({ uri }) => {
             const start = this.state.tracks.slice(0, index);
@@ -111,7 +102,7 @@ export default class App extends Component {
               ]}, () => console.log('Async download of track ID:', this.state.tracks[index].id, 'complete.'))
           })
           .catch(error => {
-            console.error('DOWNLOAD ERROR: ', error);
+            console.error('DOWNLOAD ERROR 2: ', error);
           });
       }
     }, () => {
@@ -132,10 +123,10 @@ export default class App extends Component {
 
   loadTrack = (index) => {
     console.log('TRYING TO LOAD: ', this.state.tracks[index].audioUrl)
-    const localfilepath = Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-    Expo.FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
+    const localfilepath = FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
+    FileSystem.getInfoAsync(localfilepath).then(({ exists }) => {
       if (exists) {
-        Expo.FileSystem.getInfoAsync(Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
+        FileSystem.getInfoAsync(FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3')
         .then(({ uri }) => {
           const start = this.state.tracks.slice(0, index);
           const end = this.state.tracks.slice(index + 1);
@@ -150,15 +141,15 @@ export default class App extends Component {
           )
         })
         .catch(error => {
-          console.error('DOWNLOAD ERROR: ', error);
+          console.error('DOWNLOAD ERROR 3: ', error);
         });
       } else if (this.state.ship.currentTrack === index || this.state.ship.currentTrack + 1 === index) {
         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', this.state.tracks[this.state.ship.currentTrack])
         console.log('!!!!!!!!!!~~~~~~~', this.state.tracks[index].audioUrl)
-        Expo.FileSystem.downloadAsync(
+        FileSystem.downloadAsync(
           this.state.tracks[index].audioUrl,
-          Expo.FileSystem.documentDirectory + shorthash.unique(this.state.tracks[index].audioUrl) + '.mp3'
-        )
+          FileSystem.documentDirectory + this.state.tracks[index].audioUrl) + '.mp3'
+        
           .then(({ uri }) => {
             const start = this.state.tracks.slice(0, index);
             const end = this.state.tracks.slice(index + 1);
@@ -173,7 +164,7 @@ export default class App extends Component {
             )
           })
           .catch(error => {
-            console.error('DOWNLOAD ERROR: ', error, index);
+            console.error('DOWNLOAD ERROR 4: ', error, index);
           });
       }
     }, () => {
@@ -229,18 +220,23 @@ export default class App extends Component {
         if (error){
           throw new Error("Error: ", error);
         } else {
-          const response = JSON.parse(responseData._bodyText)
-          const data = {
-            captain: response.captain,
-            ship: response.ship,
-            tracks: response.tracks.map(track => {
-              return {
-                ...track,
-                localUrl: null
+          try {
+            responseData.json().then((data) => {
+              const stuffData = {
+                captain: data.captain,
+                ship: data.ship,
+                tracks: data.tracks.map(track => {
+                  return {
+                    ...track,
+                    localUrl: null
+                  }
+                })
               }
+              resolve(stuffData);
             })
+          } catch (error) {
+            console.log("error: " + error);
           }
-          resolve(data);
         }
       })
     })
@@ -294,9 +290,15 @@ export default class App extends Component {
           if (error){
             throw new Error("Error: ", error);
           } else {
-            const response = JSON.parse(responseData._bodyText)
-            console.log('Response from get captin SHIPS in app:', response)
-            resolve(response);
+            try {
+              responseData.json().then((data) => {
+                console.log("data: " + data)
+                resolve(data);
+                console.log('Response from get captin SHIPS in app:', data)
+              })
+            } catch (error) {
+              console.log("error: " + error);
+            }
           }
         })
     })
